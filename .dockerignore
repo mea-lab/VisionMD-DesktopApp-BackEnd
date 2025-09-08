@@ -1,0 +1,103 @@
+# Exclude Python bytecode files and caches
+*.py[cod]
+__pycache__/
+*.so
+
+# Exclude virtual environments and dependency folders
+venv/
+env/
+.virtualenv/
+*.egg-info/
+.eggs/
+*.egg
+*.whl
+pip-wheel-metadata/
+
+# Exclude logs and local database files
+*.log
+*.sqlite3
+db.sqlite3
+
+# Exclude environment variables and secrets files
+.env
+*.env
+.env.*
+
+# Exclude media and static files generated during development
+media/
+static/
+staticfiles/
+
+# Exclude tests and documentation
+tests/
+docs/
+
+# Exclude build and distribution files
+build/
+dist/
+site/
+
+# Exclude coverage and testing files
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+.coverage
+coverage.*
+*.cover
+.hypothesis/
+.cache/
+
+# Exclude Docker-related files and directories
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Exclude version control directories and files
+.git/
+.gitignore
+.hg/
+.svn/
+
+# Exclude IDE or editor config files
+.vscode/
+.idea/
+*.swp
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Exclude Node.js modules and related files (if applicable)
+node_modules/
+npm-debug.log
+yarn.lock
+package-lock.json
+
+# Exclude temporary and backup files
+tmp/
+temp/
+*.bak
+*.tmp
+
+# Exclude generated files
+coverage.xml
+*.pid
+*.seed
+*.pid.lock
+
+# Exclude CI/CD configuration files (if not needed)
+.github/
+.gitlab-ci.yml
+
+# Exclude migration files (only if not needed in the container)
+# Uncomment the following line if you don't need migrations
+# **/migrations/
+
+# Exclude Mac OS X and Linux system files
+.DS_Store
+*.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+*~ 
+Thumbs.db
