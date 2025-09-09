@@ -133,16 +133,11 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # MacOS configuration
-APP_NAME  = os.environ.get("VMD_APP_NAME", "VisionMD Desktop App")
+APP_NAME  = os.environ.get("VMD_APP_NAME", "VisionMD")
 BUNDLE_ID = os.environ.get("VMD_BUNDLE_ID", "com.mealab.visionmd")
 
 if sys.platform == "darwin":
-    lib = Path.home() / "Library"
-
-    # Detect sandbox via env var or container presence
-    is_sandbox = bool(os.environ.get("APP_SANDBOX_CONTAINER_ID")) or (lib / "Containers" / BUNDLE_ID).exists()
-    base = (lib / "Containers" / BUNDLE_ID / "Data" / "Library") if is_sandbox else lib
-
+    base = Path.home() / "Library"
     DATA_DIR  = base / "Application Support" / APP_NAME
     CACHE_DIR = base / "Caches" / APP_NAME
     for p in (DATA_DIR, CACHE_DIR, DATA_DIR / "uploads", DATA_DIR / "logs", CACHE_DIR / "tmp"):
@@ -152,21 +147,6 @@ if sys.platform == "darwin":
     MEDIA_ROOT = str(DATA_DIR / "uploads")
     if DATABASES["default"]["ENGINE"] == "django.db.backends.sqlite3":
         DATABASES["default"]["NAME"] = str(DATA_DIR / "db.sqlite3")
-
-    # Log to container
-    LOGGING = {
-        "version": 1,
-        "disable_existing_loggers": False,
-        "handlers": {
-            "console": {"class": "logging.StreamHandler"},
-            "file": {
-                "class": "logging.FileHandler",
-                "filename": str(DATA_DIR / "logs" / "django.log"),
-                "delay": True,
-            },
-        },
-        "root": {"handlers": ["console", "file"], "level": "INFO"},
-    }
 
     # Make all temp I/O MAS-safe (Python, Waitress, ffmpeg/OpenCV)
     for k in ("TMPDIR", "TMP", "TEMP"):

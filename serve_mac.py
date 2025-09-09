@@ -1,31 +1,36 @@
 import os
 import sys
+import io
 import logging
 from multiprocessing import freeze_support
-import mimetypes
 import pathlib
-import tzdata
+import mimetypes
 
-zoneinfo_dir = pathlib.Path(tzdata.__file__).parent / "zoneinfo"
-os.environ.setdefault("PYTHONTZPATH", str(zoneinfo_dir))
-os.environ.setdefault("TZDIR", str(zoneinfo_dir))
+os.environ["PYTHONTZPATH"] = "/usr/share/zoneinfo"
 
-mimetypes.init(files=[])
-mimetypes.add_type('image/jpeg', '.jpg')
-mimetypes.add_type('image/jpeg', '.jpeg')
-mimetypes.add_type('image/png',  '.png')
-mimetypes.add_type('image/webp', '.webp')
-mimetypes.add_type('video/mp4',  '.mp4')
+log_dir = pathlib.Path.home() / "Library" / "Application Support" / "VisionMD" / "logs"
+log_dir.mkdir(parents=True, exist_ok=True)
+LOG_FILE = str(log_dir / "django.log")
 
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s [%(levelname)s] %(message)s',
-    handlers=[logging.StreamHandler(sys.stdout)]
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    handlers=[logging.FileHandler(LOG_FILE, encoding="utf-8")]
 )
+
+print("Logging set up for MAS sandbox:")
+print("All messages now logged to file:", LOG_FILE)
+
+sys.stdout = open(LOG_FILE, "a", buffering=1)
+sys.stderr = open(LOG_FILE, "a", buffering=1)
+
+print("Starting backend...", LOG_FILE)
 
 def main():
     sys.path.append(os.path.dirname(__file__))
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'VideoAnalysisToolBackend.settings')
+    MIMEFILE = pathlib.Path(__file__).resolve().parent / "mime.types"
+    mimetypes.init(files=[str(MIMEFILE)])
 
     try:
         from waitress import serve
