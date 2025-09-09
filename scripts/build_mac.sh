@@ -4,6 +4,7 @@ pyinstaller serve_mac.py \
   --distpath ./pyinstaller_builds \
   --add-data "VideoAnalysisToolBackend:VideoAnalysisToolBackend" \
   --add-data "app:app" \
+  --add-data "mime.types:mime.types" \
   --clean \
   --noconfirm \
   --collect-all numpy \
@@ -15,4 +16,5 @@ pyinstaller serve_mac.py \
   --collect-all opencv-python \
   --collect-all pandas \
   --collect-all matplotlib \
-  --hidden-import=scipy._lib.array_api_compat.numpy.fft
+  --hidden-import=scipy._lib.array_api_compat.numpy.fft \
+  --noconfirm \
