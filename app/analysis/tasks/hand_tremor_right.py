@@ -210,8 +210,10 @@ class HandTremorRightTask(BaseTask):
         sensor_height = int(json_data.get('sensor_height')) if json_data.get('sensor_height') else None
         sensor_width = int(json_data.get('sensor_width')) if json_data.get('sensor_width') else None
         focal_length = int(json_data.get('focal_length')) if json_data.get('focal_length') else None
-        intrinsic_matrix = np.array(json_data.get('intrinsic_matrix')) if json_data.get('intrinsic_matrix') else None
-        extrinsic_matrix = np.array(json_data.get('extrinsic_matrix')) if json_data.get('extrinsic_matrix') else None
+        temp_intrinsic = json_data.get('intrinsic_matrix')
+        intrinsic_matrix = None if temp_intrinsic is None or np.any(np.array(temp_intrinsic) == None) else temp_intrinsic
+        temp_extrinsic = json_data.get('extrinsic_matrix')
+        extrinsic_matrix = None if temp_extrinsic is None or np.any(np.array(temp_extrinsic) == None) else temp_extrinsic
 
         # focal length [pixels] = focal length [mm] / sensor pixel size [µm/pixels]
 

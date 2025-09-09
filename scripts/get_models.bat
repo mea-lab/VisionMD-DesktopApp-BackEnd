@@ -35,22 +35,3 @@ echo Cleaning up...
 del "%MODEL_DIR%\%ZIP_FILE%"
 
 echo %MODEL_NAME% downloaded and extracted to %MODEL_DIR%
-
-pyinstaller serve_windows.py ^
-  --console ^
-  --onedir ^
-  --distpath ./pyinstaller_builds ^
-  --add-data "VideoAnalysisToolBackend;VideoAnalysisToolBackend" ^
-  --add-data "app;app" ^
-  --clean ^
-  --noconfirm ^
-  --collect-all numpy ^
-  --collect-all scipy ^
-  --collect-all tensorflow ^
-  --collect-all keras ^
-  --collect-all torch ^
-  --collect-all torchvision ^
-  --collect-all opencv-python ^
-  --collect-all pandas ^
-  --collect-all matplotlib ^
-  --hidden-import=scipy._lib.array_api_compat.numpy.fft

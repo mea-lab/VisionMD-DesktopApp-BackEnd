@@ -205,8 +205,10 @@ class GaitTask(BaseTask):
         sensor_height = int(json_data.get('sensor_height')) if json_data.get('sensor_height') else None
         sensor_width = int(json_data.get('sensor_width')) if json_data.get('sensor_width') else None
         focal_length = int(json_data.get('focal_length')) if json_data.get('focal_length') else None
-        intrinsic_matrix = np.array(json_data.get('intrinsic_matrix')) if json_data.get('intrinsic_matrix') else None
-        extrinsic_matrix = np.array(json_data.get('extrinsic_matrix')) if json_data.get('extrinsic_matrix') else None
+        temp_intrinsic = json_data.get('intrinsic_matrix')
+        intrinsic_matrix = None if temp_intrinsic is None or np.any(np.array(temp_intrinsic) == None) else temp_intrinsic
+        temp_extrinsic = json_data.get('extrinsic_matrix')
+        extrinsic_matrix = None if temp_extrinsic is None or np.any(np.array(temp_extrinsic) == None) else temp_extrinsic
 
         # focal length [pixels] = focal length [mm] / sensor pixel size [µm/pixels]
 
@@ -279,17 +281,14 @@ class GaitTask(BaseTask):
         with tf.device('/CPU:0'):
             if GaitTask._metrabs_detector is None:
                 print("Grabbing metrabs models")
-                model_path = os.path.join(settings.BASE_DIR, 'app', 'analysis', 'models', 'metrabs_local_s' )
+                model_path = os.path.join(settings.BASE_DIR, 'app', 'analysis', 'models', 'metrabs_eff2s_y4' )
                 
 
                 if os.path.isdir(model_path):
                     GaitTask._metrabs_detector = hub.load(model_path)
-                    print("Model loaded from ./metrabs_local_s")
+                    print("Model loaded from ./metrabs_eff2s_y4")
                 else:
-                    model = hub.load('https://bit.ly/metrabs_s')
-                    tf.saved_model.save(model, model_path)
-                    GaitTask._metrabs_detector = hub.load(model_path)
-                    print("Model saved to ./metrabs_local_s")
+                    raise Exception("This version of VisionMD was not built with metrabs_eff2s_y4")
 
             return GaitTask._metrabs_detector
 
@@ -449,6 +448,7 @@ class GaitTask(BaseTask):
                 }.items()
                 if v is not None
             }
+            print("matrix_camera_args",matrix_camera_args)
 
             pred = GaitTask._metrabs_detector.estimate_poses_batched(
                 images=batch_tensor,
