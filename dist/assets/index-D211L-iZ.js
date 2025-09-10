@@ -58,7 +58,7 @@ var react_production_min = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var l$3 = Symbol.for("react.element"), n$5 = Symbol.for("react.portal"), p$3 = Symbol.for("react.fragment"), q$2 = Symbol.for("react.strict_mode"), r$5 = Symbol.for("react.profiler"), t$4 = Symbol.for("react.provider"), u$1 = Symbol.for("react.context"), v$2 = Symbol.for("react.forward_ref"), w$1 = Symbol.for("react.suspense"), x$1 = Symbol.for("react.memo"), y$1 = Symbol.for("react.lazy"), z$2 = Symbol.iterator;
+var l$3 = Symbol.for("react.element"), n$5 = Symbol.for("react.portal"), p$3 = Symbol.for("react.fragment"), q$2 = Symbol.for("react.strict_mode"), r$4 = Symbol.for("react.profiler"), t$4 = Symbol.for("react.provider"), u$1 = Symbol.for("react.context"), v$2 = Symbol.for("react.forward_ref"), w$1 = Symbol.for("react.suspense"), x$1 = Symbol.for("react.memo"), y$1 = Symbol.for("react.lazy"), z$2 = Symbol.iterator;
 function A$2(a2) {
   if (null === a2 || "object" !== typeof a2) return null;
   a2 = z$2 && a2[z$2] || a2["@@iterator"];
@@ -203,7 +203,7 @@ react_production_min.Children = { map: S$1, forEach: function(a2, b2, e4) {
 } };
 react_production_min.Component = E$1;
 react_production_min.Fragment = p$3;
-react_production_min.Profiler = r$5;
+react_production_min.Profiler = r$4;
 react_production_min.PureComponent = G$1;
 react_production_min.StrictMode = q$2;
 react_production_min.Suspense = w$1;
@@ -397,12 +397,12 @@ var scheduler_production_min = {};
       return p2.now() - q2;
     };
   }
-  var r3 = [], t3 = [], u2 = 1, v2 = null, y2 = 3, z2 = false, A2 = false, B2 = false, D2 = "function" === typeof setTimeout ? setTimeout : null, E2 = "function" === typeof clearTimeout ? clearTimeout : null, F2 = "undefined" !== typeof setImmediate ? setImmediate : null;
+  var r2 = [], t3 = [], u2 = 1, v2 = null, y2 = 3, z2 = false, A2 = false, B2 = false, D2 = "function" === typeof setTimeout ? setTimeout : null, E2 = "function" === typeof clearTimeout ? clearTimeout : null, F2 = "undefined" !== typeof setImmediate ? setImmediate : null;
   "undefined" !== typeof navigator && void 0 !== navigator.scheduling && void 0 !== navigator.scheduling.isInputPending && navigator.scheduling.isInputPending.bind(navigator.scheduling);
   function G2(a2) {
     for (var b2 = h2(t3); null !== b2; ) {
       if (null === b2.callback) k2(t3);
-      else if (b2.startTime <= a2) k2(t3), b2.sortIndex = b2.expirationTime, f2(r3, b2);
+      else if (b2.startTime <= a2) k2(t3), b2.sortIndex = b2.expirationTime, f2(r2, b2);
       else break;
       b2 = h2(t3);
     }
@@ -410,7 +410,7 @@ var scheduler_production_min = {};
   function H2(a2) {
     B2 = false;
     G2(a2);
-    if (!A2) if (null !== h2(r3)) A2 = true, I2(J2);
+    if (!A2) if (null !== h2(r2)) A2 = true, I2(J2);
     else {
       var b2 = h2(t3);
       null !== b2 && K2(H2, b2.startTime - a2);
@@ -423,17 +423,17 @@ var scheduler_production_min = {};
     var c2 = y2;
     try {
       G2(b2);
-      for (v2 = h2(r3); null !== v2 && (!(v2.expirationTime > b2) || a2 && !M2()); ) {
+      for (v2 = h2(r2); null !== v2 && (!(v2.expirationTime > b2) || a2 && !M2()); ) {
         var d2 = v2.callback;
         if ("function" === typeof d2) {
           v2.callback = null;
           y2 = v2.priorityLevel;
           var e4 = d2(v2.expirationTime <= b2);
           b2 = exports.unstable_now();
-          "function" === typeof e4 ? v2.callback = e4 : v2 === h2(r3) && k2(r3);
+          "function" === typeof e4 ? v2.callback = e4 : v2 === h2(r2) && k2(r2);
           G2(b2);
-        } else k2(r3);
-        v2 = h2(r3);
+        } else k2(r2);
+        v2 = h2(r2);
       }
       if (null !== v2) var w2 = true;
       else {
@@ -503,7 +503,7 @@ var scheduler_production_min = {};
     return y2;
   };
   exports.unstable_getFirstCallbackNode = function() {
-    return h2(r3);
+    return h2(r2);
   };
   exports.unstable_next = function(a2) {
     switch (y2) {
@@ -567,7 +567,7 @@ var scheduler_production_min = {};
     }
     e4 = c2 + e4;
     a2 = { id: u2++, callback: b2, priorityLevel: a2, startTime: c2, expirationTime: e4, sortIndex: -1 };
-    c2 > d2 ? (a2.sortIndex = c2, f2(t3, a2), null === h2(r3) && a2 === h2(t3) && (B2 ? (E2(L2), L2 = -1) : B2 = true, K2(H2, c2 - d2))) : (a2.sortIndex = e4, f2(r3, a2), A2 || z2 || (A2 = true, I2(J2)));
+    c2 > d2 ? (a2.sortIndex = c2, f2(t3, a2), null === h2(r2) && a2 === h2(t3) && (B2 ? (E2(L2), L2 = -1) : B2 = true, K2(H2, c2 - d2))) : (a2.sortIndex = e4, f2(r2, a2), A2 || z2 || (A2 = true, I2(J2)));
     return a2;
   };
   exports.unstable_shouldYield = M2;
@@ -2962,7 +2962,7 @@ function Og(a2) {
     }
     return null;
   }
-  function r3(a3, b3, c3, d3) {
+  function r2(a3, b3, c3, d3) {
     var e5 = null !== b3 ? b3.key : null;
     if ("string" === typeof c3 && "" !== c3 || "number" === typeof c3) return null !== e5 ? null : h2(a3, b3, "" + c3, d3);
     if ("object" === typeof c3 && null !== c3) {
@@ -2972,7 +2972,7 @@ function Og(a2) {
         case wa:
           return c3.key === e5 ? l2(a3, b3, c3, d3) : null;
         case Ha:
-          return e5 = c3._init, r3(
+          return e5 = c3._init, r2(
             a3,
             b3,
             e5(c3._payload),
@@ -3004,7 +3004,7 @@ function Og(a2) {
   function n2(e5, g3, h3, k3) {
     for (var l3 = null, m3 = null, u2 = g3, w2 = g3 = 0, x2 = null; null !== u2 && w2 < h3.length; w2++) {
       u2.index > w2 ? (x2 = u2, u2 = null) : x2 = u2.sibling;
-      var n3 = r3(e5, u2, h3[w2], k3);
+      var n3 = r2(e5, u2, h3[w2], k3);
       if (null === n3) {
         null === u2 && (u2 = x2);
         break;
@@ -3035,7 +3035,7 @@ function Og(a2) {
     if (null == h3) throw Error(p$1(151));
     for (var u2 = l3 = null, m3 = g3, w2 = g3 = 0, x2 = null, n3 = h3.next(); null !== m3 && !n3.done; w2++, n3 = h3.next()) {
       m3.index > w2 ? (x2 = m3, m3 = null) : x2 = m3.sibling;
-      var t4 = r3(e5, m3, n3.value, k3);
+      var t4 = r2(e5, m3, n3.value, k3);
       if (null === t4) {
         null === m3 && (m3 = x2);
         break;
@@ -3253,8 +3253,8 @@ function qh(a2, b2, c2, d2) {
     m2 = l2 = k2 = null;
     h2 = f2;
     do {
-      var r3 = h2.lane, y2 = h2.eventTime;
-      if ((d2 & r3) === r3) {
+      var r2 = h2.lane, y2 = h2.eventTime;
+      if ((d2 & r2) === r2) {
         null !== m2 && (m2 = m2.next = {
           eventTime: y2,
           lane: 0,
@@ -3265,13 +3265,13 @@ function qh(a2, b2, c2, d2) {
         });
         a: {
           var n2 = a2, t3 = h2;
-          r3 = b2;
+          r2 = b2;
           y2 = c2;
           switch (t3.tag) {
             case 1:
               n2 = t3.payload;
               if ("function" === typeof n2) {
-                q2 = n2.call(y2, q2, r3);
+                q2 = n2.call(y2, q2, r2);
                 break a;
               }
               q2 = n2;
@@ -3280,19 +3280,19 @@ function qh(a2, b2, c2, d2) {
               n2.flags = n2.flags & -65537 | 128;
             case 0:
               n2 = t3.payload;
-              r3 = "function" === typeof n2 ? n2.call(y2, q2, r3) : n2;
-              if (null === r3 || void 0 === r3) break a;
-              q2 = A$1({}, q2, r3);
+              r2 = "function" === typeof n2 ? n2.call(y2, q2, r2) : n2;
+              if (null === r2 || void 0 === r2) break a;
+              q2 = A$1({}, q2, r2);
               break a;
             case 2:
               jh = true;
           }
         }
-        null !== h2.callback && 0 !== h2.lane && (a2.flags |= 64, r3 = e4.effects, null === r3 ? e4.effects = [h2] : r3.push(h2));
-      } else y2 = { eventTime: y2, lane: r3, tag: h2.tag, payload: h2.payload, callback: h2.callback, next: null }, null === m2 ? (l2 = m2 = y2, k2 = q2) : m2 = m2.next = y2, g2 |= r3;
+        null !== h2.callback && 0 !== h2.lane && (a2.flags |= 64, r2 = e4.effects, null === r2 ? e4.effects = [h2] : r2.push(h2));
+      } else y2 = { eventTime: y2, lane: r2, tag: h2.tag, payload: h2.payload, callback: h2.callback, next: null }, null === m2 ? (l2 = m2 = y2, k2 = q2) : m2 = m2.next = y2, g2 |= r2;
       h2 = h2.next;
       if (null === h2) if (h2 = e4.shared.pending, null === h2) break;
-      else r3 = h2, h2 = r3.next, r3.next = null, e4.lastBaseUpdate = r3, e4.shared.pending = null;
+      else r2 = h2, h2 = r2.next, r2.next = null, e4.lastBaseUpdate = r2, e4.shared.pending = null;
     } while (1);
     null === m2 && (k2 = q2);
     e4.baseState = k2;
@@ -4079,11 +4079,11 @@ function hj(a2, b2, c2, d2, e4) {
     var m2 = c2.getDerivedStateFromProps, q2 = "function" === typeof m2 || "function" === typeof g2.getSnapshotBeforeUpdate;
     q2 || "function" !== typeof g2.UNSAFE_componentWillReceiveProps && "function" !== typeof g2.componentWillReceiveProps || (h2 !== d2 || k2 !== l2) && Hi(b2, g2, d2, l2);
     jh = false;
-    var r3 = b2.memoizedState;
-    g2.state = r3;
+    var r2 = b2.memoizedState;
+    g2.state = r2;
     qh(b2, d2, g2, e4);
     k2 = b2.memoizedState;
-    h2 !== d2 || r3 !== k2 || Wf.current || jh ? ("function" === typeof m2 && (Di(b2, c2, m2, d2), k2 = b2.memoizedState), (h2 = jh || Fi(b2, c2, h2, d2, r3, k2, l2)) ? (q2 || "function" !== typeof g2.UNSAFE_componentWillMount && "function" !== typeof g2.componentWillMount || ("function" === typeof g2.componentWillMount && g2.componentWillMount(), "function" === typeof g2.UNSAFE_componentWillMount && g2.UNSAFE_componentWillMount()), "function" === typeof g2.componentDidMount && (b2.flags |= 4194308)) : ("function" === typeof g2.componentDidMount && (b2.flags |= 4194308), b2.memoizedProps = d2, b2.memoizedState = k2), g2.props = d2, g2.state = k2, g2.context = l2, d2 = h2) : ("function" === typeof g2.componentDidMount && (b2.flags |= 4194308), d2 = false);
+    h2 !== d2 || r2 !== k2 || Wf.current || jh ? ("function" === typeof m2 && (Di(b2, c2, m2, d2), k2 = b2.memoizedState), (h2 = jh || Fi(b2, c2, h2, d2, r2, k2, l2)) ? (q2 || "function" !== typeof g2.UNSAFE_componentWillMount && "function" !== typeof g2.componentWillMount || ("function" === typeof g2.componentWillMount && g2.componentWillMount(), "function" === typeof g2.UNSAFE_componentWillMount && g2.UNSAFE_componentWillMount()), "function" === typeof g2.componentDidMount && (b2.flags |= 4194308)) : ("function" === typeof g2.componentDidMount && (b2.flags |= 4194308), b2.memoizedProps = d2, b2.memoizedState = k2), g2.props = d2, g2.state = k2, g2.context = l2, d2 = h2) : ("function" === typeof g2.componentDidMount && (b2.flags |= 4194308), d2 = false);
   } else {
     g2 = b2.stateNode;
     lh(a2, b2);
@@ -4091,17 +4091,17 @@ function hj(a2, b2, c2, d2, e4) {
     l2 = b2.type === b2.elementType ? h2 : Ci(b2.type, h2);
     g2.props = l2;
     q2 = b2.pendingProps;
-    r3 = g2.context;
+    r2 = g2.context;
     k2 = c2.contextType;
     "object" === typeof k2 && null !== k2 ? k2 = eh(k2) : (k2 = Zf(c2) ? Xf : H.current, k2 = Yf(b2, k2));
     var y2 = c2.getDerivedStateFromProps;
-    (m2 = "function" === typeof y2 || "function" === typeof g2.getSnapshotBeforeUpdate) || "function" !== typeof g2.UNSAFE_componentWillReceiveProps && "function" !== typeof g2.componentWillReceiveProps || (h2 !== q2 || r3 !== k2) && Hi(b2, g2, d2, k2);
+    (m2 = "function" === typeof y2 || "function" === typeof g2.getSnapshotBeforeUpdate) || "function" !== typeof g2.UNSAFE_componentWillReceiveProps && "function" !== typeof g2.componentWillReceiveProps || (h2 !== q2 || r2 !== k2) && Hi(b2, g2, d2, k2);
     jh = false;
-    r3 = b2.memoizedState;
-    g2.state = r3;
+    r2 = b2.memoizedState;
+    g2.state = r2;
     qh(b2, d2, g2, e4);
     var n2 = b2.memoizedState;
-    h2 !== q2 || r3 !== n2 || Wf.current || jh ? ("function" === typeof y2 && (Di(b2, c2, y2, d2), n2 = b2.memoizedState), (l2 = jh || Fi(b2, c2, l2, d2, r3, n2, k2) || false) ? (m2 || "function" !== typeof g2.UNSAFE_componentWillUpdate && "function" !== typeof g2.componentWillUpdate || ("function" === typeof g2.componentWillUpdate && g2.componentWillUpdate(d2, n2, k2), "function" === typeof g2.UNSAFE_componentWillUpdate && g2.UNSAFE_componentWillUpdate(d2, n2, k2)), "function" === typeof g2.componentDidUpdate && (b2.flags |= 4), "function" === typeof g2.getSnapshotBeforeUpdate && (b2.flags |= 1024)) : ("function" !== typeof g2.componentDidUpdate || h2 === a2.memoizedProps && r3 === a2.memoizedState || (b2.flags |= 4), "function" !== typeof g2.getSnapshotBeforeUpdate || h2 === a2.memoizedProps && r3 === a2.memoizedState || (b2.flags |= 1024), b2.memoizedProps = d2, b2.memoizedState = n2), g2.props = d2, g2.state = n2, g2.context = k2, d2 = l2) : ("function" !== typeof g2.componentDidUpdate || h2 === a2.memoizedProps && r3 === a2.memoizedState || (b2.flags |= 4), "function" !== typeof g2.getSnapshotBeforeUpdate || h2 === a2.memoizedProps && r3 === a2.memoizedState || (b2.flags |= 1024), d2 = false);
+    h2 !== q2 || r2 !== n2 || Wf.current || jh ? ("function" === typeof y2 && (Di(b2, c2, y2, d2), n2 = b2.memoizedState), (l2 = jh || Fi(b2, c2, l2, d2, r2, n2, k2) || false) ? (m2 || "function" !== typeof g2.UNSAFE_componentWillUpdate && "function" !== typeof g2.componentWillUpdate || ("function" === typeof g2.componentWillUpdate && g2.componentWillUpdate(d2, n2, k2), "function" === typeof g2.UNSAFE_componentWillUpdate && g2.UNSAFE_componentWillUpdate(d2, n2, k2)), "function" === typeof g2.componentDidUpdate && (b2.flags |= 4), "function" === typeof g2.getSnapshotBeforeUpdate && (b2.flags |= 1024)) : ("function" !== typeof g2.componentDidUpdate || h2 === a2.memoizedProps && r2 === a2.memoizedState || (b2.flags |= 4), "function" !== typeof g2.getSnapshotBeforeUpdate || h2 === a2.memoizedProps && r2 === a2.memoizedState || (b2.flags |= 1024), b2.memoizedProps = d2, b2.memoizedState = n2), g2.props = d2, g2.state = n2, g2.context = k2, d2 = l2) : ("function" !== typeof g2.componentDidUpdate || h2 === a2.memoizedProps && r2 === a2.memoizedState || (b2.flags |= 4), "function" !== typeof g2.getSnapshotBeforeUpdate || h2 === a2.memoizedProps && r2 === a2.memoizedState || (b2.flags |= 1024), d2 = false);
   }
   return jj(a2, b2, c2, d2, f2, e4);
 }
@@ -4905,23 +4905,23 @@ function Oj(a2, b2) {
           c2 = null;
           break a;
         }
-        var g2 = 0, h2 = -1, k2 = -1, l2 = 0, m2 = 0, q2 = a2, r3 = null;
+        var g2 = 0, h2 = -1, k2 = -1, l2 = 0, m2 = 0, q2 = a2, r2 = null;
         b: for (; ; ) {
           for (var y2; ; ) {
             q2 !== c2 || 0 !== e4 && 3 !== q2.nodeType || (h2 = g2 + e4);
             q2 !== f2 || 0 !== d2 && 3 !== q2.nodeType || (k2 = g2 + d2);
             3 === q2.nodeType && (g2 += q2.nodeValue.length);
             if (null === (y2 = q2.firstChild)) break;
-            r3 = q2;
+            r2 = q2;
             q2 = y2;
           }
           for (; ; ) {
             if (q2 === a2) break b;
-            r3 === c2 && ++l2 === e4 && (h2 = g2);
-            r3 === f2 && ++m2 === d2 && (k2 = g2);
+            r2 === c2 && ++l2 === e4 && (h2 = g2);
+            r2 === f2 && ++m2 === d2 && (k2 = g2);
             if (null !== (y2 = q2.nextSibling)) break;
-            q2 = r3;
-            r3 = q2.parentNode;
+            q2 = r2;
+            r2 = q2.parentNode;
           }
           q2 = y2;
         }
@@ -5233,10 +5233,10 @@ function dk(a2, b2) {
               ib(e4, f2);
               break;
             case "select":
-              var r3 = e4._wrapperState.wasMultiple;
+              var r2 = e4._wrapperState.wasMultiple;
               e4._wrapperState.wasMultiple = !!f2.multiple;
               var y2 = f2.value;
-              null != y2 ? fb(e4, !!f2.multiple, y2, false) : r3 !== !!f2.multiple && (null != f2.defaultValue ? fb(
+              null != y2 ? fb(e4, !!f2.multiple, y2, false) : r2 !== !!f2.multiple && (null != f2.defaultValue ? fb(
                 e4,
                 !!f2.multiple,
                 f2.defaultValue,
@@ -5291,21 +5291,21 @@ function dk(a2, b2) {
         l2 = null !== a2.memoizedState;
         if ((a2.stateNode.isHidden = l2) && !m2 && 0 !== (a2.mode & 1)) for (V = a2, m2 = a2.child; null !== m2; ) {
           for (q2 = V = m2; null !== V; ) {
-            r3 = V;
-            y2 = r3.child;
-            switch (r3.tag) {
+            r2 = V;
+            y2 = r2.child;
+            switch (r2.tag) {
               case 0:
               case 11:
               case 14:
               case 15:
-                Pj(4, r3, r3.return);
+                Pj(4, r2, r2.return);
                 break;
               case 1:
-                Lj(r3, r3.return);
-                var n2 = r3.stateNode;
+                Lj(r2, r2.return);
+                var n2 = r2.stateNode;
                 if ("function" === typeof n2.componentWillUnmount) {
-                  d2 = r3;
-                  c2 = r3.return;
+                  d2 = r2;
+                  c2 = r2.return;
                   try {
                     b2 = d2, n2.props = b2.memoizedProps, n2.state = b2.memoizedState, n2.componentWillUnmount();
                   } catch (t3) {
@@ -5314,15 +5314,15 @@ function dk(a2, b2) {
                 }
                 break;
               case 5:
-                Lj(r3, r3.return);
+                Lj(r2, r2.return);
                 break;
               case 22:
-                if (null !== r3.memoizedState) {
+                if (null !== r2.memoizedState) {
                   gk(q2);
                   continue;
                 }
             }
-            null !== y2 ? (y2.return = r3, V = y2) : gk(q2);
+            null !== y2 ? (y2.return = r2, V = y2) : gk(q2);
           }
           m2 = m2.sibling;
         }
@@ -5515,8 +5515,8 @@ function kk(a2) {
             throw Error(p$1(163));
         }
         U || b2.flags & 512 && Rj(b2);
-      } catch (r3) {
-        W(b2, b2.return, r3);
+      } catch (r2) {
+        W(b2, b2.return, r2);
       }
     }
     if (b2 === a2) {
@@ -5931,8 +5931,8 @@ function Mk(a2, b2) {
         if (null !== k2 && "object" === typeof k2 && "function" === typeof k2.then) {
           var l2 = k2, m2 = h2, q2 = m2.tag;
           if (0 === (m2.mode & 1) && (0 === q2 || 11 === q2 || 15 === q2)) {
-            var r3 = m2.alternate;
-            r3 ? (m2.updateQueue = r3.updateQueue, m2.memoizedState = r3.memoizedState, m2.lanes = r3.lanes) : (m2.updateQueue = null, m2.memoizedState = null);
+            var r2 = m2.alternate;
+            r2 ? (m2.updateQueue = r2.updateQueue, m2.memoizedState = r2.memoizedState, m2.lanes = r2.lanes) : (m2.updateQueue = null, m2.memoizedState = null);
           }
           var y2 = Ui(g2);
           if (null !== y2) {
@@ -6173,15 +6173,15 @@ function Hk() {
                   if (null !== q2) q2.return = m2, V = q2;
                   else for (; null !== V; ) {
                     m2 = V;
-                    var r3 = m2.sibling, y2 = m2.return;
+                    var r2 = m2.sibling, y2 = m2.return;
                     Sj(m2);
                     if (m2 === l2) {
                       V = null;
                       break;
                     }
-                    if (null !== r3) {
-                      r3.return = y2;
-                      V = r3;
+                    if (null !== r2) {
+                      r2.return = y2;
+                      V = r2;
                       break;
                     }
                     V = y2;
@@ -8221,12 +8221,12 @@ var DataRouterStateHook;
   DataRouterStateHook2["UseFetchers"] = "useFetchers";
   DataRouterStateHook2["UseScrollRestoration"] = "useScrollRestoration";
 })(DataRouterStateHook || (DataRouterStateHook = {}));
-function _objectWithoutPropertiesLoose(r3, e4) {
-  if (null == r3) return {};
+function _objectWithoutPropertiesLoose(r2, e4) {
+  if (null == r2) return {};
   var t3 = {};
-  for (var n2 in r3) if ({}.hasOwnProperty.call(r3, n2)) {
+  for (var n2 in r2) if ({}.hasOwnProperty.call(r2, n2)) {
     if (-1 !== e4.indexOf(n2)) continue;
-    t3[n2] = r3[n2];
+    t3[n2] = r2[n2];
   }
   return t3;
 }
@@ -8234,7 +8234,7 @@ function _extends$1() {
   return _extends$1 = Object.assign ? Object.assign.bind() : function(n2) {
     for (var e4 = 1; e4 < arguments.length; e4++) {
       var t3 = arguments[e4];
-      for (var r3 in t3) ({}).hasOwnProperty.call(t3, r3) && (n2[r3] = t3[r3]);
+      for (var r2 in t3) ({}).hasOwnProperty.call(t3, r2) && (n2[r2] = t3[r2]);
     }
     return n2;
   }, _extends$1.apply(null, arguments);
@@ -8293,17 +8293,17 @@ var factoryWithThrowingShims = function() {
   propTypes.exports = factoryWithThrowingShims();
 }
 var propTypesExports = propTypes.exports;
-function r$4(e4) {
+function r$3(e4) {
   var t3, f2, n2 = "";
   if ("string" == typeof e4 || "number" == typeof e4) n2 += e4;
   else if ("object" == typeof e4) if (Array.isArray(e4)) {
-    var o2 = e4.length;
-    for (t3 = 0; t3 < o2; t3++) e4[t3] && (f2 = r$4(e4[t3])) && (n2 && (n2 += " "), n2 += f2);
+    var o3 = e4.length;
+    for (t3 = 0; t3 < o3; t3++) e4[t3] && (f2 = r$3(e4[t3])) && (n2 && (n2 += " "), n2 += f2);
   } else for (f2 in e4) e4[f2] && (n2 && (n2 += " "), n2 += f2);
   return n2;
 }
 function clsx() {
-  for (var e4, t3, f2 = 0, n2 = "", o2 = arguments.length; f2 < o2; f2++) (e4 = arguments[f2]) && (t3 = r$4(e4)) && (n2 && (n2 += " "), n2 += t3);
+  for (var e4, t3, f2 = 0, n2 = "", o3 = arguments.length; f2 < o3; f2++) (e4 = arguments[f2]) && (t3 = r$3(e4)) && (n2 && (n2 += " "), n2 += t3);
   return n2;
 }
 function formatMuiErrorMessage$1(code) {
@@ -8504,12 +8504,12 @@ function style$1(options) {
   return fn2;
 }
 function memoize$1(fn2) {
-  const cache2 = {};
+  const cache = {};
   return (arg) => {
-    if (cache2[arg] === void 0) {
-      cache2[arg] = fn2(arg);
+    if (cache[arg] === void 0) {
+      cache[arg] = fn2(arg);
     }
-    return cache2[arg];
+    return cache[arg];
   };
 }
 const properties = {
@@ -9162,7 +9162,8 @@ function unstable_createStyleFunctionSx() {
     var _theme$unstable_sxCon;
     const {
       sx,
-      theme = {}
+      theme = {},
+      nested
     } = props || {};
     if (!sx) {
       return null;
@@ -9196,7 +9197,8 @@ function unstable_createStyleFunctionSx() {
               if (objectsHaveSameKeys(breakpointsValues, value)) {
                 css2[styleKey] = styleFunctionSx2({
                   sx: value,
-                  theme
+                  theme,
+                  nested: true
                 });
               } else {
                 css2 = merge(css2, breakpointsValues);
@@ -9207,6 +9209,11 @@ function unstable_createStyleFunctionSx() {
           }
         }
       });
+      if (!nested && theme.modularCssLayers) {
+        return {
+          "@layer sx": removeUnusedBreakpoints(breakpointsKeys, css2)
+        };
+      }
       return removeUnusedBreakpoints(breakpointsKeys, css2);
     }
     return Array.isArray(sx) ? sx.map(traverse) : traverse(sx);
@@ -9308,7 +9315,7 @@ function require_extends() {
       return module.exports = _extends3 = Object.assign ? Object.assign.bind() : function(n2) {
         for (var e4 = 1; e4 < arguments.length; e4++) {
           var t3 = arguments[e4];
-          for (var r3 in t3) ({}).hasOwnProperty.call(t3, r3) && (n2[r3] = t3[r3]);
+          for (var r2 in t3) ({}).hasOwnProperty.call(t3, r2) && (n2[r2] = t3[r2]);
         }
         return n2;
       }, module.exports.__esModule = true, module.exports["default"] = module.exports, _extends3.apply(null, arguments);
@@ -9323,12 +9330,12 @@ function requireObjectWithoutPropertiesLoose() {
   if (hasRequiredObjectWithoutPropertiesLoose) return objectWithoutPropertiesLoose.exports;
   hasRequiredObjectWithoutPropertiesLoose = 1;
   (function(module) {
-    function _objectWithoutPropertiesLoose3(r3, e4) {
-      if (null == r3) return {};
+    function _objectWithoutPropertiesLoose3(r2, e4) {
+      if (null == r2) return {};
       var t3 = {};
-      for (var n2 in r3) if ({}.hasOwnProperty.call(r3, n2)) {
+      for (var n2 in r2) if ({}.hasOwnProperty.call(r2, n2)) {
         if (-1 !== e4.indexOf(n2)) continue;
-        t3[n2] = r3[n2];
+        t3[n2] = r2[n2];
       }
       return t3;
     }
@@ -9756,10 +9763,10 @@ function rulesheet(callback) {
   };
 }
 function memoize(fn2) {
-  var cache2 = /* @__PURE__ */ Object.create(null);
+  var cache = /* @__PURE__ */ Object.create(null);
   return function(arg) {
-    if (cache2[arg] === void 0) cache2[arg] = fn2(arg);
-    return cache2[arg];
+    if (cache[arg] === void 0) cache[arg] = fn2(arg);
+    return cache[arg];
   };
 }
 var identifierWithPointTracking = function identifierWithPointTracking2(begin, points2, index) {
@@ -10041,11 +10048,11 @@ var createCache = function createCache2(options) {
       currentSheet = sheet;
       stylis(selector ? selector + "{" + serialized.styles + "}" : serialized.styles);
       if (shouldCache) {
-        cache2.inserted[serialized.name] = true;
+        cache.inserted[serialized.name] = true;
       }
     };
   }
-  var cache2 = {
+  var cache = {
     key,
     sheet: new StyleSheet({
       key,
@@ -10060,8 +10067,8 @@ var createCache = function createCache2(options) {
     registered: {},
     insert: _insert
   };
-  cache2.sheet.hydrate(nodesToHydrate);
-  return cache2;
+  cache.sheet.hydrate(nodesToHydrate);
+  return cache;
 };
 var reactIs$2 = { exports: {} };
 var reactIs_production_min = {};
@@ -10073,7 +10080,7 @@ var reactIs_production_min = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var b = "function" === typeof Symbol && Symbol.for, c$2 = b ? Symbol.for("react.element") : 60103, d$1 = b ? Symbol.for("react.portal") : 60106, e$3 = b ? Symbol.for("react.fragment") : 60107, f = b ? Symbol.for("react.strict_mode") : 60108, g = b ? Symbol.for("react.profiler") : 60114, h$1 = b ? Symbol.for("react.provider") : 60109, k = b ? Symbol.for("react.context") : 60110, l$1 = b ? Symbol.for("react.async_mode") : 60111, m = b ? Symbol.for("react.concurrent_mode") : 60111, n$3 = b ? Symbol.for("react.forward_ref") : 60112, p = b ? Symbol.for("react.suspense") : 60113, q = b ? Symbol.for("react.suspense_list") : 60120, r$3 = b ? Symbol.for("react.memo") : 60115, t$3 = b ? Symbol.for("react.lazy") : 60116, v = b ? Symbol.for("react.block") : 60121, w = b ? Symbol.for("react.fundamental") : 60117, x = b ? Symbol.for("react.responder") : 60118, y = b ? Symbol.for("react.scope") : 60119;
+var b = "function" === typeof Symbol && Symbol.for, c$2 = b ? Symbol.for("react.element") : 60103, d$1 = b ? Symbol.for("react.portal") : 60106, e$3 = b ? Symbol.for("react.fragment") : 60107, f = b ? Symbol.for("react.strict_mode") : 60108, g = b ? Symbol.for("react.profiler") : 60114, h$1 = b ? Symbol.for("react.provider") : 60109, k = b ? Symbol.for("react.context") : 60110, l$1 = b ? Symbol.for("react.async_mode") : 60111, m = b ? Symbol.for("react.concurrent_mode") : 60111, n$3 = b ? Symbol.for("react.forward_ref") : 60112, p = b ? Symbol.for("react.suspense") : 60113, q = b ? Symbol.for("react.suspense_list") : 60120, r$2 = b ? Symbol.for("react.memo") : 60115, t$3 = b ? Symbol.for("react.lazy") : 60116, v = b ? Symbol.for("react.block") : 60121, w = b ? Symbol.for("react.fundamental") : 60117, x = b ? Symbol.for("react.responder") : 60118, y = b ? Symbol.for("react.scope") : 60119;
 function z(a2) {
   if ("object" === typeof a2 && null !== a2) {
     var u2 = a2.$$typeof;
@@ -10092,7 +10099,7 @@ function z(a2) {
               case k:
               case n$3:
               case t$3:
-              case r$3:
+              case r$2:
               case h$1:
                 return a2;
               default:
@@ -10115,7 +10122,7 @@ reactIs_production_min.Element = c$2;
 reactIs_production_min.ForwardRef = n$3;
 reactIs_production_min.Fragment = e$3;
 reactIs_production_min.Lazy = t$3;
-reactIs_production_min.Memo = r$3;
+reactIs_production_min.Memo = r$2;
 reactIs_production_min.Portal = d$1;
 reactIs_production_min.Profiler = g;
 reactIs_production_min.StrictMode = f;
@@ -10143,7 +10150,7 @@ reactIs_production_min.isLazy = function(a2) {
   return z(a2) === t$3;
 };
 reactIs_production_min.isMemo = function(a2) {
-  return z(a2) === r$3;
+  return z(a2) === r$2;
 };
 reactIs_production_min.isPortal = function(a2) {
   return z(a2) === d$1;
@@ -10158,7 +10165,7 @@ reactIs_production_min.isSuspense = function(a2) {
   return z(a2) === p;
 };
 reactIs_production_min.isValidElementType = function(a2) {
-  return "string" === typeof a2 || "function" === typeof a2 || a2 === e$3 || a2 === m || a2 === g || a2 === f || a2 === p || a2 === q || "object" === typeof a2 && null !== a2 && (a2.$$typeof === t$3 || a2.$$typeof === r$3 || a2.$$typeof === h$1 || a2.$$typeof === k || a2.$$typeof === n$3 || a2.$$typeof === w || a2.$$typeof === x || a2.$$typeof === y || a2.$$typeof === v);
+  return "string" === typeof a2 || "function" === typeof a2 || a2 === e$3 || a2 === m || a2 === g || a2 === f || a2 === p || a2 === q || "object" === typeof a2 && null !== a2 && (a2.$$typeof === t$3 || a2.$$typeof === r$2 || a2.$$typeof === h$1 || a2.$$typeof === k || a2.$$typeof === n$3 || a2.$$typeof === w || a2.$$typeof === x || a2.$$typeof === y || a2.$$typeof === v);
 };
 reactIs_production_min.typeOf = z;
 {
@@ -10196,8 +10203,8 @@ function getRegisteredStyles(registered, registeredStyles, classNames) {
   });
   return rawClassName;
 }
-var registerStyles = function registerStyles2(cache2, serialized, isStringTag2) {
-  var className = cache2.key + "-" + serialized.name;
+var registerStyles = function registerStyles2(cache, serialized, isStringTag2) {
+  var className = cache.key + "-" + serialized.name;
   if (
     // we only need to add the styles to the registered cache if the
     // class name could be used further down
@@ -10208,18 +10215,18 @@ var registerStyles = function registerStyles2(cache2, serialized, isStringTag2) 
     // in node since emotion-server relies on whether a style is in
     // the registered cache to know whether a style is global or not
     // also, note that this check will be dead code eliminated in the browser
-    isBrowser === false) && cache2.registered[className] === void 0
+    isBrowser === false) && cache.registered[className] === void 0
   ) {
-    cache2.registered[className] = serialized.styles;
+    cache.registered[className] = serialized.styles;
   }
 };
-var insertStyles = function insertStyles2(cache2, serialized, isStringTag2) {
-  registerStyles(cache2, serialized, isStringTag2);
-  var className = cache2.key + "-" + serialized.name;
-  if (cache2.inserted[serialized.name] === void 0) {
+var insertStyles = function insertStyles2(cache, serialized, isStringTag2) {
+  registerStyles(cache, serialized, isStringTag2);
+  var className = cache.key + "-" + serialized.name;
+  if (cache.inserted[serialized.name] === void 0) {
     var current = serialized;
     do {
-      cache2.insert(serialized === current ? "." + className : "", current, cache2.sheet, true);
+      cache.insert(serialized === current ? "." + className : "", current, cache.sheet, true);
       current = current.next;
     } while (current !== void 0);
   }
@@ -10489,8 +10496,8 @@ var EmotionCacheContext = /* @__PURE__ */ reactExports.createContext(
 var CacheProvider = EmotionCacheContext.Provider;
 var withEmotionCache = function withEmotionCache2(func) {
   return /* @__PURE__ */ reactExports.forwardRef(function(props, ref) {
-    var cache2 = reactExports.useContext(EmotionCacheContext);
-    return func(props, cache2, ref);
+    var cache = reactExports.useContext(EmotionCacheContext);
+    return func(props, cache, ref);
   });
 };
 var ThemeContext = /* @__PURE__ */ reactExports.createContext({});
@@ -10507,28 +10514,28 @@ var createEmotionProps = function createEmotionProps2(type, props) {
   return newProps;
 };
 var Insertion$1 = function Insertion(_ref) {
-  var cache2 = _ref.cache, serialized = _ref.serialized, isStringTag2 = _ref.isStringTag;
-  registerStyles(cache2, serialized, isStringTag2);
+  var cache = _ref.cache, serialized = _ref.serialized, isStringTag2 = _ref.isStringTag;
+  registerStyles(cache, serialized, isStringTag2);
   useInsertionEffectAlwaysWithSyncFallback(function() {
-    return insertStyles(cache2, serialized, isStringTag2);
+    return insertStyles(cache, serialized, isStringTag2);
   });
   return null;
 };
-var Emotion = /* @__PURE__ */ withEmotionCache(function(props, cache2, ref) {
+var Emotion = /* @__PURE__ */ withEmotionCache(function(props, cache, ref) {
   var cssProp = props.css;
-  if (typeof cssProp === "string" && cache2.registered[cssProp] !== void 0) {
-    cssProp = cache2.registered[cssProp];
+  if (typeof cssProp === "string" && cache.registered[cssProp] !== void 0) {
+    cssProp = cache.registered[cssProp];
   }
   var WrappedComponent = props[typePropName];
   var registeredStyles = [cssProp];
   var className = "";
   if (typeof props.className === "string") {
-    className = getRegisteredStyles(cache2.registered, registeredStyles, props.className);
+    className = getRegisteredStyles(cache.registered, registeredStyles, props.className);
   } else if (props.className != null) {
     className = props.className + " ";
   }
   var serialized = serializeStyles(registeredStyles, void 0, reactExports.useContext(ThemeContext));
-  className += cache2.key + "-" + serialized.name;
+  className += cache.key + "-" + serialized.name;
   var newProps = {};
   for (var _key2 in props) {
     if (hasOwn.call(props, _key2) && _key2 !== "css" && _key2 !== typePropName && true) {
@@ -10540,7 +10547,7 @@ var Emotion = /* @__PURE__ */ withEmotionCache(function(props, cache2, ref) {
     newProps.ref = ref;
   }
   return /* @__PURE__ */ reactExports.createElement(reactExports.Fragment, null, /* @__PURE__ */ reactExports.createElement(Insertion$1, {
-    cache: cache2,
+    cache,
     serialized,
     isStringTag: typeof WrappedComponent === "string"
   }), /* @__PURE__ */ reactExports.createElement(WrappedComponent, newProps));
@@ -10566,22 +10573,22 @@ var jsx = function jsx2(type, props) {
   /* @__PURE__ */ (function(_JSX) {
   })(JSX || (JSX = _jsx.JSX || (_jsx.JSX = {})));
 })(jsx || (jsx = {}));
-var Global = /* @__PURE__ */ withEmotionCache(function(props, cache2) {
+var Global = /* @__PURE__ */ withEmotionCache(function(props, cache) {
   var styles2 = props.styles;
   var serialized = serializeStyles([styles2], void 0, reactExports.useContext(ThemeContext));
   var sheetRef = reactExports.useRef();
   useInsertionEffectWithLayoutFallback(function() {
-    var key = cache2.key + "-global";
-    var sheet = new cache2.sheet.constructor({
+    var key = cache.key + "-global";
+    var sheet = new cache.sheet.constructor({
       key,
-      nonce: cache2.sheet.nonce,
-      container: cache2.sheet.container,
-      speedy: cache2.sheet.isSpeedy
+      nonce: cache.sheet.nonce,
+      container: cache.sheet.container,
+      speedy: cache.sheet.isSpeedy
     });
     var rehydrating = false;
     var node2 = document.querySelector('style[data-emotion="' + key + " " + serialized.name + '"]');
-    if (cache2.sheet.tags.length) {
-      sheet.before = cache2.sheet.tags[0];
+    if (cache.sheet.tags.length) {
+      sheet.before = cache.sheet.tags[0];
     }
     if (node2 !== null) {
       rehydrating = true;
@@ -10592,7 +10599,7 @@ var Global = /* @__PURE__ */ withEmotionCache(function(props, cache2) {
     return function() {
       sheet.flush();
     };
-  }, [cache2]);
+  }, [cache]);
   useInsertionEffectWithLayoutFallback(function() {
     var sheetRefCurrent = sheetRef.current;
     var sheet = sheetRefCurrent[0], rehydrating = sheetRefCurrent[1];
@@ -10601,15 +10608,15 @@ var Global = /* @__PURE__ */ withEmotionCache(function(props, cache2) {
       return;
     }
     if (serialized.next !== void 0) {
-      insertStyles(cache2, serialized.next, true);
+      insertStyles(cache, serialized.next, true);
     }
     if (sheet.tags.length) {
       var element = sheet.tags[sheet.tags.length - 1].nextElementSibling;
       sheet.before = element;
       sheet.flush();
     }
-    cache2.insert("", serialized, sheet, false);
-  }, [cache2, serialized.name]);
+    cache.insert("", serialized, sheet, false);
+  }, [cache, serialized.name]);
   return null;
 });
 function css() {
@@ -10630,7 +10637,7 @@ function keyframes() {
     }
   };
 }
-var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|abbr|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|disableRemotePlayback|download|draggable|encType|enterKeyHint|fetchpriority|fetchPriority|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|translate|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|incremental|fallback|inert|itemProp|itemScope|itemType|itemID|itemRef|on|option|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/;
+var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|abbr|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|disableRemotePlayback|download|draggable|encType|enterKeyHint|fetchpriority|fetchPriority|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|popover|popoverTarget|popoverTargetAction|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|translate|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|incremental|fallback|inert|itemProp|itemScope|itemType|itemID|itemRef|on|option|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/;
 var isPropValid = /* @__PURE__ */ memoize(
   function(prop) {
     return reactPropsRegex.test(prop) || prop.charCodeAt(0) === 111 && prop.charCodeAt(1) === 110 && prop.charCodeAt(2) < 91;
@@ -10661,10 +10668,10 @@ var composeShouldForwardProps = function composeShouldForwardProps2(tag, options
   return shouldForwardProp2;
 };
 var Insertion2 = function Insertion3(_ref) {
-  var cache2 = _ref.cache, serialized = _ref.serialized, isStringTag2 = _ref.isStringTag;
-  registerStyles(cache2, serialized, isStringTag2);
+  var cache = _ref.cache, serialized = _ref.serialized, isStringTag2 = _ref.isStringTag;
+  registerStyles(cache, serialized, isStringTag2);
   useInsertionEffectAlwaysWithSyncFallback(function() {
-    return insertStyles(cache2, serialized, isStringTag2);
+    return insertStyles(cache, serialized, isStringTag2);
   });
   return null;
 };
@@ -10697,7 +10704,7 @@ var createStyled$1 = function createStyled(tag, options) {
         styles2.push(args[i2], templateStringsArr[i2]);
       }
     }
-    var Styled = withEmotionCache(function(props, cache2, ref) {
+    var Styled = withEmotionCache(function(props, cache, ref) {
       var FinalTag = shouldUseAs && props.as || baseTag;
       var className = "";
       var classInterpolations = [];
@@ -10710,12 +10717,12 @@ var createStyled$1 = function createStyled(tag, options) {
         mergedProps.theme = reactExports.useContext(ThemeContext);
       }
       if (typeof props.className === "string") {
-        className = getRegisteredStyles(cache2.registered, classInterpolations, props.className);
+        className = getRegisteredStyles(cache.registered, classInterpolations, props.className);
       } else if (props.className != null) {
         className = props.className + " ";
       }
-      var serialized = serializeStyles(styles2.concat(classInterpolations), cache2.registered, mergedProps);
-      className += cache2.key + "-" + serialized.name;
+      var serialized = serializeStyles(styles2.concat(classInterpolations), cache.registered, mergedProps);
+      className += cache.key + "-" + serialized.name;
       if (targetClassName !== void 0) {
         className += " " + targetClassName;
       }
@@ -10732,7 +10739,7 @@ var createStyled$1 = function createStyled(tag, options) {
         newProps.ref = ref;
       }
       return /* @__PURE__ */ reactExports.createElement(reactExports.Fragment, null, /* @__PURE__ */ reactExports.createElement(Insertion2, {
-        cache: cache2,
+        cache,
         serialized,
         isStringTag: typeof FinalTag === "string"
       }), /* @__PURE__ */ reactExports.createElement(FinalTag, newProps));
@@ -10749,10 +10756,10 @@ var createStyled$1 = function createStyled(tag, options) {
       }
     });
     Styled.withComponent = function(nextTag, nextOptions) {
-      var newStyled2 = createStyled(nextTag, _extends$1({}, options, nextOptions, {
+      var newStyled = createStyled(nextTag, _extends$1({}, options, nextOptions, {
         shouldForwardProp: composeShouldForwardProps(Styled, nextOptions, true)
       }));
-      return newStyled2.apply(void 0, styles2);
+      return newStyled.apply(void 0, styles2);
     };
     return Styled;
   };
@@ -10894,26 +10901,49 @@ var tags = [
   "text",
   "tspan"
 ];
-var newStyled = createStyled$1.bind(null);
+var styled$2 = createStyled$1.bind(null);
 tags.forEach(function(tagName) {
-  newStyled[tagName] = newStyled(tagName);
+  styled$2[tagName] = styled$2(tagName);
 });
-let cache;
-if (typeof document === "object") {
-  cache = createCache({
+function getCache(injectFirst, enableCssLayer) {
+  const emotionCache = createCache({
     key: "css",
-    prepend: true
+    prepend: injectFirst
   });
+  if (enableCssLayer) {
+    const prevInsert = emotionCache.insert;
+    emotionCache.insert = (...args) => {
+      if (!args[1].styles.match(/^@layer\s+[^{]*$/)) {
+        args[1].styles = `@layer mui {${args[1].styles}}`;
+      }
+      return prevInsert(...args);
+    };
+  }
+  return emotionCache;
 }
+const cacheMap = /* @__PURE__ */ new Map();
 function StyledEngineProvider(props) {
   const {
     injectFirst,
+    enableCssLayer,
     children
   } = props;
-  return injectFirst && cache ? /* @__PURE__ */ jsxRuntimeExports.jsx(CacheProvider, {
-    value: cache,
-    children
-  }) : children;
+  const cache = reactExports.useMemo(() => {
+    const cacheKey = `${injectFirst}-${enableCssLayer}`;
+    if (typeof document === "object" && cacheMap.has(cacheKey)) {
+      return cacheMap.get(cacheKey);
+    }
+    const fresh = getCache(injectFirst, enableCssLayer);
+    cacheMap.set(cacheKey, fresh);
+    return fresh;
+  }, [injectFirst, enableCssLayer]);
+  if (injectFirst || enableCssLayer) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(CacheProvider, {
+      value: cache,
+      children
+    });
+  }
+  return children;
 }
 function isEmpty$1(obj) {
   return obj === void 0 || obj === null || Object.keys(obj).length === 0;
@@ -10929,7 +10959,7 @@ function GlobalStyles(props) {
   });
 }
 function styled$1(tag, options) {
-  const stylesFactory = newStyled(tag, options);
+  const stylesFactory = styled$2(tag, options);
   return stylesFactory;
 }
 const internal_processStyles = (tag, processor) => {
@@ -10937,6 +10967,11 @@ const internal_processStyles = (tag, processor) => {
     tag.__emotion_styles = processor(tag.__emotion_styles);
   }
 };
+const wrapper = [];
+function internal_serializeStyles(styles2) {
+  wrapper[0] = styles2;
+  return serializeStyles(wrapper);
+}
 const styledEngine = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   GlobalStyles,
@@ -10945,6 +10980,7 @@ const styledEngine = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.define
   css,
   default: styled$1,
   internal_processStyles,
+  internal_serializeStyles,
   keyframes
 }, Symbol.toStringTag, { value: "Module" }));
 const require$$1$2 = /* @__PURE__ */ getAugmentedNamespace(styledEngine);
@@ -11255,15 +11291,15 @@ var _styleFunctionSx = _interopRequireDefault$f(require$$8);
 const _excluded$q = ["ownerState"], _excluded2$1 = ["variants"], _excluded3 = ["name", "slot", "skipVariantsResolver", "skipSx", "overridesResolver"];
 function _getRequireWildcardCache$1(e4) {
   if ("function" != typeof WeakMap) return null;
-  var r3 = /* @__PURE__ */ new WeakMap(), t3 = /* @__PURE__ */ new WeakMap();
+  var r2 = /* @__PURE__ */ new WeakMap(), t3 = /* @__PURE__ */ new WeakMap();
   return (_getRequireWildcardCache$1 = function(e22) {
-    return e22 ? t3 : r3;
+    return e22 ? t3 : r2;
   })(e4);
 }
-function _interopRequireWildcard$1(e4, r3) {
+function _interopRequireWildcard$1(e4, r2) {
   if (e4 && e4.__esModule) return e4;
   if (null === e4 || "object" != typeof e4 && "function" != typeof e4) return { default: e4 };
-  var t3 = _getRequireWildcardCache$1(r3);
+  var t3 = _getRequireWildcardCache$1(r2);
   if (t3 && t3.has(e4)) return t3.get(e4);
   var n2 = { __proto__: null }, a2 = Object.defineProperty && Object.getOwnPropertyDescriptor;
   for (var u2 in e4) if ("default" !== u2 && Object.prototype.hasOwnProperty.call(e4, u2)) {
@@ -11283,6 +11319,12 @@ function isStringTag(tag) {
 }
 function shouldForwardProp(prop) {
   return prop !== "ownerState" && prop !== "theme" && prop !== "sx" && prop !== "as";
+}
+function shallowLayer(serialized, layerName) {
+  if (layerName && serialized && typeof serialized === "object" && serialized.styles && !serialized.styles.startsWith("@layer")) {
+    serialized.styles = `@layer ${layerName}{${String(serialized.styles)}}`;
+  }
+  return serialized;
 }
 const systemDefaultTheme$1 = createStyled$2.systemDefaultTheme = (0, _createTheme.default)();
 const lowercaseFirstLetter = (string) => {
@@ -11304,7 +11346,7 @@ function defaultOverridesResolver(slot) {
   }
   return (props, styles2) => styles2[slot];
 }
-function processStyleArg(callableStyle, _ref) {
+function processStyleArg(callableStyle, _ref, layerName) {
   let {
     ownerState
   } = _ref, props = (0, _objectWithoutPropertiesLoose2.default)(_ref, _excluded$q);
@@ -11314,7 +11356,7 @@ function processStyleArg(callableStyle, _ref) {
   if (Array.isArray(resolvedStylesArg)) {
     return resolvedStylesArg.flatMap((resolvedStyle) => processStyleArg(resolvedStyle, (0, _extends2.default)({
       ownerState
-    }, props)));
+    }, props), layerName));
   }
   if (!!resolvedStylesArg && typeof resolvedStylesArg === "object" && Array.isArray(resolvedStylesArg.variants)) {
     const {
@@ -11338,14 +11380,15 @@ function processStyleArg(callableStyle, _ref) {
         if (!Array.isArray(result)) {
           result = [result];
         }
-        result.push(typeof variant.style === "function" ? variant.style((0, _extends2.default)({
+        const variantStyle = typeof variant.style === "function" ? variant.style((0, _extends2.default)({
           ownerState
-        }, props, ownerState)) : variant.style);
+        }, props, ownerState)) : variant.style;
+        result.push(layerName ? shallowLayer((0, _styledEngine$1.internal_serializeStyles)(variantStyle), layerName) : variantStyle);
       }
     });
     return result;
   }
-  return resolvedStylesArg;
+  return layerName ? shallowLayer((0, _styledEngine$1.internal_serializeStyles)(resolvedStylesArg), layerName) : resolvedStylesArg;
 }
 function createStyled2(input = {}) {
   const {
@@ -11374,6 +11417,7 @@ function createStyled2(input = {}) {
       // For more details: https://github.com/mui/material-ui/pull/37908
       overridesResolver = defaultOverridesResolver(lowercaseFirstLetter(componentSlot))
     } = inputOptions, options = (0, _objectWithoutPropertiesLoose2.default)(inputOptions, _excluded3);
+    const layerName = componentName && componentName.startsWith("Mui") || !!componentSlot ? "components" : "custom";
     const skipVariantsResolver = inputSkipVariantsResolver !== void 0 ? inputSkipVariantsResolver : (
       // TODO v6: remove `Root` in the next major release
       // For more details: https://github.com/mui/material-ui/pull/37908
@@ -11395,13 +11439,16 @@ function createStyled2(input = {}) {
     }, options));
     const transformStyleArg = (stylesArg) => {
       if (typeof stylesArg === "function" && stylesArg.__emotion_real !== stylesArg || (0, _deepmerge.isPlainObject)(stylesArg)) {
-        return (props) => processStyleArg(stylesArg, (0, _extends2.default)({}, props, {
-          theme: resolveTheme({
+        return (props) => {
+          const theme = resolveTheme({
             theme: props.theme,
             defaultTheme: defaultTheme2,
             themeId
-          })
-        }));
+          });
+          return processStyleArg(stylesArg, (0, _extends2.default)({}, props, {
+            theme
+          }), theme.modularCssLayers ? layerName : void 0);
+        };
       }
       return stylesArg;
     };
@@ -11422,7 +11469,7 @@ function createStyled2(input = {}) {
           Object.entries(styleOverrides).forEach(([slotKey, slotStyle]) => {
             resolvedStyleOverrides[slotKey] = processStyleArg(slotStyle, (0, _extends2.default)({}, props, {
               theme
-            }));
+            }), theme.modularCssLayers ? "theme" : void 0);
           });
           return overridesResolver(props, resolvedStyleOverrides);
         });
@@ -11439,7 +11486,7 @@ function createStyled2(input = {}) {
             variants: themeVariants
           }, (0, _extends2.default)({}, props, {
             theme
-          }));
+          }), theme.modularCssLayers ? "theme" : void 0);
         });
       }
       if (!skipSx) {
@@ -11750,7 +11797,7 @@ function private_safeEmphasize(color2, coefficient, warning2) {
   }
 }
 function blend(background, overlay, opacity, gamma = 1) {
-  const blendChannel = (b2, o2) => Math.round((b2 ** (1 / gamma) * (1 - opacity) + o2 ** (1 / gamma) * opacity) ** gamma);
+  const blendChannel = (b2, o3) => Math.round((b2 ** (1 / gamma) * (1 - opacity) + o3 ** (1 / gamma) * opacity) ** gamma);
   const backgroundColor2 = decomposeColor(background);
   const overlayColor = decomposeColor(overlay);
   const rgb = [blendChannel(backgroundColor2.values[0], overlayColor.values[0]), blendChannel(backgroundColor2.values[1], overlayColor.values[1]), blendChannel(backgroundColor2.values[2], overlayColor.values[2])];
@@ -13071,8 +13118,8 @@ function _setPrototypeOf(t3, e4) {
     return t4.__proto__ = e5, t4;
   }, _setPrototypeOf(t3, e4);
 }
-function _inheritsLoose(t3, o2) {
-  t3.prototype = Object.create(o2.prototype), t3.prototype.constructor = t3, _setPrototypeOf(t3, o2);
+function _inheritsLoose(t3, o3) {
+  t3.prototype = Object.create(o3.prototype), t3.prototype.constructor = t3, _setPrototypeOf(t3, o3);
 }
 const config = {
   disabled: false
@@ -13685,15 +13732,15 @@ var React = _interopRequireWildcard(reactExports);
 var _styledEngine = require$$1$2;
 function _getRequireWildcardCache(e4) {
   if ("function" != typeof WeakMap) return null;
-  var r3 = /* @__PURE__ */ new WeakMap(), t3 = /* @__PURE__ */ new WeakMap();
+  var r2 = /* @__PURE__ */ new WeakMap(), t3 = /* @__PURE__ */ new WeakMap();
   return (_getRequireWildcardCache = function(e5) {
-    return e5 ? t3 : r3;
+    return e5 ? t3 : r2;
   })(e4);
 }
-function _interopRequireWildcard(e4, r3) {
+function _interopRequireWildcard(e4, r2) {
   if (e4 && e4.__esModule) return e4;
   if (null === e4 || "object" != typeof e4 && "function" != typeof e4) return { default: e4 };
-  var t3 = _getRequireWildcardCache(r3);
+  var t3 = _getRequireWildcardCache(r2);
   if (t3 && t3.has(e4)) return t3.get(e4);
   var n2 = { __proto__: null }, a2 = Object.defineProperty && Object.getOwnPropertyDescriptor;
   for (var u2 in e4) if ("default" !== u2 && Object.prototype.hasOwnProperty.call(e4, u2)) {
@@ -17486,8 +17533,8 @@ const VideoDrawer = ({
       const [lx, ly] = pt;
       let fill = "red";
       if (Array.isArray(colors3D) && colors3D[frameIndex] && Array.isArray(colors3D[frameIndex][j])) {
-        const [r3, g2, b2] = colors3D[frameIndex][j];
-        fill = `rgb(${r3}, ${g2}, ${b2})`;
+        const [r2, g2, b2] = colors3D[frameIndex][j];
+        fill = `rgb(${r2}, ${g2}, ${b2})`;
       }
       ctx.fillStyle = fill;
       ctx.beginPath();
@@ -17895,8 +17942,8 @@ const InteractiveOverlays = ({
             const [px, py] = point;
             let fillColor = "red";
             if (Array.isArray(colors3D) && colors3D[landMarkIndex] && Array.isArray(colors3D[landMarkIndex][idx])) {
-              const [r3, g2, b2] = colors3D[landMarkIndex][idx];
-              fillColor = `rgb(${r3}, ${g2}, ${b2})`;
+              const [r2, g2, b2] = colors3D[landMarkIndex][idx];
+              fillColor = `rgb(${r2}, ${g2}, ${b2})`;
             }
             return /* @__PURE__ */ jsxRuntimeExports.jsx(
               "circle",
@@ -20734,7 +20781,7 @@ default_1$7 = Close.default = (0, _createSvgIcon$7.default)(/* @__PURE__ */ (0, 
   d: "M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
 }), "Close");
 function c$1(e4, u2, c2, i2) {
-  var a2 = this, o2 = reactExports.useRef(null), f2 = reactExports.useRef(0), l2 = reactExports.useRef(0), v2 = reactExports.useRef(null), m2 = reactExports.useRef([]), d2 = reactExports.useRef(), g2 = reactExports.useRef(), p2 = reactExports.useRef(e4), w2 = reactExports.useRef(true);
+  var a2 = this, o3 = reactExports.useRef(null), f2 = reactExports.useRef(0), l2 = reactExports.useRef(0), v2 = reactExports.useRef(null), m2 = reactExports.useRef([]), d2 = reactExports.useRef(), g2 = reactExports.useRef(), p2 = reactExports.useRef(e4), w2 = reactExports.useRef(true);
   p2.current = e4;
   var s2 = "undefined" != typeof window, x2 = !u2 && 0 !== u2 && s2;
   if ("function" != typeof e4) throw new TypeError("Expected a function");
@@ -20746,37 +20793,38 @@ function c$1(e4, u2, c2, i2) {
     };
   }, []);
   var T2 = reactExports.useMemo(function() {
-    var r3 = function(r4) {
+    var r2 = function(r3) {
       var n3 = m2.current, t4 = d2.current;
-      return m2.current = d2.current = null, f2.current = r4, l2.current = l2.current || r4, g2.current = p2.current.apply(t4, n3);
-    }, n2 = function(r4, n3) {
-      x2 && cancelAnimationFrame(v2.current), v2.current = x2 ? requestAnimationFrame(r4) : setTimeout(r4, n3);
-    }, t3 = function(r4) {
+      return m2.current = d2.current = null, f2.current = r3, l2.current = l2.current || r3, g2.current = p2.current.apply(t4, n3);
+    }, n2 = function(r3, n3) {
+      x2 && cancelAnimationFrame(v2.current), v2.current = x2 ? requestAnimationFrame(r3) : setTimeout(r3, n3);
+    }, t3 = function(r3) {
       if (!w2.current) return false;
-      var n3 = r4 - o2.current;
-      return !o2.current || n3 >= u2 || n3 < 0 || F2 && r4 - f2.current >= D2;
+      var n3 = r3 - o3.current;
+      return !o3.current || n3 >= u2 || n3 < 0 || F2 && r3 - f2.current >= D2;
     }, e5 = function(n3) {
-      return v2.current = null, y2 && m2.current ? r3(n3) : (m2.current = d2.current = null, g2.current);
-    }, c3 = function r4() {
+      return v2.current = null, y2 && m2.current ? r2(n3) : (m2.current = d2.current = null, g2.current);
+    }, c3 = function r3() {
       var c4 = Date.now();
       if (h2 && l2.current === f2.current && T3(), t3(c4)) return e5(c4);
       if (w2.current) {
-        var i3 = u2 - (c4 - o2.current), a3 = F2 ? Math.min(i3, D2 - (c4 - f2.current)) : i3;
-        n2(r4, a3);
+        var i3 = u2 - (c4 - o3.current), a3 = F2 ? Math.min(i3, D2 - (c4 - f2.current)) : i3;
+        n2(r3, a3);
       }
     }, T3 = function() {
     }, W2 = function() {
       if (s2 || A2) {
         var e6 = Date.now(), i3 = t3(e6);
-        if (m2.current = [].slice.call(arguments), d2.current = a2, o2.current = e6, i3) {
-          if (!v2.current && w2.current) return f2.current = o2.current, n2(c3, u2), h2 ? r3(o2.current) : g2.current;
-          if (F2) return n2(c3, u2), r3(o2.current);
+        if (m2.current = [].slice.call(arguments), d2.current = a2, o3.current = e6, i3) {
+          if (!v2.current && w2.current) return f2.current = o3.current, n2(c3, u2), h2 ? r2(o3.current) : g2.current;
+          if (F2) return n2(c3, u2), r2(o3.current);
         }
         return v2.current || n2(c3, u2), g2.current;
       }
     };
     return W2.cancel = function() {
-      v2.current && (x2 ? cancelAnimationFrame(v2.current) : clearTimeout(v2.current)), f2.current = 0, m2.current = o2.current = d2.current = v2.current = null;
+      var r3 = v2.current;
+      r3 && (x2 ? cancelAnimationFrame(v2.current) : clearTimeout(v2.current)), f2.current = 0, m2.current = o3.current = d2.current = v2.current = null;
     }, W2.isPending = function() {
       return !!v2.current;
     }, W2.flush = function() {
@@ -21183,8 +21231,8 @@ function arraySome$1(array, predicate) {
   return false;
 }
 var _arraySome = arraySome$1;
-function cacheHas$1(cache2, key) {
-  return cache2.has(key);
+function cacheHas$1(cache, key) {
+  return cache.has(key);
 }
 var _cacheHas = cacheHas$1;
 var SetCache = _SetCache, arraySome = _arraySome, cacheHas = _cacheHas;
@@ -22632,8 +22680,8 @@ lodash.exports;
         return object[key];
       });
     }
-    function cacheHas2(cache2, key) {
-      return cache2.has(key);
+    function cacheHas2(cache, key) {
+      return cache.has(key);
     }
     function charsStartIndex(strSymbols, chrSymbols) {
       var index = -1, length2 = strSymbols.length;
@@ -23448,8 +23496,8 @@ lodash.exports;
             if (!(seen2 ? cacheHas2(seen2, computed) : includes2(result2, computed, comparator))) {
               othIndex = othLength;
               while (--othIndex) {
-                var cache2 = caches[othIndex];
-                if (!(cache2 ? cacheHas2(cache2, computed) : includes2(arrays[othIndex], computed, comparator))) {
+                var cache = caches[othIndex];
+                if (!(cache ? cacheHas2(cache, computed) : includes2(arrays[othIndex], computed, comparator))) {
                   continue outer;
                 }
               }
@@ -24242,11 +24290,11 @@ lodash.exports;
       }
       function createBind(func, bitmask, thisArg) {
         var isBind = bitmask & WRAP_BIND_FLAG, Ctor = createCtor(func);
-        function wrapper() {
-          var fn2 = this && this !== root2 && this instanceof wrapper ? Ctor : func;
+        function wrapper2() {
+          var fn2 = this && this !== root2 && this instanceof wrapper2 ? Ctor : func;
           return fn2.apply(isBind ? thisArg : this, arguments);
         }
-        return wrapper;
+        return wrapper2;
       }
       function createCaseFirst(methodName) {
         return function(string) {
@@ -24289,8 +24337,8 @@ lodash.exports;
       }
       function createCurry(func, bitmask, arity) {
         var Ctor = createCtor(func);
-        function wrapper() {
-          var length2 = arguments.length, args = Array2(length2), index = length2, placeholder = getHolder(wrapper);
+        function wrapper2() {
+          var length2 = arguments.length, args = Array2(length2), index = length2, placeholder = getHolder(wrapper2);
           while (index--) {
             args[index] = arguments[index];
           }
@@ -24301,7 +24349,7 @@ lodash.exports;
               func,
               bitmask,
               createHybrid,
-              wrapper.placeholder,
+              wrapper2.placeholder,
               undefined$1,
               args,
               holders,
@@ -24310,10 +24358,10 @@ lodash.exports;
               arity - length2
             );
           }
-          var fn2 = this && this !== root2 && this instanceof wrapper ? Ctor : func;
+          var fn2 = this && this !== root2 && this instanceof wrapper2 ? Ctor : func;
           return apply(fn2, this, args);
         }
-        return wrapper;
+        return wrapper2;
       }
       function createFind(findIndexFunc) {
         return function(collection, predicate, fromIndex) {
@@ -24340,24 +24388,24 @@ lodash.exports;
             if (typeof func != "function") {
               throw new TypeError2(FUNC_ERROR_TEXT);
             }
-            if (prereq && !wrapper && getFuncName(func) == "wrapper") {
-              var wrapper = new LodashWrapper([], true);
+            if (prereq && !wrapper2 && getFuncName(func) == "wrapper") {
+              var wrapper2 = new LodashWrapper([], true);
             }
           }
-          index = wrapper ? index : length2;
+          index = wrapper2 ? index : length2;
           while (++index < length2) {
             func = funcs[index];
             var funcName = getFuncName(func), data = funcName == "wrapper" ? getData(func) : undefined$1;
             if (data && isLaziable(data[0]) && data[1] == (WRAP_ARY_FLAG | WRAP_CURRY_FLAG | WRAP_PARTIAL_FLAG | WRAP_REARG_FLAG) && !data[4].length && data[9] == 1) {
-              wrapper = wrapper[getFuncName(data[0])].apply(wrapper, data[3]);
+              wrapper2 = wrapper2[getFuncName(data[0])].apply(wrapper2, data[3]);
             } else {
-              wrapper = func.length == 1 && isLaziable(func) ? wrapper[funcName]() : wrapper.thru(func);
+              wrapper2 = func.length == 1 && isLaziable(func) ? wrapper2[funcName]() : wrapper2.thru(func);
             }
           }
           return function() {
             var args = arguments, value = args[0];
-            if (wrapper && args.length == 1 && isArray2(value)) {
-              return wrapper.plant(value).value();
+            if (wrapper2 && args.length == 1 && isArray2(value)) {
+              return wrapper2.plant(value).value();
             }
             var index2 = 0, result2 = length2 ? funcs[index2].apply(this, args) : value;
             while (++index2 < length2) {
@@ -24369,13 +24417,13 @@ lodash.exports;
       }
       function createHybrid(func, bitmask, thisArg, partials, holders, partialsRight, holdersRight, argPos, ary2, arity) {
         var isAry = bitmask & WRAP_ARY_FLAG, isBind = bitmask & WRAP_BIND_FLAG, isBindKey = bitmask & WRAP_BIND_KEY_FLAG, isCurried = bitmask & (WRAP_CURRY_FLAG | WRAP_CURRY_RIGHT_FLAG), isFlip = bitmask & WRAP_FLIP_FLAG, Ctor = isBindKey ? undefined$1 : createCtor(func);
-        function wrapper() {
+        function wrapper2() {
           var length2 = arguments.length, args = Array2(length2), index = length2;
           while (index--) {
             args[index] = arguments[index];
           }
           if (isCurried) {
-            var placeholder = getHolder(wrapper), holdersCount = countHolders(args, placeholder);
+            var placeholder = getHolder(wrapper2), holdersCount = countHolders(args, placeholder);
           }
           if (partials) {
             args = composeArgs(args, partials, holders, isCurried);
@@ -24390,7 +24438,7 @@ lodash.exports;
               func,
               bitmask,
               createHybrid,
-              wrapper.placeholder,
+              wrapper2.placeholder,
               thisArg,
               args,
               newHolders,
@@ -24409,12 +24457,12 @@ lodash.exports;
           if (isAry && ary2 < length2) {
             args.length = ary2;
           }
-          if (this && this !== root2 && this instanceof wrapper) {
+          if (this && this !== root2 && this instanceof wrapper2) {
             fn2 = Ctor || createCtor(fn2);
           }
           return fn2.apply(thisBinding, args);
         }
-        return wrapper;
+        return wrapper2;
       }
       function createInverter(setter, toIteratee) {
         return function(object, iteratee2) {
@@ -24468,8 +24516,8 @@ lodash.exports;
       }
       function createPartial(func, bitmask, thisArg, partials) {
         var isBind = bitmask & WRAP_BIND_FLAG, Ctor = createCtor(func);
-        function wrapper() {
-          var argsIndex = -1, argsLength = arguments.length, leftIndex = -1, leftLength = partials.length, args = Array2(leftLength + argsLength), fn2 = this && this !== root2 && this instanceof wrapper ? Ctor : func;
+        function wrapper2() {
+          var argsIndex = -1, argsLength = arguments.length, leftIndex = -1, leftLength = partials.length, args = Array2(leftLength + argsLength), fn2 = this && this !== root2 && this instanceof wrapper2 ? Ctor : func;
           while (++leftIndex < leftLength) {
             args[leftIndex] = partials[leftIndex];
           }
@@ -24478,7 +24526,7 @@ lodash.exports;
           }
           return apply(fn2, isBind ? thisArg : this, args);
         }
-        return wrapper;
+        return wrapper2;
       }
       function createRange(fromRight) {
         return function(start2, end2, step) {
@@ -25023,12 +25071,12 @@ lodash.exports;
       }
       function memoizeCapped(func) {
         var result2 = memoize2(func, function(key) {
-          if (cache2.size === MAX_MEMOIZE_SIZE) {
-            cache2.clear();
+          if (cache.size === MAX_MEMOIZE_SIZE) {
+            cache.clear();
           }
           return key;
         });
-        var cache2 = result2.cache;
+        var cache = result2.cache;
         return result2;
       }
       function mergeData(data, source) {
@@ -25120,9 +25168,9 @@ lodash.exports;
         return root2.setTimeout(func, wait);
       };
       var setToString = shortOut(baseSetToString);
-      function setWrapToString(wrapper, reference2, bitmask) {
+      function setWrapToString(wrapper2, reference2, bitmask) {
         var source = reference2 + "";
-        return setToString(wrapper, insertWrapDetails(source, updateWrapDetails(getWrapDetails(source), bitmask)));
+        return setToString(wrapper2, insertWrapDetails(source, updateWrapDetails(getWrapDetails(source), bitmask)));
       }
       function shortOut(func) {
         var count = 0, lastCalled = 0;
@@ -25189,14 +25237,14 @@ lodash.exports;
         });
         return details.sort();
       }
-      function wrapperClone(wrapper) {
-        if (wrapper instanceof LazyWrapper) {
-          return wrapper.clone();
+      function wrapperClone(wrapper2) {
+        if (wrapper2 instanceof LazyWrapper) {
+          return wrapper2.clone();
         }
-        var result2 = new LodashWrapper(wrapper.__wrapped__, wrapper.__chain__);
-        result2.__actions__ = copyArray2(wrapper.__actions__);
-        result2.__index__ = wrapper.__index__;
-        result2.__values__ = wrapper.__values__;
+        var result2 = new LodashWrapper(wrapper2.__wrapped__, wrapper2.__chain__);
+        result2.__actions__ = copyArray2(wrapper2.__actions__);
+        result2.__index__ = wrapper2.__index__;
+        result2.__values__ = wrapper2.__values__;
         return result2;
       }
       function chunk(array, size2, guard) {
@@ -25982,12 +26030,12 @@ lodash.exports;
           throw new TypeError2(FUNC_ERROR_TEXT);
         }
         var memoized = function() {
-          var args = arguments, key = resolver ? resolver.apply(this, args) : args[0], cache2 = memoized.cache;
-          if (cache2.has(key)) {
-            return cache2.get(key);
+          var args = arguments, key = resolver ? resolver.apply(this, args) : args[0], cache = memoized.cache;
+          if (cache.has(key)) {
+            return cache.get(key);
           }
           var result2 = func.apply(this, args);
-          memoized.cache = cache2.set(key, result2) || cache2;
+          memoized.cache = cache.set(key, result2) || cache;
           return result2;
         };
         memoized.cache = new (memoize2.Cache || MapCache2)();
@@ -26076,8 +26124,8 @@ lodash.exports;
       function unary(func) {
         return ary(func, 1);
       }
-      function wrap(value, wrapper) {
-        return partial(castFunction(wrapper), value);
+      function wrap(value, wrapper2) {
+        return partial(castFunction(wrapper2), value);
       }
       function castArray() {
         if (!arguments.length) {
@@ -27555,6 +27603,7 @@ const VideoProvider = ({ children }) => {
   const [persons, setPersons] = reactExports.useState([]);
   const [boundingBoxes, setBoundingBoxes] = reactExports.useState([]);
   const [tasks, setTasks] = reactExports.useState([]);
+  const [taskTypeData, setTaskTypeData] = reactExports.useState({});
   const [videoReady, setVideoReady] = reactExports.useState(false);
   const [boxesReady, setBoxesReady] = reactExports.useState(false);
   const [tasksReady, setTasksReady] = reactExports.useState(false);
@@ -27636,7 +27685,9 @@ const VideoProvider = ({ children }) => {
         persons,
         setPersons,
         boxesReady,
-        setBoxesReady
+        setBoxesReady,
+        taskTypeData,
+        setTaskTypeData
       },
       children
     }
@@ -27665,7 +27716,7 @@ function JSONUploadDialog$2({ dialogOpen, setDialogOpen, handleJSONUpload }) {
   const getVideoData = async () => {
     setServerProcessing(true);
     const videoURL = videoRef.current.src;
-    await fetch(videoURL).then((r3) => r3.blob());
+    await fetch(videoURL).then((r2) => r2.blob());
     await fetchBoundingBoxes();
   };
   const fetchBoundingBoxes = async (content) => {
@@ -27789,7 +27840,7 @@ function JSONUploadDialog$2({ dialogOpen, setDialogOpen, handleJSONUpload }) {
               "label",
               {
                 htmlFor: "file-upload",
-                className: "cursor-pointer px-4 py-2\r\n                          text-gray-100 bg-transparent rounded-md\r\n                          border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
+                className: "cursor-pointer px-4 py-2\n                          text-gray-100 bg-transparent rounded-md\n                          border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
                 children: "Upload JSON File"
               }
             )
@@ -27815,7 +27866,7 @@ function JSONUploadDialog$2({ dialogOpen, setDialogOpen, handleJSONUpload }) {
     }
   );
 }
-const PersonRow = ({ person, onPlay, onToggleSubject }) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "flex items-center justify-between p-2 border border-zinc-600 rounded-lg bg-zinc-700 hover:bg-zinc-600 text-gray-100 transition-colors duration-150", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row justify-between w-full", children: [
+const PersonRow = ({ person, onPlay, onToggleSubject }) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "flex items-center justify-between p-2 border border-zinc-500 rounded-lg bg-zinc-600 hover:bg-zinc-500 text-gray-100 transition-colors duration-150", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row justify-between w-full", children: [
   /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$8, { onClick: () => onPlay(person.timestamp), className: "cursor-pointer" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-2 font-medium", children: person.name }),
@@ -27951,26 +28002,26 @@ const SubjectSelectionTab = ({
   ] }) }) });
 };
 function t$2(t3, e4, i2, s2) {
-  return new (i2 || (i2 = Promise))(function(n2, r3) {
-    function o2(t4) {
+  return new (i2 || (i2 = Promise))(function(n2, r2) {
+    function o3(t4) {
       try {
         h2(s2.next(t4));
       } catch (t5) {
-        r3(t5);
+        r2(t5);
       }
     }
     function a2(t4) {
       try {
         h2(s2.throw(t4));
       } catch (t5) {
-        r3(t5);
+        r2(t5);
       }
     }
     function h2(t4) {
       var e5;
       t4.done ? n2(t4.value) : (e5 = t4.value, e5 instanceof i2 ? e5 : new i2(function(t5) {
         t5(e5);
-      })).then(o2, a2);
+      })).then(o3, a2);
     }
     h2((s2 = s2.apply(t3, e4 || [])).next());
   });
@@ -28024,7 +28075,7 @@ const i$2 = { decode: function(e4, i2) {
 } };
 function s$2(t3, e4) {
   const i2 = e4.xmlns ? document.createElementNS(e4.xmlns, t3) : document.createElement(t3);
-  for (const [t4, n2] of Object.entries(e4)) if ("children" === t4) for (const [t5, n3] of Object.entries(e4)) "string" == typeof n3 ? i2.appendChild(document.createTextNode(n3)) : i2.appendChild(s$2(t5, n3));
+  for (const [t4, n2] of Object.entries(e4)) if ("children" === t4 && n2) for (const [t5, e5] of Object.entries(n2)) e5 instanceof Node ? i2.appendChild(e5) : "string" == typeof e5 ? i2.appendChild(document.createTextNode(e5)) : i2.appendChild(s$2(t5, e5));
   else "style" === t4 ? Object.assign(i2.style, n2) : "textContent" === t4 ? i2.textContent = n2 : i2.setAttribute(t4, n2.toString());
   return i2;
 }
@@ -28032,8 +28083,8 @@ function n$2(t3, e4, i2) {
   const n2 = s$2(t3, e4 || {});
   return null == i2 || i2.appendChild(n2), n2;
 }
-var r$2 = Object.freeze({ __proto__: null, createElement: n$2, default: n$2 });
-const o$1 = { fetchBlob: function(e4, i2, s2) {
+var r$1 = Object.freeze({ __proto__: null, createElement: n$2, default: n$2 });
+const o$2 = { fetchBlob: function(e4, i2, s2) {
   return t$2(this, void 0, void 0, function* () {
     const n2 = yield fetch(e4, s2);
     if (n2.status >= 400) throw new Error(`Failed to fetch ${e4}: ${n2.status} (${n2.statusText})`);
@@ -28041,10 +28092,10 @@ const o$1 = { fetchBlob: function(e4, i2, s2) {
       t$2(this, void 0, void 0, function* () {
         if (!e5.body || !e5.headers) return;
         const s3 = e5.body.getReader(), n3 = Number(e5.headers.get("Content-Length")) || 0;
-        let r3 = 0;
-        const o2 = (e6) => t$2(this, void 0, void 0, function* () {
-          r3 += (null == e6 ? void 0 : e6.length) || 0;
-          const t3 = Math.round(r3 / n3 * 100);
+        let r2 = 0;
+        const o3 = (e6) => t$2(this, void 0, void 0, function* () {
+          r2 += (null == e6 ? void 0 : e6.length) || 0;
+          const t3 = Math.round(r2 / n3 * 100);
           i3(t3);
         }), a2 = () => t$2(this, void 0, void 0, function* () {
           let t3;
@@ -28053,7 +28104,7 @@ const o$1 = { fetchBlob: function(e4, i2, s2) {
           } catch (t4) {
             return;
           }
-          t3.done || (o2(t3.value), yield a2());
+          t3.done || (o3(t3.value), yield a2());
         });
         a2();
       });
@@ -28084,22 +28135,26 @@ class a extends e$2 {
     if (t3 && i2 === t3) return;
     this.revokeSrc();
     const s2 = e4 instanceof Blob && (this.canPlayType(e4.type) || !t3) ? URL.createObjectURL(e4) : t3;
-    i2 && (this.media.src = "");
-    try {
+    if (i2 && this.media.removeAttribute("src"), s2 || t3) try {
       this.media.src = s2;
     } catch (e5) {
       this.media.src = t3;
     }
   }
   destroy() {
-    this.isExternalMedia || (this.media.pause(), this.media.remove(), this.revokeSrc(), this.media.src = "", this.media.load());
+    this.isExternalMedia || (this.media.pause(), this.media.remove(), this.revokeSrc(), this.media.removeAttribute("src"), this.media.load());
   }
   setMediaElement(t3) {
     this.media = t3;
   }
   play() {
     return t$2(this, void 0, void 0, function* () {
-      return this.media.play();
+      try {
+        return yield this.media.play();
+      } catch (t3) {
+        if (t3 instanceof DOMException && "AbortError" === t3.name) return;
+        throw t3;
+      }
     });
   }
   pause() {
@@ -28185,27 +28240,27 @@ class h extends e$2 {
     t3 === this.lastContainerWidth && "auto" !== this.options.height || (this.lastContainerWidth = t3, this.reRender());
   }
   initDrag() {
-    this.subscriptions.push(function(t3, e4, i2, s2, n2 = 3, r3 = 0, o2 = 100) {
+    this.subscriptions.push(function(t3, e4, i2, s2, n2 = 3, r2 = 0, o3 = 100) {
       if (!t3) return () => {
       };
       const a2 = matchMedia("(pointer: coarse)").matches;
       let h2 = () => {
       };
       const l2 = (l3) => {
-        if (l3.button !== r3) return;
+        if (l3.button !== r2) return;
         l3.preventDefault(), l3.stopPropagation();
         let d2 = l3.clientX, c2 = l3.clientY, u2 = false;
         const p2 = Date.now(), m2 = (s3) => {
-          if (s3.preventDefault(), s3.stopPropagation(), a2 && Date.now() - p2 < o2) return;
-          const r4 = s3.clientX, h3 = s3.clientY, l4 = r4 - d2, m3 = h3 - c2;
+          if (s3.preventDefault(), s3.stopPropagation(), a2 && Date.now() - p2 < o3) return;
+          const r3 = s3.clientX, h3 = s3.clientY, l4 = r3 - d2, m3 = h3 - c2;
           if (u2 || Math.abs(l4) > n2 || Math.abs(m3) > n2) {
-            const s4 = t3.getBoundingClientRect(), { left: n3, top: o3 } = s4;
-            u2 || (null == i2 || i2(d2 - n3, c2 - o3), u2 = true), e4(l4, m3, r4 - n3, h3 - o3), d2 = r4, c2 = h3;
+            const s4 = t3.getBoundingClientRect(), { left: n3, top: o4 } = s4;
+            u2 || (null == i2 || i2(d2 - n3, c2 - o4), u2 = true), e4(l4, m3, r3 - n3, h3 - o4), d2 = r3, c2 = h3;
           }
         }, f2 = (e5) => {
           if (u2) {
-            const i3 = e5.clientX, n3 = e5.clientY, r4 = t3.getBoundingClientRect(), { left: o3, top: a3 } = r4;
-            null == s2 || s2(i3 - o3, n3 - a3);
+            const i3 = e5.clientX, n3 = e5.clientY, r3 = t3.getBoundingClientRect(), { left: o4, top: a3 } = r3;
+            null == s2 || s2(i3 - o4, n3 - a3);
           }
           h2();
         }, g2 = (t4) => {
@@ -28351,8 +28406,8 @@ class h extends e$2 {
     const s2 = () => {
       e4 && clearTimeout(e4), i2 && i2();
     };
-    return this.timeouts.push(s2), () => new Promise((n2, r3) => {
-      s2(), i2 = r3, e4 = setTimeout(() => {
+    return this.timeouts.push(s2), () => new Promise((n2, r2) => {
+      s2(), i2 = r2, e4 = setTimeout(() => {
         e4 = void 0, i2 = void 0, n2();
       }, t3);
     });
@@ -28360,9 +28415,9 @@ class h extends e$2 {
   convertColorValues(t3) {
     if (!Array.isArray(t3)) return t3 || "";
     if (t3.length < 2) return t3[0] || "";
-    const e4 = document.createElement("canvas"), i2 = e4.getContext("2d"), s2 = e4.height * (window.devicePixelRatio || 1), n2 = i2.createLinearGradient(0, 0, 0, s2), r3 = 1 / (t3.length - 1);
+    const e4 = document.createElement("canvas"), i2 = e4.getContext("2d"), s2 = e4.height * (window.devicePixelRatio || 1), n2 = i2.createLinearGradient(0, 0, 0, s2), r2 = 1 / (t3.length - 1);
     return t3.forEach((t4, e5) => {
-      const i3 = e5 * r3;
+      const i3 = e5 * r2;
       n2.addColorStop(i3, t4);
     }), n2;
   }
@@ -28370,34 +28425,34 @@ class h extends e$2 {
     return Math.max(1, window.devicePixelRatio || 1);
   }
   renderBarWaveform(t3, e4, i2, s2) {
-    const n2 = t3[0], r3 = t3[1] || t3[0], o2 = n2.length, { width: a2, height: h2 } = i2.canvas, l2 = h2 / 2, d2 = this.getPixelRatio(), c2 = e4.barWidth ? e4.barWidth * d2 : 1, u2 = e4.barGap ? e4.barGap * d2 : e4.barWidth ? c2 / 2 : 0, p2 = e4.barRadius || 0, m2 = a2 / (c2 + u2) / o2, f2 = p2 && "roundRect" in i2 ? "roundRect" : "rect";
+    const n2 = t3[0], r2 = t3[1] || t3[0], o3 = n2.length, { width: a2, height: h2 } = i2.canvas, l2 = h2 / 2, d2 = this.getPixelRatio(), c2 = e4.barWidth ? e4.barWidth * d2 : 1, u2 = e4.barGap ? e4.barGap * d2 : e4.barWidth ? c2 / 2 : 0, p2 = e4.barRadius || 0, m2 = a2 / (c2 + u2) / o3, f2 = p2 && "roundRect" in i2 ? "roundRect" : "rect";
     i2.beginPath();
     let g2 = 0, v2 = 0, b2 = 0;
-    for (let t4 = 0; t4 <= o2; t4++) {
-      const o3 = Math.round(t4 * m2);
-      if (o3 > g2) {
+    for (let t4 = 0; t4 <= o3; t4++) {
+      const o4 = Math.round(t4 * m2);
+      if (o4 > g2) {
         const t5 = Math.round(v2 * l2 * s2), n3 = t5 + Math.round(b2 * l2 * s2) || 1;
-        let r4 = l2 - t5;
-        "top" === e4.barAlign ? r4 = 0 : "bottom" === e4.barAlign && (r4 = h2 - n3), i2[f2](g2 * (c2 + u2), r4, c2, n3, p2), g2 = o3, v2 = 0, b2 = 0;
+        let r3 = l2 - t5;
+        "top" === e4.barAlign ? r3 = 0 : "bottom" === e4.barAlign && (r3 = h2 - n3), i2[f2](g2 * (c2 + u2), r3, c2, n3, p2), g2 = o4, v2 = 0, b2 = 0;
       }
-      const a3 = Math.abs(n2[t4] || 0), d3 = Math.abs(r3[t4] || 0);
+      const a3 = Math.abs(n2[t4] || 0), d3 = Math.abs(r2[t4] || 0);
       a3 > v2 && (v2 = a3), d3 > b2 && (b2 = d3);
     }
     i2.fill(), i2.closePath();
   }
   renderLineWaveform(t3, e4, i2, s2) {
     const n2 = (e5) => {
-      const n3 = t3[e5] || t3[0], r3 = n3.length, { height: o2 } = i2.canvas, a2 = o2 / 2, h2 = i2.canvas.width / r3;
+      const n3 = t3[e5] || t3[0], r2 = n3.length, { height: o3 } = i2.canvas, a2 = o3 / 2, h2 = i2.canvas.width / r2;
       i2.moveTo(0, a2);
       let l2 = 0, d2 = 0;
-      for (let t4 = 0; t4 <= r3; t4++) {
-        const r4 = Math.round(t4 * h2);
-        if (r4 > l2) {
+      for (let t4 = 0; t4 <= r2; t4++) {
+        const r3 = Math.round(t4 * h2);
+        if (r3 > l2) {
           const t5 = a2 + (Math.round(d2 * a2 * s2) || 1) * (0 === e5 ? -1 : 1);
-          i2.lineTo(l2, t5), l2 = r4, d2 = 0;
+          i2.lineTo(l2, t5), l2 = r3, d2 = 0;
         }
-        const o3 = Math.abs(n3[t4] || 0);
-        o3 > d2 && (d2 = o3);
+        const o4 = Math.abs(n3[t4] || 0);
+        o4 > d2 && (d2 = o4);
       }
       i2.lineTo(l2, a2);
     };
@@ -28412,34 +28467,39 @@ class h extends e$2 {
     }
     e4.barWidth || e4.barGap || e4.barAlign ? this.renderBarWaveform(t3, e4, i2, s2) : this.renderLineWaveform(t3, e4, i2, s2);
   }
-  renderSingleCanvas(t3, e4, i2, s2, n2, r3, o2) {
+  renderSingleCanvas(t3, e4, i2, s2, n2, r2, o3) {
     const a2 = this.getPixelRatio(), h2 = document.createElement("canvas");
-    h2.width = Math.round(i2 * a2), h2.height = Math.round(s2 * a2), h2.style.width = `${i2}px`, h2.style.height = `${s2}px`, h2.style.left = `${Math.round(n2)}px`, r3.appendChild(h2);
+    h2.width = Math.round(i2 * a2), h2.height = Math.round(s2 * a2), h2.style.width = `${i2}px`, h2.style.height = `${s2}px`, h2.style.left = `${Math.round(n2)}px`, r2.appendChild(h2);
     const l2 = h2.getContext("2d");
     if (this.renderWaveform(t3, e4, l2), h2.width > 0 && h2.height > 0) {
       const t4 = h2.cloneNode(), i3 = t4.getContext("2d");
-      i3.drawImage(h2, 0, 0), i3.globalCompositeOperation = "source-in", i3.fillStyle = this.convertColorValues(e4.progressColor), i3.fillRect(0, 0, h2.width, h2.height), o2.appendChild(t4);
+      i3.drawImage(h2, 0, 0), i3.globalCompositeOperation = "source-in", i3.fillStyle = this.convertColorValues(e4.progressColor), i3.fillRect(0, 0, h2.width, h2.height), o3.appendChild(t4);
     }
   }
-  renderMultiCanvas(t3, e4, i2, s2, n2, r3) {
-    const o2 = this.getPixelRatio(), { clientWidth: a2 } = this.scrollContainer, l2 = i2 / o2;
+  renderMultiCanvas(t3, e4, i2, s2, n2, r2) {
+    const o3 = this.getPixelRatio(), { clientWidth: a2 } = this.scrollContainer, l2 = i2 / o3;
     let d2 = Math.min(h.MAX_CANVAS_WIDTH, a2, l2), c2 = {};
-    if (0 === d2) return;
     if (e4.barWidth || e4.barGap) {
       const t4 = e4.barWidth || 0.5, i3 = t4 + (e4.barGap || t4 / 2);
       d2 % i3 != 0 && (d2 = Math.floor(d2 / i3) * i3);
     }
+    if (0 === d2) return;
     const u2 = (i3) => {
       if (i3 < 0 || i3 >= p2) return;
       if (c2[i3]) return;
       c2[i3] = true;
-      const o3 = i3 * d2, a3 = Math.min(l2 - o3, d2);
+      const o4 = i3 * d2;
+      let a3 = Math.min(l2 - o4, d2);
+      if (e4.barWidth || e4.barGap) {
+        const t4 = e4.barWidth || 0.5, i4 = t4 + (e4.barGap || t4 / 2);
+        a3 = Math.floor(a3 / i4) * i4;
+      }
       if (a3 <= 0) return;
       const h2 = t3.map((t4) => {
-        const e5 = Math.floor(o3 / l2 * t4.length), i4 = Math.floor((o3 + a3) / l2 * t4.length);
+        const e5 = Math.floor(o4 / l2 * t4.length), i4 = Math.floor((o4 + a3) / l2 * t4.length);
         return t4.slice(e5, i4);
       });
-      this.renderSingleCanvas(h2, e4, a3, s2, o3, n2, r3);
+      this.renderSingleCanvas(h2, e4, a3, s2, o4, n2, r2);
     }, p2 = Math.ceil(l2 / d2);
     if (!this.isScrollable) {
       for (let t4 = 0; t4 < p2; t4++) u2(t4);
@@ -28449,13 +28509,13 @@ class h extends e$2 {
     if (u2(f2 - 1), u2(f2), u2(f2 + 1), p2 > 1) {
       const t4 = this.on("scroll", () => {
         const { scrollLeft: t5 } = this.scrollContainer, e5 = Math.floor(t5 / l2 * p2);
-        Object.keys(c2).length > h.MAX_NODES && (n2.innerHTML = "", r3.innerHTML = "", c2 = {}), u2(e5 - 1), u2(e5), u2(e5 + 1);
+        Object.keys(c2).length > h.MAX_NODES && (n2.innerHTML = "", r2.innerHTML = "", c2 = {}), u2(e5 - 1), u2(e5), u2(e5 + 1);
       });
       this.unsubscribeOnScroll.push(t4);
     }
   }
   renderChannel(t3, e4, i2, s2) {
-    var { overlay: n2 } = e4, r3 = function(t4, e5) {
+    var { overlay: n2 } = e4, r2 = function(t4, e5) {
       var i3 = {};
       for (var s3 in t4) Object.prototype.hasOwnProperty.call(t4, s3) && e5.indexOf(s3) < 0 && (i3[s3] = t4[s3]);
       if (null != t4 && "function" == typeof Object.getOwnPropertySymbols) {
@@ -28464,10 +28524,10 @@ class h extends e$2 {
       }
       return i3;
     }(e4, ["overlay"]);
-    const o2 = document.createElement("div"), a2 = this.getHeight(r3.height, r3.splitChannels);
-    o2.style.height = `${a2}px`, n2 && s2 > 0 && (o2.style.marginTop = `-${a2}px`), this.canvasWrapper.style.minHeight = `${a2}px`, this.canvasWrapper.appendChild(o2);
-    const h2 = o2.cloneNode();
-    this.progressWrapper.appendChild(h2), this.renderMultiCanvas(t3, r3, i2, a2, o2, h2);
+    const o3 = document.createElement("div"), a2 = this.getHeight(r2.height, r2.splitChannels);
+    o3.style.height = `${a2}px`, n2 && s2 > 0 && (o3.style.marginTop = `-${a2}px`), this.canvasWrapper.style.minHeight = `${a2}px`, this.canvasWrapper.appendChild(o3);
+    const h2 = o3.cloneNode();
+    this.progressWrapper.appendChild(h2), this.renderMultiCanvas(t3, r2, i2, a2, o3, h2);
   }
   render(e4) {
     return t$2(this, void 0, void 0, function* () {
@@ -28475,14 +28535,14 @@ class h extends e$2 {
       this.timeouts.forEach((t4) => t4()), this.timeouts = [], this.canvasWrapper.innerHTML = "", this.progressWrapper.innerHTML = "", null != this.options.width && (this.scrollContainer.style.width = "number" == typeof this.options.width ? `${this.options.width}px` : this.options.width);
       const i2 = this.getPixelRatio(), s2 = this.scrollContainer.clientWidth, n2 = Math.ceil(e4.duration * (this.options.minPxPerSec || 0));
       this.isScrollable = n2 > s2;
-      const r3 = this.options.fillParent && !this.isScrollable, o2 = (r3 ? s2 : n2) * i2;
-      if (this.wrapper.style.width = r3 ? "100%" : `${n2}px`, this.scrollContainer.style.overflowX = this.isScrollable ? "auto" : "hidden", this.scrollContainer.classList.toggle("noScrollbar", !!this.options.hideScrollbar), this.cursor.style.backgroundColor = `${this.options.cursorColor || this.options.progressColor}`, this.cursor.style.width = `${this.options.cursorWidth}px`, this.audioData = e4, this.emit("render"), this.options.splitChannels) for (let i3 = 0; i3 < e4.numberOfChannels; i3++) {
+      const r2 = this.options.fillParent && !this.isScrollable, o3 = (r2 ? s2 : n2) * i2;
+      if (this.wrapper.style.width = r2 ? "100%" : `${n2}px`, this.scrollContainer.style.overflowX = this.isScrollable ? "auto" : "hidden", this.scrollContainer.classList.toggle("noScrollbar", !!this.options.hideScrollbar), this.cursor.style.backgroundColor = `${this.options.cursorColor || this.options.progressColor}`, this.cursor.style.width = `${this.options.cursorWidth}px`, this.audioData = e4, this.emit("render"), this.options.splitChannels) for (let i3 = 0; i3 < e4.numberOfChannels; i3++) {
         const s3 = Object.assign(Object.assign({}, this.options), null === (t3 = this.options.splitChannels) || void 0 === t3 ? void 0 : t3[i3]);
-        this.renderChannel([e4.getChannelData(i3)], s3, o2, i3);
+        this.renderChannel([e4.getChannelData(i3)], s3, o3, i3);
       }
       else {
         const t4 = [e4.getChannelData(0)];
-        e4.numberOfChannels > 1 && t4.push(e4.getChannelData(1)), this.renderChannel(t4, this.options, o2, 0);
+        e4.numberOfChannels > 1 && t4.push(e4.getChannelData(1)), this.renderChannel(t4, this.options, o3, 0);
       }
       Promise.resolve().then(() => this.emit("rendered"));
     });
@@ -28500,13 +28560,13 @@ class h extends e$2 {
     this.options.minPxPerSec = t3, this.reRender();
   }
   scrollIntoView(t3, e4 = false) {
-    const { scrollLeft: i2, scrollWidth: s2, clientWidth: n2 } = this.scrollContainer, r3 = t3 * s2, o2 = i2, a2 = i2 + n2, h2 = n2 / 2;
+    const { scrollLeft: i2, scrollWidth: s2, clientWidth: n2 } = this.scrollContainer, r2 = t3 * s2, o3 = i2, a2 = i2 + n2, h2 = n2 / 2;
     if (this.isDragging) {
       const t4 = 30;
-      r3 + t4 > a2 ? this.scrollContainer.scrollLeft += t4 : r3 - t4 < o2 && (this.scrollContainer.scrollLeft -= t4);
+      r2 + t4 > a2 ? this.scrollContainer.scrollLeft += t4 : r2 - t4 < o3 && (this.scrollContainer.scrollLeft -= t4);
     } else {
-      (r3 < o2 || r3 > a2) && (this.scrollContainer.scrollLeft = r3 - (this.options.autoCenter ? h2 : 0));
-      const t4 = r3 - i2 - h2;
+      (r2 < o3 || r2 > a2) && (this.scrollContainer.scrollLeft = r2 - (this.options.autoCenter ? h2 : 0));
+      const t4 = r2 - i2 - h2;
       e4 && this.options.autoCenter && t4 > 0 && (this.scrollContainer.scrollLeft += Math.min(t4, 10));
     }
     {
@@ -28517,7 +28577,7 @@ class h extends e$2 {
   renderProgress(t3, e4) {
     if (isNaN(t3)) return;
     const i2 = 100 * t3;
-    this.canvasWrapper.style.clipPath = `polygon(${i2}% 0, 100% 0, 100% 100%, ${i2}% 100%)`, this.progressWrapper.style.width = `${i2}%`, this.cursor.style.left = `${i2}%`, this.cursor.style.transform = `translateX(-${100 === Math.round(i2) ? this.options.cursorWidth : 0}px)`, this.isScrollable && this.options.autoScroll && this.scrollIntoView(t3, e4);
+    this.canvasWrapper.style.clipPath = `polygon(${i2}% 0%, 100% 0%, 100% 100%, ${i2}% 100%)`, this.progressWrapper.style.width = `${i2}%`, this.cursor.style.left = `${i2}%`, this.cursor.style.transform = this.options.cursorWidth ? `translateX(-${t3 * this.options.cursorWidth}px)` : "", this.isScrollable && this.options.autoScroll && this.scrollIntoView(t3, e4);
   }
   exportImage(e4, i2, s2) {
     return t$2(this, void 0, void 0, function* () {
@@ -28652,6 +28712,27 @@ class d extends e$2 {
     for (let i2 = 0; i2 < e4; i2++) t3.push(this.buffer.getChannelData(i2));
     return t3;
   }
+  removeAttribute(t3) {
+    switch (t3) {
+      case "src":
+        this.src = "";
+        break;
+      case "playbackRate":
+        this.playbackRate = 0;
+        break;
+      case "currentTime":
+        this.currentTime = 0;
+        break;
+      case "duration":
+        this.duration = 0;
+        break;
+      case "volume":
+        this.volume = 0;
+        break;
+      case "muted":
+        this.muted = false;
+    }
+  }
 }
 const c = { waveColor: "#999", progressColor: "#555", cursorWidth: 1, minPxPerSec: 0, fillParent: true, interact: true, dragToSeek: false, autoScroll: true, autoCenter: true, sampleRate: 8e3 };
 class u extends a {
@@ -28741,9 +28822,15 @@ class u extends a {
     this.options = Object.assign({}, this.options, t3), t3.duration && !t3.peaks && (this.decodedData = i$2.createBuffer(this.exportPeaks(), t3.duration)), t3.peaks && t3.duration && (this.decodedData = i$2.createBuffer(t3.peaks, t3.duration)), this.renderer.setOptions(this.options), t3.audioRate && this.setPlaybackRate(t3.audioRate), null != t3.mediaControls && (this.getMediaElement().controls = t3.mediaControls);
   }
   registerPlugin(t3) {
-    return t3._init(this), this.plugins.push(t3), this.subscriptions.push(t3.once("destroy", () => {
-      this.plugins = this.plugins.filter((e4) => e4 !== t3);
-    })), t3;
+    if (this.plugins.includes(t3)) return t3;
+    t3._init(this), this.plugins.push(t3);
+    const e4 = t3.once("destroy", () => {
+      this.plugins = this.plugins.filter((e5) => e5 !== t3), this.subscriptions = this.subscriptions.filter((t4) => t4 !== e4);
+    });
+    return this.subscriptions.push(e4), t3;
+  }
+  unregisterPlugin(t3) {
+    this.plugins = this.plugins.filter((e4) => e4 !== t3), t3.destroy();
   }
   getWrapper() {
     return this.renderer.getWrapper();
@@ -28764,20 +28851,20 @@ class u extends a {
   getActivePlugins() {
     return this.plugins;
   }
-  loadAudio(e4, s2, n2, r3) {
+  loadAudio(e4, s2, n2, r2) {
     return t$2(this, void 0, void 0, function* () {
       var t3;
       if (this.emit("load", e4), !this.options.media && this.isPlaying() && this.pause(), this.decodedData = null, this.stopAtPosition = null, !s2 && !n2) {
         const i2 = this.options.fetchParams || {};
         window.AbortController && !i2.signal && (this.abortController = new AbortController(), i2.signal = null === (t3 = this.abortController) || void 0 === t3 ? void 0 : t3.signal);
         const n3 = (t4) => this.emit("loading", t4);
-        s2 = yield o$1.fetchBlob(e4, n3, i2);
-        const r4 = this.options.blobMimeType;
-        r4 && (s2 = new Blob([s2], { type: r4 }));
+        s2 = yield o$2.fetchBlob(e4, n3, i2);
+        const r3 = this.options.blobMimeType;
+        r3 && (s2 = new Blob([s2], { type: r3 }));
       }
       this.setSrc(e4, s2);
       const a2 = yield new Promise((t4) => {
-        const e5 = r3 || this.getDuration();
+        const e5 = r2 || this.getDuration();
         e5 ? t4(e5) : this.mediaSubscriptions.push(this.onMediaEvent("loadedmetadata", () => t4(this.getDuration()), { once: true }));
       });
       if (!e4 && !s2) {
@@ -28821,17 +28908,17 @@ class u extends a {
     if (!this.decodedData) throw new Error("The audio has not been decoded yet");
     const s2 = Math.min(t3, this.decodedData.numberOfChannels), n2 = [];
     for (let t4 = 0; t4 < s2; t4++) {
-      const s3 = this.decodedData.getChannelData(t4), r3 = [], o2 = s3.length / e4;
+      const s3 = this.decodedData.getChannelData(t4), r2 = [], o3 = s3.length / e4;
       for (let t5 = 0; t5 < e4; t5++) {
-        const e5 = s3.slice(Math.floor(t5 * o2), Math.ceil((t5 + 1) * o2));
+        const e5 = s3.slice(Math.floor(t5 * o3), Math.ceil((t5 + 1) * o3));
         let n3 = 0;
         for (let t6 = 0; t6 < e5.length; t6++) {
           const i3 = e5[t6];
           Math.abs(i3) > Math.abs(n3) && (n3 = i3);
         }
-        r3.push(Math.round(n3 * i2) / i2);
+        r2.push(Math.round(n3 * i2) / i2);
       }
-      n2.push(r3);
+      n2.push(r2);
     }
     return n2;
   }
@@ -28886,17 +28973,17 @@ class u extends a {
 }
 u.BasePlugin = class extends e$2 {
   constructor(t3) {
-    super(), this.subscriptions = [], this.options = t3;
+    super(), this.subscriptions = [], this.isDestroyed = false, this.options = t3;
   }
   onInit() {
   }
   _init(t3) {
-    this.wavesurfer = t3, this.onInit();
+    this.isDestroyed && (this.subscriptions = [], this.isDestroyed = false), this.wavesurfer = t3, this.onInit();
   }
   destroy() {
-    this.emit("destroy"), this.subscriptions.forEach((t3) => t3());
+    this.emit("destroy"), this.subscriptions.forEach((t3) => t3()), this.subscriptions = [], this.isDestroyed = true, this.wavesurfer = void 0;
   }
-}, u.dom = r$2;
+}, u.dom = r$1;
 let t$1 = class t {
   constructor() {
     this.listeners = {};
@@ -28926,20 +29013,20 @@ let t$1 = class t {
 };
 let e$1 = class e2 extends t$1 {
   constructor(t3) {
-    super(), this.subscriptions = [], this.options = t3;
+    super(), this.subscriptions = [], this.isDestroyed = false, this.options = t3;
   }
   onInit() {
   }
   _init(t3) {
-    this.wavesurfer = t3, this.onInit();
+    this.isDestroyed && (this.subscriptions = [], this.isDestroyed = false), this.wavesurfer = t3, this.onInit();
   }
   destroy() {
-    this.emit("destroy"), this.subscriptions.forEach((t3) => t3());
+    this.emit("destroy"), this.subscriptions.forEach((t3) => t3()), this.subscriptions = [], this.isDestroyed = true, this.wavesurfer = void 0;
   }
 };
 function s$1(t3, e4) {
   const i2 = e4.xmlns ? document.createElementNS(e4.xmlns, t3) : document.createElement(t3);
-  for (const [t4, n2] of Object.entries(e4)) if ("children" === t4) for (const [t5, n3] of Object.entries(e4)) "string" == typeof n3 ? i2.appendChild(document.createTextNode(n3)) : i2.appendChild(s$1(t5, n3));
+  for (const [t4, n2] of Object.entries(e4)) if ("children" === t4 && n2) for (const [t5, e5] of Object.entries(n2)) e5 instanceof Node ? i2.appendChild(e5) : "string" == typeof e5 ? i2.appendChild(document.createTextNode(e5)) : i2.appendChild(s$1(t5, e5));
   else "style" === t4 ? Object.assign(i2.style, n2) : "textContent" === t4 ? i2.textContent = n2 : i2.setAttribute(t4, n2.toString());
   return i2;
 }
@@ -28947,24 +29034,25 @@ function i$1(t3, e4, i2) {
   const n2 = s$1(t3, e4 || {});
   return null == i2 || i2.appendChild(n2), n2;
 }
-const n$1 = { lineWidth: 1, labelSize: 11, formatTimeCallback: (t3) => `${Math.floor(t3 / 60)}:${`0${Math.floor(t3) % 60}`.slice(-2)}` };
-let r$1 = class r extends e$1 {
+const n$1 = { lineWidth: 1, labelSize: 11, labelPreferLeft: false, formatTimeCallback: (t3) => `${Math.floor(t3 / 60)}:${`0${Math.floor(t3) % 60}`.slice(-2)}` };
+let o$1 = class o extends e$1 {
   constructor(t3) {
-    super(t3 || {}), this.unsubscribe = () => {
+    super(t3 || {}), this.lastPointerMove = null, this.unsubscribe = () => {
     }, this.onPointerMove = (t4) => {
       if (!this.wavesurfer) return;
-      const e4 = this.wavesurfer.getWrapper().getBoundingClientRect(), { width: s2 } = e4, i2 = t4.clientX - e4.left, n2 = Math.min(1, Math.max(0, i2 / s2)), r3 = Math.min(s2 - this.options.lineWidth - 1, i2);
-      this.wrapper.style.transform = `translateX(${r3}px)`, this.wrapper.style.opacity = "1";
-      const o2 = this.wavesurfer.getDuration() || 0;
-      this.label.textContent = this.options.formatTimeCallback(o2 * n2);
-      const a2 = this.label.offsetWidth;
-      this.label.style.transform = r3 + a2 > s2 ? `translateX(-${a2 + this.options.lineWidth}px)` : "", this.emit("hover", n2);
+      this.lastPointerMove = t4;
+      const e4 = this.wavesurfer.getWrapper().getBoundingClientRect(), { width: s2 } = e4, i2 = t4.clientX - e4.left, n2 = Math.min(1, Math.max(0, i2 / s2)), o3 = Math.min(s2 - this.options.lineWidth - 1, i2);
+      this.wrapper.style.transform = `translateX(${o3}px)`, this.wrapper.style.opacity = "1";
+      const r2 = this.wavesurfer.getDuration() || 0;
+      this.label.textContent = this.options.formatTimeCallback(r2 * n2);
+      const a2 = this.label.offsetWidth, l2 = this.options.labelPreferLeft ? o3 - a2 > 0 : o3 + a2 > s2;
+      this.label.style.transform = l2 ? `translateX(-${a2 + this.options.lineWidth}px)` : "", this.emit("hover", n2);
     }, this.onPointerLeave = () => {
-      this.wrapper.style.opacity = "0";
+      this.wrapper.style.opacity = "0", this.lastPointerMove = null;
     }, this.options = Object.assign({}, n$1, t3), this.wrapper = i$1("div", { part: "hover" }), this.label = i$1("span", { part: "hover-label" }, this.wrapper);
   }
   static create(t3) {
-    return new r(t3);
+    return new o(t3);
   }
   addUnits(t3) {
     return `${t3}${"number" == typeof t3 ? "px" : ""}`;
@@ -28974,8 +29062,13 @@ let r$1 = class r extends e$1 {
     const t3 = this.wavesurfer.options, e4 = this.options.lineColor || t3.cursorColor || t3.progressColor;
     Object.assign(this.wrapper.style, { position: "absolute", zIndex: 10, left: 0, top: 0, height: "100%", pointerEvents: "none", borderLeft: `${this.addUnits(this.options.lineWidth)} solid ${e4}`, opacity: "0", transition: "opacity .1s ease-in" }), Object.assign(this.label.style, { display: "block", backgroundColor: this.options.labelBackground, color: this.options.labelColor, fontSize: `${this.addUnits(this.options.labelSize)}`, transition: "transform .1s ease-in", padding: "2px 3px" });
     const s2 = this.wavesurfer.getWrapper();
-    s2.appendChild(this.wrapper), s2.addEventListener("pointermove", this.onPointerMove), s2.addEventListener("pointerleave", this.onPointerLeave), s2.addEventListener("wheel", this.onPointerMove), this.unsubscribe = () => {
-      s2.removeEventListener("pointermove", this.onPointerMove), s2.removeEventListener("pointerleave", this.onPointerLeave), s2.removeEventListener("wheel", this.onPointerLeave);
+    s2.appendChild(this.wrapper), s2.addEventListener("pointermove", this.onPointerMove), s2.addEventListener("pointerleave", this.onPointerLeave);
+    const i2 = () => {
+      this.lastPointerMove && this.onPointerMove(this.lastPointerMove);
+    };
+    this.wavesurfer.on("zoom", i2), this.wavesurfer.on("scroll", i2), this.unsubscribe = () => {
+      var t4, e5;
+      s2.removeEventListener("pointermove", this.onPointerMove), s2.removeEventListener("pointerleave", this.onPointerLeave), null === (t4 = this.wavesurfer) || void 0 === t4 || t4.un("zoom", i2), null === (e5 = this.wavesurfer) || void 0 === e5 || e5.un("scroll", i2);
     };
   }
   destroy() {
@@ -29026,7 +29119,7 @@ const SubjectsWaveForm = ({ videoRef, isVideoReady }) => {
     }
     waveSurfer.current = u.create(getWaveSurferOptions());
     waveSurfer.current.registerPlugin(
-      r$1.create({
+      o$1.create({
         labelColor: "#f3f4f6"
       })
     );
@@ -29369,30 +29462,30 @@ var dayjs_min = { exports: {} };
   !function(t3, e4) {
     module.exports = e4();
   }(commonjsGlobal, function() {
-    var t3 = 1e3, e4 = 6e4, n2 = 36e5, r3 = "millisecond", i2 = "second", s2 = "minute", u2 = "hour", a2 = "day", o2 = "week", c2 = "month", f2 = "quarter", h2 = "year", d2 = "date", l2 = "Invalid Date", $ = /^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/, y2 = /\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g, M2 = { name: "en", weekdays: "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"), months: "January_February_March_April_May_June_July_August_September_October_November_December".split("_"), ordinal: function(t4) {
+    var t3 = 1e3, e4 = 6e4, n2 = 36e5, r2 = "millisecond", i2 = "second", s2 = "minute", u2 = "hour", a2 = "day", o3 = "week", c2 = "month", f2 = "quarter", h2 = "year", d2 = "date", l2 = "Invalid Date", $ = /^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/, y2 = /\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g, M2 = { name: "en", weekdays: "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"), months: "January_February_March_April_May_June_July_August_September_October_November_December".split("_"), ordinal: function(t4) {
       var e5 = ["th", "st", "nd", "rd"], n3 = t4 % 100;
       return "[" + t4 + (e5[(n3 - 20) % 10] || e5[n3] || e5[0]) + "]";
     } }, m2 = function(t4, e5, n3) {
-      var r4 = String(t4);
-      return !r4 || r4.length >= e5 ? t4 : "" + Array(e5 + 1 - r4.length).join(n3) + t4;
+      var r3 = String(t4);
+      return !r3 || r3.length >= e5 ? t4 : "" + Array(e5 + 1 - r3.length).join(n3) + t4;
     }, v2 = { s: m2, z: function(t4) {
-      var e5 = -t4.utcOffset(), n3 = Math.abs(e5), r4 = Math.floor(n3 / 60), i3 = n3 % 60;
-      return (e5 <= 0 ? "+" : "-") + m2(r4, 2, "0") + ":" + m2(i3, 2, "0");
+      var e5 = -t4.utcOffset(), n3 = Math.abs(e5), r3 = Math.floor(n3 / 60), i3 = n3 % 60;
+      return (e5 <= 0 ? "+" : "-") + m2(r3, 2, "0") + ":" + m2(i3, 2, "0");
     }, m: function t4(e5, n3) {
       if (e5.date() < n3.date()) return -t4(n3, e5);
-      var r4 = 12 * (n3.year() - e5.year()) + (n3.month() - e5.month()), i3 = e5.clone().add(r4, c2), s3 = n3 - i3 < 0, u3 = e5.clone().add(r4 + (s3 ? -1 : 1), c2);
-      return +(-(r4 + (n3 - i3) / (s3 ? i3 - u3 : u3 - i3)) || 0);
+      var r3 = 12 * (n3.year() - e5.year()) + (n3.month() - e5.month()), i3 = e5.clone().add(r3, c2), s3 = n3 - i3 < 0, u3 = e5.clone().add(r3 + (s3 ? -1 : 1), c2);
+      return +(-(r3 + (n3 - i3) / (s3 ? i3 - u3 : u3 - i3)) || 0);
     }, a: function(t4) {
       return t4 < 0 ? Math.ceil(t4) || 0 : Math.floor(t4);
     }, p: function(t4) {
-      return { M: c2, y: h2, w: o2, d: a2, D: d2, h: u2, m: s2, s: i2, ms: r3, Q: f2 }[t4] || String(t4 || "").toLowerCase().replace(/s$/, "");
+      return { M: c2, y: h2, w: o3, d: a2, D: d2, h: u2, m: s2, s: i2, ms: r2, Q: f2 }[t4] || String(t4 || "").toLowerCase().replace(/s$/, "");
     }, u: function(t4) {
       return void 0 === t4;
     } }, g2 = "en", D2 = {};
     D2[g2] = M2;
     var p2 = "$isDayjsObject", S2 = function(t4) {
       return t4 instanceof _2 || !(!t4 || !t4[p2]);
-    }, w2 = function t4(e5, n3, r4) {
+    }, w2 = function t4(e5, n3, r3) {
       var i3;
       if (!e5) return g2;
       if ("string" == typeof e5) {
@@ -29404,7 +29497,7 @@ var dayjs_min = { exports: {} };
         var a3 = e5.name;
         D2[a3] = e5, i3 = a3;
       }
-      return !r4 && i3 && (g2 = i3), i3 || !r4 && g2;
+      return !r3 && i3 && (g2 = i3), i3 || !r3 && g2;
     }, O2 = function(t4, e5) {
       if (S2(t4)) return t4.clone();
       var n3 = "object" == typeof e5 ? e5 : {};
@@ -29425,10 +29518,10 @@ var dayjs_min = { exports: {} };
           if (b2.u(e5)) return /* @__PURE__ */ new Date();
           if (e5 instanceof Date) return new Date(e5);
           if ("string" == typeof e5 && !/Z$/i.test(e5)) {
-            var r4 = e5.match($);
-            if (r4) {
-              var i3 = r4[2] - 1 || 0, s3 = (r4[7] || "0").substring(0, 3);
-              return n3 ? new Date(Date.UTC(r4[1], i3, r4[3] || 1, r4[4] || 0, r4[5] || 0, r4[6] || 0, s3)) : new Date(r4[1], i3, r4[3] || 1, r4[4] || 0, r4[5] || 0, r4[6] || 0, s3);
+            var r3 = e5.match($);
+            if (r3) {
+              var i3 = r3[2] - 1 || 0, s3 = (r3[7] || "0").substring(0, 3);
+              return n3 ? new Date(Date.UTC(r3[1], i3, r3[3] || 1, r3[4] || 0, r3[5] || 0, r3[6] || 0, s3)) : new Date(r3[1], i3, r3[3] || 1, r3[4] || 0, r3[5] || 0, r3[6] || 0, s3);
             }
           }
           return new Date(e5);
@@ -29454,20 +29547,20 @@ var dayjs_min = { exports: {} };
       }, m3.valueOf = function() {
         return this.$d.getTime();
       }, m3.startOf = function(t4, e5) {
-        var n3 = this, r4 = !!b2.u(e5) || e5, f3 = b2.p(t4), l3 = function(t5, e6) {
+        var n3 = this, r3 = !!b2.u(e5) || e5, f3 = b2.p(t4), l3 = function(t5, e6) {
           var i3 = b2.w(n3.$u ? Date.UTC(n3.$y, e6, t5) : new Date(n3.$y, e6, t5), n3);
-          return r4 ? i3 : i3.endOf(a2);
+          return r3 ? i3 : i3.endOf(a2);
         }, $2 = function(t5, e6) {
-          return b2.w(n3.toDate()[t5].apply(n3.toDate("s"), (r4 ? [0, 0, 0, 0] : [23, 59, 59, 999]).slice(e6)), n3);
+          return b2.w(n3.toDate()[t5].apply(n3.toDate("s"), (r3 ? [0, 0, 0, 0] : [23, 59, 59, 999]).slice(e6)), n3);
         }, y3 = this.$W, M4 = this.$M, m4 = this.$D, v3 = "set" + (this.$u ? "UTC" : "");
         switch (f3) {
           case h2:
-            return r4 ? l3(1, 0) : l3(31, 11);
+            return r3 ? l3(1, 0) : l3(31, 11);
           case c2:
-            return r4 ? l3(1, M4) : l3(0, M4 + 1);
-          case o2:
+            return r3 ? l3(1, M4) : l3(0, M4 + 1);
+          case o3:
             var g3 = this.$locale().weekStart || 0, D3 = (y3 < g3 ? y3 + 7 : y3) - g3;
-            return l3(r4 ? m4 - D3 : m4 + (6 - D3), M4);
+            return l3(r3 ? m4 - D3 : m4 + (6 - D3), M4);
           case a2:
           case d2:
             return $2(v3 + "Hours", 0);
@@ -29483,8 +29576,8 @@ var dayjs_min = { exports: {} };
       }, m3.endOf = function(t4) {
         return this.startOf(t4, false);
       }, m3.$set = function(t4, e5) {
-        var n3, o3 = b2.p(t4), f3 = "set" + (this.$u ? "UTC" : ""), l3 = (n3 = {}, n3[a2] = f3 + "Date", n3[d2] = f3 + "Date", n3[c2] = f3 + "Month", n3[h2] = f3 + "FullYear", n3[u2] = f3 + "Hours", n3[s2] = f3 + "Minutes", n3[i2] = f3 + "Seconds", n3[r3] = f3 + "Milliseconds", n3)[o3], $2 = o3 === a2 ? this.$D + (e5 - this.$W) : e5;
-        if (o3 === c2 || o3 === h2) {
+        var n3, o4 = b2.p(t4), f3 = "set" + (this.$u ? "UTC" : ""), l3 = (n3 = {}, n3[a2] = f3 + "Date", n3[d2] = f3 + "Date", n3[c2] = f3 + "Month", n3[h2] = f3 + "FullYear", n3[u2] = f3 + "Hours", n3[s2] = f3 + "Minutes", n3[i2] = f3 + "Seconds", n3[r2] = f3 + "Milliseconds", n3)[o4], $2 = o4 === a2 ? this.$D + (e5 - this.$W) : e5;
+        if (o4 === c2 || o4 === h2) {
           var y3 = this.clone().set(d2, 1);
           y3.$d[l3]($2), y3.init(), this.$d = y3.set(d2, Math.min(this.$D, y3.daysInMonth())).$d;
         } else l3 && this.$d[l3]($2);
@@ -29493,34 +29586,34 @@ var dayjs_min = { exports: {} };
         return this.clone().$set(t4, e5);
       }, m3.get = function(t4) {
         return this[b2.p(t4)]();
-      }, m3.add = function(r4, f3) {
+      }, m3.add = function(r3, f3) {
         var d3, l3 = this;
-        r4 = Number(r4);
+        r3 = Number(r3);
         var $2 = b2.p(f3), y3 = function(t4) {
           var e5 = O2(l3);
-          return b2.w(e5.date(e5.date() + Math.round(t4 * r4)), l3);
+          return b2.w(e5.date(e5.date() + Math.round(t4 * r3)), l3);
         };
-        if ($2 === c2) return this.set(c2, this.$M + r4);
-        if ($2 === h2) return this.set(h2, this.$y + r4);
+        if ($2 === c2) return this.set(c2, this.$M + r3);
+        if ($2 === h2) return this.set(h2, this.$y + r3);
         if ($2 === a2) return y3(1);
-        if ($2 === o2) return y3(7);
-        var M4 = (d3 = {}, d3[s2] = e4, d3[u2] = n2, d3[i2] = t3, d3)[$2] || 1, m4 = this.$d.getTime() + r4 * M4;
+        if ($2 === o3) return y3(7);
+        var M4 = (d3 = {}, d3[s2] = e4, d3[u2] = n2, d3[i2] = t3, d3)[$2] || 1, m4 = this.$d.getTime() + r3 * M4;
         return b2.w(m4, this);
       }, m3.subtract = function(t4, e5) {
         return this.add(-1 * t4, e5);
       }, m3.format = function(t4) {
         var e5 = this, n3 = this.$locale();
         if (!this.isValid()) return n3.invalidDate || l2;
-        var r4 = t4 || "YYYY-MM-DDTHH:mm:ssZ", i3 = b2.z(this), s3 = this.$H, u3 = this.$m, a3 = this.$M, o3 = n3.weekdays, c3 = n3.months, f3 = n3.meridiem, h3 = function(t5, n4, i4, s4) {
-          return t5 && (t5[n4] || t5(e5, r4)) || i4[n4].slice(0, s4);
+        var r3 = t4 || "YYYY-MM-DDTHH:mm:ssZ", i3 = b2.z(this), s3 = this.$H, u3 = this.$m, a3 = this.$M, o4 = n3.weekdays, c3 = n3.months, f3 = n3.meridiem, h3 = function(t5, n4, i4, s4) {
+          return t5 && (t5[n4] || t5(e5, r3)) || i4[n4].slice(0, s4);
         }, d3 = function(t5) {
           return b2.s(s3 % 12 || 12, t5, "0");
         }, $2 = f3 || function(t5, e6, n4) {
-          var r5 = t5 < 12 ? "AM" : "PM";
-          return n4 ? r5.toLowerCase() : r5;
+          var r4 = t5 < 12 ? "AM" : "PM";
+          return n4 ? r4.toLowerCase() : r4;
         };
-        return r4.replace(y2, function(t5, r5) {
-          return r5 || function(t6) {
+        return r3.replace(y2, function(t5, r4) {
+          return r4 || function(t6) {
             switch (t6) {
               case "YY":
                 return String(e5.$y).slice(-2);
@@ -29541,11 +29634,11 @@ var dayjs_min = { exports: {} };
               case "d":
                 return String(e5.$W);
               case "dd":
-                return h3(n3.weekdaysMin, e5.$W, o3, 2);
+                return h3(n3.weekdaysMin, e5.$W, o4, 2);
               case "ddd":
-                return h3(n3.weekdaysShort, e5.$W, o3, 3);
+                return h3(n3.weekdaysShort, e5.$W, o4, 3);
               case "dddd":
-                return o3[e5.$W];
+                return o4[e5.$W];
               case "H":
                 return String(s3);
               case "HH":
@@ -29576,8 +29669,8 @@ var dayjs_min = { exports: {} };
         });
       }, m3.utcOffset = function() {
         return 15 * -Math.round(this.$d.getTimezoneOffset() / 15);
-      }, m3.diff = function(r4, d3, l3) {
-        var $2, y3 = this, M4 = b2.p(d3), m4 = O2(r4), v3 = (m4.utcOffset() - this.utcOffset()) * e4, g3 = this - m4, D3 = function() {
+      }, m3.diff = function(r3, d3, l3) {
+        var $2, y3 = this, M4 = b2.p(d3), m4 = O2(r3), v3 = (m4.utcOffset() - this.utcOffset()) * e4, g3 = this - m4, D3 = function() {
           return b2.m(y3, m4);
         };
         switch (M4) {
@@ -29590,7 +29683,7 @@ var dayjs_min = { exports: {} };
           case f2:
             $2 = D3() / 3;
             break;
-          case o2:
+          case o3:
             $2 = (g3 - v3) / 6048e5;
             break;
           case a2:
@@ -29615,8 +29708,8 @@ var dayjs_min = { exports: {} };
         return D2[this.$L];
       }, m3.locale = function(t4, e5) {
         if (!t4) return this.$L;
-        var n3 = this.clone(), r4 = w2(t4, e5, true);
-        return r4 && (n3.$L = r4), n3;
+        var n3 = this.clone(), r3 = w2(t4, e5, true);
+        return r3 && (n3.$L = r3), n3;
       }, m3.clone = function() {
         return b2.w(this.$d, this);
       }, m3.toDate = function() {
@@ -29629,7 +29722,7 @@ var dayjs_min = { exports: {} };
         return this.$d.toUTCString();
       }, M3;
     }(), k2 = _2.prototype;
-    return O2.prototype = k2, [["$ms", r3], ["$s", i2], ["$m", s2], ["$H", u2], ["$W", a2], ["$M", c2], ["$y", h2], ["$D", d2]].forEach(function(t4) {
+    return O2.prototype = k2, [["$ms", r2], ["$s", i2], ["$m", s2], ["$H", u2], ["$W", a2], ["$M", c2], ["$y", h2], ["$D", d2]].forEach(function(t4) {
       k2[t4[1]] = function(e5) {
         return this.$g(e5, t4[0], t4[1]);
       };
@@ -29644,20 +29737,20 @@ var dayjs_minExports = dayjs_min.exports;
 const dayjs = /* @__PURE__ */ getDefaultExportFromCjs(dayjs_minExports);
 var relativeTime$1 = { exports: {} };
 (function(module, exports) {
-  !function(r3, e4) {
+  !function(r2, e4) {
     module.exports = e4();
   }(commonjsGlobal, function() {
-    return function(r3, e4, t3) {
-      r3 = r3 || {};
-      var n2 = e4.prototype, o2 = { future: "in %s", past: "%s ago", s: "a few seconds", m: "a minute", mm: "%d minutes", h: "an hour", hh: "%d hours", d: "a day", dd: "%d days", M: "a month", MM: "%d months", y: "a year", yy: "%d years" };
-      function i2(r4, e5, t4, o3) {
-        return n2.fromToBase(r4, e5, t4, o3);
+    return function(r2, e4, t3) {
+      r2 = r2 || {};
+      var n2 = e4.prototype, o3 = { future: "in %s", past: "%s ago", s: "a few seconds", m: "a minute", mm: "%d minutes", h: "an hour", hh: "%d hours", d: "a day", dd: "%d days", M: "a month", MM: "%d months", y: "a year", yy: "%d years" };
+      function i2(r3, e5, t4, o4) {
+        return n2.fromToBase(r3, e5, t4, o4);
       }
-      t3.en.relativeTime = o2, n2.fromToBase = function(e5, n3, i3, d3, u2) {
-        for (var f2, a2, s2, l2 = i3.$locale().relativeTime || o2, h2 = r3.thresholds || [{ l: "s", r: 44, d: "second" }, { l: "m", r: 89 }, { l: "mm", r: 44, d: "minute" }, { l: "h", r: 89 }, { l: "hh", r: 21, d: "hour" }, { l: "d", r: 35 }, { l: "dd", r: 25, d: "day" }, { l: "M", r: 45 }, { l: "MM", r: 10, d: "month" }, { l: "y", r: 17 }, { l: "yy", d: "year" }], m2 = h2.length, c2 = 0; c2 < m2; c2 += 1) {
+      t3.en.relativeTime = o3, n2.fromToBase = function(e5, n3, i3, d3, u2) {
+        for (var f2, a2, s2, l2 = i3.$locale().relativeTime || o3, h2 = r2.thresholds || [{ l: "s", r: 44, d: "second" }, { l: "m", r: 89 }, { l: "mm", r: 44, d: "minute" }, { l: "h", r: 89 }, { l: "hh", r: 21, d: "hour" }, { l: "d", r: 35 }, { l: "dd", r: 25, d: "day" }, { l: "M", r: 45 }, { l: "MM", r: 10, d: "month" }, { l: "y", r: 17 }, { l: "yy", d: "year" }], m2 = h2.length, c2 = 0; c2 < m2; c2 += 1) {
           var y2 = h2[c2];
           y2.d && (f2 = d3 ? t3(e5).diff(i3, y2.d, true) : i3.diff(e5, y2.d, true));
-          var p2 = (r3.rounding || Math.round)(Math.abs(f2));
+          var p2 = (r2.rounding || Math.round)(Math.abs(f2));
           if (s2 = f2 > 0, p2 <= y2.r || !y2.r) {
             p2 <= 1 && c2 > 0 && (y2 = h2[c2 - 1]);
             var v2 = l2[y2.l];
@@ -29668,18 +29761,18 @@ var relativeTime$1 = { exports: {} };
         if (n3) return a2;
         var M2 = s2 ? l2.future : l2.past;
         return "function" == typeof M2 ? M2(a2) : M2.replace("%s", a2);
-      }, n2.to = function(r4, e5) {
-        return i2(r4, e5, this, true);
-      }, n2.from = function(r4, e5) {
-        return i2(r4, e5, this);
+      }, n2.to = function(r3, e5) {
+        return i2(r3, e5, this, true);
+      }, n2.from = function(r3, e5) {
+        return i2(r3, e5, this);
       };
-      var d2 = function(r4) {
-        return r4.$u ? t3.utc() : t3();
+      var d2 = function(r3) {
+        return r3.$u ? t3.utc() : t3();
       };
-      n2.toNow = function(r4) {
-        return this.to(d2(this), r4);
-      }, n2.fromNow = function(r4) {
-        return this.from(d2(this), r4);
+      n2.toNow = function(r3) {
+        return this.to(d2(this), r3);
+      }, n2.fromNow = function(r3) {
+        return this.from(d2(this), r3);
       };
     };
   });
@@ -29769,7 +29862,7 @@ const AddTile = ({ onClick }) => {
     "button",
     {
       onClick,
-      className: "\r\n        w-full h-full\r\n        rounded-lg flex\r\n        p-4\r\n        items-center justify-center\r\n        border-2 border-dashed border-gray-500 \r\n        hover:bg-gray-700 \r\n        focus:outline-none focus:ring\r\n      ",
+      className: "\n        w-full h-full\n        rounded-lg flex\n        p-4\n        items-center justify-center\n        border-2 border-dashed border-gray-500 \n        hover:bg-gray-700 \n        focus:outline-none focus:ring\n      ",
       children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { size: 32 }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "mt-2 text-sm", children: "New Project" })
@@ -30314,7 +30407,7 @@ const Default = ({
     "div",
     {
       tabIndex: -1,
-      className: "border-2 border-zinc-600 text-gray-100 rounded-lg mb-4 overflow-hidden min-h-[50px]\r\n                focus:border-blue-500 focus:outline-none\r\n                transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Region #",
@@ -30327,7 +30420,7 @@ const Default = ({
                 className: `transform transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`,
                 onClick: (e4) => {
                   e4.stopPropagation();
-                  setOpen((o2) => !o2);
+                  setOpen((o3) => !o3);
                 },
                 "aria-label": "Toggle details",
                 children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: "text-gray-100", fontSize: "small" })
@@ -30344,13 +30437,13 @@ const Default = ({
             )
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-600", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row items-center flex-wrap justify-between px-3 py-2 bg-transparent gap-y-4 rounded-b-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-500 w-full block", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2 justify-between min-w-[400px] w-full", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Task: " }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Task: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "select",
               {
-                className: "p-2 border rounded-lg bg-[#333338] text-gray-100 border-zinc-600",
+                className: "p-1 pl-2 py-1.5 w-40 border border-zinc-500 text-left text-gray-100 rounded-lg bg-zinc-600",
                 value: task.name,
                 onChange: (e4) => handleTaskChange({ value: e4.target.value, label: e4.target.value }),
                 children: [
@@ -30361,11 +30454,11 @@ const Default = ({
             )
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Start: " }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Start: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
-                className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                 type: "number",
                 onChange: (e4) => onFieldChange(e4.target.value, "start", task),
                 onDoubleClick: () => onTimeClick(task.start),
@@ -30382,16 +30475,16 @@ const Default = ({
                   e4.stopPropagation();
                   onTimeMark("start", task);
                 },
-                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" })
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
               }
             )
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "End: " }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "End: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
-                className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                 type: "number",
                 onChange: (e4) => onFieldChange(e4.target.value, "end", task),
                 onDoubleClick: () => onTimeClick(task.end),
@@ -30400,12 +30493,19 @@ const Default = ({
                 value: task.end
               }
             ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { size: "small", onClick: (e4) => {
-              e4.stopPropagation();
-              onTimeMark("end", task);
-            }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" }) })
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              IconButton,
+              {
+                size: "small",
+                onClick: (e4) => {
+                  e4.stopPropagation();
+                  onTimeMark("end", task);
+                },
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
+              }
+            )
           ] })
-        ] }) })
+        ] }) }) })
       ]
     },
     task.id
@@ -30424,6 +30524,9 @@ const FingerTapLeft$1 = ({
   options
 }) => {
   const [open, setOpen] = reactExports.useState(true);
+  const handleTaskChange = (selectedTask) => {
+    onFieldChange(selectedTask.value, "name", task);
+  };
   reactExports.useEffect(() => {
     if (!task.norm_strategy) {
       onFieldChange("INDEXSIZE", "norm_strategy", task);
@@ -30433,7 +30536,7 @@ const FingerTapLeft$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "border-2 border-zinc-600 bg-zinc-700 text-gray-100 rounded-lg mb-4 overflow-hidden min-h-[50px]\r\n                focus:border-blue-500 focus:outline-none\r\n                transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Finger Tap Left #",
@@ -30446,7 +30549,7 @@ const FingerTapLeft$1 = ({
                 className: `transform transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`,
                 onClick: (e4) => {
                   e4.stopPropagation();
-                  setOpen((o2) => !o2);
+                  setOpen((o3) => !o3);
                 },
                 "aria-label": "Toggle details",
                 children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: "text-gray-100", fontSize: "small" })
@@ -30463,16 +30566,16 @@ const FingerTapLeft$1 = ({
             )
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-600", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row items-center flex-nowrap justify-between px-3 py-2 bg-transparent gap-y-4 rounded-b-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-500 w-full block", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2 justify-between min-w-[400px] w-full", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Task: " }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Task: " }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 "select",
                 {
-                  className: "p-2 border rounded-lg bg-zinc-700 text-gray-100 border-zinc-600",
+                  className: "p-1 pl-2 py-1.5 w-56 border border-zinc-500 text-left text-gray-100 rounded-lg bg-zinc-600",
                   value: task.name,
-                  onChange: (e4) => onFieldChange(e4.target.value, "name", task),
+                  onChange: (e4) => handleTaskChange({ value: e4.target.value, label: e4.target.value }),
                   children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", hidden: true, children: "Select task" }),
                     options.map((option) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: option.value, children: option.label }, option.value))
@@ -30481,11 +30584,11 @@ const FingerTapLeft$1 = ({
               )
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Start: " }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Start: " }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
-                  className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                  className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                   type: "number",
                   onChange: (e4) => onFieldChange(e4.target.value, "start", task),
                   onDoubleClick: () => onTimeClick(task.start),
@@ -30502,16 +30605,16 @@ const FingerTapLeft$1 = ({
                     e4.stopPropagation();
                     onTimeMark("start", task);
                   },
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" })
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
                 }
               )
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "End: " }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "End: " }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
-                  className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                  className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                   type: "number",
                   onChange: (e4) => onFieldChange(e4.target.value, "end", task),
                   onDoubleClick: () => onTimeClick(task.end),
@@ -30520,18 +30623,25 @@ const FingerTapLeft$1 = ({
                   value: task.end
                 }
               ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { size: "small", onClick: (e4) => {
-                e4.stopPropagation();
-                onTimeMark("end", task);
-              }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" }) })
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                IconButton,
+                {
+                  size: "small",
+                  onClick: (e4) => {
+                    e4.stopPropagation();
+                    onTimeMark("end", task);
+                  },
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
+                }
+              )
             ] })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-row items-center flex-nowrap justify-between px-3 py-2 bg-transparent gap-y-4 rounded-b-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Normalization: " }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-between space-x-2 min-w-[400px] w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap text-gray-100", children: "Normalization: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "select",
               {
-                className: "p-2 border rounded-lg bg-zinc-700 text-gray-100 border-zinc-600",
+                className: "py-1.5 pl-2 w-[150px] border rounded-lg text-gray-100 bg-zinc-600 border-zinc-500",
                 value: task?.norm_strategy ? task.norm_strategy : "INDEXSIZE",
                 onChange: (e4) => onFieldChange(e4.target.value, "norm_strategy", task),
                 children: [
@@ -30543,7 +30653,7 @@ const FingerTapLeft$1 = ({
               }
             )
           ] }) })
-        ] })
+        ] }) })
       ]
     },
     task.id
@@ -30562,11 +30672,6 @@ const FingerTapRight$1 = ({
   options
 }) => {
   const [open, setOpen] = reactExports.useState(true);
-  const renderCount = reactExports.useRef(0);
-  renderCount.current += 1;
-  reactExports.useEffect(() => {
-    console.log(`Rendered ${renderCount.current} times`);
-  });
   const handleTaskChange = (selectedTask) => {
     onFieldChange(selectedTask.value, "name", task);
   };
@@ -30574,7 +30679,7 @@ const FingerTapRight$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "border-2 border-zinc-600 text-gray-100 rounded-lg mb-4 overflow-hidden min-h-[50px]\r\n                focus:border-blue-500 focus:outline-none\r\n                transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Finger Tap Right #",
@@ -30587,7 +30692,7 @@ const FingerTapRight$1 = ({
                 className: `transform transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`,
                 onClick: (e4) => {
                   e4.stopPropagation();
-                  setOpen((o2) => !o2);
+                  setOpen((o3) => !o3);
                 },
                 "aria-label": "Toggle details",
                 children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: "text-gray-100", fontSize: "small" })
@@ -30604,14 +30709,14 @@ const FingerTapRight$1 = ({
             )
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-600", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row items-center flex-wrap justify-between px-3 py-2 bg-transparent gap-y-4 rounded-b-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-500 w-full block", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2 justify-between min-w-[400px] w-full", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Task: " }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Task: " }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 "select",
                 {
-                  className: "p-2 border rounded-lg bg-[#333338] text-gray-100 border-zinc-600",
+                  className: "p-1 pl-2 py-1.5 w-56 border border-zinc-500 text-left text-gray-100 rounded-lg bg-zinc-600",
                   value: task.name,
                   onChange: (e4) => handleTaskChange({ value: e4.target.value, label: e4.target.value }),
                   children: [
@@ -30622,11 +30727,11 @@ const FingerTapRight$1 = ({
               )
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Start: " }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Start: " }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
-                  className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                  className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                   type: "number",
                   onChange: (e4) => onFieldChange(e4.target.value, "start", task),
                   onDoubleClick: () => onTimeClick(task.start),
@@ -30643,16 +30748,16 @@ const FingerTapRight$1 = ({
                     e4.stopPropagation();
                     onTimeMark("start", task);
                   },
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" })
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
                 }
               )
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "End: " }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "End: " }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
-                  className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                  className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                   type: "number",
                   onChange: (e4) => onFieldChange(e4.target.value, "end", task),
                   onDoubleClick: () => onTimeClick(task.end),
@@ -30661,18 +30766,25 @@ const FingerTapRight$1 = ({
                   value: task.end
                 }
               ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { size: "small", onClick: (e4) => {
-                e4.stopPropagation();
-                onTimeMark("end", task);
-              }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" }) })
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                IconButton,
+                {
+                  size: "small",
+                  onClick: (e4) => {
+                    e4.stopPropagation();
+                    onTimeMark("end", task);
+                  },
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
+                }
+              )
             ] })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-row items-center flex-nowrap justify-between px-3 py-2 bg-transparent gap-y-4 rounded-b-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Normalization: " }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-between space-x-2 min-w-[400px] w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap text-gray-100", children: "Normalization: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "select",
               {
-                className: "p-2 border rounded-lg bg-[#333338] text-gray-100 border-zinc-600",
+                className: "py-1.5 pl-2 w-[150px] border rounded-lg text-gray-100 bg-zinc-600 border-zinc-500",
                 value: task?.norm_strategy ? task.norm_strategy : "INDEXSIZE",
                 onChange: (e4) => onFieldChange(e4.target.value, "norm_strategy", task),
                 children: [
@@ -30684,7 +30796,7 @@ const FingerTapRight$1 = ({
               }
             )
           ] }) })
-        ] })
+        ] }) })
       ]
     },
     task.id
@@ -30705,53 +30817,6 @@ var _jsxRuntime$3 = jsxRuntimeExports;
 default_1$3 = HelpOutline.default = (0, _createSvgIcon$3.default)(/* @__PURE__ */ (0, _jsxRuntime$3.jsx)("path", {
   d: "M11 18h2v-2h-2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4"
 }), "HelpOutline");
-const listeners$2 = /* @__PURE__ */ new Set();
-let globalFOV$2 = null;
-let globalSensorHeight$2 = null;
-let globalSensorWidth$2 = null;
-let globalFocalLength$2 = null;
-let globalHeight$2 = null;
-let globalIntrinsicMatrix$2 = null;
-let globalExtrinsicMatrix$2 = null;
-function setGlobalFieldofView$2(onFieldChange, val, task) {
-  globalFOV$2 = val;
-  onFieldChange(val, "field_of_view", task);
-  listeners$2.forEach((cb2) => cb2());
-}
-function setGlobalSensorWidth$2(onFieldChange, val, task) {
-  globalSensorWidth$2 = val;
-  onFieldChange(val, "sensor_width", task);
-  listeners$2.forEach((cb2) => cb2());
-}
-function setGlobalSensorHeight$2(onFieldChange, val, task) {
-  globalSensorHeight$2 = val;
-  onFieldChange(val, "sensor_height", task);
-  listeners$2.forEach((cb2) => cb2());
-}
-function setGlobalFocalLength$2(onFieldChange, val, task) {
-  globalFocalLength$2 = val;
-  onFieldChange(val, "focal_length", task);
-  listeners$2.forEach((cb2) => cb2());
-}
-function setGlobalHeight$2(onFieldChange, val, task) {
-  globalHeight$2 = val;
-  onFieldChange(val, "height", task);
-  listeners$2.forEach((cb2) => cb2());
-}
-function setGlobalIntrinsicMatrix$2(onFieldChange, matrix, task) {
-  globalIntrinsicMatrix$2 = matrix;
-  onFieldChange(matrix, "intrinsic_matrix", task);
-  listeners$2.forEach((cb2) => cb2());
-}
-function setGlobalExtrinsicMatrix$2(onFieldChange, matrix, task) {
-  globalExtrinsicMatrix$2 = matrix;
-  onFieldChange(matrix, "extrinsic_matrix", task);
-  listeners$2.forEach((cb2) => cb2());
-}
-const subscribe$2 = (cb2) => {
-  listeners$2.add(cb2);
-  return () => listeners$2.delete(cb2);
-};
 const Gait$1 = ({
   task,
   taskTypeIndex,
@@ -30759,19 +30824,21 @@ const Gait$1 = ({
   onTaskDelete,
   onTimeMark,
   onTimeClick,
-  options
+  options,
+  taskGlobals: taskGlobals2,
+  setTaskGlobals: setTaskGlobals2
 }) => {
   const [open, setOpen] = reactExports.useState(true);
   const taskSelectionRef = reactExports.useRef(null);
-  const defaultIntrinsic = task.intrinsic_matrix || Array.from({ length: 3 }, () => Array(3).fill(0));
-  const defaultExtrinsic = task.extrinsic_matrix || Array.from({ length: 4 }, () => Array(4).fill(0));
-  const h2 = reactExports.useSyncExternalStore(subscribe$2, () => globalHeight$2);
-  const fov = reactExports.useSyncExternalStore(subscribe$2, () => globalFOV$2);
-  const sensorW = reactExports.useSyncExternalStore(subscribe$2, () => globalSensorWidth$2);
-  const sensorH = reactExports.useSyncExternalStore(subscribe$2, () => globalSensorHeight$2);
-  const fl2 = reactExports.useSyncExternalStore(subscribe$2, () => globalFocalLength$2);
-  const intrinsicMatrix = reactExports.useSyncExternalStore(subscribe$2, () => globalIntrinsicMatrix$2 || defaultIntrinsic);
-  const extrinsicMatrix = reactExports.useSyncExternalStore(subscribe$2, () => globalExtrinsicMatrix$2 || defaultExtrinsic);
+  const defaultIntrinsic = task.intrinsic_matrix || Array.from({ length: 3 }, () => Array(3).fill(null));
+  const defaultExtrinsic = task.extrinsic_matrix || Array.from({ length: 4 }, () => Array(4).fill(null));
+  const h2 = taskGlobals2.height ?? null;
+  const fov = taskGlobals2.field_of_view ?? null;
+  const sensorW = taskGlobals2.sensor_width ?? null;
+  const sensorH = taskGlobals2.sensor_height ?? null;
+  const fl2 = taskGlobals2.focal_length ?? null;
+  const intrinsicMatrix = taskGlobals2.intrinsic_matrix || defaultIntrinsic;
+  const extrinsicMatrix = taskGlobals2.extrinsic_matrix || defaultExtrinsic;
   const [showCameraProperties, setShowCameraProperties] = reactExports.useState(false);
   const [showIntrinsic, setShowIntrinsic] = reactExports.useState(false);
   const [showExtrinsic, setShowExtrinsic] = reactExports.useState(false);
@@ -30779,15 +30846,51 @@ const Gait$1 = ({
     onFieldChange(selectedTask.value, "name", task);
   };
   reactExports.useEffect(() => {
-    if (globalFocalLength$2 == null && task.focal_length != null)
-      setGlobalFocalLength$2(onFieldChange, task.focal_length, task);
-    if (globalHeight$2 == null && task.height != null)
-      setGlobalHeight$2(onFieldChange, task.height, task);
-    if (globalSensorWidth$2 == null && task.sensor_width != null)
-      setGlobalSensorWidth$2(onFieldChange, task.sensor_width, task);
-    if (globalSensorHeight$2 == null && task.sensor_height != null)
-      setGlobalSensorHeight$2(onFieldChange, task.sensor_height, task);
+    if (task.field_of_view !== void 0 && taskGlobals2.field_of_view === void 0) {
+      setTaskGlobals2({ field_of_view: task.field_of_view });
+    }
+    if (task.focal_length !== void 0 && taskGlobals2.focal_length === void 0) {
+      setTaskGlobals2({ focal_length: task.focal_length });
+    }
+    if (task.sensor_width !== void 0 && taskGlobals2.sensor_width === void 0) {
+      setTaskGlobals2({ sensor_width: task.sensor_width });
+    }
+    if (task.sensor_height !== void 0 && taskGlobals2.sensor_height === void 0) {
+      setTaskGlobals2({ sensor_height: task.sensor_height });
+    }
+    if (task.height !== void 0 && taskGlobals2.height === void 0) {
+      setTaskGlobals2({ height: task.height });
+    }
+    if (task.intrinsic_matrix !== void 0 && taskGlobals2.intrinsic_matrix === void 0) {
+      setTaskGlobals2({ intrinsic_matrix: task.intrinsic_matrix });
+    }
+    if (task.extrinsic_matrix !== void 0 && taskGlobals2.extrinsic_matrix === void 0) {
+      setTaskGlobals2({ extrinsic_matrix: task.extrinsic_matrix });
+    }
   }, []);
+  reactExports.useEffect(() => {
+    if (typeof taskGlobals2.field_of_view !== "undefined") {
+      onFieldChange(taskGlobals2.field_of_view, "field_of_view", task);
+    }
+    if (typeof taskGlobals2.focal_length !== "undefined") {
+      onFieldChange(taskGlobals2.focal_length, "focal_length", task);
+    }
+    if (typeof taskGlobals2.sensor_width !== "undefined") {
+      onFieldChange(taskGlobals2.sensor_width, "sensor_width", task);
+    }
+    if (typeof taskGlobals2.sensor_height !== "undefined") {
+      onFieldChange(taskGlobals2.sensor_height, "sensor_height", task);
+    }
+    if (typeof taskGlobals2.height !== "undefined") {
+      onFieldChange(taskGlobals2.height, "height", task);
+    }
+    if (typeof taskGlobals2.intrinsic_matrix !== "undefined") {
+      onFieldChange(taskGlobals2.intrinsic_matrix, "intrinsic_matrix", task);
+    }
+    if (typeof taskGlobals2.extrinsic_matrix !== "undefined") {
+      onFieldChange(taskGlobals2.extrinsic_matrix, "extrinsic_matrix", task);
+    }
+  }, [taskGlobals2]);
   const renderCameraPropertiesEditor = (fov2, sensorHeight, sensorWidth, focalLength, intrinsicMatrix2, extrinsicMatrix2, showIntrinsic2, showExtrinsic2) => {
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5 flex justify-between items-center", children: [
@@ -30798,12 +30901,13 @@ const Gait$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: fov2 || "",
               placeholder: "55",
               onChange: (e4) => {
-                const v2 = +e4.target.value;
-                setGlobalFieldofView$2(onFieldChange, v2, task);
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals2({ field_of_view: v2 });
+                onFieldChange(v2, "field_of_view", task);
               }
             }
           ),
@@ -30825,11 +30929,12 @@ const Gait$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: sensorWidth || "",
               onChange: (e4) => {
-                const v2 = +e4.target.value;
-                setGlobalSensorWidth$2(onFieldChange, v2, task);
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals2({ sensor_width: v2 });
+                onFieldChange(v2, "sensor_width", task);
               }
             }
           ),
@@ -30851,11 +30956,12 @@ const Gait$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: sensorHeight || "",
               onChange: (e4) => {
-                const v2 = +e4.target.value;
-                setGlobalSensorHeight$2(onFieldChange, v2, task);
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals2({ sensor_height: v2 });
+                onFieldChange(v2, "sensor_height", task);
               }
             }
           ),
@@ -30877,11 +30983,12 @@ const Gait$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: fl2 || "",
               onChange: (e4) => {
-                const v2 = +e4.target.value;
-                setGlobalFocalLength$2(onFieldChange, v2, task);
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals2({ focal_length: v2 });
+                onFieldChange(v2, "focal_length", task);
               }
             }
           ),
@@ -30923,13 +31030,14 @@ const Gait$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: val,
               onChange: (e4) => {
-                const newVal = e4.target.value === "" ? "" : Number(e4.target.value);
-                const newMatrix = intrinsicMatrix2.map((r3) => [...r3]);
+                const newVal = e4.target.value === "" ? null : +e4.target.value;
+                const newMatrix = intrinsicMatrix2.map((r2) => [...r2]);
                 newMatrix[i2][j] = newVal;
-                setGlobalIntrinsicMatrix$2(onFieldChange, newMatrix, task);
+                setTaskGlobals2({ intrinsic_matrix: newMatrix });
+                onFieldChange(newMatrix, "intrinsic_matrix", task);
               }
             },
             `int-${i2}-${j}`
@@ -30964,13 +31072,14 @@ const Gait$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: val,
               onChange: (e4) => {
-                const newVal = e4.target.value === "" ? "" : Number(e4.target.value);
-                const newMatrix = extrinsicMatrix2.map((r3) => [...r3]);
+                const newVal = e4.target.value === "" ? null : +e4.target.value;
+                const newMatrix = extrinsicMatrix2.map((r2) => [...r2]);
                 newMatrix[i2][j] = newVal;
-                setGlobalExtrinsicMatrix$2(onFieldChange, newMatrix, task);
+                setTaskGlobals2({ extrinsic_matrix: newMatrix });
+                onFieldChange(newMatrix, "extrinsic_matrix", task);
               }
             },
             `ext-${i2}-${j}`
@@ -30981,7 +31090,7 @@ const Gait$1 = ({
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
-            className: "px-3 py-1 bg-transparent border border-zinc-600 text-gray-100 rounded-lg w-20",
+            className: "px-3 py-1 bg-transparent border border-zinc-500 text-gray-100 rounded-lg w-20",
             onClick: () => setShowCameraProperties(false),
             children: "Cancel"
           }
@@ -30996,6 +31105,7 @@ const Gait$1 = ({
               onFieldChange(extrinsicMatrix2, "extrinsic_matrix", task);
               onFieldChange(sensorWidth, "sensor_width", task);
               onFieldChange(sensorHeight, "sensor_height", task);
+              onFieldChange(fov2, "field_of_view", task);
               setShowCameraProperties(false);
             },
             children: "Save"
@@ -31008,7 +31118,7 @@ const Gait$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "border-2 border-zinc-600 rounded-lg mb-4 overflow-hidden min-h-[50px] bg-zinc-700 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       ref: taskSelectionRef,
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100", children: [
@@ -31023,7 +31133,7 @@ const Gait$1 = ({
                 className: `transform transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`,
                 onClick: (e4) => {
                   e4.stopPropagation();
-                  setOpen((o2) => !o2);
+                  setOpen((o3) => !o3);
                 },
                 "aria-label": "Toggle details",
                 children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: "text-gray-100", fontSize: "small" })
@@ -31040,14 +31150,14 @@ const Gait$1 = ({
             )
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-600", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-500 w-full block", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2 justify-between min-w-[400px] w-full", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Task: " }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 "select",
                 {
-                  className: "p-1 pl-2 py-1.5 w-40 border border-zinc-600 text-left text-gray-100 rounded-lg bg-zinc-700",
+                  className: "p-1 pl-2 py-1.5 w-40 border border-zinc-500 text-left text-gray-100 rounded-lg bg-zinc-600",
                   value: task.name,
                   onChange: (e4) => handleTaskChange({ value: e4.target.value, label: e4.target.value }),
                   children: [
@@ -31062,7 +31172,7 @@ const Gait$1 = ({
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
-                  className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-600 rounded-lg bg-transparent",
+                  className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                   type: "number",
                   onChange: (e4) => onFieldChange(e4.target.value, "start", task),
                   onDoubleClick: () => onTimeClick(task.start),
@@ -31088,7 +31198,7 @@ const Gait$1 = ({
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
-                  className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-600 rounded-lg bg-transparent",
+                  className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                   type: "number",
                   onChange: (e4) => onFieldChange(e4.target.value, "end", task),
                   onDoubleClick: () => onTimeClick(task.end),
@@ -31116,7 +31226,7 @@ const Gait$1 = ({
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "button",
                 {
-                  className: "px-2 py-1.5 w-14 border border-zinc-600 rounded-lg text-gray-100 hover:bg-zinc-600",
+                  className: "px-2 py-1.5 w-14 border border-zinc-500 rounded-lg text-gray-100 hover:bg-zinc-500",
                   onClick: () => setShowCameraProperties(true),
                   children: "Edit"
                 }
@@ -31127,14 +31237,15 @@ const Gait$1 = ({
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
-                  className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-600 rounded-lg bg-transparent",
+                  className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                   type: "text",
                   inputMode: "numeric",
                   pattern: "[0-9]*",
                   placeholder: "150",
                   onChange: (e4) => {
-                    const v2 = +e4.target.value;
-                    setGlobalHeight$2(onFieldChange, v2, task);
+                    const v2 = e4.target.value === "" ? null : +e4.target.value;
+                    setTaskGlobals2({ height: v2 });
+                    onFieldChange(v2, "height", task);
                   },
                   value: h2 || ""
                 }
@@ -31142,8 +31253,8 @@ const Gait$1 = ({
             ] })
           ] }) })
         ] }) }),
-        showCameraProperties && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-[#333338] border border-zinc-600 p-4 rounded-lg shadow-lg relative w-96", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text text-gray-100 border-b border-zinc-600 flex justify-between bg-[#333338] py-2 mb-2", children: "Edit Camera Properties" }),
+        showCameraProperties && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-[#333338] border border-zinc-500 p-4 rounded-lg shadow-lg relative w-96", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text text-gray-100 border-b border-zinc-500 flex justify-between bg-[#333338] py-2 mb-2", children: "Edit Camera Properties" }),
           renderCameraPropertiesEditor(fov, sensorH, sensorW, fl2, intrinsicMatrix, extrinsicMatrix, showIntrinsic, showExtrinsic)
         ] }) })
       ]
@@ -31153,14 +31264,7 @@ const Gait$1 = ({
 };
 const __vite_glob_0_3$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Gait$1,
-  setGlobalExtrinsicMatrix: setGlobalExtrinsicMatrix$2,
-  setGlobalFieldofView: setGlobalFieldofView$2,
-  setGlobalFocalLength: setGlobalFocalLength$2,
-  setGlobalHeight: setGlobalHeight$2,
-  setGlobalIntrinsicMatrix: setGlobalIntrinsicMatrix$2,
-  setGlobalSensorHeight: setGlobalSensorHeight$2,
-  setGlobalSensorWidth: setGlobalSensorWidth$2
+  default: Gait$1
 }, Symbol.toStringTag, { value: "Module" }));
 const HandMovementLeft$1 = ({
   task,
@@ -31183,7 +31287,7 @@ const HandMovementLeft$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "border-2 border-zinc-600 text-gray-100 rounded-lg mb-4 overflow-hidden min-h-[50px]\r\n                focus:border-blue-500 focus:outline-none\r\n                transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Hand Movement Left #",
@@ -31196,7 +31300,7 @@ const HandMovementLeft$1 = ({
                 className: `transform transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`,
                 onClick: (e4) => {
                   e4.stopPropagation();
-                  setOpen((o2) => !o2);
+                  setOpen((o3) => !o3);
                 },
                 "aria-label": "Toggle details",
                 children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: "text-gray-100", fontSize: "small" })
@@ -31213,14 +31317,14 @@ const HandMovementLeft$1 = ({
             )
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-600", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row items-center flex-wrap justify-between px-3 py-2 bg-transparent gap-y-4 rounded-b-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-500 w-full block", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2 justify-between min-w-[400px] w-full", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Task: " }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Task: " }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 "select",
                 {
-                  className: "p-2 border rounded-lg bg-[#333338] text-gray-100 border-zinc-600",
+                  className: "p-1 pl-2 py-1.5 w-56 border border-zinc-500 text-left text-gray-100 rounded-lg bg-zinc-600",
                   value: task.name,
                   onChange: (e4) => handleTaskChange({ value: e4.target.value, label: e4.target.value }),
                   children: [
@@ -31231,11 +31335,11 @@ const HandMovementLeft$1 = ({
               )
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Start: " }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Start: " }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
-                  className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                  className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                   type: "number",
                   onChange: (e4) => onFieldChange(e4.target.value, "start", task),
                   onDoubleClick: () => onTimeClick(task.start),
@@ -31252,16 +31356,16 @@ const HandMovementLeft$1 = ({
                     e4.stopPropagation();
                     onTimeMark("start", task);
                   },
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" })
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
                 }
               )
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "End: " }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "End: " }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
-                  className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                  className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                   type: "number",
                   onChange: (e4) => onFieldChange(e4.target.value, "end", task),
                   onDoubleClick: () => onTimeClick(task.end),
@@ -31270,18 +31374,25 @@ const HandMovementLeft$1 = ({
                   value: task.end
                 }
               ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { size: "small", onClick: (e4) => {
-                e4.stopPropagation();
-                onTimeMark("end", task);
-              }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" }) })
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                IconButton,
+                {
+                  size: "small",
+                  onClick: (e4) => {
+                    e4.stopPropagation();
+                    onTimeMark("end", task);
+                  },
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
+                }
+              )
             ] })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-row items-center flex-nowrap justify-between px-3 py-2 bg-transparent gap-y-4 rounded-b-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Normalization: " }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-between space-x-2 min-w-[400px] w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap text-gray-100", children: "Normalization: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "select",
               {
-                className: "p-2 border rounded-lg bg-[#333338] text-gray-100 border-zinc-600",
+                className: "py-1.5 pl-2 w-[150px] border rounded-lg text-gray-100 bg-zinc-600 border-zinc-500",
                 value: task?.norm_strategy ? task.norm_strategy : "INDEXSIZE",
                 onChange: (e4) => onFieldChange(e4.target.value, "norm_strategy", task),
                 children: [
@@ -31293,7 +31404,7 @@ const HandMovementLeft$1 = ({
               }
             )
           ] }) })
-        ] })
+        ] }) })
       ]
     },
     task.id
@@ -31324,7 +31435,7 @@ const HandMovementRight$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "border-2 border-zinc-600 text-gray-100 rounded-lg mb-4 overflow-hidden min-h-[50px]\r\n                focus:border-blue-500 focus:outline-none\r\n                transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Hand Movement Right #",
@@ -31337,7 +31448,7 @@ const HandMovementRight$1 = ({
                 className: `transform transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`,
                 onClick: (e4) => {
                   e4.stopPropagation();
-                  setOpen((o2) => !o2);
+                  setOpen((o3) => !o3);
                 },
                 "aria-label": "Toggle details",
                 children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: "text-gray-100", fontSize: "small" })
@@ -31354,14 +31465,14 @@ const HandMovementRight$1 = ({
             )
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-600", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row items-center flex-wrap justify-between px-3 py-2 bg-transparent gap-y-4 rounded-b-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-500 w-full block", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2 justify-between min-w-[400px] w-full", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Task: " }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Task: " }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 "select",
                 {
-                  className: "p-2 border rounded-lg bg-[#333338] text-gray-100 border-zinc-600",
+                  className: "p-1 pl-2 py-1.5 w-56 border border-zinc-500 text-left text-gray-100 rounded-lg bg-zinc-600",
                   value: task.name,
                   onChange: (e4) => handleTaskChange({ value: e4.target.value, label: e4.target.value }),
                   children: [
@@ -31372,11 +31483,11 @@ const HandMovementRight$1 = ({
               )
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Start: " }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Start: " }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
-                  className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                  className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                   type: "number",
                   onChange: (e4) => onFieldChange(e4.target.value, "start", task),
                   onDoubleClick: () => onTimeClick(task.start),
@@ -31393,16 +31504,16 @@ const HandMovementRight$1 = ({
                     e4.stopPropagation();
                     onTimeMark("start", task);
                   },
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" })
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
                 }
               )
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "End: " }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "End: " }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
-                  className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                  className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                   type: "number",
                   onChange: (e4) => onFieldChange(e4.target.value, "end", task),
                   onDoubleClick: () => onTimeClick(task.end),
@@ -31411,18 +31522,25 @@ const HandMovementRight$1 = ({
                   value: task.end
                 }
               ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { size: "small", onClick: (e4) => {
-                e4.stopPropagation();
-                onTimeMark("end", task);
-              }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" }) })
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                IconButton,
+                {
+                  size: "small",
+                  onClick: (e4) => {
+                    e4.stopPropagation();
+                    onTimeMark("end", task);
+                  },
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
+                }
+              )
             ] })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-row items-center flex-nowrap justify-between px-3 py-2 bg-transparent gap-y-4 rounded-b-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Normalization: " }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-between space-x-2 min-w-[400px] w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap text-gray-100", children: "Normalization: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "select",
               {
-                className: "p-2 border rounded-lg bg-[#333338] text-gray-100 border-zinc-600",
+                className: "py-1.5 pl-2 w-[150px] border rounded-lg text-gray-100 bg-zinc-600 border-zinc-500",
                 value: task?.norm_strategy ? task.norm_strategy : "INDEXSIZE",
                 onChange: (e4) => onFieldChange(e4.target.value, "norm_strategy", task),
                 children: [
@@ -31434,7 +31552,7 @@ const HandMovementRight$1 = ({
               }
             )
           ] }) })
-        ] })
+        ] }) })
       ]
     },
     task.id
@@ -31444,86 +31562,81 @@ const __vite_glob_0_5$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.d
   __proto__: null,
   default: HandMovementRight$1
 }, Symbol.toStringTag, { value: "Module" }));
-const listeners$1 = /* @__PURE__ */ new Set();
-let globalFOV$1 = null;
-let globalSensorHeight$1 = null;
-let globalSensorWidth$1 = null;
-let globalFocalLength$1 = null;
-let globalHeight$1 = null;
-let globalIntrinsicMatrix$1 = null;
-let globalExtrinsicMatrix$1 = null;
-function setGlobalFieldofView$1(onFieldChange, val, task) {
-  globalFOV$1 = val;
-  onFieldChange(val, "field_of_view", task);
-  listeners$1.forEach((cb2) => cb2());
-}
-function setGlobalSensorWidth$1(onFieldChange, val, task) {
-  globalSensorWidth$1 = val;
-  onFieldChange(val, "sensor_width", task);
-  listeners$1.forEach((cb2) => cb2());
-}
-function setGlobalSensorHeight$1(onFieldChange, val, task) {
-  globalSensorHeight$1 = val;
-  onFieldChange(val, "sensor_height", task);
-  listeners$1.forEach((cb2) => cb2());
-}
-function setGlobalFocalLength$1(onFieldChange, val, task) {
-  globalFocalLength$1 = val;
-  onFieldChange(val, "focal_length", task);
-  listeners$1.forEach((cb2) => cb2());
-}
-function setGlobalHeight$1(onFieldChange, val, task) {
-  globalHeight$1 = val;
-  onFieldChange(val, "height", task);
-  listeners$1.forEach((cb2) => cb2());
-}
-function setGlobalIntrinsicMatrix$1(onFieldChange, matrix, task) {
-  globalIntrinsicMatrix$1 = matrix;
-  onFieldChange(matrix, "intrinsic_matrix", task);
-  listeners$1.forEach((cb2) => cb2());
-}
-function setGlobalExtrinsicMatrix$1(onFieldChange, matrix, task) {
-  globalExtrinsicMatrix$1 = matrix;
-  onFieldChange(matrix, "extrinsic_matrix", task);
-  listeners$1.forEach((cb2) => cb2());
-}
-const subscribe$1 = (cb2) => {
-  listeners$1.add(cb2);
-  return () => listeners$1.delete(cb2);
-};
-const HandTremorLeft$1 = ({
+const HandTremorLeftElbowExtended = ({
   task,
   taskTypeIndex,
   onFieldChange,
   onTaskDelete,
   onTimeMark,
   onTimeClick,
-  options
+  options,
+  taskGlobals: taskGlobals2,
+  setTaskGlobals: setTaskGlobals2
 }) => {
   const [open, setOpen] = reactExports.useState(true);
   const taskSelectionRef = reactExports.useRef(null);
-  const defaultIntrinsic = task.intrinsic_matrix || Array.from({ length: 3 }, () => Array(3).fill(0));
-  const defaultExtrinsic = task.extrinsic_matrix || Array.from({ length: 4 }, () => Array(4).fill(0));
-  reactExports.useSyncExternalStore(subscribe$1, () => globalHeight$1);
-  const fov = reactExports.useSyncExternalStore(subscribe$1, () => globalFOV$1);
-  const sensorW = reactExports.useSyncExternalStore(subscribe$1, () => globalSensorWidth$1);
-  const sensorH = reactExports.useSyncExternalStore(subscribe$1, () => globalSensorHeight$1);
-  const fl2 = reactExports.useSyncExternalStore(subscribe$1, () => globalFocalLength$1);
-  const intrinsicMatrix = reactExports.useSyncExternalStore(subscribe$1, () => globalIntrinsicMatrix$1 || defaultIntrinsic);
-  const extrinsicMatrix = reactExports.useSyncExternalStore(subscribe$1, () => globalExtrinsicMatrix$1 || defaultExtrinsic);
+  const defaultIntrinsic = task.intrinsic_matrix || Array.from({ length: 3 }, () => Array(3).fill(null));
+  const defaultExtrinsic = task.extrinsic_matrix || Array.from({ length: 4 }, () => Array(4).fill(null));
+  taskGlobals2.height ?? null;
+  const fov = taskGlobals2.field_of_view ?? null;
+  const sensorW = taskGlobals2.sensor_width ?? null;
+  const sensorH = taskGlobals2.sensor_height ?? null;
+  const fl2 = taskGlobals2.focal_length ?? null;
+  const intrinsicMatrix = taskGlobals2.intrinsic_matrix || defaultIntrinsic;
+  const extrinsicMatrix = taskGlobals2.extrinsic_matrix || defaultExtrinsic;
   const [showCameraProperties, setShowCameraProperties] = reactExports.useState(false);
   const [showIntrinsic, setShowIntrinsic] = reactExports.useState(false);
   const [showExtrinsic, setShowExtrinsic] = reactExports.useState(false);
   const handleTaskChange = (selectedTask) => {
-    console.log("Field Change", selectedTask.value);
     onFieldChange(selectedTask.value, "name", task);
   };
   reactExports.useEffect(() => {
-    if (task.focal_length != null) setGlobalFocalLength$1(onFieldChange, task.focal_length, task);
-    if (task.height != null) setGlobalHeight$1(onFieldChange, task.height, task);
-    if (task.sensor_width != null) setGlobalSensorWidth$1(onFieldChange, task.sensor_width, task);
-    if (task.sensor_height != null) setGlobalSensorHeight$1(onFieldChange, task.sensor_height, task);
+    if (task.field_of_view !== void 0 && taskGlobals2.field_of_view === void 0) {
+      setTaskGlobals2({ field_of_view: task.field_of_view });
+    }
+    if (task.focal_length !== void 0 && taskGlobals2.focal_length === void 0) {
+      setTaskGlobals2({ focal_length: task.focal_length });
+    }
+    if (task.sensor_width !== void 0 && taskGlobals2.sensor_width === void 0) {
+      setTaskGlobals2({ sensor_width: task.sensor_width });
+    }
+    if (task.sensor_height !== void 0 && taskGlobals2.sensor_height === void 0) {
+      setTaskGlobals2({ sensor_height: task.sensor_height });
+    }
+    if (task.height !== void 0 && taskGlobals2.height === void 0) {
+      setTaskGlobals2({ height: task.height });
+    }
+    if (task.intrinsic_matrix !== void 0 && taskGlobals2.intrinsic_matrix === void 0) {
+      setTaskGlobals2({ intrinsic_matrix: task.intrinsic_matrix });
+    }
+    if (task.extrinsic_matrix !== void 0 && taskGlobals2.extrinsic_matrix === void 0) {
+      setTaskGlobals2({ extrinsic_matrix: task.extrinsic_matrix });
+    }
   }, []);
+  reactExports.useEffect(() => {
+    if (typeof taskGlobals2.field_of_view !== "undefined") {
+      onFieldChange(taskGlobals2.field_of_view, "field_of_view", task);
+    }
+    if (typeof taskGlobals2.focal_length !== "undefined") {
+      console.log("Setting local focal_length for task #", taskGlobals2.focal_length);
+      onFieldChange(taskGlobals2.focal_length, "focal_length", task);
+    }
+    if (typeof taskGlobals2.sensor_width !== "undefined") {
+      onFieldChange(taskGlobals2.sensor_width, "sensor_width", task);
+    }
+    if (typeof taskGlobals2.sensor_height !== "undefined") {
+      onFieldChange(taskGlobals2.sensor_height, "sensor_height", task);
+    }
+    if (typeof taskGlobals2.height !== "undefined") {
+      onFieldChange(taskGlobals2.height, "height", task);
+    }
+    if (typeof taskGlobals2.intrinsic_matrix !== "undefined") {
+      onFieldChange(taskGlobals2.intrinsic_matrix, "intrinsic_matrix", task);
+    }
+    if (typeof taskGlobals2.extrinsic_matrix !== "undefined") {
+      onFieldChange(taskGlobals2.extrinsic_matrix, "extrinsic_matrix", task);
+    }
+  }, [taskGlobals2]);
   const renderCameraPropertiesEditor = (fov2, sensorHeight, sensorWidth, focalLength, intrinsicMatrix2, extrinsicMatrix2, showIntrinsic2, showExtrinsic2) => {
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5 flex justify-between items-center", children: [
@@ -31534,12 +31647,13 @@ const HandTremorLeft$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: fov2 || "",
               placeholder: "55",
               onChange: (e4) => {
-                const v2 = +e4.target.value;
-                setGlobalFieldofView$1(onFieldChange, v2, task);
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals2({ field_of_view: v2 });
+                onFieldChange(v2, "field_of_view", task);
               }
             }
           ),
@@ -31561,11 +31675,12 @@ const HandTremorLeft$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: sensorWidth || "",
               onChange: (e4) => {
-                const v2 = +e4.target.value;
-                setGlobalSensorWidth$1(onFieldChange, v2, task);
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals2({ sensor_width: v2 });
+                onFieldChange(v2, "sensor_width", task);
               }
             }
           ),
@@ -31587,11 +31702,12 @@ const HandTremorLeft$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: sensorHeight || "",
               onChange: (e4) => {
-                const v2 = +e4.target.value;
-                setGlobalSensorHeight$1(onFieldChange, v2, task);
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals2({ sensor_height: v2 });
+                onFieldChange(v2, "sensor_height", task);
               }
             }
           ),
@@ -31613,11 +31729,12 @@ const HandTremorLeft$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: fl2 || "",
               onChange: (e4) => {
-                const v2 = +e4.target.value;
-                setGlobalFocalLength$1(onFieldChange, v2, task);
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals2({ focal_length: v2 });
+                onFieldChange(v2, "focal_length", task);
               }
             }
           ),
@@ -31659,13 +31776,14 @@ const HandTremorLeft$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: val,
               onChange: (e4) => {
-                const newVal = e4.target.value === "" ? "" : Number(e4.target.value);
-                const newMatrix = intrinsicMatrix2.map((r3) => [...r3]);
+                const newVal = e4.target.value === "" ? null : +e4.target.value;
+                const newMatrix = intrinsicMatrix2.map((r2) => [...r2]);
                 newMatrix[i2][j] = newVal;
-                setGlobalIntrinsicMatrix$1(onFieldChange, newMatrix, task);
+                setTaskGlobals2({ intrinsic_matrix: newMatrix });
+                onFieldChange(newMatrix, "intrinsic_matrix", task);
               }
             },
             `int-${i2}-${j}`
@@ -31700,13 +31818,14 @@ const HandTremorLeft$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: val,
               onChange: (e4) => {
-                const newVal = e4.target.value === "" ? "" : Number(e4.target.value);
-                const newMatrix = extrinsicMatrix2.map((r3) => [...r3]);
+                const newVal = e4.target.value === "" ? null : +e4.target.value;
+                const newMatrix = extrinsicMatrix2.map((r2) => [...r2]);
                 newMatrix[i2][j] = newVal;
-                setGlobalExtrinsicMatrix$1(onFieldChange, newMatrix, task);
+                setTaskGlobals2({ extrinsic_matrix: newMatrix });
+                onFieldChange(newMatrix, "extrinsic_matrix", task);
               }
             },
             `ext-${i2}-${j}`
@@ -31717,7 +31836,7 @@ const HandTremorLeft$1 = ({
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
-            className: "px-3 py-1 bg-transparent border border-zinc-600 text-gray-100 rounded-lg w-20",
+            className: "px-3 py-1 bg-transparent border border-zinc-500 text-gray-100 rounded-lg w-20",
             onClick: () => setShowCameraProperties(false),
             children: "Cancel"
           }
@@ -31732,6 +31851,7 @@ const HandTremorLeft$1 = ({
               onFieldChange(extrinsicMatrix2, "extrinsic_matrix", task);
               onFieldChange(sensorWidth, "sensor_width", task);
               onFieldChange(sensorHeight, "sensor_height", task);
+              onFieldChange(fov2, "field_of_view", task);
               setShowCameraProperties(false);
             },
             children: "Save"
@@ -31744,7 +31864,7 @@ const HandTremorLeft$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "border-2 border-zinc-700 rounded-lg mb-4 overflow-hidden min-h-[50px]\n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       ref: taskSelectionRef,
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100", children: [
@@ -31759,7 +31879,7 @@ const HandTremorLeft$1 = ({
                 className: `transform transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`,
                 onClick: (e4) => {
                   e4.stopPropagation();
-                  setOpen((o2) => !o2);
+                  setOpen((o3) => !o3);
                 },
                 "aria-label": "Toggle details",
                 children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: "text-gray-100", fontSize: "small" })
@@ -31776,16 +31896,16 @@ const HandTremorLeft$1 = ({
             )
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-600", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-500 w-full block", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2 justify-between min-w-[400px] w-full", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Task: " }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 "select",
                 {
-                  className: "p-1 pl-2 py-1.5 w-64 border border-zinc-600 text-left text-gray-100 rounded-lg bg-[#333338]",
+                  className: "p-1 pl-2 py-1.5 w-72 border border-zinc-500 text-left text-gray-100 rounded-lg bg-zinc-600",
                   value: task.name,
-                  onChange: (e4) => handleTaskChange({ value: e4.target.value, label: e4.target.label }),
+                  onChange: (e4) => handleTaskChange({ value: e4.target.value, label: e4.target.value }),
                   children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", hidden: true, children: "Select task" }),
                     options.map((option) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: option.value, children: option.label }, option.value))
@@ -31798,7 +31918,7 @@ const HandTremorLeft$1 = ({
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
-                  className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-600 rounded-lg bg-transparent",
+                  className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                   type: "number",
                   onChange: (e4) => onFieldChange(e4.target.value, "start", task),
                   onDoubleClick: () => onTimeClick(task.start),
@@ -31824,7 +31944,7 @@ const HandTremorLeft$1 = ({
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
-                  className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-600 rounded-lg bg-transparent",
+                  className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                   type: "number",
                   onChange: (e4) => onFieldChange(e4.target.value, "end", task),
                   onDoubleClick: () => onTimeClick(task.end),
@@ -31851,7 +31971,7 @@ const HandTremorLeft$1 = ({
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "button",
               {
-                className: "px-2 py-1.5 w-14 border border-zinc-600 rounded-lg text-gray-100 hover:bg-zinc-600",
+                className: "px-2 py-1.5 w-14 border border-zinc-500 rounded-lg text-gray-100 hover:bg-zinc-600",
                 onClick: () => setShowCameraProperties(true),
                 children: "Edit"
               }
@@ -31869,63 +31989,9 @@ const HandTremorLeft$1 = ({
 };
 const __vite_glob_0_6$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: HandTremorLeft$1,
-  setGlobalExtrinsicMatrix: setGlobalExtrinsicMatrix$1,
-  setGlobalFieldofView: setGlobalFieldofView$1,
-  setGlobalFocalLength: setGlobalFocalLength$1,
-  setGlobalHeight: setGlobalHeight$1,
-  setGlobalIntrinsicMatrix: setGlobalIntrinsicMatrix$1,
-  setGlobalSensorHeight: setGlobalSensorHeight$1,
-  setGlobalSensorWidth: setGlobalSensorWidth$1
+  default: HandTremorLeftElbowExtended
 }, Symbol.toStringTag, { value: "Module" }));
-const listeners = /* @__PURE__ */ new Set();
-let globalFOV = null;
-let globalSensorHeight = null;
-let globalSensorWidth = null;
-let globalFocalLength = null;
-let globalHeight = null;
-let globalIntrinsicMatrix = null;
-let globalExtrinsicMatrix = null;
-function setGlobalFieldofView(onFieldChange, val, task) {
-  globalFOV = val;
-  onFieldChange(val, "field_of_view", task);
-  listeners.forEach((cb2) => cb2());
-}
-function setGlobalSensorWidth(onFieldChange, val, task) {
-  globalSensorWidth = val;
-  onFieldChange(val, "sensor_width", task);
-  listeners.forEach((cb2) => cb2());
-}
-function setGlobalSensorHeight(onFieldChange, val, task) {
-  globalSensorHeight = val;
-  onFieldChange(val, "sensor_height", task);
-  listeners.forEach((cb2) => cb2());
-}
-function setGlobalFocalLength(onFieldChange, val, task) {
-  globalFocalLength = val;
-  onFieldChange(val, "focal_length", task);
-  listeners.forEach((cb2) => cb2());
-}
-function setGlobalHeight(onFieldChange, val, task) {
-  globalHeight = val;
-  onFieldChange(val, "height", task);
-  listeners.forEach((cb2) => cb2());
-}
-function setGlobalIntrinsicMatrix(onFieldChange, matrix, task) {
-  globalIntrinsicMatrix = matrix;
-  onFieldChange(matrix, "intrinsic_matrix", task);
-  listeners.forEach((cb2) => cb2());
-}
-function setGlobalExtrinsicMatrix(onFieldChange, matrix, task) {
-  globalExtrinsicMatrix = matrix;
-  onFieldChange(matrix, "extrinsic_matrix", task);
-  listeners.forEach((cb2) => cb2());
-}
-const subscribe = (cb2) => {
-  listeners.add(cb2);
-  return () => listeners.delete(cb2);
-};
-const HandTremorRight$1 = ({
+const HandTremorRightElbowExtended = ({
   task,
   taskTypeIndex,
   onFieldChange,
@@ -31936,15 +32002,15 @@ const HandTremorRight$1 = ({
 }) => {
   const [open, setOpen] = reactExports.useState(true);
   const taskSelectionRef = reactExports.useRef(null);
-  const defaultIntrinsic = task.intrinsic_matrix || Array.from({ length: 3 }, () => Array(3).fill(0));
-  const defaultExtrinsic = task.extrinsic_matrix || Array.from({ length: 4 }, () => Array(4).fill(0));
-  reactExports.useSyncExternalStore(subscribe, () => globalHeight);
-  const fov = reactExports.useSyncExternalStore(subscribe, () => globalFOV);
-  const sensorW = reactExports.useSyncExternalStore(subscribe, () => globalSensorWidth);
-  const sensorH = reactExports.useSyncExternalStore(subscribe, () => globalSensorHeight);
-  const fl2 = reactExports.useSyncExternalStore(subscribe, () => globalFocalLength);
-  const intrinsicMatrix = reactExports.useSyncExternalStore(subscribe, () => globalIntrinsicMatrix || defaultIntrinsic);
-  const extrinsicMatrix = reactExports.useSyncExternalStore(subscribe, () => globalExtrinsicMatrix || defaultExtrinsic);
+  const defaultIntrinsic = task.intrinsic_matrix || Array.from({ length: 3 }, () => Array(3).fill(null));
+  const defaultExtrinsic = task.extrinsic_matrix || Array.from({ length: 4 }, () => Array(4).fill(null));
+  taskGlobals.height ?? null;
+  const fov = taskGlobals.field_of_view ?? null;
+  const sensorW = taskGlobals.sensor_width ?? null;
+  const sensorH = taskGlobals.sensor_height ?? null;
+  const fl2 = taskGlobals.focal_length ?? null;
+  const intrinsicMatrix = taskGlobals.intrinsic_matrix || defaultIntrinsic;
+  const extrinsicMatrix = taskGlobals.extrinsic_matrix || defaultExtrinsic;
   const [showCameraProperties, setShowCameraProperties] = reactExports.useState(false);
   const [showIntrinsic, setShowIntrinsic] = reactExports.useState(false);
   const [showExtrinsic, setShowExtrinsic] = reactExports.useState(false);
@@ -31952,11 +32018,52 @@ const HandTremorRight$1 = ({
     onFieldChange(selectedTask.value, "name", task);
   };
   reactExports.useEffect(() => {
-    if (task.focal_length != null) setGlobalFocalLength(onFieldChange, task.focal_length, task);
-    if (task.height != null) setGlobalHeight(onFieldChange, task.height, task);
-    if (task.sensor_width != null) setGlobalSensorWidth(onFieldChange, task.sensor_width, task);
-    if (task.sensor_height != null) setGlobalSensorHeight(onFieldChange, task.sensor_height, task);
+    if (task.field_of_view !== void 0 && taskGlobals.field_of_view === void 0) {
+      setTaskGlobals({ field_of_view: task.field_of_view });
+    }
+    if (task.focal_length !== void 0 && taskGlobals.focal_length === void 0) {
+      setTaskGlobals({ focal_length: task.focal_length });
+    }
+    if (task.sensor_width !== void 0 && taskGlobals.sensor_width === void 0) {
+      setTaskGlobals({ sensor_width: task.sensor_width });
+    }
+    if (task.sensor_height !== void 0 && taskGlobals.sensor_height === void 0) {
+      setTaskGlobals({ sensor_height: task.sensor_height });
+    }
+    if (task.height !== void 0 && taskGlobals.height === void 0) {
+      setTaskGlobals({ height: task.height });
+    }
+    if (task.intrinsic_matrix !== void 0 && taskGlobals.intrinsic_matrix === void 0) {
+      setTaskGlobals({ intrinsic_matrix: task.intrinsic_matrix });
+    }
+    if (task.extrinsic_matrix !== void 0 && taskGlobals.extrinsic_matrix === void 0) {
+      setTaskGlobals({ extrinsic_matrix: task.extrinsic_matrix });
+    }
   }, []);
+  reactExports.useEffect(() => {
+    if (typeof taskGlobals.field_of_view !== "undefined") {
+      onFieldChange(taskGlobals.field_of_view, "field_of_view", task);
+    }
+    if (typeof taskGlobals.focal_length !== "undefined") {
+      console.log("Setting local focal_length for task #", taskGlobals.focal_length);
+      onFieldChange(taskGlobals.focal_length, "focal_length", task);
+    }
+    if (typeof taskGlobals.sensor_width !== "undefined") {
+      onFieldChange(taskGlobals.sensor_width, "sensor_width", task);
+    }
+    if (typeof taskGlobals.sensor_height !== "undefined") {
+      onFieldChange(taskGlobals.sensor_height, "sensor_height", task);
+    }
+    if (typeof taskGlobals.height !== "undefined") {
+      onFieldChange(taskGlobals.height, "height", task);
+    }
+    if (typeof taskGlobals.intrinsic_matrix !== "undefined") {
+      onFieldChange(taskGlobals.intrinsic_matrix, "intrinsic_matrix", task);
+    }
+    if (typeof taskGlobals.extrinsic_matrix !== "undefined") {
+      onFieldChange(taskGlobals.extrinsic_matrix, "extrinsic_matrix", task);
+    }
+  }, [taskGlobals]);
   const renderCameraPropertiesEditor = (fov2, sensorHeight, sensorWidth, focalLength, intrinsicMatrix2, extrinsicMatrix2, showIntrinsic2, showExtrinsic2) => {
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5 flex justify-between items-center", children: [
@@ -31967,12 +32074,13 @@ const HandTremorRight$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: fov2 || "",
               placeholder: "55",
               onChange: (e4) => {
-                const v2 = +e4.target.value;
-                setGlobalFieldofView(onFieldChange, v2, task);
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals({ field_of_view: v2 });
+                onFieldChange(v2, "field_of_view", task);
               }
             }
           ),
@@ -31994,11 +32102,12 @@ const HandTremorRight$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: sensorWidth || "",
               onChange: (e4) => {
-                const v2 = +e4.target.value;
-                setGlobalSensorWidth(onFieldChange, v2, task);
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals({ sensor_width: v2 });
+                onFieldChange(v2, "sensor_width", task);
               }
             }
           ),
@@ -32020,11 +32129,12 @@ const HandTremorRight$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: sensorHeight || "",
               onChange: (e4) => {
-                const v2 = +e4.target.value;
-                setGlobalSensorHeight(onFieldChange, v2, task);
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals({ sensor_height: v2 });
+                onFieldChange(v2, "sensor_height", task);
               }
             }
           ),
@@ -32046,11 +32156,12 @@ const HandTremorRight$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: fl2 || "",
               onChange: (e4) => {
-                const v2 = +e4.target.value;
-                setGlobalFocalLength(onFieldChange, v2, task);
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals({ focal_length: v2 });
+                onFieldChange(v2, "focal_length", task);
               }
             }
           ),
@@ -32092,13 +32203,14 @@ const HandTremorRight$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: val,
               onChange: (e4) => {
-                const newVal = e4.target.value === "" ? "" : Number(e4.target.value);
-                const newMatrix = intrinsicMatrix2.map((r3) => [...r3]);
+                const newVal = e4.target.value === "" ? null : +e4.target.value;
+                const newMatrix = intrinsicMatrix2.map((r2) => [...r2]);
                 newMatrix[i2][j] = newVal;
-                setGlobalIntrinsicMatrix(onFieldChange, newMatrix, task);
+                setTaskGlobals({ intrinsic_matrix: newMatrix });
+                onFieldChange(newMatrix, "intrinsic_matrix", task);
               }
             },
             `int-${i2}-${j}`
@@ -32133,13 +32245,14 @@ const HandTremorRight$1 = ({
             {
               type: "number",
               step: "any",
-              className: "border border-zinc-600 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              className: "border border-zinc-500 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
               value: val,
               onChange: (e4) => {
-                const newVal = e4.target.value === "" ? "" : Number(e4.target.value);
-                const newMatrix = extrinsicMatrix2.map((r3) => [...r3]);
+                const newVal = e4.target.value === "" ? null : +e4.target.value;
+                const newMatrix = extrinsicMatrix2.map((r2) => [...r2]);
                 newMatrix[i2][j] = newVal;
-                setGlobalExtrinsicMatrix(onFieldChange, newMatrix, task);
+                setTaskGlobals({ extrinsic_matrix: newMatrix });
+                onFieldChange(newMatrix, "extrinsic_matrix", task);
               }
             },
             `ext-${i2}-${j}`
@@ -32150,7 +32263,7 @@ const HandTremorRight$1 = ({
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
-            className: "px-3 py-1 bg-transparent border border-zinc-600 text-gray-100 rounded-lg w-20",
+            className: "px-3 py-1 bg-transparent border border-zinc-500 text-gray-100 rounded-lg w-20",
             onClick: () => setShowCameraProperties(false),
             children: "Cancel"
           }
@@ -32165,6 +32278,7 @@ const HandTremorRight$1 = ({
               onFieldChange(extrinsicMatrix2, "extrinsic_matrix", task);
               onFieldChange(sensorWidth, "sensor_width", task);
               onFieldChange(sensorHeight, "sensor_height", task);
+              onFieldChange(fov2, "field_of_view", task);
               setShowCameraProperties(false);
             },
             children: "Save"
@@ -32177,7 +32291,7 @@ const HandTremorRight$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "border-2 border-zinc-700 rounded-lg mb-4 overflow-hidden min-h-[50px]\n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       ref: taskSelectionRef,
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100", children: [
@@ -32192,7 +32306,7 @@ const HandTremorRight$1 = ({
                 className: `transform transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`,
                 onClick: (e4) => {
                   e4.stopPropagation();
-                  setOpen((o2) => !o2);
+                  setOpen((o3) => !o3);
                 },
                 "aria-label": "Toggle details",
                 children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: "text-gray-100", fontSize: "small" })
@@ -32209,19 +32323,19 @@ const HandTremorRight$1 = ({
             )
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-600", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-500 w-full block", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2 justify-between min-w-[400px] w-full", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Task: " }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 "select",
                 {
-                  className: "p-1 pl-2 py-1.5 w-64 border border-zinc-600 text-left text-gray-100 rounded-lg bg-[#333338]",
+                  className: "p-1 pl-2 py-1.5 w-72 border border-zinc-500 text-left text-gray-100 rounded-lg bg-zinc-600",
                   value: task.name,
                   onChange: (e4) => handleTaskChange({ value: e4.target.value, label: e4.target.value }),
                   children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", hidden: true, children: "Select task" }),
-                    options.map((option) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: option.value, children: option.label }, option.value))
+                    options.map((option) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: option.value, children: option.value }, option.value))
                   ]
                 }
               )
@@ -32231,7 +32345,7 @@ const HandTremorRight$1 = ({
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
-                  className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-600 rounded-lg bg-transparent",
+                  className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                   type: "number",
                   onChange: (e4) => onFieldChange(e4.target.value, "start", task),
                   onDoubleClick: () => onTimeClick(task.start),
@@ -32257,7 +32371,7 @@ const HandTremorRight$1 = ({
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "input",
                 {
-                  className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-600 rounded-lg bg-transparent",
+                  className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                   type: "number",
                   onChange: (e4) => onFieldChange(e4.target.value, "end", task),
                   onDoubleClick: () => onTimeClick(task.end),
@@ -32284,7 +32398,7 @@ const HandTremorRight$1 = ({
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "button",
               {
-                className: "px-2 py-1.5 w-14 border border-zinc-600 rounded-lg text-gray-100 hover:bg-zinc-600",
+                className: "px-2 py-1.5 w-14 border border-zinc-500 rounded-lg text-gray-100 hover:bg-zinc-600",
                 onClick: () => setShowCameraProperties(true),
                 children: "Edit"
               }
@@ -32302,14 +32416,7 @@ const HandTremorRight$1 = ({
 };
 const __vite_glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: HandTremorRight$1,
-  setGlobalExtrinsicMatrix,
-  setGlobalFieldofView,
-  setGlobalFocalLength,
-  setGlobalHeight,
-  setGlobalIntrinsicMatrix,
-  setGlobalSensorHeight,
-  setGlobalSensorWidth
+  default: HandTremorRightElbowExtended
 }, Symbol.toStringTag, { value: "Module" }));
 const LegAgilityLeft$1 = ({
   task,
@@ -32332,7 +32439,7 @@ const LegAgilityLeft$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "border-2 border-zinc-600 text-gray-100 rounded-lg mb-4 overflow-hidden min-h-[50px]\r\n                focus:border-blue-500 focus:outline-none\r\n                transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Leg Agility Left #",
@@ -32345,7 +32452,7 @@ const LegAgilityLeft$1 = ({
                 className: `transform transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`,
                 onClick: (e4) => {
                   e4.stopPropagation();
-                  setOpen((o2) => !o2);
+                  setOpen((o3) => !o3);
                 },
                 "aria-label": "Toggle details",
                 children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: "text-gray-100", fontSize: "small" })
@@ -32362,13 +32469,13 @@ const LegAgilityLeft$1 = ({
             )
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-600", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row items-center flex-wrap justify-between px-3 py-2 bg-transparent gap-y-4 rounded-b-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-500 w-full block", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2 justify-between min-w-[400px] w-full", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Task: " }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Task: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "select",
               {
-                className: "p-2 border rounded-lg bg-[#333338] text-gray-100 border-zinc-600",
+                className: "p-1 pl-2 py-1.5 w-40 border border-zinc-500 text-left text-gray-100 rounded-lg bg-zinc-600",
                 value: task.name,
                 onChange: (e4) => handleTaskChange({ value: e4.target.value, label: e4.target.value }),
                 children: [
@@ -32379,11 +32486,11 @@ const LegAgilityLeft$1 = ({
             )
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Start: " }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Start: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
-                className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                 type: "number",
                 onChange: (e4) => onFieldChange(e4.target.value, "start", task),
                 onDoubleClick: () => onTimeClick(task.start),
@@ -32400,16 +32507,16 @@ const LegAgilityLeft$1 = ({
                   e4.stopPropagation();
                   onTimeMark("start", task);
                 },
-                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" })
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
               }
             )
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "End: " }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "End: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
-                className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                 type: "number",
                 onChange: (e4) => onFieldChange(e4.target.value, "end", task),
                 onDoubleClick: () => onTimeClick(task.end),
@@ -32418,12 +32525,19 @@ const LegAgilityLeft$1 = ({
                 value: task.end
               }
             ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { size: "small", onClick: (e4) => {
-              e4.stopPropagation();
-              onTimeMark("end", task);
-            }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" }) })
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              IconButton,
+              {
+                size: "small",
+                onClick: (e4) => {
+                  e4.stopPropagation();
+                  onTimeMark("end", task);
+                },
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
+              }
+            )
           ] })
-        ] }) })
+        ] }) }) })
       ]
     },
     task.id
@@ -32454,7 +32568,7 @@ const LegAgilityRight$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "border-2 border-zinc-600 text-gray-100 rounded-lg mb-4 overflow-hidden min-h-[50px]\r\n                focus:border-blue-500 focus:outline-none\r\n                transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Leg Agility Right #",
@@ -32467,7 +32581,7 @@ const LegAgilityRight$1 = ({
                 className: `transform transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`,
                 onClick: (e4) => {
                   e4.stopPropagation();
-                  setOpen((o2) => !o2);
+                  setOpen((o3) => !o3);
                 },
                 "aria-label": "Toggle details",
                 children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: "text-gray-100", fontSize: "small" })
@@ -32484,13 +32598,13 @@ const LegAgilityRight$1 = ({
             )
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-600", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row items-center flex-wrap justify-between px-3 py-2 bg-transparent gap-y-4 rounded-b-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-500 w-full block", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2 justify-between min-w-[400px] w-full", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Task: " }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Task: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "select",
               {
-                className: "p-2 border rounded-lg bg-[#333338] text-gray-100 border-zinc-600",
+                className: "p-1 pl-2 py-1.5 w-40 border border-zinc-500 text-left text-gray-100 rounded-lg bg-zinc-600",
                 value: task.name,
                 onChange: (e4) => handleTaskChange({ value: e4.target.value, label: e4.target.value }),
                 children: [
@@ -32501,11 +32615,11 @@ const LegAgilityRight$1 = ({
             )
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Start: " }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Start: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
-                className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                 type: "number",
                 onChange: (e4) => onFieldChange(e4.target.value, "start", task),
                 onDoubleClick: () => onTimeClick(task.start),
@@ -32522,16 +32636,16 @@ const LegAgilityRight$1 = ({
                   e4.stopPropagation();
                   onTimeMark("start", task);
                 },
-                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" })
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
               }
             )
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "End: " }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "End: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
-                className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                 type: "number",
                 onChange: (e4) => onFieldChange(e4.target.value, "end", task),
                 onDoubleClick: () => onTimeClick(task.end),
@@ -32540,12 +32654,19 @@ const LegAgilityRight$1 = ({
                 value: task.end
               }
             ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { size: "small", onClick: (e4) => {
-              e4.stopPropagation();
-              onTimeMark("end", task);
-            }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" }) })
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              IconButton,
+              {
+                size: "small",
+                onClick: (e4) => {
+                  e4.stopPropagation();
+                  onTimeMark("end", task);
+                },
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
+              }
+            )
           ] })
-        ] }) })
+        ] }) }) })
       ]
     },
     task.id
@@ -32576,7 +32697,7 @@ const ToeTappingLeft$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "border-2 border-zinc-600 text-gray-100 rounded-lg mb-4 overflow-hidden min-h-[50px]\r\n                focus:border-blue-500 focus:outline-none\r\n                transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Toe Tapping Left #",
@@ -32589,7 +32710,7 @@ const ToeTappingLeft$1 = ({
                 className: `transform transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`,
                 onClick: (e4) => {
                   e4.stopPropagation();
-                  setOpen((o2) => !o2);
+                  setOpen((o3) => !o3);
                 },
                 "aria-label": "Toggle details",
                 children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: "text-gray-100", fontSize: "small" })
@@ -32606,13 +32727,13 @@ const ToeTappingLeft$1 = ({
             )
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-600", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row items-center flex-wrap justify-between px-3 py-2 bg-transparent gap-y-4 rounded-b-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-500 w-full block", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2 justify-between min-w-[400px] w-full", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Task: " }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Task: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "select",
               {
-                className: "p-2 border rounded-lg bg-[#333338] text-gray-100 border-zinc-600",
+                className: "p-1 pl-2 py-1.5 w-40 border border-zinc-500 text-left text-gray-100 rounded-lg bg-zinc-600",
                 value: task.name,
                 onChange: (e4) => handleTaskChange({ value: e4.target.value, label: e4.target.value }),
                 children: [
@@ -32623,11 +32744,11 @@ const ToeTappingLeft$1 = ({
             )
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Start: " }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Start: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
-                className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                 type: "number",
                 onChange: (e4) => onFieldChange(e4.target.value, "start", task),
                 onDoubleClick: () => onTimeClick(task.start),
@@ -32644,16 +32765,16 @@ const ToeTappingLeft$1 = ({
                   e4.stopPropagation();
                   onTimeMark("start", task);
                 },
-                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" })
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
               }
             )
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "End: " }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "End: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
-                className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                 type: "number",
                 onChange: (e4) => onFieldChange(e4.target.value, "end", task),
                 onDoubleClick: () => onTimeClick(task.end),
@@ -32662,12 +32783,19 @@ const ToeTappingLeft$1 = ({
                 value: task.end
               }
             ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { size: "small", onClick: (e4) => {
-              e4.stopPropagation();
-              onTimeMark("end", task);
-            }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" }) })
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              IconButton,
+              {
+                size: "small",
+                onClick: (e4) => {
+                  e4.stopPropagation();
+                  onTimeMark("end", task);
+                },
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
+              }
+            )
           ] })
-        ] }) })
+        ] }) }) })
       ]
     },
     task.id
@@ -32698,7 +32826,7 @@ const ToeTappingRight$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "border-2 border-zinc-600 text-gray-100 rounded-lg mb-4 overflow-hidden min-h-[50px]\r\n                focus:border-blue-500 focus:outline-none\r\n                transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Toe Tapping Right #",
@@ -32711,7 +32839,7 @@ const ToeTappingRight$1 = ({
                 className: `transform transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`,
                 onClick: (e4) => {
                   e4.stopPropagation();
-                  setOpen((o2) => !o2);
+                  setOpen((o3) => !o3);
                 },
                 "aria-label": "Toggle details",
                 children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: "text-gray-100", fontSize: "small" })
@@ -32728,13 +32856,13 @@ const ToeTappingRight$1 = ({
             )
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-600", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row items-center flex-wrap justify-between px-3 py-2 bg-transparent gap-y-4 rounded-b-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-500 w-full block", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2 justify-between min-w-[400px] w-full", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Task: " }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Task: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "select",
               {
-                className: "p-2 border rounded-lg bg-[#333338] text-gray-100 border-zinc-600",
+                className: "p-1 pl-2 py-1.5 w-40 border border-zinc-500 text-left text-gray-100 rounded-lg bg-zinc-600",
                 value: task.name,
                 onChange: (e4) => handleTaskChange({ value: e4.target.value, label: e4.target.value }),
                 children: [
@@ -32745,11 +32873,11 @@ const ToeTappingRight$1 = ({
             )
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "Start: " }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Start: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
-                className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                 type: "number",
                 onChange: (e4) => onFieldChange(e4.target.value, "start", task),
                 onDoubleClick: () => onTimeClick(task.start),
@@ -32766,16 +32894,16 @@ const ToeTappingRight$1 = ({
                   e4.stopPropagation();
                   onTimeMark("start", task);
                 },
-                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" })
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
               }
             )
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline whitespace-nowrap ", children: "End: " }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "End: " }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
-                className: "p-2 w-20 text-left border border-zinc-600 rounded-lg bg-transparent",
+                className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
                 type: "number",
                 onChange: (e4) => onFieldChange(e4.target.value, "end", task),
                 onDoubleClick: () => onTimeClick(task.end),
@@ -32784,12 +32912,19 @@ const ToeTappingRight$1 = ({
                 value: task.end
               }
             ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { size: "small", onClick: (e4) => {
-              e4.stopPropagation();
-              onTimeMark("end", task);
-            }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { className: "text-gray-100", fontSize: "small" }) })
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              IconButton,
+              {
+                size: "small",
+                onClick: (e4) => {
+                  e4.stopPropagation();
+                  onTimeMark("end", task);
+                },
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
+              }
+            )
           ] })
-        ] }) })
+        ] }) }) })
       ]
     },
     task.id
@@ -32834,9 +32969,9 @@ var factory = {};
     if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
       return { "default": obj };
     }
-    var cache2 = _getRequireWildcardCache2(nodeInterop);
-    if (cache2 && cache2.has(obj)) {
-      return cache2.get(obj);
+    var cache = _getRequireWildcardCache2(nodeInterop);
+    if (cache && cache.has(obj)) {
+      return cache.get(obj);
     }
     var newObj = {};
     var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
@@ -32851,8 +32986,8 @@ var factory = {};
       }
     }
     newObj["default"] = obj;
-    if (cache2) {
-      cache2.set(obj, newObj);
+    if (cache) {
+      cache.set(obj, newObj);
     }
     return newObj;
   }
@@ -32883,12 +33018,12 @@ var factory = {};
     Object.defineProperty(subClass, "prototype", { writable: false });
     if (superClass) _setPrototypeOf2(subClass, superClass);
   }
-  function _setPrototypeOf2(o2, p2) {
-    _setPrototypeOf2 = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf3(o3, p3) {
-      o3.__proto__ = p3;
-      return o3;
+  function _setPrototypeOf2(o3, p2) {
+    _setPrototypeOf2 = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf3(o4, p3) {
+      o4.__proto__ = p3;
+      return o4;
     };
-    return _setPrototypeOf2(o2, p2);
+    return _setPrototypeOf2(o3, p2);
   }
   function _createSuper(Derived) {
     var hasNativeReflectConstruct = _isNativeReflectConstruct();
@@ -32929,11 +33064,11 @@ var factory = {};
       return false;
     }
   }
-  function _getPrototypeOf(o2) {
-    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf2(o3) {
-      return o3.__proto__ || Object.getPrototypeOf(o3);
+  function _getPrototypeOf(o3) {
+    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf2(o4) {
+      return o4.__proto__ || Object.getPrototypeOf(o4);
     };
-    return _getPrototypeOf(o2);
+    return _getPrototypeOf(o3);
   }
   var eventNames = ["AfterExport", "AfterPlot", "Animated", "AnimatingFrame", "AnimationInterrupted", "AutoSize", "BeforeExport", "BeforeHover", "ButtonClicked", "Click", "ClickAnnotation", "Deselect", "DoubleClick", "Framework", "Hover", "LegendClick", "LegendDoubleClick", "Relayout", "Relayouting", "Restyle", "Redraw", "Selected", "Selecting", "SliderChange", "SliderEnd", "SliderStart", "SunburstClick", "Transitioning", "TransitionInterrupted", "Unhover", "WebGlContextLost"];
   var updateEvents = ["plotly_restyle", "plotly_redraw", "plotly_relayout", "plotly_relayouting", "plotly_doubleclick", "plotly_animated", "plotly_sunburstclick"];
@@ -37882,9 +38017,9 @@ var plotly = { exports: {} };
                 }
                 return v2 % 100 >= MAXSYMBOL || v2 >= 400 ? 0 : Math.floor(Math.max(v2, 0));
               };
-              function makePointPath(symbolNumber, r3, t3, s2) {
+              function makePointPath(symbolNumber, r2, t3, s2) {
                 var base = symbolNumber % 100;
-                return drawing.symbolFuncs[base](r3, t3, s2) + (symbolNumber >= 200 ? DOTPATH : "");
+                return drawing.symbolFuncs[base](r2, t3, s2) + (symbolNumber >= 200 ? DOTPATH : "");
               }
               var stopFormatter = numberFormat("~f");
               var gradientInfo = {
@@ -38186,21 +38321,21 @@ var plotly = { exports: {} };
                 if (pt && pt.i >= 0 && d2.i === void 0) d2.i = pt.i;
                 sel.style("opacity", fns.selectedOpacityFn ? fns.selectedOpacityFn(d2) : d2.mo === void 0 ? marker.opacity : d2.mo);
                 if (fns.ms2mrc) {
-                  var r3;
+                  var r2;
                   if (d2.ms === "various" || marker.size === "various") {
-                    r3 = 3;
+                    r2 = 3;
                   } else {
-                    r3 = fns.ms2mrc(d2.ms);
+                    r2 = fns.ms2mrc(d2.ms);
                   }
-                  d2.mrc = r3;
+                  d2.mrc = r2;
                   if (fns.selectedSizeFn) {
-                    r3 = d2.mrc = fns.selectedSizeFn(d2);
+                    r2 = d2.mrc = fns.selectedSizeFn(d2);
                   }
                   var x2 = drawing.symbolNumber(d2.mx || marker.symbol) || 0;
                   d2.om = x2 % 200 >= 100;
                   var angle = getMarkerAngle(d2, trace);
                   var standoff = getMarkerStandoff(d2, trace);
-                  sel.attr("d", makePointPath(x2, r3, angle, standoff));
+                  sel.attr("d", makePointPath(x2, r2, angle, standoff));
                 }
                 var perPointGradient = false;
                 var fillColor, lineColor, lineWidth;
@@ -38417,10 +38552,10 @@ var plotly = { exports: {} };
                 var group = d3.select(s2.node().parentNode);
                 var v2 = textPosition.indexOf("top") !== -1 ? "top" : textPosition.indexOf("bottom") !== -1 ? "bottom" : "middle";
                 var h2 = textPosition.indexOf("left") !== -1 ? "end" : textPosition.indexOf("right") !== -1 ? "start" : "middle";
-                var r3 = markerRadius ? markerRadius / 0.8 + 1 : 0;
+                var r2 = markerRadius ? markerRadius / 0.8 + 1 : 0;
                 var numLines = (svgTextUtils.lineCount(s2) - 1) * LINE_SPACING + 1;
-                var dx = TEXTOFFSETSIGN[h2] * r3;
-                var dy = fontSize * 0.75 + TEXTOFFSETSIGN[v2] * r3 + (TEXTOFFSETSIGN[v2] - 1) * numLines * fontSize / 2;
+                var dx = TEXTOFFSETSIGN[h2] * r2;
+                var dy = fontSize * 0.75 + TEXTOFFSETSIGN[v2] * r2 + (TEXTOFFSETSIGN[v2] - 1) * numLines * fontSize / 2;
                 s2.attr("text-anchor", h2);
                 if (!dontTouchParent) {
                   group.attr("transform", strTranslate(dx, dy));
@@ -38917,43 +39052,43 @@ var plotly = { exports: {} };
               module2.exports = {
                 circle: {
                   n: 0,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rs = round2(r3, 2);
+                    var rs = round2(r2, 2);
                     var circle = "M" + rs + ",0A" + rs + "," + rs + " 0 1,1 0,-" + rs + "A" + rs + "," + rs + " 0 0,1 " + rs + ",0Z";
                     return standoff ? align(angle, standoff, circle) : circle;
                   }
                 },
                 square: {
                   n: 1,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rs = round2(r3, 2);
+                    var rs = round2(r2, 2);
                     return align(angle, standoff, "M" + rs + "," + rs + "H-" + rs + "V-" + rs + "H" + rs + "Z");
                   }
                 },
                 diamond: {
                   n: 2,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rd2 = round2(r3 * 1.3, 2);
+                    var rd2 = round2(r2 * 1.3, 2);
                     return align(angle, standoff, "M" + rd2 + ",0L0," + rd2 + "L-" + rd2 + ",0L0,-" + rd2 + "Z");
                   }
                 },
                 cross: {
                   n: 3,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rc2 = round2(r3 * 0.4, 2);
-                    var rc22 = round2(r3 * 1.2, 2);
+                    var rc2 = round2(r2 * 0.4, 2);
+                    var rc22 = round2(r2 * 1.2, 2);
                     return align(angle, standoff, "M" + rc22 + "," + rc2 + "H" + rc2 + "V" + rc22 + "H-" + rc2 + "V" + rc2 + "H-" + rc22 + "V-" + rc2 + "H-" + rc2 + "V-" + rc22 + "H" + rc2 + "V-" + rc2 + "H" + rc22 + "Z");
                   }
                 },
                 x: {
                   n: 4,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rx = round2(r3 * 0.8 / sqrt2, 2);
+                    var rx = round2(r2 * 0.8 / sqrt2, 2);
                     var ne2 = "l" + rx + "," + rx;
                     var se2 = "l" + rx + ",-" + rx;
                     var sw = "l-" + rx + ",-" + rx;
@@ -38963,126 +39098,126 @@ var plotly = { exports: {} };
                 },
                 "triangle-up": {
                   n: 5,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rt = round2(r3 * 2 / sqrt3, 2);
-                    var r22 = round2(r3 / 2, 2);
-                    var rs = round2(r3, 2);
+                    var rt = round2(r2 * 2 / sqrt3, 2);
+                    var r22 = round2(r2 / 2, 2);
+                    var rs = round2(r2, 2);
                     return align(angle, standoff, "M-" + rt + "," + r22 + "H" + rt + "L0,-" + rs + "Z");
                   }
                 },
                 "triangle-down": {
                   n: 6,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rt = round2(r3 * 2 / sqrt3, 2);
-                    var r22 = round2(r3 / 2, 2);
-                    var rs = round2(r3, 2);
+                    var rt = round2(r2 * 2 / sqrt3, 2);
+                    var r22 = round2(r2 / 2, 2);
+                    var rs = round2(r2, 2);
                     return align(angle, standoff, "M-" + rt + ",-" + r22 + "H" + rt + "L0," + rs + "Z");
                   }
                 },
                 "triangle-left": {
                   n: 7,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rt = round2(r3 * 2 / sqrt3, 2);
-                    var r22 = round2(r3 / 2, 2);
-                    var rs = round2(r3, 2);
+                    var rt = round2(r2 * 2 / sqrt3, 2);
+                    var r22 = round2(r2 / 2, 2);
+                    var rs = round2(r2, 2);
                     return align(angle, standoff, "M" + r22 + ",-" + rt + "V" + rt + "L-" + rs + ",0Z");
                   }
                 },
                 "triangle-right": {
                   n: 8,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rt = round2(r3 * 2 / sqrt3, 2);
-                    var r22 = round2(r3 / 2, 2);
-                    var rs = round2(r3, 2);
+                    var rt = round2(r2 * 2 / sqrt3, 2);
+                    var r22 = round2(r2 / 2, 2);
+                    var rs = round2(r2, 2);
                     return align(angle, standoff, "M-" + r22 + ",-" + rt + "V" + rt + "L" + rs + ",0Z");
                   }
                 },
                 "triangle-ne": {
                   n: 9,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var r1 = round2(r3 * 0.6, 2);
-                    var r22 = round2(r3 * 1.2, 2);
+                    var r1 = round2(r2 * 0.6, 2);
+                    var r22 = round2(r2 * 1.2, 2);
                     return align(angle, standoff, "M-" + r22 + ",-" + r1 + "H" + r1 + "V" + r22 + "Z");
                   }
                 },
                 "triangle-se": {
                   n: 10,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var r1 = round2(r3 * 0.6, 2);
-                    var r22 = round2(r3 * 1.2, 2);
+                    var r1 = round2(r2 * 0.6, 2);
+                    var r22 = round2(r2 * 1.2, 2);
                     return align(angle, standoff, "M" + r1 + ",-" + r22 + "V" + r1 + "H-" + r22 + "Z");
                   }
                 },
                 "triangle-sw": {
                   n: 11,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var r1 = round2(r3 * 0.6, 2);
-                    var r22 = round2(r3 * 1.2, 2);
+                    var r1 = round2(r2 * 0.6, 2);
+                    var r22 = round2(r2 * 1.2, 2);
                     return align(angle, standoff, "M" + r22 + "," + r1 + "H-" + r1 + "V-" + r22 + "Z");
                   }
                 },
                 "triangle-nw": {
                   n: 12,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var r1 = round2(r3 * 0.6, 2);
-                    var r22 = round2(r3 * 1.2, 2);
+                    var r1 = round2(r2 * 0.6, 2);
+                    var r22 = round2(r2 * 1.2, 2);
                     return align(angle, standoff, "M-" + r1 + "," + r22 + "V-" + r1 + "H" + r22 + "Z");
                   }
                 },
                 pentagon: {
                   n: 13,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var x1 = round2(r3 * 0.951, 2);
-                    var x2 = round2(r3 * 0.588, 2);
-                    var y0 = round2(-r3, 2);
-                    var y1 = round2(r3 * -0.309, 2);
-                    var y2 = round2(r3 * 0.809, 2);
+                    var x1 = round2(r2 * 0.951, 2);
+                    var x2 = round2(r2 * 0.588, 2);
+                    var y0 = round2(-r2, 2);
+                    var y1 = round2(r2 * -0.309, 2);
+                    var y2 = round2(r2 * 0.809, 2);
                     return align(angle, standoff, "M" + x1 + "," + y1 + "L" + x2 + "," + y2 + "H-" + x2 + "L-" + x1 + "," + y1 + "L0," + y0 + "Z");
                   }
                 },
                 hexagon: {
                   n: 14,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var y0 = round2(r3, 2);
-                    var y1 = round2(r3 / 2, 2);
-                    var x2 = round2(r3 * sqrt3 / 2, 2);
+                    var y0 = round2(r2, 2);
+                    var y1 = round2(r2 / 2, 2);
+                    var x2 = round2(r2 * sqrt3 / 2, 2);
                     return align(angle, standoff, "M" + x2 + ",-" + y1 + "V" + y1 + "L0," + y0 + "L-" + x2 + "," + y1 + "V-" + y1 + "L0,-" + y0 + "Z");
                   }
                 },
                 hexagon2: {
                   n: 15,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var x0 = round2(r3, 2);
-                    var x1 = round2(r3 / 2, 2);
-                    var y2 = round2(r3 * sqrt3 / 2, 2);
+                    var x0 = round2(r2, 2);
+                    var x1 = round2(r2 / 2, 2);
+                    var y2 = round2(r2 * sqrt3 / 2, 2);
                     return align(angle, standoff, "M-" + x1 + "," + y2 + "H" + x1 + "L" + x0 + ",0L" + x1 + ",-" + y2 + "H-" + x1 + "L-" + x0 + ",0Z");
                   }
                 },
                 octagon: {
                   n: 16,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var a2 = round2(r3 * 0.924, 2);
-                    var b2 = round2(r3 * 0.383, 2);
+                    var a2 = round2(r2 * 0.924, 2);
+                    var b2 = round2(r2 * 0.383, 2);
                     return align(angle, standoff, "M-" + b2 + ",-" + a2 + "H" + b2 + "L" + a2 + ",-" + b2 + "V" + b2 + "L" + b2 + "," + a2 + "H-" + b2 + "L-" + a2 + "," + b2 + "V-" + b2 + "Z");
                   }
                 },
                 star: {
                   n: 17,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rs = r3 * 1.4;
+                    var rs = r2 * 1.4;
                     var x1 = round2(rs * 0.225, 2);
                     var x2 = round2(rs * 0.951, 2);
                     var x3 = round2(rs * 0.363, 2);
@@ -39097,99 +39232,99 @@ var plotly = { exports: {} };
                 },
                 hexagram: {
                   n: 18,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var y2 = round2(r3 * 0.66, 2);
-                    var x1 = round2(r3 * 0.38, 2);
-                    var x2 = round2(r3 * 0.76, 2);
+                    var y2 = round2(r2 * 0.66, 2);
+                    var x1 = round2(r2 * 0.38, 2);
+                    var x2 = round2(r2 * 0.76, 2);
                     return align(angle, standoff, "M-" + x2 + ",0l-" + x1 + ",-" + y2 + "h" + x2 + "l" + x1 + ",-" + y2 + "l" + x1 + "," + y2 + "h" + x2 + "l-" + x1 + "," + y2 + "l" + x1 + "," + y2 + "h-" + x2 + "l-" + x1 + "," + y2 + "l-" + x1 + ",-" + y2 + "h-" + x2 + "Z");
                   }
                 },
                 "star-triangle-up": {
                   n: 19,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var x2 = round2(r3 * sqrt3 * 0.8, 2);
-                    var y1 = round2(r3 * 0.8, 2);
-                    var y2 = round2(r3 * 1.6, 2);
-                    var rc2 = round2(r3 * 4, 2);
+                    var x2 = round2(r2 * sqrt3 * 0.8, 2);
+                    var y1 = round2(r2 * 0.8, 2);
+                    var y2 = round2(r2 * 1.6, 2);
+                    var rc2 = round2(r2 * 4, 2);
                     var aPart = "A " + rc2 + "," + rc2 + " 0 0 1 ";
                     return align(angle, standoff, "M-" + x2 + "," + y1 + aPart + x2 + "," + y1 + aPart + "0,-" + y2 + aPart + "-" + x2 + "," + y1 + "Z");
                   }
                 },
                 "star-triangle-down": {
                   n: 20,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var x2 = round2(r3 * sqrt3 * 0.8, 2);
-                    var y1 = round2(r3 * 0.8, 2);
-                    var y2 = round2(r3 * 1.6, 2);
-                    var rc2 = round2(r3 * 4, 2);
+                    var x2 = round2(r2 * sqrt3 * 0.8, 2);
+                    var y1 = round2(r2 * 0.8, 2);
+                    var y2 = round2(r2 * 1.6, 2);
+                    var rc2 = round2(r2 * 4, 2);
                     var aPart = "A " + rc2 + "," + rc2 + " 0 0 1 ";
                     return align(angle, standoff, "M" + x2 + ",-" + y1 + aPart + "-" + x2 + ",-" + y1 + aPart + "0," + y2 + aPart + x2 + ",-" + y1 + "Z");
                   }
                 },
                 "star-square": {
                   n: 21,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rp = round2(r3 * 1.1, 2);
-                    var rc2 = round2(r3 * 2, 2);
+                    var rp = round2(r2 * 1.1, 2);
+                    var rc2 = round2(r2 * 2, 2);
                     var aPart = "A " + rc2 + "," + rc2 + " 0 0 1 ";
                     return align(angle, standoff, "M-" + rp + ",-" + rp + aPart + "-" + rp + "," + rp + aPart + rp + "," + rp + aPart + rp + ",-" + rp + aPart + "-" + rp + ",-" + rp + "Z");
                   }
                 },
                 "star-diamond": {
                   n: 22,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rp = round2(r3 * 1.4, 2);
-                    var rc2 = round2(r3 * 1.9, 2);
+                    var rp = round2(r2 * 1.4, 2);
+                    var rc2 = round2(r2 * 1.9, 2);
                     var aPart = "A " + rc2 + "," + rc2 + " 0 0 1 ";
                     return align(angle, standoff, "M-" + rp + ",0" + aPart + "0," + rp + aPart + rp + ",0" + aPart + "0,-" + rp + aPart + "-" + rp + ",0Z");
                   }
                 },
                 "diamond-tall": {
                   n: 23,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var x2 = round2(r3 * 0.7, 2);
-                    var y2 = round2(r3 * 1.4, 2);
+                    var x2 = round2(r2 * 0.7, 2);
+                    var y2 = round2(r2 * 1.4, 2);
                     return align(angle, standoff, "M0," + y2 + "L" + x2 + ",0L0,-" + y2 + "L-" + x2 + ",0Z");
                   }
                 },
                 "diamond-wide": {
                   n: 24,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var x2 = round2(r3 * 1.4, 2);
-                    var y2 = round2(r3 * 0.7, 2);
+                    var x2 = round2(r2 * 1.4, 2);
+                    var y2 = round2(r2 * 0.7, 2);
                     return align(angle, standoff, "M0," + y2 + "L" + x2 + ",0L0,-" + y2 + "L-" + x2 + ",0Z");
                   }
                 },
                 hourglass: {
                   n: 25,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rs = round2(r3, 2);
+                    var rs = round2(r2, 2);
                     return align(angle, standoff, "M" + rs + "," + rs + "H-" + rs + "L" + rs + ",-" + rs + "H-" + rs + "Z");
                   },
                   noDot: true
                 },
                 bowtie: {
                   n: 26,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rs = round2(r3, 2);
+                    var rs = round2(r2, 2);
                     return align(angle, standoff, "M" + rs + "," + rs + "V-" + rs + "L-" + rs + "," + rs + "V-" + rs + "Z");
                   },
                   noDot: true
                 },
                 "circle-cross": {
                   n: 27,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rs = round2(r3, 2);
+                    var rs = round2(r2, 2);
                     return align(angle, standoff, "M0," + rs + "V-" + rs + "M" + rs + ",0H-" + rs + "M" + rs + ",0A" + rs + "," + rs + " 0 1,1 0,-" + rs + "A" + rs + "," + rs + " 0 0,1 " + rs + ",0Z");
                   },
                   needLine: true,
@@ -39197,10 +39332,10 @@ var plotly = { exports: {} };
                 },
                 "circle-x": {
                   n: 28,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rs = round2(r3, 2);
-                    var rc2 = round2(r3 / sqrt2, 2);
+                    var rs = round2(r2, 2);
+                    var rc2 = round2(r2 / sqrt2, 2);
                     return align(angle, standoff, "M" + rc2 + "," + rc2 + "L-" + rc2 + ",-" + rc2 + "M" + rc2 + ",-" + rc2 + "L-" + rc2 + "," + rc2 + "M" + rs + ",0A" + rs + "," + rs + " 0 1,1 0,-" + rs + "A" + rs + "," + rs + " 0 0,1 " + rs + ",0Z");
                   },
                   needLine: true,
@@ -39208,9 +39343,9 @@ var plotly = { exports: {} };
                 },
                 "square-cross": {
                   n: 29,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rs = round2(r3, 2);
+                    var rs = round2(r2, 2);
                     return align(angle, standoff, "M0," + rs + "V-" + rs + "M" + rs + ",0H-" + rs + "M" + rs + "," + rs + "H-" + rs + "V-" + rs + "H" + rs + "Z");
                   },
                   needLine: true,
@@ -39218,9 +39353,9 @@ var plotly = { exports: {} };
                 },
                 "square-x": {
                   n: 30,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rs = round2(r3, 2);
+                    var rs = round2(r2, 2);
                     return align(angle, standoff, "M" + rs + "," + rs + "L-" + rs + ",-" + rs + "M" + rs + ",-" + rs + "L-" + rs + "," + rs + "M" + rs + "," + rs + "H-" + rs + "V-" + rs + "H" + rs + "Z");
                   },
                   needLine: true,
@@ -39228,9 +39363,9 @@ var plotly = { exports: {} };
                 },
                 "diamond-cross": {
                   n: 31,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rd2 = round2(r3 * 1.3, 2);
+                    var rd2 = round2(r2 * 1.3, 2);
                     return align(angle, standoff, "M" + rd2 + ",0L0," + rd2 + "L-" + rd2 + ",0L0,-" + rd2 + "ZM0,-" + rd2 + "V" + rd2 + "M-" + rd2 + ",0H" + rd2);
                   },
                   needLine: true,
@@ -39238,10 +39373,10 @@ var plotly = { exports: {} };
                 },
                 "diamond-x": {
                   n: 32,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rd2 = round2(r3 * 1.3, 2);
-                    var r22 = round2(r3 * 0.65, 2);
+                    var rd2 = round2(r2 * 1.3, 2);
+                    var r22 = round2(r2 * 0.65, 2);
                     return align(angle, standoff, "M" + rd2 + ",0L0," + rd2 + "L-" + rd2 + ",0L0,-" + rd2 + "ZM-" + r22 + ",-" + r22 + "L" + r22 + "," + r22 + "M-" + r22 + "," + r22 + "L" + r22 + ",-" + r22);
                   },
                   needLine: true,
@@ -39249,9 +39384,9 @@ var plotly = { exports: {} };
                 },
                 "cross-thin": {
                   n: 33,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rc2 = round2(r3 * 1.4, 2);
+                    var rc2 = round2(r2 * 1.4, 2);
                     return align(angle, standoff, "M0," + rc2 + "V-" + rc2 + "M" + rc2 + ",0H-" + rc2);
                   },
                   needLine: true,
@@ -39260,9 +39395,9 @@ var plotly = { exports: {} };
                 },
                 "x-thin": {
                   n: 34,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rx = round2(r3, 2);
+                    var rx = round2(r2, 2);
                     return align(angle, standoff, "M" + rx + "," + rx + "L-" + rx + ",-" + rx + "M" + rx + ",-" + rx + "L-" + rx + "," + rx);
                   },
                   needLine: true,
@@ -39271,10 +39406,10 @@ var plotly = { exports: {} };
                 },
                 asterisk: {
                   n: 35,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rc2 = round2(r3 * 1.2, 2);
-                    var rs = round2(r3 * 0.85, 2);
+                    var rc2 = round2(r2 * 1.2, 2);
+                    var rs = round2(r2 * 0.85, 2);
                     return align(angle, standoff, "M0," + rc2 + "V-" + rc2 + "M" + rc2 + ",0H-" + rc2 + "M" + rs + "," + rs + "L-" + rs + ",-" + rs + "M" + rs + ",-" + rs + "L-" + rs + "," + rs);
                   },
                   needLine: true,
@@ -39283,10 +39418,10 @@ var plotly = { exports: {} };
                 },
                 hash: {
                   n: 36,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var r1 = round2(r3 / 2, 2);
-                    var r22 = round2(r3, 2);
+                    var r1 = round2(r2 / 2, 2);
+                    var r22 = round2(r2, 2);
                     return align(angle, standoff, "M" + r1 + "," + r22 + "V-" + r22 + "M" + (r1 - r22) + ",-" + r22 + "V" + r22 + "M" + r22 + "," + r1 + "H-" + r22 + "M-" + r22 + "," + (r1 - r22) + "H" + r22);
                   },
                   needLine: true,
@@ -39294,11 +39429,11 @@ var plotly = { exports: {} };
                 },
                 "y-up": {
                   n: 37,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var x2 = round2(r3 * 1.2, 2);
-                    var y0 = round2(r3 * 1.6, 2);
-                    var y1 = round2(r3 * 0.8, 2);
+                    var x2 = round2(r2 * 1.2, 2);
+                    var y0 = round2(r2 * 1.6, 2);
+                    var y1 = round2(r2 * 0.8, 2);
                     return align(angle, standoff, "M-" + x2 + "," + y1 + "L0,0M" + x2 + "," + y1 + "L0,0M0,-" + y0 + "L0,0");
                   },
                   needLine: true,
@@ -39307,11 +39442,11 @@ var plotly = { exports: {} };
                 },
                 "y-down": {
                   n: 38,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var x2 = round2(r3 * 1.2, 2);
-                    var y0 = round2(r3 * 1.6, 2);
-                    var y1 = round2(r3 * 0.8, 2);
+                    var x2 = round2(r2 * 1.2, 2);
+                    var y0 = round2(r2 * 1.6, 2);
+                    var y1 = round2(r2 * 0.8, 2);
                     return align(angle, standoff, "M-" + x2 + ",-" + y1 + "L0,0M" + x2 + ",-" + y1 + "L0,0M0," + y0 + "L0,0");
                   },
                   needLine: true,
@@ -39320,11 +39455,11 @@ var plotly = { exports: {} };
                 },
                 "y-left": {
                   n: 39,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var y2 = round2(r3 * 1.2, 2);
-                    var x0 = round2(r3 * 1.6, 2);
-                    var x1 = round2(r3 * 0.8, 2);
+                    var y2 = round2(r2 * 1.2, 2);
+                    var x0 = round2(r2 * 1.6, 2);
+                    var x1 = round2(r2 * 0.8, 2);
                     return align(angle, standoff, "M" + x1 + "," + y2 + "L0,0M" + x1 + ",-" + y2 + "L0,0M-" + x0 + ",0L0,0");
                   },
                   needLine: true,
@@ -39333,11 +39468,11 @@ var plotly = { exports: {} };
                 },
                 "y-right": {
                   n: 40,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var y2 = round2(r3 * 1.2, 2);
-                    var x0 = round2(r3 * 1.6, 2);
-                    var x1 = round2(r3 * 0.8, 2);
+                    var y2 = round2(r2 * 1.2, 2);
+                    var x0 = round2(r2 * 1.6, 2);
+                    var x1 = round2(r2 * 0.8, 2);
                     return align(angle, standoff, "M-" + x1 + "," + y2 + "L0,0M-" + x1 + ",-" + y2 + "L0,0M" + x0 + ",0L0,0");
                   },
                   needLine: true,
@@ -39346,9 +39481,9 @@ var plotly = { exports: {} };
                 },
                 "line-ew": {
                   n: 41,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rc2 = round2(r3 * 1.4, 2);
+                    var rc2 = round2(r2 * 1.4, 2);
                     return align(angle, standoff, "M" + rc2 + ",0H-" + rc2);
                   },
                   needLine: true,
@@ -39357,9 +39492,9 @@ var plotly = { exports: {} };
                 },
                 "line-ns": {
                   n: 42,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rc2 = round2(r3 * 1.4, 2);
+                    var rc2 = round2(r2 * 1.4, 2);
                     return align(angle, standoff, "M0," + rc2 + "V-" + rc2);
                   },
                   needLine: true,
@@ -39368,9 +39503,9 @@ var plotly = { exports: {} };
                 },
                 "line-ne": {
                   n: 43,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rx = round2(r3, 2);
+                    var rx = round2(r2, 2);
                     return align(angle, standoff, "M" + rx + ",-" + rx + "L-" + rx + "," + rx);
                   },
                   needLine: true,
@@ -39379,9 +39514,9 @@ var plotly = { exports: {} };
                 },
                 "line-nw": {
                   n: 44,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rx = round2(r3, 2);
+                    var rx = round2(r2, 2);
                     return align(angle, standoff, "M" + rx + "," + rx + "L-" + rx + ",-" + rx);
                   },
                   needLine: true,
@@ -39390,10 +39525,10 @@ var plotly = { exports: {} };
                 },
                 "arrow-up": {
                   n: 45,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rx = round2(r3, 2);
-                    var ry = round2(r3 * 2, 2);
+                    var rx = round2(r2, 2);
+                    var ry = round2(r2 * 2, 2);
                     return align(angle, standoff, "M0,0L-" + rx + "," + ry + "H" + rx + "Z");
                   },
                   backoff: 1,
@@ -39401,40 +39536,40 @@ var plotly = { exports: {} };
                 },
                 "arrow-down": {
                   n: 46,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rx = round2(r3, 2);
-                    var ry = round2(r3 * 2, 2);
+                    var rx = round2(r2, 2);
+                    var ry = round2(r2 * 2, 2);
                     return align(angle, standoff, "M0,0L-" + rx + ",-" + ry + "H" + rx + "Z");
                   },
                   noDot: true
                 },
                 "arrow-left": {
                   n: 47,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rx = round2(r3 * 2, 2);
-                    var ry = round2(r3, 2);
+                    var rx = round2(r2 * 2, 2);
+                    var ry = round2(r2, 2);
                     return align(angle, standoff, "M0,0L" + rx + ",-" + ry + "V" + ry + "Z");
                   },
                   noDot: true
                 },
                 "arrow-right": {
                   n: 48,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rx = round2(r3 * 2, 2);
-                    var ry = round2(r3, 2);
+                    var rx = round2(r2 * 2, 2);
+                    var ry = round2(r2, 2);
                     return align(angle, standoff, "M0,0L-" + rx + ",-" + ry + "V" + ry + "Z");
                   },
                   noDot: true
                 },
                 "arrow-bar-up": {
                   n: 49,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rx = round2(r3, 2);
-                    var ry = round2(r3 * 2, 2);
+                    var rx = round2(r2, 2);
+                    var ry = round2(r2 * 2, 2);
                     return align(angle, standoff, "M-" + rx + ",0H" + rx + "M0,0L-" + rx + "," + ry + "H" + rx + "Z");
                   },
                   backoff: 1,
@@ -39443,10 +39578,10 @@ var plotly = { exports: {} };
                 },
                 "arrow-bar-down": {
                   n: 50,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rx = round2(r3, 2);
-                    var ry = round2(r3 * 2, 2);
+                    var rx = round2(r2, 2);
+                    var ry = round2(r2 * 2, 2);
                     return align(angle, standoff, "M-" + rx + ",0H" + rx + "M0,0L-" + rx + ",-" + ry + "H" + rx + "Z");
                   },
                   needLine: true,
@@ -39454,10 +39589,10 @@ var plotly = { exports: {} };
                 },
                 "arrow-bar-left": {
                   n: 51,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rx = round2(r3 * 2, 2);
-                    var ry = round2(r3, 2);
+                    var rx = round2(r2 * 2, 2);
+                    var ry = round2(r2, 2);
                     return align(angle, standoff, "M0,-" + ry + "V" + ry + "M0,0L" + rx + ",-" + ry + "V" + ry + "Z");
                   },
                   needLine: true,
@@ -39465,10 +39600,10 @@ var plotly = { exports: {} };
                 },
                 "arrow-bar-right": {
                   n: 52,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
-                    var rx = round2(r3 * 2, 2);
-                    var ry = round2(r3, 2);
+                    var rx = round2(r2 * 2, 2);
+                    var ry = round2(r2, 2);
                     return align(angle, standoff, "M0,-" + ry + "V" + ry + "M0,0L-" + rx + ",-" + ry + "V" + ry + "Z");
                   },
                   needLine: true,
@@ -39476,11 +39611,11 @@ var plotly = { exports: {} };
                 },
                 arrow: {
                   n: 53,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
                     var headAngle = PI2 / 2.5;
-                    var x2 = 2 * r3 * cos(headAngle);
-                    var y2 = 2 * r3 * sin(headAngle);
+                    var x2 = 2 * r2 * cos(headAngle);
+                    var y2 = 2 * r2 * sin(headAngle);
                     return align(angle, standoff, "M0,0L" + -x2 + "," + y2 + "L" + x2 + "," + y2 + "Z");
                   },
                   backoff: 0.9,
@@ -39488,12 +39623,12 @@ var plotly = { exports: {} };
                 },
                 "arrow-wide": {
                   n: 54,
-                  f: function(r3, angle, standoff) {
+                  f: function(r2, angle, standoff) {
                     if (skipAngle(angle)) return emptyPath;
                     var headAngle = PI2 / 4;
-                    var x2 = 2 * r3 * cos(headAngle);
-                    var y2 = 2 * r3 * sin(headAngle);
-                    return align(angle, standoff, "M0,0L" + -x2 + "," + y2 + "A " + 2 * r3 + "," + 2 * r3 + " 0 0 1 " + x2 + "," + y2 + "Z");
+                    var x2 = 2 * r2 * cos(headAngle);
+                    var y2 = 2 * r2 * sin(headAngle);
+                    return align(angle, standoff, "M0,0L" + -x2 + "," + y2 + "A " + 2 * r2 + "," + 2 * r2 + " 0 0 1 " + x2 + "," + y2 + "Z");
                   },
                   backoff: 0.4,
                   noDot: true
@@ -47644,9 +47779,9 @@ var plotly = { exports: {} };
               }
               function drawOne(gd2, index) {
                 gd2._fullLayout._paperdiv.selectAll('.selectionlayer [data-index="' + index + '"]').remove();
-                var o2 = helpers.makeSelectionsOptionsAndPlotinfo(gd2, index);
-                var options = o2.options;
-                var plotinfo = o2.plotinfo;
+                var o3 = helpers.makeSelectionsOptionsAndPlotinfo(gd2, index);
+                var options = o3.options;
+                var plotinfo = o3.plotinfo;
                 if (!options._input) return;
                 drawSelection(gd2._fullLayout._selectionLayer);
                 function drawSelection(selectionLayer) {
@@ -48382,8 +48517,8 @@ var plotly = { exports: {} };
                   subtract: !!subtract
                 };
               }
-              function isPointSelectionDef(o2) {
-                return "pointNumber" in o2 && "searchInfo" in o2;
+              function isPointSelectionDef(o3) {
+                return "pointNumber" in o3 && "searchInfo" in o3;
               }
               function newPointNumTester(pointSelectionDef) {
                 return {
@@ -50224,9 +50359,9 @@ var plotly = { exports: {} };
               }
               function drawOne(gd2, index) {
                 gd2._fullLayout._paperdiv.selectAll('.shapelayer [data-index="' + index + '"]').remove();
-                var o2 = helpers.makeShapesOptionsAndPlotinfo(gd2, index);
-                var options = o2.options;
-                var plotinfo = o2.plotinfo;
+                var o3 = helpers.makeShapesOptionsAndPlotinfo(gd2, index);
+                var options = o3.options;
+                var plotinfo = o3.plotinfo;
                 if (!options._input || options.visible !== true) return;
                 if (options.layer === "above") {
                   drawShape(gd2._fullLayout._shapeUpperLayer);
@@ -54262,7 +54397,7 @@ var plotly = { exports: {} };
                 var a1 = a0 + twoPI;
                 return a0 >= s0 && a0 <= s1 || a1 >= s0 && a1 <= s1;
               }
-              function isPtInsideSector(r3, a2, rBnds, aBnds) {
+              function isPtInsideSector(r2, a2, rBnds, aBnds) {
                 if (!isAngleInsideSector(a2, aBnds)) return false;
                 var r0, r1;
                 if (rBnds[0] < rBnds[1]) {
@@ -54272,7 +54407,7 @@ var plotly = { exports: {} };
                   r0 = rBnds[1];
                   r1 = rBnds[0];
                 }
-                return r3 >= r0 && r3 <= r1;
+                return r2 >= r0 && r2 <= r1;
               }
               function _path(r0, r1, a0, a1, cx, cy, isClosed) {
                 cx = cx || 0;
@@ -54300,12 +54435,12 @@ var plotly = { exports: {} };
                   rStart = r1;
                   rEnd = r0;
                 }
-                function pt(r3, a2) {
-                  return [r3 * Math.cos(a2) + cx, cy - r3 * Math.sin(a2)];
+                function pt(r2, a2) {
+                  return [r2 * Math.cos(a2) + cx, cy - r2 * Math.sin(a2)];
                 }
                 var largeArc = Math.abs(aEnd - aStart) <= PI2 ? 0 : 1;
-                function arc(r3, a2, cw) {
-                  return "A" + [r3, r3] + " " + [0, largeArc, cw] + " " + pt(r3, a2);
+                function arc(r2, a2, cw) {
+                  return "A" + [r2, r2] + " " + [0, largeArc, cw] + " " + pt(r2, a2);
                 }
                 var p2;
                 if (isCircle) {
@@ -54324,11 +54459,11 @@ var plotly = { exports: {} };
                 }
                 return p2;
               }
-              function pathArc(r3, a0, a1, cx, cy) {
-                return _path(null, r3, a0, a1, cx, cy, 0);
+              function pathArc(r2, a0, a1, cx, cy) {
+                return _path(null, r2, a0, a1, cx, cy, 0);
               }
-              function pathSector(r3, a0, a1, cx, cy) {
-                return _path(null, r3, a0, a1, cx, cy, 1);
+              function pathSector(r2, a0, a1, cx, cy) {
+                return _path(null, r2, a0, a1, cx, cy, 1);
               }
               function pathAnnulus(r0, r1, a0, a1, cx, cy) {
                 return _path(r0, r1, a0, a1, cx, cy, 1);
@@ -55053,9 +55188,9 @@ var plotly = { exports: {} };
               var NINETYDAYS = 90 * ONEDAY;
               var THREEHOURS = 3 * ONEHOUR;
               var FIVEMIN = 5 * ONEMIN;
-              exports2.ms2DateTime = function(ms, r3, calendar) {
+              exports2.ms2DateTime = function(ms, r2, calendar) {
                 if (typeof ms !== "number" || !(ms >= MIN_MS && ms <= MAX_MS)) return BADNUM;
-                if (!r3) r3 = 0;
+                if (!r2) r2 = 0;
                 var msecTenths = Math.floor(mod(ms + 0.05, 1) * 10);
                 var msRounded = Math.round(ms - msecTenths / 10);
                 var dateStr, h2, m2, s2, msec10, d2;
@@ -55072,17 +55207,17 @@ var plotly = { exports: {} };
                   } else {
                     while (dateStr.length < 10) dateStr = "0" + dateStr;
                   }
-                  h2 = r3 < NINETYDAYS ? Math.floor(timeMs / ONEHOUR) : 0;
-                  m2 = r3 < NINETYDAYS ? Math.floor(timeMs % ONEHOUR / ONEMIN) : 0;
-                  s2 = r3 < THREEHOURS ? Math.floor(timeMs % ONEMIN / ONESEC) : 0;
-                  msec10 = r3 < FIVEMIN ? timeMs % ONESEC * 10 + msecTenths : 0;
+                  h2 = r2 < NINETYDAYS ? Math.floor(timeMs / ONEHOUR) : 0;
+                  m2 = r2 < NINETYDAYS ? Math.floor(timeMs % ONEHOUR / ONEMIN) : 0;
+                  s2 = r2 < THREEHOURS ? Math.floor(timeMs % ONEMIN / ONESEC) : 0;
+                  msec10 = r2 < FIVEMIN ? timeMs % ONESEC * 10 + msecTenths : 0;
                 } else {
                   d2 = new Date(msRounded);
                   dateStr = utcFormat("%Y-%m-%d")(d2);
-                  h2 = r3 < NINETYDAYS ? d2.getUTCHours() : 0;
-                  m2 = r3 < NINETYDAYS ? d2.getUTCMinutes() : 0;
-                  s2 = r3 < THREEHOURS ? d2.getUTCSeconds() : 0;
-                  msec10 = r3 < FIVEMIN ? d2.getUTCMilliseconds() * 10 + msecTenths : 0;
+                  h2 = r2 < NINETYDAYS ? d2.getUTCHours() : 0;
+                  m2 = r2 < NINETYDAYS ? d2.getUTCMinutes() : 0;
+                  s2 = r2 < THREEHOURS ? d2.getUTCSeconds() : 0;
+                  msec10 = r2 < FIVEMIN ? d2.getUTCMilliseconds() * 10 + msecTenths : 0;
                 }
                 return includeTime(dateStr, h2, m2, s2, msec10);
               };
@@ -56071,8 +56206,8 @@ var plotly = { exports: {} };
                   };
                 } else getColor = validateColor;
                 if (isArrayOpacityIn) {
-                  getOpacity = function(o2, i22) {
-                    return o2[i22] === void 0 ? opacityDflt : validateOpacity(o2[i22]);
+                  getOpacity = function(o3, i22) {
+                    return o3[i22] === void 0 ? opacityDflt : validateOpacity(o3[i22]);
                   };
                 } else getOpacity = validateOpacity;
                 if (isArrayColorIn || isArrayOpacityIn) {
@@ -59111,46 +59246,46 @@ var plotly = { exports: {} };
             function(__unused_webpack_module, exports2) {
               var timerCache = {};
               exports2.throttle = function throttle(id2, minInterval, callback) {
-                var cache2 = timerCache[id2];
+                var cache = timerCache[id2];
                 var now = Date.now();
-                if (!cache2) {
+                if (!cache) {
                   for (var idi in timerCache) {
                     if (timerCache[idi].ts < now - 6e4) {
                       delete timerCache[idi];
                     }
                   }
-                  cache2 = timerCache[id2] = {
+                  cache = timerCache[id2] = {
                     ts: 0,
                     timer: null
                   };
                 }
-                _clearTimeout(cache2);
+                _clearTimeout(cache);
                 function exec() {
                   callback();
-                  cache2.ts = Date.now();
-                  if (cache2.onDone) {
-                    cache2.onDone();
-                    cache2.onDone = null;
+                  cache.ts = Date.now();
+                  if (cache.onDone) {
+                    cache.onDone();
+                    cache.onDone = null;
                   }
                 }
-                if (now > cache2.ts + minInterval) {
+                if (now > cache.ts + minInterval) {
                   exec();
                   return;
                 }
-                cache2.timer = setTimeout(function() {
+                cache.timer = setTimeout(function() {
                   exec();
-                  cache2.timer = null;
+                  cache.timer = null;
                 }, minInterval);
               };
               exports2.done = function(id2) {
-                var cache2 = timerCache[id2];
-                if (!cache2 || !cache2.timer) return Promise.resolve();
+                var cache = timerCache[id2];
+                if (!cache || !cache.timer) return Promise.resolve();
                 return new Promise(function(resolve) {
-                  var previousOnDone = cache2.onDone;
-                  cache2.onDone = function onDone() {
+                  var previousOnDone = cache.onDone;
+                  cache.onDone = function onDone() {
                     if (previousOnDone) previousOnDone();
                     resolve();
-                    cache2.onDone = null;
+                    cache.onDone = null;
                   };
                 });
               };
@@ -59162,10 +59297,10 @@ var plotly = { exports: {} };
                   for (var idi in timerCache) exports2.clear(idi);
                 }
               };
-              function _clearTimeout(cache2) {
-                if (cache2 && cache2.timer !== null) {
-                  clearTimeout(cache2.timer);
-                  cache2.timer = null;
+              function _clearTimeout(cache) {
+                if (cache && cache.timer !== null) {
+                  clearTimeout(cache.timer);
+                  cache.timer = null;
                 }
               }
             }
@@ -66058,8 +66193,8 @@ var plotly = { exports: {} };
                     var nAll = 84;
                     var n2 = 0;
                     for (var c2 = 0; c2 < nAll; c2++) {
-                      var r3 = (c2 + 0.5) / nAll;
-                      if (ax.maskBreaks(v2 * (1 - r3) + r3 * endPeriod) !== BADNUM) n2++;
+                      var r2 = (c2 + 0.5) / nAll;
+                      if (ax.maskBreaks(v2 * (1 - r2) + r2 * endPeriod) !== BADNUM) n2++;
                     }
                     periodLength *= n2 / nAll;
                     if (!periodLength) {
@@ -72511,8 +72646,8 @@ var plotly = { exports: {} };
                   }
                   return ms;
                 }
-                function ms2dt(v2, r3, calendar) {
-                  return ms2DateTime(v2, r3, calendar || ax.calendar);
+                function ms2dt(v2, r2, calendar) {
+                  return ms2DateTime(v2, r2, calendar || ax.calendar);
                 }
                 function getCategoryName(v2) {
                   return ax._categories[Math.round(v2)];
@@ -72651,8 +72786,8 @@ var plotly = { exports: {} };
                   ax.d2p = ax.r2p = function(v2, _2, calendar) {
                     return ax.l2p(dt2ms(v2, 0, calendar));
                   };
-                  ax.p2d = ax.p2r = function(px, r3, calendar) {
-                    return ms2dt(p2l(px), r3, calendar);
+                  ax.p2d = ax.p2r = function(px, r2, calendar) {
+                    return ms2dt(p2l(px), r2, calendar);
                   };
                   ax.cleanPos = function(v2) {
                     return Lib.cleanDate(v2, BADNUM, ax.calendar);
@@ -73709,7 +73844,7 @@ var plotly = { exports: {} };
                 }
                 return refBinding;
               };
-              function bindingValueHasChanged(gd2, binding, cache2) {
+              function bindingValueHasChanged(gd2, binding, cache) {
                 var container, value, obj;
                 var changed = false;
                 if (binding.type === "data") {
@@ -73720,7 +73855,7 @@ var plotly = { exports: {} };
                   return false;
                 }
                 value = Lib.nestedProperty(container, binding.prop).get();
-                obj = cache2[binding.type] = cache2[binding.type] || {};
+                obj = cache[binding.type] = cache[binding.type] || {};
                 if (obj.hasOwnProperty(binding.prop)) {
                   if (obj[binding.prop] !== value) {
                     changed = true;
@@ -74796,8 +74931,8 @@ var plotly = { exports: {} };
                     return true;
                   }
                   if (clipAngle) {
-                    var r3 = projection.rotate();
-                    var angle = geoDistance(lonlat, [-r3[0], -r3[1]]);
+                    var r2 = projection.rotate();
+                    var angle = geoDistance(lonlat, [-r2[0], -r2[1]]);
                     var maxAngle = clipAngle * Math.PI / 180;
                     return angle > maxAngle;
                   } else {
@@ -77662,11 +77797,11 @@ var plotly = { exports: {} };
                     if (gd2._context._scrollZoom.gl3d) {
                       if (scene.camera._ortho) {
                         var s2 = e4.deltaX > e4.deltaY ? 1.1 : 1 / 1.1;
-                        var o2 = scene.glplot.getAspectratio();
+                        var o3 = scene.glplot.getAspectratio();
                         scene.glplot.setAspectratio({
-                          x: s2 * o2.x,
-                          y: s2 * o2.y,
-                          z: s2 * o2.z
+                          x: s2 * o3.x,
+                          y: s2 * o3.y,
+                          z: s2 * o3.z
                         });
                       }
                       relayoutCallback(scene);
@@ -82743,7 +82878,7 @@ var plotly = { exports: {} };
               }
               var MIN_SPECIFIED_WIDTH = 2;
               var MIN_SPECIFIED_HEIGHT = 2;
-              plots.autoMargin = function(gd2, id2, o2) {
+              plots.autoMargin = function(gd2, id2, o3) {
                 var fullLayout = gd2._fullLayout;
                 var width2 = fullLayout.width;
                 var height2 = fullLayout.height;
@@ -82757,48 +82892,48 @@ var plotly = { exports: {} };
                 var pushMargin = fullLayout._pushmargin;
                 var pushMarginIds = fullLayout._pushmarginIds;
                 if (margin2.autoexpand !== false) {
-                  if (!o2) {
+                  if (!o3) {
                     delete pushMargin[id2];
                     delete pushMarginIds[id2];
                   } else {
-                    var pad = o2.pad;
+                    var pad = o3.pad;
                     if (pad === void 0) {
                       pad = Math.min(12, margin2.l, margin2.r, margin2.t, margin2.b);
                     }
                     if (maxSpaceW) {
-                      var rW = (o2.l + o2.r) / maxSpaceW;
+                      var rW = (o3.l + o3.r) / maxSpaceW;
                       if (rW > 1) {
-                        o2.l /= rW;
-                        o2.r /= rW;
+                        o3.l /= rW;
+                        o3.r /= rW;
                       }
                     }
                     if (maxSpaceH) {
-                      var rH = (o2.t + o2.b) / maxSpaceH;
+                      var rH = (o3.t + o3.b) / maxSpaceH;
                       if (rH > 1) {
-                        o2.t /= rH;
-                        o2.b /= rH;
+                        o3.t /= rH;
+                        o3.b /= rH;
                       }
                     }
-                    var xl = o2.xl !== void 0 ? o2.xl : o2.x;
-                    var xr = o2.xr !== void 0 ? o2.xr : o2.x;
-                    var yt = o2.yt !== void 0 ? o2.yt : o2.y;
-                    var yb2 = o2.yb !== void 0 ? o2.yb : o2.y;
+                    var xl = o3.xl !== void 0 ? o3.xl : o3.x;
+                    var xr = o3.xr !== void 0 ? o3.xr : o3.x;
+                    var yt = o3.yt !== void 0 ? o3.yt : o3.y;
+                    var yb2 = o3.yb !== void 0 ? o3.yb : o3.y;
                     pushMargin[id2] = {
                       l: {
                         val: xl,
-                        size: o2.l + pad
+                        size: o3.l + pad
                       },
                       r: {
                         val: xr,
-                        size: o2.r + pad
+                        size: o3.r + pad
                       },
                       b: {
                         val: yb2,
-                        size: o2.b + pad
+                        size: o3.b + pad
                       },
                       t: {
                         val: yt,
-                        size: o2.t + pad
+                        size: o3.t + pad
                       }
                     };
                     pushMarginIds[id2] = 1;
@@ -82993,12 +83128,12 @@ var plotly = { exports: {} };
                     return keepFunction ? "_function_" : null;
                   }
                   if (Lib.isPlainObject(d2)) {
-                    var o2 = {};
+                    var o3 = {};
                     var src;
                     Object.keys(d2).sort().forEach(function(v2) {
                       if (["_", "["].indexOf(v2.charAt(0)) !== -1) return;
                       if (typeof d2[v2] === "function") {
-                        if (keepFunction) o2[v2] = "_function";
+                        if (keepFunction) o3[v2] = "_function";
                         return;
                       }
                       if (mode === "keepdata") {
@@ -83018,9 +83153,9 @@ var plotly = { exports: {} };
                           return;
                         }
                       }
-                      o2[v2] = stripObj(d2[v2], keepFunction);
+                      o3[v2] = stripObj(d2[v2], keepFunction);
                     });
-                    return o2;
+                    return o3;
                   }
                   var dIsArray = Array.isArray(d2);
                   var dIsTypedArray = Lib.isTypedArray(d2);
@@ -83603,7 +83738,7 @@ var plotly = { exports: {} };
               var sortAxisCategoriesByValueRegex = /(total|sum|min|max|mean|geometric mean|median) (ascending|descending)/;
               function sortAxisCategoriesByValue(axList, gd2) {
                 var affectedTraces = [];
-                var i2, j, k2, l2, o2;
+                var i2, j, k2, l2, o3;
                 function zMapCategory(type2, ax2, value2) {
                   var axLetter2 = ax2._id.charAt(0);
                   if (type2 === "histogram2dcontour") {
@@ -83693,9 +83828,9 @@ var plotly = { exports: {} };
                           var categories = cdi.trace.dimensions[currentDimensionIndex].values;
                           for (l2 = 0; l2 < categories.length; l2++) {
                             catIndex = ax._categoriesMap[categories[l2]];
-                            for (o2 = 0; o2 < cdi.trace.dimensions.length; o2++) {
-                              if (o2 === currentDimensionIndex) continue;
-                              var dimension = cdi.trace.dimensions[o2];
+                            for (o3 = 0; o3 < cdi.trace.dimensions.length; o3++) {
+                              if (o3 === currentDimensionIndex) continue;
+                              var dimension = cdi.trace.dimensions[o3];
                               categoriesValue[catIndex][1].push(dimension.values[l2]);
                             }
                           }
@@ -83717,9 +83852,9 @@ var plotly = { exports: {} };
                           value = cdi.z;
                           var mapping = zMapCategory(fullTrace.type, ax, value);
                           for (l2 = 0; l2 < value.length; l2++) {
-                            for (o2 = 0; o2 < value[l2].length; o2++) {
-                              catIndex = mapping(o2, l2);
-                              if (catIndex + 1) categoriesValue[catIndex][1].push(value[l2][o2]);
+                            for (o3 = 0; o3 < value[l2].length; o3++) {
+                              catIndex = mapping(o3, l2);
+                              if (catIndex + 1) categoriesValue[catIndex][1].push(value[l2][o3]);
                             }
                           }
                         } else {
@@ -83903,7 +84038,7 @@ var plotly = { exports: {} };
               var isAngleInsideSector = Lib.isAngleInsideSector;
               var angleDelta = Lib.angleDelta;
               var angleDist = Lib.angleDist;
-              function isPtInsidePolygon(r3, a2, rBnds, aBnds, vangles) {
+              function isPtInsidePolygon(r2, a2, rBnds, aBnds, vangles) {
                 if (!isAngleInsideSector(a2, aBnds)) return false;
                 var r0, r1;
                 if (rBnds[0] < rBnds[1]) {
@@ -83915,7 +84050,7 @@ var plotly = { exports: {} };
                 }
                 var polygonIn = polygonTester(makePolygon(r0, aBnds[0], aBnds[1], vangles));
                 var polygonOut = polygonTester(makePolygon(r1, aBnds[0], aBnds[1], vangles));
-                var xy = [r3 * Math.cos(a2), r3 * Math.sin(a2)];
+                var xy = [r2 * Math.cos(a2), r2 * Math.sin(a2)];
                 return polygonOut.contains(xy) && !polygonIn.contains(xy);
               }
               function findIntersectionXY(v0, v1, a2, xpyp) {
@@ -83962,23 +84097,23 @@ var plotly = { exports: {} };
                 var x1 = (-b2 - del) / (2 * a2);
                 return [[x0, m2 * x0 + t3 + yp], [x1, m2 * x1 + t3 + yp]];
               }
-              function makeRegularPolygon(r3, vangles) {
+              function makeRegularPolygon(r2, vangles) {
                 var len = vangles.length;
                 var vertices = new Array(len + 1);
                 var i2;
                 for (i2 = 0; i2 < len; i2++) {
                   var va2 = vangles[i2];
-                  vertices[i2] = [r3 * Math.cos(va2), r3 * Math.sin(va2)];
+                  vertices[i2] = [r2 * Math.cos(va2), r2 * Math.sin(va2)];
                 }
                 vertices[i2] = vertices[0].slice();
                 return vertices;
               }
-              function makeClippedPolygon(r3, a0, a1, vangles) {
+              function makeClippedPolygon(r2, a0, a1, vangles) {
                 var len = vangles.length;
                 var vertices = [];
                 var i2, j;
                 function a2xy(a2) {
-                  return [r3 * Math.cos(a2), r3 * Math.sin(a2)];
+                  return [r2 * Math.cos(a2), r2 * Math.sin(a2)];
                 }
                 function findXY(va0, va1, s2) {
                   return findIntersectionXY(va0, va1, s2, a2xy(va0));
@@ -84008,13 +84143,13 @@ var plotly = { exports: {} };
                 vertices.push(vertices[0].slice());
                 return vertices;
               }
-              function makePolygon(r3, a0, a1, vangles) {
-                return Lib.isFullCircle([a0, a1]) ? makeRegularPolygon(r3, vangles) : makeClippedPolygon(r3, a0, a1, vangles);
+              function makePolygon(r2, a0, a1, vangles) {
+                return Lib.isFullCircle([a0, a1]) ? makeRegularPolygon(r2, vangles) : makeClippedPolygon(r2, a0, a1, vangles);
               }
-              function findPolygonOffset(r3, a0, a1, vangles) {
+              function findPolygonOffset(r2, a0, a1, vangles) {
                 var minX = Infinity;
                 var minY = Infinity;
-                var vertices = makePolygon(r3, a0, a1, vangles);
+                var vertices = makePolygon(r2, a0, a1, vangles);
                 for (var i2 = 0; i2 < vertices.length; i2++) {
                   var v2 = vertices[i2];
                   minX = Math.min(minX, v2[0]);
@@ -84045,8 +84180,8 @@ var plotly = { exports: {} };
                 }
                 return pts1;
               }
-              function pathPolygon(r3, a0, a1, vangles, cx, cy) {
-                var poly = makePolygon(r3, a0, a1, vangles);
+              function pathPolygon(r2, a0, a1, vangles, cx, cy) {
+                var poly = makePolygon(r2, a0, a1, vangles);
                 return "M" + transformForSVG(poly, cx, cy).join("L");
               }
               function pathPolygonAnnulus(r0, r1, a0, a1, vangles, cx, cy) {
@@ -85260,23 +85395,23 @@ var plotly = { exports: {} };
                 function xy2a(x2, y2) {
                   return Math.atan2(cyy - y2, x2 - cxx);
                 }
-                function ra2xy(r3, a2) {
-                  return [r3 * Math.cos(a2), r3 * Math.sin(-a2)];
+                function ra2xy(r2, a2) {
+                  return [r2 * Math.cos(a2), r2 * Math.sin(-a2)];
                 }
-                function pathCorner(r3, a2) {
-                  if (r3 === 0) return _this.pathSector(2 * chw);
-                  var da2 = chl / r3;
+                function pathCorner(r2, a2) {
+                  if (r2 === 0) return _this.pathSector(2 * chw);
+                  var da2 = chl / r2;
                   var am = a2 - da2;
                   var ap = a2 + da2;
-                  var rb2 = Math.max(0, Math.min(r3, radius));
+                  var rb2 = Math.max(0, Math.min(r2, radius));
                   var rm = rb2 - chw;
                   var rp = rb2 + chw;
                   return "M" + ra2xy(rm, am) + "A" + [rm, rm] + " 0,0,0 " + ra2xy(rm, ap) + "L" + ra2xy(rp, ap) + "A" + [rp, rp] + " 0,0,1 " + ra2xy(rp, am) + "Z";
                 }
-                function pathCornerForPolygons(r3, va0, va1) {
-                  if (r3 === 0) return _this.pathSector(2 * chw);
-                  var xy0 = ra2xy(r3, va0);
-                  var xy1 = ra2xy(r3, va1);
+                function pathCornerForPolygons(r2, va0, va1) {
+                  if (r2 === 0) return _this.pathSector(2 * chw);
+                  var xy0 = ra2xy(r2, va0);
+                  var xy1 = ra2xy(r2, va1);
                   var x2 = clampTiny((xy0[0] + xy1[0]) / 2);
                   var y2 = clampTiny((xy0[1] + xy1[1]) / 2);
                   var innerPts, outerPts;
@@ -85707,22 +85842,22 @@ var plotly = { exports: {} };
                 var vangles = this.vangles;
                 var thetag = this.angularAxis.c2g(d2.theta);
                 var radialAxis = this.radialAxis;
-                var r3 = radialAxis.c2l(d2.r);
+                var r2 = radialAxis.c2l(d2.r);
                 var rl2 = radialAxis._rl;
                 var fn2 = vangles ? helpers.isPtInsidePolygon : Lib.isPtInsideSector;
-                return fn2(r3, thetag, rl2, sectorInRad, vangles);
+                return fn2(r2, thetag, rl2, sectorInRad, vangles);
               };
-              proto.pathArc = function(r3) {
+              proto.pathArc = function(r2) {
                 var sectorInRad = this.sectorInRad;
                 var vangles = this.vangles;
                 var fn2 = vangles ? helpers.pathPolygon : Lib.pathArc;
-                return fn2(r3, sectorInRad[0], sectorInRad[1], vangles);
+                return fn2(r2, sectorInRad[0], sectorInRad[1], vangles);
               };
-              proto.pathSector = function(r3) {
+              proto.pathSector = function(r2) {
                 var sectorInRad = this.sectorInRad;
                 var vangles = this.vangles;
                 var fn2 = vangles ? helpers.pathPolygon : Lib.pathSector;
-                return fn2(r3, sectorInRad[0], sectorInRad[1], vangles);
+                return fn2(r2, sectorInRad[0], sectorInRad[1], vangles);
               };
               proto.pathAnnulus = function(r0, r1) {
                 var sectorInRad = this.sectorInRad;
@@ -85838,8 +85973,8 @@ var plotly = { exports: {} };
                     return v2 >= 0;
                   };
                   ax.c2g = function(v2) {
-                    var r3 = ax.c2l(v2) - rl0;
-                    return (rFilter(r3) ? r3 : 0) + b22;
+                    var r2 = ax.c2l(v2) - rl0;
+                    return (rFilter(r2) ? r2 : 0) + b22;
                   };
                   ax.g2c = function(v2) {
                     return ax.l2c(v2 + rl0 - b22);
@@ -85984,8 +86119,8 @@ var plotly = { exports: {} };
                 var y2 = a2[1];
                 return [x2 * subplot.radius + subplot.cx, -y2 * subplot.radius + subplot.cy];
               }
-              function scale(subplot, r3) {
-                return r3 * subplot.radius;
+              function scale(subplot, r2) {
+                return r2 * subplot.radius;
               }
               function reactanceArc(subplot, X2, R1, R2) {
                 var t1 = transform(subplot, smith([R1, X2]));
@@ -85997,11 +86132,11 @@ var plotly = { exports: {} };
                 if (X2 === 0) {
                   return ["M" + x1 + "," + y1, "L" + x2 + "," + y2].join(" ");
                 }
-                var r3 = scale(subplot, 1 / Math.abs(X2));
-                return ["M" + x1 + "," + y1, "A" + r3 + "," + r3 + " 0 0," + (X2 < 0 ? 1 : 0) + " " + x2 + "," + y2].join(" ");
+                var r2 = scale(subplot, 1 / Math.abs(X2));
+                return ["M" + x1 + "," + y1, "A" + r2 + "," + r2 + " 0 0," + (X2 < 0 ? 1 : 0) + " " + x2 + "," + y2].join(" ");
               }
               function resistanceArc(subplot, R2, X1, X2) {
-                var r3 = scale(subplot, 1 / (R2 + 1));
+                var r2 = scale(subplot, 1 / (R2 + 1));
                 var t1 = transform(subplot, smith([R2, X1]));
                 var x1 = t1[0];
                 var y1 = t1[1];
@@ -86012,9 +86147,9 @@ var plotly = { exports: {} };
                   var t0 = transform(subplot, smith([R2, 0]));
                   var x0 = t0[0];
                   var y0 = t0[1];
-                  return ["M" + x1 + "," + y1, "A" + r3 + "," + r3 + " 0 0," + (0 < X1 ? 0 : 1) + " " + x0 + "," + y0, "A" + r3 + "," + r3 + " 0 0," + (X2 < 0 ? 0 : 1) + x2 + "," + y2].join(" ");
+                  return ["M" + x1 + "," + y1, "A" + r2 + "," + r2 + " 0 0," + (0 < X1 ? 0 : 1) + " " + x0 + "," + y0, "A" + r2 + "," + r2 + " 0 0," + (X2 < 0 ? 0 : 1) + x2 + "," + y2].join(" ");
                 }
-                return ["M" + x1 + "," + y1, "A" + r3 + "," + r3 + " 0 0," + (X2 < X1 ? 0 : 1) + " " + x2 + "," + y2].join(" ");
+                return ["M" + x1 + "," + y1, "A" + r2 + "," + r2 + " 0 0," + (X2 < X1 ? 0 : 1) + " " + x2 + "," + y2].join(" ");
               }
               module2.exports = {
                 smith,
@@ -86297,14 +86432,14 @@ var plotly = { exports: {} };
                 });
               };
               function memoize2(fn2, keyFn) {
-                var cache2 = {};
+                var cache = {};
                 return function(val) {
                   var newKey = keyFn ? keyFn(val) : val;
-                  if (newKey in cache2) {
-                    return cache2[newKey];
+                  if (newKey in cache) {
+                    return cache[newKey];
                   }
                   var out = fn2(val);
-                  cache2[newKey] = out;
+                  cache[newKey] = out;
                   return out;
                 };
               }
@@ -88715,12 +88850,12 @@ var plotly = { exports: {} };
                   var calcTrace0 = calcTrace[0];
                   var fullTrace = calcTrace0.trace;
                   var pts = [];
-                  var bar, l2, r3, j;
+                  var bar, l2, r2, j;
                   for (j = 0; j < calcTrace.length; j++) {
                     bar = calcTrace[j];
                     l2 = bar.p - vpad;
-                    r3 = bar.p + vpad;
-                    pts.push(l2, r3);
+                    r2 = bar.p + vpad;
+                    pts.push(l2, r2);
                   }
                   if (fullTrace.width || fullTrace.offset) {
                     var t3 = calcTrace0.t;
@@ -88733,8 +88868,8 @@ var plotly = { exports: {} };
                       var calcBarOffset = poffsetIsArray ? poffset[j] : poffset;
                       var calcBarWidth = barwidthIsArray ? barwidth[j] : barwidth;
                       l2 = bar.p + calcBarOffset;
-                      r3 = l2 + calcBarWidth;
-                      pts.push(l2, r3);
+                      r2 = l2 + calcBarWidth;
+                      pts.push(l2, r2);
                     }
                   }
                   fullTrace._extremes[pa2._id] = Axes.findExtremes(pa2, pts, {
@@ -89045,9 +89180,9 @@ var plotly = { exports: {} };
                   traceOut = fullData[i2];
                   if (traceOut.type === "bar") {
                     traceIn = traceOut._input;
-                    var r3 = coerce("marker.cornerradius", fullLayout.barcornerradius);
+                    var r2 = coerce("marker.cornerradius", fullLayout.barcornerradius);
                     if (traceOut.marker) {
-                      traceOut.marker.cornerradius = validateCornerradius(r3);
+                      traceOut.marker.cornerradius = validateCornerradius(r2);
                     }
                     if (fullLayout.barmode === "group") {
                       handleGroupingDefaults(traceIn, traceOut, fullLayout, coerce);
@@ -89055,15 +89190,15 @@ var plotly = { exports: {} };
                   }
                 }
               }
-              function validateCornerradius(r3) {
-                if (isNumeric(r3)) {
-                  r3 = +r3;
-                  if (r3 >= 0) return r3;
-                } else if (typeof r3 === "string") {
-                  r3 = r3.trim();
-                  if (r3.slice(-1) === "%" && isNumeric(r3.slice(0, -1))) {
-                    r3 = +r3.slice(0, -1);
-                    if (r3 >= 0) return r3 + "%";
+              function validateCornerradius(r2) {
+                if (isNumeric(r2)) {
+                  r2 = +r2;
+                  if (r2 >= 0) return r2;
+                } else if (typeof r2 === "string") {
+                  r2 = r2.trim();
+                  if (r2.slice(-1) === "%" && isNumeric(r2.slice(0, -1))) {
+                    r2 = +r2.slice(0, -1);
+                    if (r2 >= 0) return r2 + "%";
                   }
                 }
                 return void 0;
@@ -89445,8 +89580,8 @@ var plotly = { exports: {} };
                 if (mode !== "overlay") coerce("barnorm");
                 coerce("bargap", shouldBeGapless && !gappedAnyway ? 0 : 0.2);
                 coerce("bargroupgap");
-                var r3 = coerce("barcornerradius");
-                layoutOut.barcornerradius = validateCornerradius(r3);
+                var r2 = coerce("barcornerradius");
+                layoutOut.barcornerradius = validateCornerradius(r2);
               };
             }
           ),
@@ -89640,36 +89775,36 @@ var plotly = { exports: {} };
                       }
                       return fixpx(Math.max(Math.min(crPx, maxRadius), 0));
                     }
-                    var r3 = isBar || isHistogram ? calcCornerRadius(t3.cornerradiusvalue, t3.cornerradiusform) : 0;
+                    var r2 = isBar || isHistogram ? calcCornerRadius(t3.cornerradiusvalue, t3.cornerradiusform) : 0;
                     var path, h2;
                     var rectanglePath = "M" + x0 + "," + y0 + "V" + y1 + "H" + x1 + "V" + y0 + "Z";
                     var overhead = 0;
-                    if (r3 && di2.s) {
+                    if (r2 && di2.s) {
                       var refPoint = sign2(di2.s0) === 0 || sign2(di2.s) === sign2(di2.s0) ? di2.s1 : di2.s0;
                       overhead = fixpx(!di2.hasB ? Math.abs(c2p(outerBound, true) - c2p(refPoint, true)) : 0);
-                      if (overhead < r3) {
+                      if (overhead < r2) {
                         var xdir = dirSign(x0, x1);
                         var ydir = dirSign(y0, y1);
                         var cornersweep = xdir === -ydir ? 1 : 0;
                         if (isHorizontal) {
                           if (di2.hasB) {
-                            path = "M" + (x0 + r3 * xdir) + "," + y0 + "A " + r3 + "," + r3 + " 0 0 " + cornersweep + " " + x0 + "," + (y0 + r3 * ydir) + "V" + (y1 - r3 * ydir) + "A " + r3 + "," + r3 + " 0 0 " + cornersweep + " " + (x0 + r3 * xdir) + "," + y1 + "H" + (x1 - r3 * xdir) + "A " + r3 + "," + r3 + " 0 0 " + cornersweep + " " + x1 + "," + (y1 - r3 * ydir) + "V" + (y0 + r3 * ydir) + "A " + r3 + "," + r3 + " 0 0 " + cornersweep + " " + (x1 - r3 * xdir) + "," + y0 + "Z";
+                            path = "M" + (x0 + r2 * xdir) + "," + y0 + "A " + r2 + "," + r2 + " 0 0 " + cornersweep + " " + x0 + "," + (y0 + r2 * ydir) + "V" + (y1 - r2 * ydir) + "A " + r2 + "," + r2 + " 0 0 " + cornersweep + " " + (x0 + r2 * xdir) + "," + y1 + "H" + (x1 - r2 * xdir) + "A " + r2 + "," + r2 + " 0 0 " + cornersweep + " " + x1 + "," + (y1 - r2 * ydir) + "V" + (y0 + r2 * ydir) + "A " + r2 + "," + r2 + " 0 0 " + cornersweep + " " + (x1 - r2 * xdir) + "," + y0 + "Z";
                           } else {
                             h2 = Math.abs(x1 - x0) + overhead;
-                            var dy1 = h2 < r3 ? r3 - Math.sqrt(h2 * (2 * r3 - h2)) : 0;
-                            var dy2 = overhead > 0 ? Math.sqrt(overhead * (2 * r3 - overhead)) : 0;
+                            var dy1 = h2 < r2 ? r2 - Math.sqrt(h2 * (2 * r2 - h2)) : 0;
+                            var dy2 = overhead > 0 ? Math.sqrt(overhead * (2 * r2 - overhead)) : 0;
                             var xminfunc = xdir > 0 ? Math.max : Math.min;
-                            path = "M" + x0 + "," + y0 + "V" + (y1 - dy1 * ydir) + "H" + xminfunc(x1 - (r3 - overhead) * xdir, x0) + "A " + r3 + "," + r3 + " 0 0 " + cornersweep + " " + x1 + "," + (y1 - r3 * ydir - dy2) + "V" + (y0 + r3 * ydir + dy2) + "A " + r3 + "," + r3 + " 0 0 " + cornersweep + " " + xminfunc(x1 - (r3 - overhead) * xdir, x0) + "," + (y0 + dy1 * ydir) + "Z";
+                            path = "M" + x0 + "," + y0 + "V" + (y1 - dy1 * ydir) + "H" + xminfunc(x1 - (r2 - overhead) * xdir, x0) + "A " + r2 + "," + r2 + " 0 0 " + cornersweep + " " + x1 + "," + (y1 - r2 * ydir - dy2) + "V" + (y0 + r2 * ydir + dy2) + "A " + r2 + "," + r2 + " 0 0 " + cornersweep + " " + xminfunc(x1 - (r2 - overhead) * xdir, x0) + "," + (y0 + dy1 * ydir) + "Z";
                           }
                         } else {
                           if (di2.hasB) {
-                            path = "M" + (x0 + r3 * xdir) + "," + y0 + "A " + r3 + "," + r3 + " 0 0 " + cornersweep + " " + x0 + "," + (y0 + r3 * ydir) + "V" + (y1 - r3 * ydir) + "A " + r3 + "," + r3 + " 0 0 " + cornersweep + " " + (x0 + r3 * xdir) + "," + y1 + "H" + (x1 - r3 * xdir) + "A " + r3 + "," + r3 + " 0 0 " + cornersweep + " " + x1 + "," + (y1 - r3 * ydir) + "V" + (y0 + r3 * ydir) + "A " + r3 + "," + r3 + " 0 0 " + cornersweep + " " + (x1 - r3 * xdir) + "," + y0 + "Z";
+                            path = "M" + (x0 + r2 * xdir) + "," + y0 + "A " + r2 + "," + r2 + " 0 0 " + cornersweep + " " + x0 + "," + (y0 + r2 * ydir) + "V" + (y1 - r2 * ydir) + "A " + r2 + "," + r2 + " 0 0 " + cornersweep + " " + (x0 + r2 * xdir) + "," + y1 + "H" + (x1 - r2 * xdir) + "A " + r2 + "," + r2 + " 0 0 " + cornersweep + " " + x1 + "," + (y1 - r2 * ydir) + "V" + (y0 + r2 * ydir) + "A " + r2 + "," + r2 + " 0 0 " + cornersweep + " " + (x1 - r2 * xdir) + "," + y0 + "Z";
                           } else {
                             h2 = Math.abs(y1 - y0) + overhead;
-                            var dx1 = h2 < r3 ? r3 - Math.sqrt(h2 * (2 * r3 - h2)) : 0;
-                            var dx2 = overhead > 0 ? Math.sqrt(overhead * (2 * r3 - overhead)) : 0;
+                            var dx1 = h2 < r2 ? r2 - Math.sqrt(h2 * (2 * r2 - h2)) : 0;
+                            var dx2 = overhead > 0 ? Math.sqrt(overhead * (2 * r2 - overhead)) : 0;
                             var yminfunc = ydir > 0 ? Math.max : Math.min;
-                            path = "M" + (x0 + dx1 * xdir) + "," + y0 + "V" + yminfunc(y1 - (r3 - overhead) * ydir, y0) + "A " + r3 + "," + r3 + " 0 0 " + cornersweep + " " + (x0 + r3 * xdir - dx2) + "," + y1 + "H" + (x1 - r3 * xdir + dx2) + "A " + r3 + "," + r3 + " 0 0 " + cornersweep + " " + (x1 - dx1 * xdir) + "," + yminfunc(y1 - (r3 - overhead) * ydir, y0) + "V" + y0 + "Z";
+                            path = "M" + (x0 + dx1 * xdir) + "," + y0 + "V" + yminfunc(y1 - (r2 - overhead) * ydir, y0) + "A " + r2 + "," + r2 + " 0 0 " + cornersweep + " " + (x0 + r2 * xdir - dx2) + "," + y1 + "H" + (x1 - r2 * xdir + dx2) + "A " + r2 + "," + r2 + " 0 0 " + cornersweep + " " + (x1 - dx1 * xdir) + "," + yminfunc(y1 - (r2 - overhead) * ydir, y0) + "V" + y0 + "Z";
                           }
                         }
                       } else {
@@ -89684,7 +89819,7 @@ var plotly = { exports: {} };
                       var styleFns = Drawing.makePointStyleFns(trace);
                       Drawing.singlePointStyle(di2, sel, trace, styleFns, gd2);
                     }
-                    appendBarText(gd2, plotinfo, bar, cd2, i2, x0, x1, y0, y1, r3, overhead, opts, makeOnCompleteCallback);
+                    appendBarText(gd2, plotinfo, bar, cd2, i2, x0, x1, y0, y1, r2, overhead, opts, makeOnCompleteCallback);
                     if (plotinfo.layerClipId) {
                       Drawing.hideOutsideRangePoint(di2, bar.select("text"), xa, ya2, trace.xcalendar, trace.ycalendar);
                     }
@@ -89694,7 +89829,7 @@ var plotly = { exports: {} };
                 });
                 Registry.getComponentMethod("errorbars", "plot")(gd2, bartraces, plotinfo, opts);
               }
-              function appendBarText(gd2, plotinfo, bar, cd2, i2, x0, x1, y0, y1, r3, overhead, opts, makeOnCompleteCallback) {
+              function appendBarText(gd2, plotinfo, bar, cd2, i2, x0, x1, y0, y1, r2, overhead, opts, makeOnCompleteCallback) {
                 var xa = plotinfo.xaxis;
                 var ya2 = plotinfo.yaxis;
                 var fullLayout = gd2._fullLayout;
@@ -89717,7 +89852,7 @@ var plotly = { exports: {} };
                 var calcBar = cd2[i2];
                 var isOutmostBar = !inStackOrRelativeMode || calcBar._outmost;
                 var hasB = calcBar.hasB;
-                var barIsRounded = r3 && r3 - overhead > TEXTPAD;
+                var barIsRounded = r2 && r2 - overhead > TEXTPAD;
                 if (!text || textPosition === "none" || (calcBar.isBlank || x0 === x1 || y0 === y1) && (textPosition === "auto" || textPosition === "inside")) {
                   bar.select("text").remove();
                   return;
@@ -89769,11 +89904,11 @@ var plotly = { exports: {} };
                     var fitsInside;
                     if (barIsRounded) {
                       if (hasB) {
-                        fitsInside = textfitsInsideBar(barWidth - 2 * r3, barHeight, textWidth, textHeight, isHorizontal) || textfitsInsideBar(barWidth, barHeight - 2 * r3, textWidth, textHeight, isHorizontal);
+                        fitsInside = textfitsInsideBar(barWidth - 2 * r2, barHeight, textWidth, textHeight, isHorizontal) || textfitsInsideBar(barWidth, barHeight - 2 * r2, textWidth, textHeight, isHorizontal);
                       } else if (isHorizontal) {
-                        fitsInside = textfitsInsideBar(barWidth - (r3 - overhead), barHeight, textWidth, textHeight, isHorizontal) || textfitsInsideBar(barWidth, barHeight - 2 * (r3 - overhead), textWidth, textHeight, isHorizontal);
+                        fitsInside = textfitsInsideBar(barWidth - (r2 - overhead), barHeight, textWidth, textHeight, isHorizontal) || textfitsInsideBar(barWidth, barHeight - 2 * (r2 - overhead), textWidth, textHeight, isHorizontal);
                       } else {
-                        fitsInside = textfitsInsideBar(barWidth, barHeight - (r3 - overhead), textWidth, textHeight, isHorizontal) || textfitsInsideBar(barWidth - 2 * (r3 - overhead), barHeight, textWidth, textHeight, isHorizontal);
+                        fitsInside = textfitsInsideBar(barWidth, barHeight - (r2 - overhead), textWidth, textHeight, isHorizontal) || textfitsInsideBar(barWidth - 2 * (r2 - overhead), barHeight, textWidth, textHeight, isHorizontal);
                       }
                     } else {
                       fitsInside = textfitsInsideBar(barWidth, barHeight, textWidth, textHeight, isHorizontal);
@@ -89818,7 +89953,7 @@ var plotly = { exports: {} };
                     angle,
                     anchor: insidetextanchor,
                     hasB,
-                    r: r3,
+                    r: r2,
                     overhead
                   });
                 }
@@ -89858,7 +89993,7 @@ var plotly = { exports: {} };
                 var toRight = (leftToRight + 1) / 2;
                 var toLeft = 1 - toRight;
                 var hasB = opts.hasB;
-                var r3 = opts.r;
+                var r2 = opts.r;
                 var overhead = opts.overhead;
                 var textWidth = textBB.width;
                 var textHeight = textBB.height;
@@ -89873,8 +90008,8 @@ var plotly = { exports: {} };
                 }
                 var t3 = getRotatedTextSize(textBB, rotate);
                 var scale, padForRounding;
-                if (r3 && r3 - overhead > TEXTPAD) {
-                  var scaleAndPad = scaleTextForRoundedBar(x0, x1, y0, y1, t3, r3, overhead, isHorizontal, hasB);
+                if (r2 && r2 - overhead > TEXTPAD) {
+                  var scaleAndPad = scaleTextForRoundedBar(x0, x1, y0, y1, t3, r2, overhead, isHorizontal, hasB);
                   scale = scaleAndPad.scale;
                   padForRounding = scaleAndPad.pad;
                 } else {
@@ -89892,7 +90027,7 @@ var plotly = { exports: {} };
                 var anchorY = 0;
                 if (isStart || isEnd) {
                   var extrapad = (isHorizontal ? t3.x : t3.y) / 2;
-                  if (r3 && (isEnd || hasB)) {
+                  if (r2 && (isEnd || hasB)) {
                     textpad += padForRounding;
                   }
                   var dir = isHorizontal ? dirSign(x0, x1) : dirSign(y0, y1);
@@ -89925,10 +90060,10 @@ var plotly = { exports: {} };
                   rotate
                 };
               }
-              function scaleTextForRoundedBar(x0, x1, y0, y1, t3, r3, overhead, isHorizontal, hasB) {
+              function scaleTextForRoundedBar(x0, x1, y0, y1, t3, r2, overhead, isHorizontal, hasB) {
                 var barWidth = Math.max(0, Math.abs(x1 - x0) - 2 * TEXTPAD);
                 var barHeight = Math.max(0, Math.abs(y1 - y0) - 2 * TEXTPAD);
-                var R2 = r3 - TEXTPAD;
+                var R2 = r2 - TEXTPAD;
                 var clippedR = overhead ? R2 - Math.sqrt(R2 * R2 - (R2 - overhead) * (R2 - overhead)) : R2;
                 var rX = hasB ? R2 * 2 : isHorizontal ? R2 - overhead : 2 * clippedR;
                 var rY = hasB ? R2 * 2 : isHorizontal ? 2 * clippedR : R2 - overhead;
@@ -91426,8 +91561,8 @@ var plotly = { exports: {} };
               function sortByVal(a2, b2) {
                 return a2.v - b2.v;
               }
-              function extractVal(o2) {
-                return o2.v;
+              function extractVal(o3) {
+                return o3.v;
               }
               function computeLowerFence(cdi, boxVals, N2) {
                 if (N2 === 0) return cdi.q1;
@@ -92303,9 +92438,9 @@ var plotly = { exports: {} };
                   var pos0 = posAxis.l2p(lcenter - bdPos0) + bPosPxOffset;
                   var pos1 = posAxis.l2p(lcenter + bdPos1) + bPosPxOffset;
                   var posc = posHasRangeBreaks ? (pos0 + pos1) / 2 : posAxis.l2p(lcenter) + bPosPxOffset;
-                  var r3 = trace.whiskerwidth;
-                  var posw0 = posHasRangeBreaks ? pos0 * r3 + (1 - r3) * posc : posAxis.l2p(lcenter - wdPos) + bPosPxOffset;
-                  var posw1 = posHasRangeBreaks ? pos1 * r3 + (1 - r3) * posc : posAxis.l2p(lcenter + wdPos) + bPosPxOffset;
+                  var r2 = trace.whiskerwidth;
+                  var posw0 = posHasRangeBreaks ? pos0 * r2 + (1 - r2) * posc : posAxis.l2p(lcenter - wdPos) + bPosPxOffset;
+                  var posw1 = posHasRangeBreaks ? pos1 * r2 + (1 - r2) * posc : posAxis.l2p(lcenter + wdPos) + bPosPxOffset;
                   var posm0 = posAxis.l2p(lcenter - bdPos0 * nw) + bPosPxOffset;
                   var posm1 = posAxis.l2p(lcenter + bdPos1 * nw) + bPosPxOffset;
                   var sdmode = trace.sizemode === "sd";
@@ -92637,12 +92772,12 @@ var plotly = { exports: {} };
                   }];
                 }
               };
-              function ptFunc(o2, h2, l2, c2) {
+              function ptFunc(o3, h2, l2, c2) {
                 return {
                   min: l2,
-                  q1: Math.min(o2, c2),
+                  q1: Math.min(o3, c2),
                   med: c2,
-                  q3: Math.max(o2, c2),
+                  q3: Math.max(o3, c2),
                   max: h2
                 };
               }
@@ -100431,10 +100566,10 @@ var plotly = { exports: {} };
                   allPoints[i2][1] -= (maxY + minY) / 2;
                 }
                 var lastX = allPoints[allPoints.length - 1][0];
-                var r3 = cd0.r;
+                var r2 = cd0.r;
                 var rY = (maxY - minY) / 2;
-                var scaleX = r3 / lastX;
-                var scaleY = r3 / rY * aspectratio;
+                var scaleX = r2 / lastX;
+                var scaleY = r2 / rY * aspectratio;
                 cd0.r = scaleY * rY;
                 for (i2 = 0; i2 < allPoints.length; i2++) {
                   allPoints[i2][0] *= scaleX;
@@ -102995,9 +103130,9 @@ var plotly = { exports: {} };
                     delete traceOut._xautoBinFinished;
                     delete traceOut._yautoBinFinished;
                     if (traceOut.type === "histogram") {
-                      var r3 = coerce("marker.cornerradius", fullLayout.barcornerradius);
+                      var r2 = coerce("marker.cornerradius", fullLayout.barcornerradius);
                       if (traceOut.marker) {
-                        traceOut.marker.cornerradius = validateCornerradius(r3);
+                        traceOut.marker.cornerradius = validateCornerradius(r2);
                       }
                     }
                     if (!traceIs(traceOut, "2dMap")) {
@@ -105869,7 +106004,7 @@ var plotly = { exports: {} };
                   var dx, dy;
                   var padding2 = 0.75 * trace.delta.font.size;
                   if (trace.delta.position === "left") {
-                    dx = cache2(trace, "deltaPos", 0, -1 * (bignumberbBox.width * position2[trace.align] + deltabBox.width * (1 - position2[trace.align]) + padding2), key, Math.min);
+                    dx = cache(trace, "deltaPos", 0, -1 * (bignumberbBox.width * position2[trace.align] + deltabBox.width * (1 - position2[trace.align]) + padding2), key, Math.min);
                     dy = bignumberCenter[1] - deltaCenter[1];
                     numbersbBox = {
                       width: bignumberbBox.width + deltabBox.width + padding2,
@@ -105881,7 +106016,7 @@ var plotly = { exports: {} };
                     };
                   }
                   if (trace.delta.position === "right") {
-                    dx = cache2(trace, "deltaPos", 0, bignumberbBox.width * (1 - position2[trace.align]) + deltabBox.width * position2[trace.align] + padding2, key, Math.max);
+                    dx = cache(trace, "deltaPos", 0, bignumberbBox.width * (1 - position2[trace.align]) + deltabBox.width * position2[trace.align] + padding2, key, Math.max);
                     dy = bignumberCenter[1] - deltaCenter[1];
                     numbersbBox = {
                       width: bignumberbBox.width + deltabBox.width + padding2,
@@ -105925,7 +106060,7 @@ var plotly = { exports: {} };
                   numbers.attr("transform", function() {
                     var m2 = opts.numbersScaler(numbersbBox);
                     key += m2[2];
-                    var scaleRatio = cache2(trace, "numbersScale", 1, m2[0], key, Math.min);
+                    var scaleRatio = cache(trace, "numbersScale", 1, m2[0], key, Math.min);
                     var translateY;
                     if (!trace._scaleNumbers) scaleRatio = 1;
                     if (trace._isAngular) {
@@ -105937,7 +106072,7 @@ var plotly = { exports: {} };
                     var ref = numbersbBox[numbersAlign];
                     if (numbersAlign === "center") ref = (numbersbBox.left + numbersbBox.right) / 2;
                     var translateX = numbersX - scaleRatio * ref;
-                    translateX = cache2(trace, "numbersTranslate", 0, translateX, key, Math.max);
+                    translateX = cache(trace, "numbersTranslate", 0, translateX, key, Math.max);
                     return strTranslate(translateX, translateY) + strScale(scaleRatio);
                   });
                 }
@@ -106000,7 +106135,7 @@ var plotly = { exports: {} };
                 sel.text(txt).attr("x", 0).attr("y", 0).attr("text-anchor", textAnchor).attr("data-unformatted", txt).call(svgTextUtils.convertToTspans, gd2).call(Drawing.font, font2);
                 return Drawing.bBox(sel.node());
               }
-              function cache2(trace, name2, initialValue, value, key, fn2) {
+              function cache(trace, name2, initialValue, value, key, fn2) {
                 var objName = "_cache" + name2;
                 if (!(trace[objName] && trace[objName].key === key)) {
                   trace[objName] = {
@@ -106377,10 +106512,10 @@ var plotly = { exports: {} };
                   }
                   return M2;
                 }
-                function getBetween(A2, B2, r3) {
+                function getBetween(A2, B2, r2) {
                   var M2 = [];
                   for (var i2 = 0; i2 < A2.length; i2++) {
-                    M2[i2] = A2[i2] * (1 - r3) + r3 * B2[i2];
+                    M2[i2] = A2[i2] * (1 - r2) + r2 * B2[i2];
                   }
                   return M2;
                 }
@@ -106393,10 +106528,10 @@ var plotly = { exports: {} };
                   var B2 = xyzv[1];
                   var C2 = xyzv[2];
                   var G2 = getCenter(A2, B2, C2);
-                  var r3 = Math.sqrt(1 - activeFill);
-                  var p1 = getBetween(G2, A2, r3);
-                  var p2 = getBetween(G2, B2, r3);
-                  var p3 = getBetween(G2, C2, r3);
+                  var r2 = Math.sqrt(1 - activeFill);
+                  var p1 = getBetween(G2, A2, r2);
+                  var p2 = getBetween(G2, B2, r2);
+                  var p3 = getBetween(G2, C2, r2);
                   var a2 = abc[0];
                   var b2 = abc[1];
                   var c2 = abc[2];
@@ -107559,16 +107694,16 @@ var plotly = { exports: {} };
                   }];
                 }
               }
-              function ptFunc(o2, h2, l2, c2) {
+              function ptFunc(o3, h2, l2, c2) {
                 return {
-                  o: o2,
+                  o: o3,
                   h: h2,
                   l: l2,
                   c: c2
                 };
               }
               function calcCommon(gd2, trace, origX, x2, ya2, ptFunc2) {
-                var o2 = ya2.makeCalcdata(trace, "open");
+                var o3 = ya2.makeCalcdata(trace, "open");
                 var h2 = ya2.makeCalcdata(trace, "high");
                 var l2 = ya2.makeCalcdata(trace, "low");
                 var c2 = ya2.makeCalcdata(trace, "close");
@@ -107580,7 +107715,7 @@ var plotly = { exports: {} };
                 var cd2 = [];
                 for (var i2 = 0; i2 < x2.length; i2++) {
                   var xi2 = x2[i2];
-                  var oi2 = o2[i2];
+                  var oi2 = o3[i2];
                   var hi2 = h2[i2];
                   var li2 = l2[i2];
                   var ci2 = c2[i2];
@@ -111068,8 +111203,8 @@ var plotly = { exports: {} };
                   return d3.rgb("rgb(" + RGBA[0] + "," + RGBA[1] + "," + RGBA[2] + ")");
                 });
                 var prop = function(n2) {
-                  return function(o2) {
-                    return o2[n2];
+                  return function(o3) {
+                    return o3[n2];
                   };
                 };
                 var polylinearUnitScales = "rgb".split("").map(function(key) {
@@ -111261,8 +111396,8 @@ var plotly = { exports: {} };
                       state.linePickActive(true);
                       if (callbacks && callbacks.filterChanged) {
                         var invScale = domainToPaddedUnit.invert;
-                        var newRanges = f2.map(function(r3) {
-                          return r3.map(invScale).sort(Lib.sorterAsc);
+                        var newRanges = f2.map(function(r2) {
+                          return r2.map(invScale).sort(Lib.sorterAsc);
                         }).sort(function(a2, b2) {
                           return a2[0] - b2[0];
                         });
@@ -111520,8 +111655,8 @@ var plotly = { exports: {} };
                   svgTextUtils.convertToTspans(e4, gd2);
                 }).attr("transform", function(d2) {
                   var tilt = calcTilt(d2.model.labelAngle, d2.model.labelSide);
-                  var r3 = c2.axisTitleOffset;
-                  return (tilt.dir > 0 ? "" : strTranslate(0, 2 * r3 + d2.model.height)) + strRotate(tilt.degrees) + strTranslate(-r3 * tilt.dx, -r3 * tilt.dy);
+                  var r2 = c2.axisTitleOffset;
+                  return (tilt.dir > 0 ? "" : strTranslate(0, 2 * r2 + d2.model.height)) + strRotate(tilt.degrees) + strTranslate(-r2 * tilt.dx, -r2 * tilt.dy);
                 }).attr("text-anchor", function(d2) {
                   var tilt = calcTilt(d2.model.labelAngle, d2.model.labelSide);
                   var adx = Math.abs(tilt.dx);
@@ -111599,8 +111734,8 @@ var plotly = { exports: {} };
                 });
                 var filterChanged = function(i2, initialDimIndex, newRanges) {
                   var dim = initialDims[i2][initialDimIndex];
-                  var newConstraints = newRanges.map(function(r3) {
-                    return r3.slice();
+                  var newConstraints = newRanges.map(function(r2) {
+                    return r2.slice();
                   });
                   var aStr = "dimensions[" + initialDimIndex + "].constraintrange";
                   var preGUI = fullLayout._tracePreGUI[gd2._fullData[fullIndices[i2]]._fullInput.uid];
@@ -112654,7 +112789,7 @@ var plotly = { exports: {} };
                 }
               }
               function transformInsideText(textBB, pt, cd0) {
-                var r3 = cd0.r || pt.rpx1;
+                var r2 = cd0.r || pt.rpx1;
                 var rInscribed = pt.rInscribed;
                 var isEmpty2 = pt.startangle === pt.stopangle;
                 if (isEmpty2) {
@@ -112683,9 +112818,9 @@ var plotly = { exports: {} };
                       var dStop = Math.abs(angle - pt.stopangle);
                       var closestEdge = dStart < dStop ? dStart : dStop;
                       if (key === "tan") {
-                        newT = calcTanTransform(textBB, r3, ring, closestEdge, 0);
+                        newT = calcTanTransform(textBB, r2, ring, closestEdge, 0);
                       } else {
-                        newT = calcRadTransform(textBB, r3, ring, closestEdge, Math.PI / 2);
+                        newT = calcRadTransform(textBB, r2, ring, closestEdge, Math.PI / 2);
                       }
                       newT.textPosAngle = angle;
                       allTransforms.push(newT);
@@ -112704,7 +112839,7 @@ var plotly = { exports: {} };
                 if (isCircle || isAuto || isHorizontal) {
                   var textDiameter = Math.sqrt(textBB.width * textBB.width + textBB.height * textBB.height);
                   newT = {
-                    scale: rInscribed * r3 * 2 / textDiameter,
+                    scale: rInscribed * r2 * 2 / textDiameter,
                     // and the center position and rotation in this case
                     rCenter: 1 - rInscribed,
                     rotate: 0
@@ -112714,12 +112849,12 @@ var plotly = { exports: {} };
                   allTransforms.push(newT);
                 }
                 if (isAuto || isRadial) {
-                  newT = calcRadTransform(textBB, r3, ring, halfAngle, midAngle);
+                  newT = calcRadTransform(textBB, r2, ring, halfAngle, midAngle);
                   newT.textPosAngle = (pt.startangle + pt.stopangle) / 2;
                   allTransforms.push(newT);
                 }
                 if (isAuto || isTangential) {
-                  newT = calcTanTransform(textBB, r3, ring, halfAngle, midAngle);
+                  newT = calcTanTransform(textBB, r2, ring, halfAngle, midAngle);
                   newT.textPosAngle = (pt.startangle + pt.stopangle) / 2;
                   allTransforms.push(newT);
                 }
@@ -112742,23 +112877,23 @@ var plotly = { exports: {} };
                 var stop = pt.stopangle;
                 return start2 > angle && angle > stop || start2 < angle && angle < stop;
               }
-              function calcRadTransform(textBB, r3, ring, halfAngle, midAngle) {
-                r3 = Math.max(0, r3 - 2 * TEXTPAD);
+              function calcRadTransform(textBB, r2, ring, halfAngle, midAngle) {
+                r2 = Math.max(0, r2 - 2 * TEXTPAD);
                 var a2 = textBB.width / textBB.height;
-                var s2 = calcMaxHalfSize(a2, halfAngle, r3, ring);
+                var s2 = calcMaxHalfSize(a2, halfAngle, r2, ring);
                 return {
                   scale: s2 * 2 / textBB.height,
-                  rCenter: calcRCenter(a2, s2 / r3),
+                  rCenter: calcRCenter(a2, s2 / r2),
                   rotate: calcRotate(midAngle)
                 };
               }
-              function calcTanTransform(textBB, r3, ring, halfAngle, midAngle) {
-                r3 = Math.max(0, r3 - 2 * TEXTPAD);
+              function calcTanTransform(textBB, r2, ring, halfAngle, midAngle) {
+                r2 = Math.max(0, r2 - 2 * TEXTPAD);
                 var a2 = textBB.height / textBB.width;
-                var s2 = calcMaxHalfSize(a2, halfAngle, r3, ring);
+                var s2 = calcMaxHalfSize(a2, halfAngle, r2, ring);
                 return {
                   scale: s2 * 2 / textBB.width,
-                  rCenter: calcRCenter(a2, s2 / r3),
+                  rCenter: calcRCenter(a2, s2 / r2),
                   rotate: calcRotate(midAngle + Math.PI / 2)
                 };
               }
@@ -112768,9 +112903,9 @@ var plotly = { exports: {} };
               function calcRotate(t3) {
                 return (180 / Math.PI * t3 + 720) % 180 - 90;
               }
-              function calcMaxHalfSize(a2, halfAngle, r3, ring) {
+              function calcMaxHalfSize(a2, halfAngle, r2, ring) {
                 var q2 = a2 + 1 / (2 * Math.tan(halfAngle));
-                return r3 * Math.min(1 / (Math.sqrt(q2 * q2 + 0.5) + q2), ring / (Math.sqrt(a2 * a2 + ring / 2) + a2));
+                return r2 * Math.min(1 / (Math.sqrt(q2 * q2 + 0.5) + q2), ring / (Math.sqrt(a2 * a2 + ring / 2) + a2));
               }
               function getInscribedRadiusFraction(pt, cd0) {
                 if (pt.v === cd0.vTotal && !cd0.trace.hole) return 1;
@@ -113002,7 +113137,7 @@ var plotly = { exports: {} };
               }
               function setCoords(cd2) {
                 var cd0 = cd2[0];
-                var r3 = cd0.r;
+                var r2 = cd0.r;
                 var trace = cd0.trace;
                 var currentAngle = helpers.getRotationAngle(trace.rotation);
                 var angleFactor = 2 * Math.PI / cd0.vTotal;
@@ -113019,17 +113154,17 @@ var plotly = { exports: {} };
                   firstPt = "px1";
                   lastPt = "px0";
                 }
-                currentCoords = getCoords(r3, currentAngle);
+                currentCoords = getCoords(r2, currentAngle);
                 for (i2 = 0; i2 < cd2.length; i2++) {
                   cdi = cd2[i2];
                   if (cdi.hidden) continue;
                   cdi[firstPt] = currentCoords;
                   cdi.startangle = currentAngle;
                   currentAngle += angleFactor * cdi.v / 2;
-                  cdi.pxmid = getCoords(r3, currentAngle);
+                  cdi.pxmid = getCoords(r2, currentAngle);
                   cdi.midangle = currentAngle;
                   currentAngle += angleFactor * cdi.v / 2;
-                  currentCoords = getCoords(r3, currentAngle);
+                  currentCoords = getCoords(r2, currentAngle);
                   cdi.stopangle = currentAngle;
                   cdi[lastPt] = currentCoords;
                   cdi.largeArc = cdi.v > cd0.vTotal / 2 ? 1 : 0;
@@ -113038,8 +113173,8 @@ var plotly = { exports: {} };
                   cdi.rInscribed = getInscribedRadiusFraction(cdi, cd0);
                 }
               }
-              function getCoords(r3, angle) {
-                return [r3 * Math.sin(angle), -r3 * Math.cos(angle)];
+              function getCoords(r2, angle) {
+                return [r2 * Math.sin(angle), -r2 * Math.cos(angle)];
               }
               function formatSliceLabel(gd2, pt, cd0) {
                 var fullLayout = gd2._fullLayout;
@@ -120586,11 +120721,11 @@ var plotly = { exports: {} };
                 var height2 = fullLayout.height * plotGlPixelRatio;
                 var l2 = gs.l * plotGlPixelRatio;
                 var b2 = gs.b * plotGlPixelRatio;
-                var r3 = gs.r * plotGlPixelRatio;
+                var r2 = gs.r * plotGlPixelRatio;
                 var t3 = gs.t * plotGlPixelRatio;
                 var w2 = gs.w * plotGlPixelRatio;
                 var h2 = gs.h * plotGlPixelRatio;
-                return [l2 + xaxis.domain[0] * w2, b2 + yaxis.domain[0] * h2, width2 - r3 - (1 - xaxis.domain[1]) * w2, height2 - t3 - (1 - yaxis.domain[1]) * h2];
+                return [l2 + xaxis.domain[0] * w2, b2 + yaxis.domain[0] * h2, width2 - r2 - (1 - xaxis.domain[1]) * w2, height2 - t3 - (1 - yaxis.domain[1]) * h2];
               }
               var exports2 = module2.exports = function plot(gd2, subplot, cdata) {
                 if (!cdata.length) return;
@@ -121340,8 +121475,8 @@ var plotly = { exports: {} };
                 var arraySize = Lib.isArrayOrTypedArray(marker.size);
                 var arrayOpacity = Lib.isArrayOrTypedArray(marker.opacity);
                 var i2;
-                function addTraceOpacity(o2) {
-                  return trace.opacity * o2;
+                function addTraceOpacity(o3) {
+                  return trace.opacity * o3;
                 }
                 function size2radius(s2) {
                   return s2 / 2;
@@ -122326,8 +122461,8 @@ var plotly = { exports: {} };
                 var arraySize = Lib.isArrayOrTypedArray(marker.size);
                 var arrayOpacity = Lib.isArrayOrTypedArray(marker.opacity);
                 var i2;
-                function addTraceOpacity(o2) {
-                  return trace.opacity * o2;
+                function addTraceOpacity(o3) {
+                  return trace.opacity * o3;
                 }
                 function size2radius(s2) {
                   return s2 / 2;
@@ -123141,11 +123276,11 @@ var plotly = { exports: {} };
                 var len = trace._length;
                 var cd2 = new Array(len);
                 for (var i2 = 0; i2 < len; i2++) {
-                  var r3 = rArray[i2];
+                  var r2 = rArray[i2];
                   var theta = thetaArray[i2];
                   var cdi = cd2[i2] = {};
-                  if (isNumeric(r3) && isNumeric(theta)) {
-                    cdi.r = r3;
+                  if (isNumeric(r2) && isNumeric(theta)) {
+                    cdi.r = r2;
                     cdi.theta = theta;
                   } else {
                     cdi.r = BADNUM;
@@ -123223,20 +123358,20 @@ var plotly = { exports: {} };
                 Lib.coerceSelectionMarkerOpacity(traceOut, coerce);
               }
               function handleRThetaDefaults(traceIn, traceOut, layout, coerce) {
-                var r3 = coerce("r");
+                var r2 = coerce("r");
                 var theta = coerce("theta");
-                if (Lib.isTypedArray(r3)) {
-                  traceOut.r = r3 = Array.from(r3);
+                if (Lib.isTypedArray(r2)) {
+                  traceOut.r = r2 = Array.from(r2);
                 }
                 if (Lib.isTypedArray(theta)) {
                   traceOut.theta = theta = Array.from(theta);
                 }
                 var len;
-                if (r3) {
+                if (r2) {
                   if (theta) {
-                    len = Math.min(r3.length, theta.length);
+                    len = Math.min(r2.length, theta.length);
                   } else {
-                    len = r3.length;
+                    len = r2.length;
                     coerce("theta0");
                     coerce("dtheta");
                   }
@@ -123388,11 +123523,11 @@ var plotly = { exports: {} };
                       cdi[0].trace._yA = ya2;
                     }
                     var cd2 = cdi[j];
-                    var r3 = cd2.r;
-                    if (r3 === BADNUM) {
+                    var r2 = cd2.r;
+                    if (r2 === BADNUM) {
                       cd2.x = cd2.y = BADNUM;
                     } else {
-                      var rg2 = radialAxis.c2g(r3);
+                      var rg2 = radialAxis.c2g(r2);
                       var thetag = angularAxis.c2g(cd2.theta);
                       cd2.x = rg2 * Math.cos(thetag);
                       cd2.y = rg2 * Math.sin(thetag);
@@ -123659,10 +123794,10 @@ var plotly = { exports: {} };
                   var x2 = Array(len);
                   var y2 = Array(len);
                   for (i2 = 0; i2 < len; i2++) {
-                    var r3 = subRArray[i2];
+                    var r2 = subRArray[i2];
                     var xx, yy;
-                    if (isNumeric(r3)) {
-                      var rg2 = radialAxis.c2g(r3);
+                    if (isNumeric(r2)) {
+                      var rg2 = radialAxis.c2g(r2);
                       var thetag = angularAxis.c2g(subThetaArray[i2], trace.thetaunit);
                       xx = rg2 * Math.cos(thetag);
                       yy = rg2 * Math.sin(thetag);
@@ -126932,8 +127067,8 @@ var plotly = { exports: {} };
                 var y2rpx = function(y2) {
                   return (y2 - yOffset) / maxY * rMax;
                 };
-                var rx2px = function(r3, x2) {
-                  return [r3 * Math.cos(x2), -r3 * Math.sin(x2)];
+                var rx2px = function(r2, x2) {
+                  return [r2 * Math.cos(x2), -r2 * Math.sin(x2)];
                 };
                 var pathSlice = function(d2) {
                   return Lib.pathAnnulus(d2.rpx0, d2.rpx1, d2.x0, d2.x1, cx, cy);
@@ -127323,8 +127458,8 @@ var plotly = { exports: {} };
               function getTextXY(d2) {
                 return getCoords(d2.rpx1, d2.transform.textPosAngle);
               }
-              function getCoords(r3, angle) {
-                return [r3 * Math.sin(angle), -r3 * Math.cos(angle)];
+              function getCoords(r2, angle) {
+                return [r2 * Math.sin(angle), -r2 * Math.cos(angle)];
               }
             }
           ),
@@ -129148,9 +129283,9 @@ var plotly = { exports: {} };
                 return text.indexOf(c2.wrapSplitCharacter) !== -1;
               }
               function columnMoved(gd2, calcdata, indices) {
-                var o2 = calcdata.gdColumnsOriginalOrder;
+                var o3 = calcdata.gdColumnsOriginalOrder;
                 calcdata.gdColumns.sort(function(a2, b2) {
-                  return indices[o2.indexOf(a2)] - indices[o2.indexOf(b2)];
+                  return indices[o3.indexOf(a2)] - indices[o3.indexOf(b2)];
                 });
                 calcdata.columnorder = indices;
                 gd2.emit("plotly_restyle");
@@ -130392,17 +130527,17 @@ var plotly = { exports: {} };
                   var dy = _y1 - _y0;
                   if (!dx || !dy) return "";
                   var cornerradius = trace.marker.cornerradius || 0;
-                  var r3 = Math.min(cornerradius, dx / 2, dy / 2);
-                  if (r3 && d2.data && d2.data.data && d2.data.data.label) {
-                    if (hasTop) r3 = Math.min(r3, pad.t);
-                    if (hasLeft) r3 = Math.min(r3, pad.l);
-                    if (hasRight) r3 = Math.min(r3, pad.r);
-                    if (hasBottom) r3 = Math.min(r3, pad.b);
+                  var r2 = Math.min(cornerradius, dx / 2, dy / 2);
+                  if (r2 && d2.data && d2.data.data && d2.data.data.label) {
+                    if (hasTop) r2 = Math.min(r2, pad.t);
+                    if (hasLeft) r2 = Math.min(r2, pad.l);
+                    if (hasRight) r2 = Math.min(r2, pad.r);
+                    if (hasBottom) r2 = Math.min(r2, pad.b);
                   }
                   var arc = function(rx, ry) {
-                    return r3 ? "a" + pos(r3, r3) + " 0 0 1 " + pos(rx, ry) : "";
+                    return r2 ? "a" + pos(r2, r2) + " 0 0 1 " + pos(rx, ry) : "";
                   };
-                  return "M" + pos(_x0, _y0 + r3) + arc(r3, -r3) + "L" + pos(_x1 - r3, _y0) + arc(r3, r3) + "L" + pos(_x1, _y1 - r3) + arc(-r3, r3) + "L" + pos(_x0 + r3, _y1) + arc(-r3, -r3) + "Z";
+                  return "M" + pos(_x0, _y0 + r2) + arc(r2, -r2) + "L" + pos(_x1 - r2, _y0) + arc(r2, r2) + "L" + pos(_x1, _y1 - r2) + arc(-r2, r2) + "L" + pos(_x0 + r2, _y1) + arc(-r2, -r2) + "Z";
                 };
                 var toMoveInsideSlice = function(pt, opts) {
                   var x0 = pt.x0;
@@ -131161,8 +131296,8 @@ var plotly = { exports: {} };
                 var kde = exports2.makeKDE(calcItem, trace, vals);
                 return kde(valueDist) / calcItem.posDensityScale;
               };
-              exports2.extractVal = function(o2) {
-                return o2.v;
+              exports2.extractVal = function(o3) {
+                return o3.v;
               };
             }
           ),
@@ -133220,31 +133355,31 @@ var plotly = { exports: {} };
                       function _classCallCheck(a2, n2) {
                         if (!(a2 instanceof n2)) throw new TypeError("Cannot call a class as a function");
                       }
-                      function _defineProperties(e4, r3) {
-                        for (var t3 = 0; t3 < r3.length; t3++) {
-                          var o2 = r3[t3];
-                          o2.enumerable = o2.enumerable || false, o2.configurable = true, "value" in o2 && (o2.writable = true), Object.defineProperty(e4, _toPropertyKey(o2.key), o2);
+                      function _defineProperties(e4, r2) {
+                        for (var t3 = 0; t3 < r2.length; t3++) {
+                          var o3 = r2[t3];
+                          o3.enumerable = o3.enumerable || false, o3.configurable = true, "value" in o3 && (o3.writable = true), Object.defineProperty(e4, _toPropertyKey(o3.key), o3);
                         }
                       }
-                      function _createClass(e4, r3, t3) {
-                        return r3 && _defineProperties(e4.prototype, r3), Object.defineProperty(e4, "prototype", { writable: false }), e4;
+                      function _createClass(e4, r2, t3) {
+                        return r2 && _defineProperties(e4.prototype, r2), Object.defineProperty(e4, "prototype", { writable: false }), e4;
                       }
                       function _toPropertyKey(t3) {
                         var i2 = _toPrimitive(t3, "string");
                         return "symbol" == _typeof(i2) ? i2 : i2 + "";
                       }
-                      function _toPrimitive(t3, r3) {
+                      function _toPrimitive(t3, r2) {
                         if ("object" != _typeof(t3) || !t3) return t3;
                         var e4 = t3[Symbol.toPrimitive];
                         if (void 0 !== e4) {
-                          var i2 = e4.call(t3, r3);
+                          var i2 = e4.call(t3, r2);
                           if ("object" != _typeof(i2)) return i2;
                           throw new TypeError("@@toPrimitive must return a primitive value.");
                         }
                         return String(t3);
                       }
-                      function _callSuper(t3, o2, e4) {
-                        return o2 = _getPrototypeOf(o2), _possibleConstructorReturn(t3, _isNativeReflectConstruct() ? Reflect.construct(o2, [], _getPrototypeOf(t3).constructor) : o2.apply(t3, e4));
+                      function _callSuper(t3, o3, e4) {
+                        return o3 = _getPrototypeOf(o3), _possibleConstructorReturn(t3, _isNativeReflectConstruct() ? Reflect.construct(o3, [], _getPrototypeOf(t3).constructor) : o3.apply(t3, e4));
                       }
                       function _possibleConstructorReturn(t3, e4) {
                         if (e4 && ("object" == _typeof(e4) || "function" == typeof e4)) return e4;
@@ -133279,13 +133414,13 @@ var plotly = { exports: {} };
                           return t22.__proto__ = e22, t22;
                         }, _setPrototypeOf2(t3, e4);
                       }
-                      function _typeof(o2) {
+                      function _typeof(o3) {
                         "@babel/helpers - typeof";
                         return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o22) {
                           return typeof o22;
                         } : function(o22) {
                           return o22 && "function" == typeof Symbol && o22.constructor === Symbol && o22 !== Symbol.prototype ? "symbol" : typeof o22;
-                        }, _typeof(o2);
+                        }, _typeof(o3);
                       }
                       var base64 = __nested_webpack_require_939__(7507);
                       var ieee754 = __nested_webpack_require_939__(3778);
@@ -135021,8 +135156,8 @@ var plotly = { exports: {} };
                             }
                             nhull[j] = x2;
                           }
-                          var o2 = orient2.apply(void 0, nhull);
-                          if (o2) {
+                          var o3 = orient2.apply(void 0, nhull);
+                          if (o3) {
                             return true;
                           }
                         }
@@ -135100,11 +135235,11 @@ var plotly = { exports: {} };
                       module3.exports = barycentric;
                       var solve = __nested_webpack_require_58980__(727);
                       function reduce(x2) {
-                        var r3 = 0;
+                        var r2 = 0;
                         for (var i2 = 0; i2 < x2.length; ++i2) {
-                          r3 += x2[i2];
+                          r2 += x2[i2];
                         }
-                        return r3;
+                        return r2;
                       }
                       function barycentric(simplex, point) {
                         var d2 = point.length;
@@ -135649,19 +135784,19 @@ var plotly = { exports: {} };
                         return !(v2 & v2 - 1) && !!v2;
                       };
                       exports2.log2 = function(v2) {
-                        var r3, shift;
-                        r3 = (v2 > 65535) << 4;
-                        v2 >>>= r3;
+                        var r2, shift;
+                        r2 = (v2 > 65535) << 4;
+                        v2 >>>= r2;
                         shift = (v2 > 255) << 3;
                         v2 >>>= shift;
-                        r3 |= shift;
+                        r2 |= shift;
                         shift = (v2 > 15) << 2;
                         v2 >>>= shift;
-                        r3 |= shift;
+                        r2 |= shift;
                         shift = (v2 > 3) << 1;
                         v2 >>>= shift;
-                        r3 |= shift;
-                        return r3 | v2 >> 1;
+                        r2 |= shift;
+                        return r2 | v2 >> 1;
                       };
                       exports2.log10 = function(v2) {
                         return v2 >= 1e9 ? 9 : v2 >= 1e8 ? 8 : v2 >= 1e7 ? 7 : v2 >= 1e6 ? 6 : v2 >= 1e5 ? 5 : v2 >= 1e4 ? 4 : v2 >= 1e3 ? 3 : v2 >= 100 ? 2 : v2 >= 10 ? 1 : 0;
@@ -135711,13 +135846,13 @@ var plotly = { exports: {} };
                       var REVERSE_TABLE = new Array(256);
                       (function(tab) {
                         for (var i2 = 0; i2 < 256; ++i2) {
-                          var v2 = i2, r3 = i2, s2 = 7;
+                          var v2 = i2, r2 = i2, s2 = 7;
                           for (v2 >>>= 1; v2; v2 >>>= 1) {
-                            r3 <<= 1;
-                            r3 |= v2 & 1;
+                            r2 <<= 1;
+                            r2 |= v2 & 1;
                             --s2;
                           }
-                          tab[i2] = r3 << s2 & 255;
+                          tab[i2] = r2 << s2 & 255;
                         }
                       })(REVERSE_TABLE);
                       exports2.reverse = function(v2) {
@@ -135937,11 +136072,11 @@ var plotly = { exports: {} };
                           }
                         }
                         function parseHexByte(string, lowerBound, index) {
-                          var r3 = parseHex4Bits(string, index);
+                          var r2 = parseHex4Bits(string, index);
                           if (index - 1 >= lowerBound) {
-                            r3 |= parseHex4Bits(string, index - 1) << 4;
+                            r2 |= parseHex4Bits(string, index - 1) << 4;
                           }
-                          return r3;
+                          return r2;
                         }
                         BN.prototype._parseHex = function _parseHex(number2, start2, endian) {
                           this.length = Math.ceil((number2.length - start2) / 6);
@@ -135981,20 +136116,20 @@ var plotly = { exports: {} };
                           this.strip();
                         };
                         function parseBase(str, start2, end2, mul) {
-                          var r3 = 0;
+                          var r2 = 0;
                           var len = Math.min(str.length, end2);
                           for (var i2 = start2; i2 < len; i2++) {
                             var c2 = str.charCodeAt(i2) - 48;
-                            r3 *= mul;
+                            r2 *= mul;
                             if (c2 >= 49) {
-                              r3 += c2 - 49 + 10;
+                              r2 += c2 - 49 + 10;
                             } else if (c2 >= 17) {
-                              r3 += c2 - 17 + 10;
+                              r2 += c2 - 17 + 10;
                             } else {
-                              r3 += c2;
+                              r2 += c2;
                             }
                           }
-                          return r3;
+                          return r2;
                         }
                         BN.prototype._parseBase = function _parseBase(number2, base, start2) {
                           this.words = [0];
@@ -136042,9 +136177,9 @@ var plotly = { exports: {} };
                           dest.red = this.red;
                         };
                         BN.prototype.clone = function clone() {
-                          var r3 = new BN(null);
-                          this.copy(r3);
-                          return r3;
+                          var r2 = new BN(null);
+                          this.copy(r2);
+                          return r2;
                         };
                         BN.prototype._expand = function _expand(size) {
                           while (this.length < size) {
@@ -136111,12 +136246,12 @@ var plotly = { exports: {} };
                             var c2 = this.clone();
                             c2.negative = 0;
                             while (!c2.isZero()) {
-                              var r3 = c2.modn(groupBase).toString(base);
+                              var r2 = c2.modn(groupBase).toString(base);
                               c2 = c2.idivn(groupBase);
                               if (!c2.isZero()) {
-                                out = zeros[groupSize - r3.length] + r3 + out;
+                                out = zeros[groupSize - r2.length] + r2 + out;
                               } else {
-                                out = r3 + out;
+                                out = r2 + out;
                               }
                             }
                             if (this.isZero()) {
@@ -136191,50 +136326,50 @@ var plotly = { exports: {} };
                         } else {
                           BN.prototype._countBits = function _countBits(w2) {
                             var t3 = w2;
-                            var r3 = 0;
+                            var r2 = 0;
                             if (t3 >= 4096) {
-                              r3 += 13;
+                              r2 += 13;
                               t3 >>>= 13;
                             }
                             if (t3 >= 64) {
-                              r3 += 7;
+                              r2 += 7;
                               t3 >>>= 7;
                             }
                             if (t3 >= 8) {
-                              r3 += 4;
+                              r2 += 4;
                               t3 >>>= 4;
                             }
                             if (t3 >= 2) {
-                              r3 += 2;
+                              r2 += 2;
                               t3 >>>= 2;
                             }
-                            return r3 + t3;
+                            return r2 + t3;
                           };
                         }
                         BN.prototype._zeroBits = function _zeroBits(w2) {
                           if (w2 === 0) return 26;
                           var t3 = w2;
-                          var r3 = 0;
+                          var r2 = 0;
                           if ((t3 & 8191) === 0) {
-                            r3 += 13;
+                            r2 += 13;
                             t3 >>>= 13;
                           }
                           if ((t3 & 127) === 0) {
-                            r3 += 7;
+                            r2 += 7;
                             t3 >>>= 7;
                           }
                           if ((t3 & 15) === 0) {
-                            r3 += 4;
+                            r2 += 4;
                             t3 >>>= 4;
                           }
                           if ((t3 & 3) === 0) {
-                            r3 += 2;
+                            r2 += 2;
                             t3 >>>= 2;
                           }
                           if ((t3 & 1) === 0) {
-                            r3++;
+                            r2++;
                           }
-                          return r3;
+                          return r2;
                         };
                         BN.prototype.bitLength = function bitLength() {
                           var w2 = this.words[this.length - 1];
@@ -136252,13 +136387,13 @@ var plotly = { exports: {} };
                         }
                         BN.prototype.zeroBits = function zeroBits() {
                           if (this.isZero()) return 0;
-                          var r3 = 0;
+                          var r2 = 0;
                           for (var i2 = 0; i2 < this.length; i2++) {
                             var b2 = this._zeroBits(this.words[i2]);
-                            r3 += b2;
+                            r2 += b2;
                             if (b2 !== 26) break;
                           }
-                          return r3;
+                          return r2;
                         };
                         BN.prototype.byteLength = function byteLength() {
                           return Math.ceil(this.bitLength() / 8);
@@ -136398,17 +136533,17 @@ var plotly = { exports: {} };
                           return this.strip();
                         };
                         BN.prototype.iadd = function iadd(num) {
-                          var r3;
+                          var r2;
                           if (this.negative !== 0 && num.negative === 0) {
                             this.negative = 0;
-                            r3 = this.isub(num);
+                            r2 = this.isub(num);
                             this.negative ^= 1;
                             return this._normSign();
                           } else if (this.negative === 0 && num.negative !== 0) {
                             num.negative = 0;
-                            r3 = this.isub(num);
+                            r2 = this.isub(num);
                             num.negative = 1;
-                            return r3._normSign();
+                            return r2._normSign();
                           }
                           var a2, b2;
                           if (this.length > num.length) {
@@ -136420,14 +136555,14 @@ var plotly = { exports: {} };
                           }
                           var carry = 0;
                           for (var i2 = 0; i2 < b2.length; i2++) {
-                            r3 = (a2.words[i2] | 0) + (b2.words[i2] | 0) + carry;
-                            this.words[i2] = r3 & 67108863;
-                            carry = r3 >>> 26;
+                            r2 = (a2.words[i2] | 0) + (b2.words[i2] | 0) + carry;
+                            this.words[i2] = r2 & 67108863;
+                            carry = r2 >>> 26;
                           }
                           for (; carry !== 0 && i2 < a2.length; i2++) {
-                            r3 = (a2.words[i2] | 0) + carry;
-                            this.words[i2] = r3 & 67108863;
-                            carry = r3 >>> 26;
+                            r2 = (a2.words[i2] | 0) + carry;
+                            this.words[i2] = r2 & 67108863;
+                            carry = r2 >>> 26;
                           }
                           this.length = a2.length;
                           if (carry !== 0) {
@@ -136459,9 +136594,9 @@ var plotly = { exports: {} };
                         BN.prototype.isub = function isub(num) {
                           if (num.negative !== 0) {
                             num.negative = 0;
-                            var r3 = this.iadd(num);
+                            var r2 = this.iadd(num);
                             num.negative = 1;
-                            return r3._normSign();
+                            return r2._normSign();
                           } else if (this.negative !== 0) {
                             this.negative = 0;
                             this.iadd(num);
@@ -136485,14 +136620,14 @@ var plotly = { exports: {} };
                           }
                           var carry = 0;
                           for (var i2 = 0; i2 < b2.length; i2++) {
-                            r3 = (a2.words[i2] | 0) - (b2.words[i2] | 0) + carry;
-                            carry = r3 >> 26;
-                            this.words[i2] = r3 & 67108863;
+                            r2 = (a2.words[i2] | 0) - (b2.words[i2] | 0) + carry;
+                            carry = r2 >> 26;
+                            this.words[i2] = r2 & 67108863;
                           }
                           for (; carry !== 0 && i2 < a2.length; i2++) {
-                            r3 = (a2.words[i2] | 0) + carry;
-                            carry = r3 >> 26;
-                            this.words[i2] = r3 & 67108863;
+                            r2 = (a2.words[i2] | 0) + carry;
+                            carry = r2 >> 26;
+                            this.words[i2] = r2 & 67108863;
                           }
                           if (carry === 0 && i2 < a2.length && a2 !== this) {
                             for (; i2 < a2.length; i2++) {
@@ -136515,9 +136650,9 @@ var plotly = { exports: {} };
                           len = len - 1 | 0;
                           var a2 = self2.words[0] | 0;
                           var b2 = num.words[0] | 0;
-                          var r3 = a2 * b2;
-                          var lo = r3 & 67108863;
-                          var carry = r3 / 67108864 | 0;
+                          var r2 = a2 * b2;
+                          var lo = r2 & 67108863;
+                          var carry = r2 / 67108864 | 0;
                           out.words[0] = lo;
                           for (var k2 = 1; k2 < len; k2++) {
                             var ncarry = carry >>> 26;
@@ -136527,9 +136662,9 @@ var plotly = { exports: {} };
                               var i2 = k2 - j | 0;
                               a2 = self2.words[i2] | 0;
                               b2 = num.words[j] | 0;
-                              r3 = a2 * b2 + rword;
-                              ncarry += r3 / 67108864 | 0;
-                              rword = r3 & 67108863;
+                              r2 = a2 * b2 + rword;
+                              ncarry += r2 / 67108864 | 0;
+                              rword = r2 & 67108863;
                             }
                             out.words[k2] = rword | 0;
                             carry = ncarry | 0;
@@ -136544,7 +136679,7 @@ var plotly = { exports: {} };
                         var comb10MulTo = function comb10MulTo2(self2, num, out) {
                           var a2 = self2.words;
                           var b2 = num.words;
-                          var o2 = out.words;
+                          var o3 = out.words;
                           var c2 = 0;
                           var lo;
                           var mid;
@@ -137068,27 +137203,27 @@ var plotly = { exports: {} };
                           var w18 = (c2 + lo | 0) + ((mid & 8191) << 13) | 0;
                           c2 = (hi2 + (mid >>> 13) | 0) + (w18 >>> 26) | 0;
                           w18 &= 67108863;
-                          o2[0] = w0;
-                          o2[1] = w1;
-                          o2[2] = w2;
-                          o2[3] = w3;
-                          o2[4] = w4;
-                          o2[5] = w5;
-                          o2[6] = w6;
-                          o2[7] = w7;
-                          o2[8] = w8;
-                          o2[9] = w9;
-                          o2[10] = w10;
-                          o2[11] = w11;
-                          o2[12] = w12;
-                          o2[13] = w13;
-                          o2[14] = w14;
-                          o2[15] = w15;
-                          o2[16] = w16;
-                          o2[17] = w17;
-                          o2[18] = w18;
+                          o3[0] = w0;
+                          o3[1] = w1;
+                          o3[2] = w2;
+                          o3[3] = w3;
+                          o3[4] = w4;
+                          o3[5] = w5;
+                          o3[6] = w6;
+                          o3[7] = w7;
+                          o3[8] = w8;
+                          o3[9] = w9;
+                          o3[10] = w10;
+                          o3[11] = w11;
+                          o3[12] = w12;
+                          o3[13] = w13;
+                          o3[14] = w14;
+                          o3[15] = w15;
+                          o3[16] = w16;
+                          o3[17] = w17;
+                          o3[18] = w18;
                           if (c2 !== 0) {
-                            o2[19] = c2;
+                            o3[19] = c2;
                             out.length++;
                           }
                           return out;
@@ -137110,9 +137245,9 @@ var plotly = { exports: {} };
                               var i2 = k2 - j;
                               var a2 = self2.words[i2] | 0;
                               var b2 = num.words[j] | 0;
-                              var r3 = a2 * b2;
-                              var lo = r3 & 67108863;
-                              ncarry = ncarry + (r3 / 67108864 | 0) | 0;
+                              var r2 = a2 * b2;
+                              var lo = r2 & 67108863;
+                              ncarry = ncarry + (r2 / 67108864 | 0) | 0;
                               lo = lo + rword | 0;
                               rword = lo & 67108863;
                               ncarry = ncarry + (lo >>> 26) | 0;
@@ -137346,17 +137481,17 @@ var plotly = { exports: {} };
                         };
                         BN.prototype.iushln = function iushln(bits) {
                           assert(typeof bits === "number" && bits >= 0);
-                          var r3 = bits % 26;
-                          var s2 = (bits - r3) / 26;
-                          var carryMask = 67108863 >>> 26 - r3 << 26 - r3;
+                          var r2 = bits % 26;
+                          var s2 = (bits - r2) / 26;
+                          var carryMask = 67108863 >>> 26 - r2 << 26 - r2;
                           var i2;
-                          if (r3 !== 0) {
+                          if (r2 !== 0) {
                             var carry = 0;
                             for (i2 = 0; i2 < this.length; i2++) {
                               var newCarry = this.words[i2] & carryMask;
-                              var c2 = (this.words[i2] | 0) - newCarry << r3;
+                              var c2 = (this.words[i2] | 0) - newCarry << r2;
                               this.words[i2] = c2 | carry;
-                              carry = newCarry >>> 26 - r3;
+                              carry = newCarry >>> 26 - r2;
                             }
                             if (carry) {
                               this.words[i2] = carry;
@@ -137386,9 +137521,9 @@ var plotly = { exports: {} };
                           } else {
                             h2 = 0;
                           }
-                          var r3 = bits % 26;
-                          var s2 = Math.min((bits - r3) / 26, this.length);
-                          var mask = 67108863 ^ 67108863 >>> r3 << r3;
+                          var r2 = bits % 26;
+                          var s2 = Math.min((bits - r2) / 26, this.length);
+                          var mask = 67108863 ^ 67108863 >>> r2 << r2;
                           var maskedWords = extended;
                           h2 -= s2;
                           h2 = Math.max(0, h2);
@@ -137411,7 +137546,7 @@ var plotly = { exports: {} };
                           var carry = 0;
                           for (i2 = this.length - 1; i2 >= 0 && (carry !== 0 || i2 >= h2); i2--) {
                             var word = this.words[i2] | 0;
-                            this.words[i2] = carry << 26 - r3 | word >>> r3;
+                            this.words[i2] = carry << 26 - r2 | word >>> r2;
                             carry = word & mask;
                           }
                           if (maskedWords && carry !== 0) {
@@ -137441,27 +137576,27 @@ var plotly = { exports: {} };
                         };
                         BN.prototype.testn = function testn(bit) {
                           assert(typeof bit === "number" && bit >= 0);
-                          var r3 = bit % 26;
-                          var s2 = (bit - r3) / 26;
-                          var q2 = 1 << r3;
+                          var r2 = bit % 26;
+                          var s2 = (bit - r2) / 26;
+                          var q2 = 1 << r2;
                           if (this.length <= s2) return false;
                           var w2 = this.words[s2];
                           return !!(w2 & q2);
                         };
                         BN.prototype.imaskn = function imaskn(bits) {
                           assert(typeof bits === "number" && bits >= 0);
-                          var r3 = bits % 26;
-                          var s2 = (bits - r3) / 26;
+                          var r2 = bits % 26;
+                          var s2 = (bits - r2) / 26;
                           assert(this.negative === 0, "imaskn works only with positive numbers");
                           if (this.length <= s2) {
                             return this;
                           }
-                          if (r3 !== 0) {
+                          if (r2 !== 0) {
                             s2++;
                           }
                           this.length = Math.min(s2, this.length);
-                          if (r3 !== 0) {
-                            var mask = 67108863 ^ 67108863 >>> r3 << r3;
+                          if (r2 !== 0) {
+                            var mask = 67108863 ^ 67108863 >>> r2 << r2;
                             this.words[this.length - 1] &= mask;
                           }
                           return this.strip();
@@ -137681,9 +137816,9 @@ var plotly = { exports: {} };
                           if (dm.mod.isZero()) return dm.div;
                           var mod = dm.div.negative !== 0 ? dm.mod.isub(num) : dm.mod;
                           var half = num.ushrn(1);
-                          var r22 = num.andln(1);
+                          var r2 = num.andln(1);
                           var cmp = mod.cmp(half);
-                          if (cmp < 0 || r22 === 1 && cmp === 0) return dm.div;
+                          if (cmp < 0 || r2 === 1 && cmp === 0) return dm.div;
                           return dm.div.negative !== 0 ? dm.div.isubn(1) : dm.div.iaddn(1);
                         };
                         BN.prototype.modn = function modn(num) {
@@ -137838,12 +137973,12 @@ var plotly = { exports: {} };
                             while (b2.isEven()) {
                               b2.iushrn(1);
                             }
-                            var r3 = a2.cmp(b2);
-                            if (r3 < 0) {
+                            var r2 = a2.cmp(b2);
+                            if (r2 < 0) {
                               var t3 = a2;
                               a2 = b2;
                               b2 = t3;
-                            } else if (r3 === 0 || b2.cmpn(1) === 0) {
+                            } else if (r2 === 0 || b2.cmpn(1) === 0) {
                               break;
                             }
                             a2.isub(b2);
@@ -137864,9 +137999,9 @@ var plotly = { exports: {} };
                         };
                         BN.prototype.bincn = function bincn(bit) {
                           assert(typeof bit === "number");
-                          var r3 = bit % 26;
-                          var s2 = (bit - r3) / 26;
-                          var q2 = 1 << r3;
+                          var r2 = bit % 26;
+                          var s2 = (bit - r2) / 26;
+                          var q2 = 1 << r2;
                           if (this.length <= s2) {
                             this._expand(s2 + 1);
                             this.words[s2] |= q2;
@@ -138056,28 +138191,28 @@ var plotly = { exports: {} };
                           return tmp;
                         };
                         MPrime.prototype.ireduce = function ireduce(num) {
-                          var r3 = num;
+                          var r2 = num;
                           var rlen;
                           do {
-                            this.split(r3, this.tmp);
-                            r3 = this.imulK(r3);
-                            r3 = r3.iadd(this.tmp);
-                            rlen = r3.bitLength();
+                            this.split(r2, this.tmp);
+                            r2 = this.imulK(r2);
+                            r2 = r2.iadd(this.tmp);
+                            rlen = r2.bitLength();
                           } while (rlen > this.n);
-                          var cmp = rlen < this.n ? -1 : r3.ucmp(this.p);
+                          var cmp = rlen < this.n ? -1 : r2.ucmp(this.p);
                           if (cmp === 0) {
-                            r3.words[0] = 0;
-                            r3.length = 1;
+                            r2.words[0] = 0;
+                            r2.length = 1;
                           } else if (cmp > 0) {
-                            r3.isub(this.p);
+                            r2.isub(this.p);
                           } else {
-                            if (r3.strip !== void 0) {
-                              r3.strip();
+                            if (r2.strip !== void 0) {
+                              r2.strip();
                             } else {
-                              r3._strip();
+                              r2._strip();
                             }
                           }
-                          return r3;
+                          return r2;
                         };
                         MPrime.prototype.split = function split(input, out) {
                           input.iushrn(this.n, 0, out);
@@ -138281,7 +138416,7 @@ var plotly = { exports: {} };
                             z2.redIAdd(nOne);
                           }
                           var c2 = this.pow(z2, q2);
-                          var r3 = this.pow(a2, q2.addn(1).iushrn(1));
+                          var r2 = this.pow(a2, q2.addn(1).iushrn(1));
                           var t3 = this.pow(a2, q2);
                           var m2 = s2;
                           while (t3.cmp(one) !== 0) {
@@ -138291,12 +138426,12 @@ var plotly = { exports: {} };
                             }
                             assert(i2 < m2);
                             var b2 = this.pow(c2, new BN(1).iushln(m2 - i2 - 1));
-                            r3 = r3.redMul(b2);
+                            r2 = r2.redMul(b2);
                             c2 = b2.redSqr();
                             t3 = t3.redMul(c2);
                             m2 = i2;
                           }
-                          return r3;
+                          return r2;
                         };
                         Red.prototype.invm = function invm(a2) {
                           var inv = a2._invmp(this.m);
@@ -138348,8 +138483,8 @@ var plotly = { exports: {} };
                           return res;
                         };
                         Red.prototype.convertTo = function convertTo(num) {
-                          var r3 = num.umod(this.m);
-                          return r3 === num ? r3.clone() : r3;
+                          var r2 = num.umod(this.m);
+                          return r2 === num ? r2.clone() : r2;
                         };
                         Red.prototype.convertFrom = function convertFrom(num) {
                           var res = num.clone();
@@ -138377,9 +138512,9 @@ var plotly = { exports: {} };
                           return this.imod(num.ushln(this.shift));
                         };
                         Mont.prototype.convertFrom = function convertFrom(num) {
-                          var r3 = this.imod(num.mul(this.rinv));
-                          r3.red = null;
-                          return r3;
+                          var r2 = this.imod(num.mul(this.rinv));
+                          r2.red = null;
+                          return r2;
                         };
                         Mont.prototype.imul = function imul(a2, b2) {
                           if (a2.isZero() || b2.isZero()) {
@@ -139093,7 +139228,7 @@ var plotly = { exports: {} };
                         return P2F[predicate];
                       }
                       function lo_equal_p0(a2, b2, c2, d2, e4, f2, p0) {
-                        for (var j = 2 * a2, k2 = j * c2, l2 = k2, m2 = c2, n2 = b2, o2 = a2 + b2, p2 = c2; d2 > p2; ++p2, k2 += j) {
+                        for (var j = 2 * a2, k2 = j * c2, l2 = k2, m2 = c2, n2 = b2, o3 = a2 + b2, p2 = c2; d2 > p2; ++p2, k2 += j) {
                           var lo = e4[k2 + n2];
                           if (lo === p0) if (m2 === p2) m2 += 1, l2 += j;
                           else {
@@ -139108,7 +139243,7 @@ var plotly = { exports: {} };
                         return m2;
                       }
                       function lo_lessThan_p0(a2, b2, c2, d2, e4, f2, p0) {
-                        for (var j = 2 * a2, k2 = j * c2, l2 = k2, m2 = c2, n2 = b2, o2 = a2 + b2, p2 = c2; d2 > p2; ++p2, k2 += j) {
+                        for (var j = 2 * a2, k2 = j * c2, l2 = k2, m2 = c2, n2 = b2, o3 = a2 + b2, p2 = c2; d2 > p2; ++p2, k2 += j) {
                           var lo = e4[k2 + n2];
                           if (lo < p0) if (m2 === p2) m2 += 1, l2 += j;
                           else {
@@ -139123,8 +139258,8 @@ var plotly = { exports: {} };
                         return m2;
                       }
                       function lo_lessOrEqual_p0(a2, b2, c2, d2, e4, f2, p0) {
-                        for (var j = 2 * a2, k2 = j * c2, l2 = k2, m2 = c2, n2 = b2, o2 = a2 + b2, p2 = c2; d2 > p2; ++p2, k2 += j) {
-                          var hi2 = e4[k2 + o2];
+                        for (var j = 2 * a2, k2 = j * c2, l2 = k2, m2 = c2, n2 = b2, o3 = a2 + b2, p2 = c2; d2 > p2; ++p2, k2 += j) {
+                          var hi2 = e4[k2 + o3];
                           if (hi2 <= p0) if (m2 === p2) m2 += 1, l2 += j;
                           else {
                             for (var s2 = 0; j > s2; ++s2) {
@@ -139138,8 +139273,8 @@ var plotly = { exports: {} };
                         return m2;
                       }
                       function hi_lessOrEqual_p0(a2, b2, c2, d2, e4, f2, p0) {
-                        for (var j = 2 * a2, k2 = j * c2, l2 = k2, m2 = c2, n2 = b2, o2 = a2 + b2, p2 = c2; d2 > p2; ++p2, k2 += j) {
-                          var hi2 = e4[k2 + o2];
+                        for (var j = 2 * a2, k2 = j * c2, l2 = k2, m2 = c2, n2 = b2, o3 = a2 + b2, p2 = c2; d2 > p2; ++p2, k2 += j) {
+                          var hi2 = e4[k2 + o3];
                           if (hi2 <= p0) if (m2 === p2) m2 += 1, l2 += j;
                           else {
                             for (var s2 = 0; j > s2; ++s2) {
@@ -139153,8 +139288,8 @@ var plotly = { exports: {} };
                         return m2;
                       }
                       function lo_lassOrEqual_p0_and_p0_lessOrEqual_hi(a2, b2, c2, d2, e4, f2, p0) {
-                        for (var j = 2 * a2, k2 = j * c2, l2 = k2, m2 = c2, n2 = b2, o2 = a2 + b2, p2 = c2; d2 > p2; ++p2, k2 += j) {
-                          var lo = e4[k2 + n2], hi2 = e4[k2 + o2];
+                        for (var j = 2 * a2, k2 = j * c2, l2 = k2, m2 = c2, n2 = b2, o3 = a2 + b2, p2 = c2; d2 > p2; ++p2, k2 += j) {
+                          var lo = e4[k2 + n2], hi2 = e4[k2 + o3];
                           if (lo <= p0 && p0 <= hi2) if (m2 === p2) m2 += 1, l2 += j;
                           else {
                             for (var s2 = 0; j > s2; ++s2) {
@@ -139168,8 +139303,8 @@ var plotly = { exports: {} };
                         return m2;
                       }
                       function lo_lessThan_p0_and_p0_lessOrEqual_hi(a2, b2, c2, d2, e4, f2, p0) {
-                        for (var j = 2 * a2, k2 = j * c2, l2 = k2, m2 = c2, n2 = b2, o2 = a2 + b2, p2 = c2; d2 > p2; ++p2, k2 += j) {
-                          var lo = e4[k2 + n2], hi2 = e4[k2 + o2];
+                        for (var j = 2 * a2, k2 = j * c2, l2 = k2, m2 = c2, n2 = b2, o3 = a2 + b2, p2 = c2; d2 > p2; ++p2, k2 += j) {
+                          var lo = e4[k2 + n2], hi2 = e4[k2 + o3];
                           if (lo < p0 && p0 <= hi2) if (m2 === p2) m2 += 1, l2 += j;
                           else {
                             for (var s2 = 0; j > s2; ++s2) {
@@ -139183,8 +139318,8 @@ var plotly = { exports: {} };
                         return m2;
                       }
                       function lo_lessThan_p0_and_p1_lessThan_hi(a2, b2, c2, d2, e4, f2, p0, p1) {
-                        for (var j = 2 * a2, k2 = j * c2, l2 = k2, m2 = c2, n2 = b2, o2 = a2 + b2, p2 = c2; d2 > p2; ++p2, k2 += j) {
-                          var lo = e4[k2 + n2], hi2 = e4[k2 + o2];
+                        for (var j = 2 * a2, k2 = j * c2, l2 = k2, m2 = c2, n2 = b2, o3 = a2 + b2, p2 = c2; d2 > p2; ++p2, k2 += j) {
+                          var lo = e4[k2 + n2], hi2 = e4[k2 + o3];
                           if (!(lo >= p0) && !(p1 >= hi2)) if (m2 === p2) m2 += 1, l2 += j;
                           else {
                             for (var s2 = 0; j > s2; ++s2) {
@@ -139203,9 +139338,9 @@ var plotly = { exports: {} };
                   1811: (
                     /***/
                     function(module3) {
-                      module3.exports = wrapper;
+                      module3.exports = wrapper2;
                       var INSERT_SORT_CUTOFF = 32;
-                      function wrapper(data, n0) {
+                      function wrapper2(data, n0) {
                         if (n0 <= 4 * INSERT_SORT_CUTOFF) {
                           insertionSort(0, n0 - 1, data);
                         } else {
@@ -140395,8 +140530,8 @@ var plotly = { exports: {} };
                       var ratVec = __nested_webpack_require_179616__(5838);
                       var nextafter = __nested_webpack_require_179616__(1278);
                       var solveIntersection = __nested_webpack_require_179616__(3637);
-                      function boundRat(r3) {
-                        var f2 = ratToFloat(r3);
+                      function boundRat(r2) {
+                        var f2 = ratToFloat(r2);
                         return [nextafter(f2, -Infinity), nextafter(f2, Infinity)];
                       }
                       function boundEdges(points2, edges) {
@@ -140683,8 +140818,8 @@ var plotly = { exports: {} };
                         var dcXac = ratPerp(dc2, ac2);
                         var t3 = ratDiv(dcXac, baXdc);
                         var s2 = rvMuls(ba, t3);
-                        var r3 = rvAdd(a2, s2);
-                        return r3;
+                        var r2 = rvAdd(a2, s2);
+                        return r2;
                       }
                     }
                   ),
@@ -142444,9 +142579,9 @@ var plotly = { exports: {} };
                         var idx = 0;
                         var stack = this._stack;
                         if (stack.length === 0) {
-                          var r3 = this.tree.root;
-                          if (r3) {
-                            return r3._count;
+                          var r2 = this.tree.root;
+                          if (r2) {
+                            return r2._count;
                           }
                           return 0;
                         } else if (stack[stack.length - 1].left) {
@@ -143203,11 +143338,11 @@ var plotly = { exports: {} };
                               var f0 = s2 << d2;
                               var f1 = f0 + (s2 << u2) + (1 - s2 << v2);
                               var f2 = f0 + (1 - s2 << u2) + (s2 << v2);
-                              var o2 = polygonArea([pCubeVerts[f0], pCubeVerts[f1], pCubeVerts[f2], pCubeVerts[f0 + (1 << u2) + (1 << v2)]]);
+                              var o3 = polygonArea([pCubeVerts[f0], pCubeVerts[f1], pCubeVerts[f2], pCubeVerts[f0 + (1 << u2) + (1 << v2)]]);
                               if (s2) {
-                                o0 = o2;
+                                o0 = o3;
                               } else {
-                                o1 = o2;
+                                o1 = o3;
                               }
                             }
                             if (o1 > o0) {
@@ -144495,8 +144630,8 @@ var plotly = { exports: {} };
                       function emitFace(verts, x2, c2, d2) {
                         var offsets = FACE_TABLE[d2];
                         for (var i2 = 0; i2 < offsets.length; ++i2) {
-                          var o2 = offsets[i2];
-                          verts.push(x2[0], x2[1], x2[2], c2[0], c2[1], c2[2], c2[3], o2[0], o2[1], o2[2]);
+                          var o3 = offsets[i2];
+                          verts.push(x2[0], x2[1], x2[2], c2[0], c2[1], c2[2], c2[3], o3[0], o3[1], o3[2]);
                         }
                         return offsets.length;
                       }
@@ -145166,14 +145301,14 @@ var plotly = { exports: {} };
                               var offset2 = isSmooth ? (j + dy) * numX + (i2 + dx) : j * numX + i2;
                               var zc2 = z2[offset2];
                               var colorIdx = bsearch.le(colorLevels, zc2);
-                              var r3, g2, b2, a2;
+                              var r2, g2, b2, a2;
                               if (colorIdx < 0) {
-                                r3 = colorValues[0];
+                                r2 = colorValues[0];
                                 g2 = colorValues[1];
                                 b2 = colorValues[2];
                                 a2 = colorValues[3];
                               } else if (colorIdx === colorCount - 1) {
-                                r3 = colorValues[4 * colorCount - 4];
+                                r2 = colorValues[4 * colorCount - 4];
                                 g2 = colorValues[4 * colorCount - 3];
                                 b2 = colorValues[4 * colorCount - 2];
                                 a2 = colorValues[4 * colorCount - 1];
@@ -145182,12 +145317,12 @@ var plotly = { exports: {} };
                                 var ti2 = 1 - t3;
                                 var i0 = 4 * colorIdx;
                                 var i1 = 4 * (colorIdx + 1);
-                                r3 = ti2 * colorValues[i0] + t3 * colorValues[i1];
+                                r2 = ti2 * colorValues[i0] + t3 * colorValues[i1];
                                 g2 = ti2 * colorValues[i0 + 1] + t3 * colorValues[i1 + 1];
                                 b2 = ti2 * colorValues[i0 + 2] + t3 * colorValues[i1 + 2];
                                 a2 = ti2 * colorValues[i0 + 3] + t3 * colorValues[i1 + 3];
                               }
-                              colors[4 * ptr] = 255 * r3;
+                              colors[4 * ptr] = 255 * r2;
                               colors[4 * ptr + 1] = 255 * g2;
                               colors[4 * ptr + 2] = 255 * b2;
                               colors[4 * ptr + 3] = 255 * a2;
@@ -147482,10 +147617,10 @@ var plotly = { exports: {} };
                             var coordScale = 1 / (bounds[dimension + 2] - bounds[dimension]);
                             var coordShift = bounds[dimension];
                             var rows = text.split("\n");
-                            for (var r3 = 0; r3 < rows.length; r3++) {
-                              data = getText(font2, rows[r3], { fontStyle, fontWeight, fontVariant }).data;
+                            for (var r2 = 0; r2 < rows.length; r2++) {
+                              data = getText(font2, rows[r2], { fontStyle, fontWeight, fontVariant }).data;
                               for (j = 0; j < data.length; j += 2) {
-                                vertices.push(data[j] * scale, -data[j + 1] * scale - r3 * scale * 1.2, (x2 - coordShift) * coordScale);
+                                vertices.push(data[j] * scale, -data[j + 1] * scale - r2 * scale * 1.2, (x2 - coordShift) * coordScale);
                               }
                             }
                             offsets.push(Math.floor(vertices.length / 3));
@@ -148653,12 +148788,12 @@ var plotly = { exports: {} };
                         var zNear = scene.zNear;
                         var zFar = scene.zFar;
                         var fovy = scene.fovy;
-                        var r3 = width2 / height2;
+                        var r2 = width2 / height2;
                         if (isOrtho) {
-                          ortho(projection, -r3, r3, -1, 1, zNear, zFar);
+                          ortho(projection, -r2, r2, -1, 1, zNear, zFar);
                           cameraParams._ortho = true;
                         } else {
-                          perspective(projection, fovy, r3, zNear, zFar);
+                          perspective(projection, fovy, r2, zNear, zFar);
                           cameraParams._ortho = false;
                         }
                         for (var i2 = 0; i2 < 16; ++i2) {
@@ -149763,11 +149898,11 @@ var plotly = { exports: {} };
                         var nj2 = arr.shape[1];
                         for (var i2 = 0; i2 < ni2; i2++) {
                           for (var j = 0; j < nj2; j++) {
-                            var r3 = arr.get(i2, j, 0);
+                            var r2 = arr.get(i2, j, 0);
                             var g2 = arr.get(i2, j, 1);
                             var b2 = arr.get(i2, j, 2);
                             var a2 = arr.get(i2, j, 3);
-                            if (r3 < 255 || g2 < 255 || b2 < 255 || a2 < 255) {
+                            if (r2 < 255 || g2 < 255 || b2 < 255 || a2 < 255) {
                               var dx = x2 - i2;
                               var dy = y2 - j;
                               var d2 = dx * dx + dy * dy;
@@ -149814,11 +149949,11 @@ var plotly = { exports: {} };
                         }
                         this.fbo.shape = v2;
                         var c2 = this.fbo.shape[0];
-                        var r3 = this.fbo.shape[1];
-                        if (r3 * c2 * 4 > this.buffer.length) {
+                        var r2 = this.fbo.shape[1];
+                        if (r2 * c2 * 4 > this.buffer.length) {
                           pool.free(this.buffer);
-                          var buffer = this.buffer = pool.mallocUint8(nextPow2(r3 * c2 * 4));
-                          for (var i2 = 0; i2 < r3 * c2 * 4; ++i2) {
+                          var buffer = this.buffer = pool.mallocUint8(nextPow2(r2 * c2 * 4));
+                          for (var i2 = 0; i2 < r2 * c2 * 4; ++i2) {
                             buffer[i2] = 255;
                           }
                         }
@@ -149960,24 +150095,24 @@ var plotly = { exports: {} };
                           uniforms = obj.uniforms;
                           attributes = obj.attributes;
                         }
-                        var wrapper = this;
-                        var gl2 = wrapper.gl;
-                        var pvref = wrapper._vref;
-                        wrapper._vref = shaderCache.shader(gl2, gl2.VERTEX_SHADER, vertSource);
+                        var wrapper2 = this;
+                        var gl2 = wrapper2.gl;
+                        var pvref = wrapper2._vref;
+                        wrapper2._vref = shaderCache.shader(gl2, gl2.VERTEX_SHADER, vertSource);
                         if (pvref) {
                           pvref.dispose();
                         }
-                        wrapper.vertShader = wrapper._vref.shader;
+                        wrapper2.vertShader = wrapper2._vref.shader;
                         var pfref = this._fref;
-                        wrapper._fref = shaderCache.shader(gl2, gl2.FRAGMENT_SHADER, fragSource);
+                        wrapper2._fref = shaderCache.shader(gl2, gl2.FRAGMENT_SHADER, fragSource);
                         if (pfref) {
                           pfref.dispose();
                         }
-                        wrapper.fragShader = wrapper._fref.shader;
+                        wrapper2.fragShader = wrapper2._fref.shader;
                         if (!uniforms || !attributes) {
                           var testProgram = gl2.createProgram();
-                          gl2.attachShader(testProgram, wrapper.fragShader);
-                          gl2.attachShader(testProgram, wrapper.vertShader);
+                          gl2.attachShader(testProgram, wrapper2.fragShader);
+                          gl2.attachShader(testProgram, wrapper2.vertShader);
                           gl2.linkProgram(testProgram);
                           if (!gl2.getProgramParameter(testProgram, gl2.LINK_STATUS)) {
                             var errLog = gl2.getProgramInfoLog(testProgram);
@@ -150031,16 +150166,16 @@ var plotly = { exports: {} };
                         }
                         var uniformLocations = new Array(uniforms.length);
                         function relink() {
-                          wrapper.program = shaderCache.program(gl2, wrapper._vref, wrapper._fref, attributeNames, attributeLocations);
+                          wrapper2.program = shaderCache.program(gl2, wrapper2._vref, wrapper2._fref, attributeNames, attributeLocations);
                           for (var i22 = 0; i22 < uniforms.length; ++i22) {
-                            uniformLocations[i22] = gl2.getUniformLocation(wrapper.program, uniforms[i22].name);
+                            uniformLocations[i22] = gl2.getUniformLocation(wrapper2.program, uniforms[i22].name);
                           }
                         }
                         relink();
-                        wrapper._relink = relink;
-                        wrapper.types = { uniforms: makeReflect(uniforms), attributes: makeReflect(attributes) };
-                        wrapper.attributes = createAttributeWrapper(gl2, wrapper, attributeUnpacked, attributeLocations);
-                        Object.defineProperty(wrapper, "uniforms", createUniformWrapper(gl2, wrapper, uniforms, uniformLocations));
+                        wrapper2._relink = relink;
+                        wrapper2.types = { uniforms: makeReflect(uniforms), attributes: makeReflect(attributes) };
+                        wrapper2.attributes = createAttributeWrapper(gl2, wrapper2, attributeUnpacked, attributeLocations);
+                        Object.defineProperty(wrapper2, "uniforms", createUniformWrapper(gl2, wrapper2, uniforms, uniformLocations));
                       };
                       function createShader(gl2, vertSource, fragSource, uniforms, attributes) {
                         var shader = new Shader(gl2);
@@ -150073,9 +150208,9 @@ var plotly = { exports: {} };
                     function(module3, __unused_webpack_exports2, __nested_webpack_require_498645__) {
                       module3.exports = createAttributeWrapper;
                       var GLError = __nested_webpack_require_498645__(8866);
-                      function ShaderAttribute(gl2, wrapper, index, locations, dimension, constFunc) {
+                      function ShaderAttribute(gl2, wrapper2, index, locations, dimension, constFunc) {
                         this._gl = gl2;
-                        this._wrapper = wrapper;
+                        this._wrapper = wrapper2;
                         this._index = index;
                         this._locations = locations;
                         this._dimension = dimension;
@@ -150126,9 +150261,9 @@ var plotly = { exports: {} };
                           return gl2.vertexAttrib4fv(v2, x0);
                         }
                       }];
-                      function addVectorAttribute(gl2, wrapper, index, locations, dimension, obj, name2) {
+                      function addVectorAttribute(gl2, wrapper2, index, locations, dimension, obj, name2) {
                         var constFunc = allFns[dimension];
-                        var attr = new ShaderAttribute(gl2, wrapper, index, locations, dimension, constFunc);
+                        var attr = new ShaderAttribute(gl2, wrapper2, index, locations, dimension, constFunc);
                         Object.defineProperty(obj, name2, { set: function(x2) {
                           gl2.disableVertexAttribArray(locations[index]);
                           constFunc(gl2, locations[index], x2);
@@ -150137,11 +150272,11 @@ var plotly = { exports: {} };
                           return attr;
                         }, enumerable: true });
                       }
-                      function addMatrixAttribute(gl2, wrapper, index, locations, dimension, obj, name2) {
+                      function addMatrixAttribute(gl2, wrapper2, index, locations, dimension, obj, name2) {
                         var parts = new Array(dimension);
                         var attrs = new Array(dimension);
                         for (var i2 = 0; i2 < dimension; ++i2) {
-                          addVectorAttribute(gl2, wrapper, index[i2], locations, dimension, parts, i2);
+                          addVectorAttribute(gl2, wrapper2, index[i2], locations, dimension, parts, i2);
                           attrs[i2] = parts[i2];
                         }
                         Object.defineProperty(parts, "location", { set: function(v2) {
@@ -150193,7 +150328,7 @@ var plotly = { exports: {} };
                           return parts;
                         }, enumerable: true });
                       }
-                      function createAttributeWrapper(gl2, wrapper, attributes, locations) {
+                      function createAttributeWrapper(gl2, wrapper2, attributes, locations) {
                         var obj = {};
                         for (var i2 = 0, n2 = attributes.length; i2 < n2; ++i2) {
                           var a2 = attributes[i2];
@@ -150204,7 +150339,7 @@ var plotly = { exports: {} };
                             case "bool":
                             case "int":
                             case "float":
-                              addVectorAttribute(gl2, wrapper, locs[0], locations, 1, obj, name2);
+                              addVectorAttribute(gl2, wrapper2, locs[0], locations, 1, obj, name2);
                               break;
                             default:
                               if (type.indexOf("vec") >= 0) {
@@ -150212,13 +150347,13 @@ var plotly = { exports: {} };
                                 if (d2 < 2 || d2 > 4) {
                                   throw new GLError("", "Invalid data type for attribute " + name2 + ": " + type);
                                 }
-                                addVectorAttribute(gl2, wrapper, locs[0], locations, d2, obj, name2);
+                                addVectorAttribute(gl2, wrapper2, locs[0], locations, d2, obj, name2);
                               } else if (type.indexOf("mat") >= 0) {
                                 var d2 = type.charCodeAt(type.length - 1) - 48;
                                 if (d2 < 2 || d2 > 4) {
                                   throw new GLError("", "Invalid data type for attribute " + name2 + ": " + type);
                                 }
-                                addMatrixAttribute(gl2, wrapper, locs, locations, d2, obj, name2);
+                                addMatrixAttribute(gl2, wrapper2, locs, locations, d2, obj, name2);
                               } else {
                                 throw new GLError("", "Unknown data type for attribute " + name2 + ": " + type);
                               }
@@ -150248,10 +150383,10 @@ var plotly = { exports: {} };
                         }
                         return result;
                       }
-                      function createUniformWrapper(gl2, wrapper, uniforms, locations) {
+                      function createUniformWrapper(gl2, wrapper2, uniforms, locations) {
                         function makeGetter(idx) {
-                          return function(gl3, wrapper2, locations2) {
-                            return gl3.getUniform(wrapper2.program, locations2[idx]);
+                          return function(gl3, wrapper22, locations2) {
+                            return gl3.getUniform(wrapper22.program, locations2[idx]);
                           };
                         }
                         function makeSetter(type) {
@@ -150417,43 +150552,43 @@ var plotly = { exports: {} };
                         for (var i2 = 0; i2 < uniforms.length; ++i2) {
                           var n2 = uniforms[i2].name;
                           var parts = n2.split(".");
-                          var o2 = obj;
+                          var o3 = obj;
                           for (var j = 0; j < parts.length; ++j) {
                             var x2 = parts[j].split("[");
                             if (x2.length > 1) {
-                              if (!(x2[0] in o2)) {
-                                o2[x2[0]] = [];
+                              if (!(x2[0] in o3)) {
+                                o3[x2[0]] = [];
                               }
-                              o2 = o2[x2[0]];
+                              o3 = o3[x2[0]];
                               for (var k2 = 1; k2 < x2.length; ++k2) {
                                 var y2 = parseInt(x2[k2]);
                                 if (k2 < x2.length - 1 || j < parts.length - 1) {
-                                  if (!(y2 in o2)) {
+                                  if (!(y2 in o3)) {
                                     if (k2 < x2.length - 1) {
-                                      o2[y2] = [];
+                                      o3[y2] = [];
                                     } else {
-                                      o2[y2] = {};
+                                      o3[y2] = {};
                                     }
                                   }
-                                  o2 = o2[y2];
+                                  o3 = o3[y2];
                                 } else {
                                   if (useIndex) {
-                                    o2[y2] = i2;
+                                    o3[y2] = i2;
                                   } else {
-                                    o2[y2] = uniforms[i2].type;
+                                    o3[y2] = uniforms[i2].type;
                                   }
                                 }
                               }
                             } else if (j < parts.length - 1) {
-                              if (!(x2[0] in o2)) {
-                                o2[x2[0]] = {};
+                              if (!(x2[0] in o3)) {
+                                o3[x2[0]] = {};
                               }
-                              o2 = o2[x2[0]];
+                              o3 = o3[x2[0]];
                             } else {
                               if (useIndex) {
-                                o2[x2[0]] = i2;
+                                o3[x2[0]] = i2;
                               } else {
-                                o2[x2[0]] = uniforms[i2].type;
+                                o3[x2[0]] = uniforms[i2].type;
                               }
                             }
                           }
@@ -150523,29 +150658,29 @@ var plotly = { exports: {} };
                       var weakMap = typeof WeakMap === "undefined" ? __nested_webpack_require_509132__(606) : WeakMap;
                       var CACHE = new weakMap();
                       var SHADER_COUNTER = 0;
-                      function ShaderReference(id2, src, type, shader, programs, count, cache2) {
+                      function ShaderReference(id2, src, type, shader, programs, count, cache) {
                         this.id = id2;
                         this.src = src;
                         this.type = type;
                         this.shader = shader;
                         this.count = count;
                         this.programs = [];
-                        this.cache = cache2;
+                        this.cache = cache;
                       }
                       ShaderReference.prototype.dispose = function() {
                         if (--this.count === 0) {
-                          var cache2 = this.cache;
-                          var gl2 = cache2.gl;
+                          var cache = this.cache;
+                          var gl2 = cache.gl;
                           var programs = this.programs;
                           for (var i2 = 0, n2 = programs.length; i2 < n2; ++i2) {
-                            var p2 = cache2.programs[programs[i2]];
+                            var p2 = cache.programs[programs[i2]];
                             if (p2) {
-                              delete cache2.programs[i2];
+                              delete cache.programs[i2];
                               gl2.deleteProgram(p2);
                             }
                           }
                           gl2.deleteShader(this.shader);
-                          delete cache2.shaders[this.type === gl2.FRAGMENT_SHADER | 0][this.src];
+                          delete cache.shaders[this.type === gl2.FRAGMENT_SHADER | 0][this.src];
                         }
                       };
                       function ContextCache(gl2) {
@@ -150606,7 +150741,7 @@ var plotly = { exports: {} };
                         }
                         return prog;
                       };
-                      function getCache(gl2) {
+                      function getCache2(gl2) {
                         var ctxCache = CACHE.get(gl2);
                         if (!ctxCache) {
                           ctxCache = new ContextCache(gl2);
@@ -150615,10 +150750,10 @@ var plotly = { exports: {} };
                         return ctxCache;
                       }
                       function getShaderReference(gl2, type, src) {
-                        return getCache(gl2).getShaderReference(type, src);
+                        return getCache2(gl2).getShaderReference(type, src);
                       }
                       function createProgram(gl2, vref, fref, attribs, locations) {
-                        return getCache(gl2).getProgram(vref, fref, attribs, locations);
+                        return getCache2(gl2).getProgram(vref, fref, attribs, locations);
                       }
                     }
                   ),
@@ -150875,14 +151010,14 @@ var plotly = { exports: {} };
                         for (var i2 = 0; i2 < points2.length; i2++) {
                           var p2 = points2[i2];
                           var fwd = velocities[i2];
-                          var r3 = divergences[i2];
+                          var r2 = divergences[i2];
                           if (maxDivergence === 0) {
-                            r3 = minDistance * 0.05;
+                            r2 = minDistance * 0.05;
                           }
                           currentIntensity = vec3.length(fwd) / maxNorm;
                           currentVector = vec4.create();
                           vec3.copy(currentVector, fwd);
-                          currentVector[3] = r3;
+                          currentVector[3] = r2;
                           for (var a2 = 0; a2 < facets; a2++) {
                             currentVerts[a2] = [p2[0], p2[1], p2[2], a2];
                           }
@@ -151701,11 +151836,11 @@ var plotly = { exports: {} };
                           var s2 = dx ? fx : 1 - fx;
                           for (var dy = 0; dy < 2; ++dy) {
                             var t3 = dy ? fy : 1 - fy;
-                            var r3 = ix + dx;
+                            var r2 = ix + dx;
                             var c2 = iy + dy;
                             var w2 = s2 * t3;
                             for (var i2 = 0; i2 < 3; ++i2) {
-                              pos[i2] += this._field[i2].get(r3, c2) * w2;
+                              pos[i2] += this._field[i2].get(r2, c2) * w2;
                             }
                           }
                         }
@@ -151954,19 +152089,19 @@ var plotly = { exports: {} };
                                 }
                               }
                               for (k2 = 0; k2 < 6; ++k2) {
-                                var r3 = i2 + QUAD[k2][0];
+                                var r2 = i2 + QUAD[k2][0];
                                 var c2 = j + QUAD[k2][1];
-                                var tx = this._field[0].get(r3 + 1, c2 + 1);
-                                var ty = this._field[1].get(r3 + 1, c2 + 1);
-                                f2 = this._field[2].get(r3 + 1, c2 + 1);
-                                nx = normals.get(r3 + 1, c2 + 1, 0);
-                                ny = normals.get(r3 + 1, c2 + 1, 1);
-                                nz = normals.get(r3 + 1, c2 + 1, 2);
+                                var tx = this._field[0].get(r2 + 1, c2 + 1);
+                                var ty = this._field[1].get(r2 + 1, c2 + 1);
+                                f2 = this._field[2].get(r2 + 1, c2 + 1);
+                                nx = normals.get(r2 + 1, c2 + 1, 0);
+                                ny = normals.get(r2 + 1, c2 + 1, 1);
+                                nz = normals.get(r2 + 1, c2 + 1, 2);
                                 if (params.intensity) {
-                                  vf2 = params.intensity.get(r3, c2);
+                                  vf2 = params.intensity.get(r2, c2);
                                 }
-                                var vf2 = params.intensity ? params.intensity.get(r3, c2) : f2 + this.objectOffset[2];
-                                tverts[tptr++] = r3;
+                                var vf2 = params.intensity ? params.intensity.get(r2, c2) : f2 + this.objectOffset[2];
+                                tverts[tptr++] = r2;
                                 tverts[tptr++] = c2;
                                 tverts[tptr++] = tx;
                                 tverts[tptr++] = ty;
@@ -152067,14 +152202,14 @@ var plotly = { exports: {} };
                                     var iu = (dim + axis + 1) % 3;
                                     for (dx = 0; dx < 2; ++dx) {
                                       var s2 = dx ? fx : 1 - fx;
-                                      r3 = Math.min(Math.max(ix + dx, 0), shape2[0]) | 0;
+                                      r2 = Math.min(Math.max(ix + dx, 0), shape2[0]) | 0;
                                       for (dy = 0; dy < 2; ++dy) {
                                         var t3 = dy ? fy : 1 - fy;
                                         c2 = Math.min(Math.max(iy + dy, 0), shape2[1]) | 0;
                                         if (axis < 2) {
-                                          f2 = this._field[iu].get(r3, c2);
+                                          f2 = this._field[iu].get(r2, c2);
                                         } else {
-                                          f2 = (this.intensity.get(r3, c2) - this.intensityBounds[0]) / (this.intensityBounds[1] - this.intensityBounds[0]);
+                                          f2 = (this.intensity.get(r2, c2) - this.intensityBounds[0]) / (this.intensityBounds[1] - this.intensityBounds[0]);
                                         }
                                         if (!isFinite(f2) || isNaN(f2)) {
                                           hole = true;
@@ -153284,11 +153419,11 @@ var plotly = { exports: {} };
                       module3.exports = random;
                       function random(out, scale) {
                         scale = scale || 1;
-                        var r3 = Math.random() * 2 * Math.PI;
+                        var r2 = Math.random() * 2 * Math.PI;
                         var z2 = Math.random() * 2 - 1;
                         var zScale = Math.sqrt(1 - z2 * z2) * scale;
-                        out[0] = Math.cos(r3) * zScale;
-                        out[1] = Math.sin(r3) * zScale;
+                        out[0] = Math.cos(r2) * zScale;
+                        out[1] = Math.sin(r2) * zScale;
                         out[2] = z2 * scale;
                         return out;
                       }
@@ -154678,7 +154813,7 @@ var plotly = { exports: {} };
                       function compareGlue(a2, b2) {
                         return compareCell(a2.vertices, b2.vertices);
                       }
-                      function wrapper(test) {
+                      function wrapper2(test) {
                         return function() {
                           var tuple = this.tuple;
                           return test.apply(this, tuple);
@@ -154689,7 +154824,7 @@ var plotly = { exports: {} };
                         if (!test) {
                           test = orient2;
                         }
-                        return wrapper(test);
+                        return wrapper2(test);
                       }
                       var BAKED = [];
                       function Triangulation(dimension, vertices, simplices) {
@@ -154703,11 +154838,11 @@ var plotly = { exports: {} };
                         for (var i2 = 0; i2 <= dimension; ++i2) {
                           this.tuple[i2] = this.vertices[i2];
                         }
-                        var o2 = BAKED[dimension];
-                        if (!o2) {
-                          o2 = BAKED[dimension] = bakeOrient(dimension);
+                        var o3 = BAKED[dimension];
+                        if (!o3) {
+                          o3 = BAKED[dimension] = bakeOrient(dimension);
                         }
-                        this.orient = o2;
+                        this.orient = o3;
                       }
                       var proto = Triangulation.prototype;
                       proto.handleBoundaryDegeneracy = function(cell, point) {
@@ -154734,12 +154869,12 @@ var plotly = { exports: {} };
                                 tuple[j] = verts[vv];
                               }
                             }
-                            var o2 = this.orient();
-                            if (o2 > 0) {
+                            var o3 = this.orient();
+                            if (o3 > 0) {
                               return neighbor;
                             }
                             neighbor.lastVisited = -n2;
-                            if (o2 === 0) {
+                            if (o3 === 0) {
                               toVisit.push(neighbor);
                             }
                           }
@@ -154767,9 +154902,9 @@ var plotly = { exports: {} };
                             }
                             var prev2 = tuple[i2];
                             tuple[i2] = point;
-                            var o2 = this.orient();
+                            var o3 = this.orient();
                             tuple[i2] = prev2;
-                            if (o2 < 0) {
+                            if (o3 < 0) {
                               cell = neighbor;
                               continue outerLoop;
                             } else {
@@ -154824,8 +154959,8 @@ var plotly = { exports: {} };
                                   tuple[j] = verts[nv[j]];
                                 }
                               }
-                              var o2 = this.orient();
-                              if (o2 > 0) {
+                              var o3 = this.orient();
+                              if (o3 > 0) {
                                 nv[indexOfNeg1] = n2;
                                 neighbor.boundary = false;
                                 interior.push(neighbor);
@@ -154899,10 +155034,10 @@ var plotly = { exports: {} };
                             tuple[i2] = verts[vv];
                           }
                         }
-                        var o2 = this.orient(tuple);
-                        if (o2 < 0) {
+                        var o3 = this.orient(tuple);
+                        if (o3 < 0) {
                           return;
-                        } else if (o2 === 0) {
+                        } else if (o3 === 0) {
                           cell = this.handleBoundaryDegeneracy(cell, point);
                           if (!cell) {
                             return;
@@ -154949,15 +155084,15 @@ var plotly = { exports: {} };
                           throw new Error("Must input at least d+1 points");
                         }
                         var initialSimplex = points2.slice(0, d2 + 1);
-                        var o2 = orient2.apply(void 0, initialSimplex);
-                        if (o2 === 0) {
+                        var o3 = orient2.apply(void 0, initialSimplex);
+                        if (o3 === 0) {
                           throw new Error("Input not in general position");
                         }
                         var initialCoords = new Array(d2 + 1);
                         for (var i2 = 0; i2 <= d2; ++i2) {
                           initialCoords[i2] = i2;
                         }
-                        if (o2 < 0) {
+                        if (o3 < 0) {
                           initialCoords[0] = 1;
                           initialCoords[1] = 0;
                         }
@@ -155089,9 +155224,9 @@ var plotly = { exports: {} };
                           }
                         } else {
                           var l2 = bounds.ge(this.leftPoints, interval, compareBegin);
-                          var r3 = bounds.ge(this.rightPoints, interval, compareEnd);
+                          var r2 = bounds.ge(this.rightPoints, interval, compareEnd);
                           this.leftPoints.splice(l2, 0, interval);
-                          this.rightPoints.splice(r3, 0, interval);
+                          this.rightPoints.splice(r2, 0, interval);
                         }
                       };
                       proto.remove = function(interval) {
@@ -155104,15 +155239,15 @@ var plotly = { exports: {} };
                           if (4 * rw > 3 * (weight - 1)) {
                             return rebuildWithoutInterval(this, interval);
                           }
-                          var r3 = this.left.remove(interval);
-                          if (r3 === EMPTY2) {
+                          var r2 = this.left.remove(interval);
+                          if (r2 === EMPTY2) {
                             this.left = null;
                             this.count -= 1;
                             return SUCCESS;
-                          } else if (r3 === SUCCESS) {
+                          } else if (r2 === SUCCESS) {
                             this.count -= 1;
                           }
-                          return r3;
+                          return r2;
                         } else if (interval[0] > this.mid) {
                           if (!this.right) {
                             return NOT_FOUND;
@@ -155121,15 +155256,15 @@ var plotly = { exports: {} };
                           if (4 * lw > 3 * (weight - 1)) {
                             return rebuildWithoutInterval(this, interval);
                           }
-                          var r3 = this.right.remove(interval);
-                          if (r3 === EMPTY2) {
+                          var r2 = this.right.remove(interval);
+                          if (r2 === EMPTY2) {
                             this.right = null;
                             this.count -= 1;
                             return SUCCESS;
-                          } else if (r3 === SUCCESS) {
+                          } else if (r2 === SUCCESS) {
                             this.count -= 1;
                           }
-                          return r3;
+                          return r2;
                         } else {
                           if (this.count === 1) {
                             if (this.leftPoints[0] === interval) {
@@ -155150,11 +155285,11 @@ var plotly = { exports: {} };
                                 n2.right = this.right;
                               } else {
                                 var l2 = this.left;
-                                var r3 = this.right;
+                                var r2 = this.right;
                                 p2.count -= n2.count;
                                 p2.right = n2.left;
                                 n2.left = l2;
-                                n2.right = r3;
+                                n2.right = r2;
                               }
                               copy2(this, n2);
                               this.count = (this.left ? this.left.count : 0) + (this.right ? this.right.count : 0) + this.leftPoints.length;
@@ -155172,11 +155307,11 @@ var plotly = { exports: {} };
                             if (this.leftPoints[l2] === interval) {
                               this.count -= 1;
                               this.leftPoints.splice(l2, 1);
-                              for (var r3 = bounds.ge(this.rightPoints, interval, compareEnd); r3 < this.rightPoints.length; ++r3) {
-                                if (this.rightPoints[r3][1] !== interval[1]) {
+                              for (var r2 = bounds.ge(this.rightPoints, interval, compareEnd); r2 < this.rightPoints.length; ++r2) {
+                                if (this.rightPoints[r2][1] !== interval[1]) {
                                   break;
-                                } else if (this.rightPoints[r3] === interval) {
-                                  this.rightPoints.splice(r3, 1);
+                                } else if (this.rightPoints[r2] === interval) {
+                                  this.rightPoints.splice(r2, 1);
                                   return SUCCESS;
                                 }
                               }
@@ -155187,42 +155322,42 @@ var plotly = { exports: {} };
                       };
                       function reportLeftRange(arr, hi2, cb2) {
                         for (var i2 = 0; i2 < arr.length && arr[i2][0] <= hi2; ++i2) {
-                          var r3 = cb2(arr[i2]);
-                          if (r3) {
-                            return r3;
+                          var r2 = cb2(arr[i2]);
+                          if (r2) {
+                            return r2;
                           }
                         }
                       }
                       function reportRightRange(arr, lo, cb2) {
                         for (var i2 = arr.length - 1; i2 >= 0 && arr[i2][1] >= lo; --i2) {
-                          var r3 = cb2(arr[i2]);
-                          if (r3) {
-                            return r3;
+                          var r2 = cb2(arr[i2]);
+                          if (r2) {
+                            return r2;
                           }
                         }
                       }
                       function reportRange(arr, cb2) {
                         for (var i2 = 0; i2 < arr.length; ++i2) {
-                          var r3 = cb2(arr[i2]);
-                          if (r3) {
-                            return r3;
+                          var r2 = cb2(arr[i2]);
+                          if (r2) {
+                            return r2;
                           }
                         }
                       }
                       proto.queryPoint = function(x2, cb2) {
                         if (x2 < this.mid) {
                           if (this.left) {
-                            var r3 = this.left.queryPoint(x2, cb2);
-                            if (r3) {
-                              return r3;
+                            var r2 = this.left.queryPoint(x2, cb2);
+                            if (r2) {
+                              return r2;
                             }
                           }
                           return reportLeftRange(this.leftPoints, x2, cb2);
                         } else if (x2 > this.mid) {
                           if (this.right) {
-                            var r3 = this.right.queryPoint(x2, cb2);
-                            if (r3) {
-                              return r3;
+                            var r2 = this.right.queryPoint(x2, cb2);
+                            if (r2) {
+                              return r2;
                             }
                           }
                           return reportRightRange(this.rightPoints, x2, cb2);
@@ -155232,15 +155367,15 @@ var plotly = { exports: {} };
                       };
                       proto.queryInterval = function(lo, hi2, cb2) {
                         if (lo < this.mid && this.left) {
-                          var r3 = this.left.queryInterval(lo, hi2, cb2);
-                          if (r3) {
-                            return r3;
+                          var r2 = this.left.queryInterval(lo, hi2, cb2);
+                          if (r2) {
+                            return r2;
                           }
                         }
                         if (hi2 > this.mid && this.right) {
-                          var r3 = this.right.queryInterval(lo, hi2, cb2);
-                          if (r3) {
-                            return r3;
+                          var r2 = this.right.queryInterval(lo, hi2, cb2);
+                          if (r2) {
+                            return r2;
                           }
                         }
                         if (hi2 < this.mid) {
@@ -155310,11 +155445,11 @@ var plotly = { exports: {} };
                       };
                       tproto.remove = function(interval) {
                         if (this.root) {
-                          var r3 = this.root.remove(interval);
-                          if (r3 === EMPTY2) {
+                          var r2 = this.root.remove(interval);
+                          if (r2 === EMPTY2) {
                             this.root = null;
                           }
-                          return r3 !== NOT_FOUND;
+                          return r2 !== NOT_FOUND;
                         }
                         return false;
                       };
@@ -156461,9 +156596,9 @@ var plotly = { exports: {} };
                       var CACHED_thunk = { cdiff: function(compile22) {
                         var CACHED = {};
                         return function cdiff_cwise_thunk(array0, array1, array2) {
-                          var t0 = array0.dtype, r0 = array0.order, t1 = array1.dtype, r1 = array1.order, t22 = array2.dtype, r22 = array2.order, type = [t0, r0.join(), t1, r1.join(), t22, r22.join()].join(), proc = CACHED[type];
+                          var t0 = array0.dtype, r0 = array0.order, t1 = array1.dtype, r1 = array1.order, t22 = array2.dtype, r2 = array2.order, type = [t0, r0.join(), t1, r1.join(), t22, r2.join()].join(), proc = CACHED[type];
                           if (!proc) {
-                            CACHED[type] = proc = compile22([t0, r0, t1, r1, t22, r22]);
+                            CACHED[type] = proc = compile22([t0, r0, t1, r1, t22, r2]);
                           }
                           return proc(array0.shape.slice(0), array0.data, array0.stride, array0.offset | 0, array1.data, array1.stride, array1.offset | 0, array2.data, array2.stride, array2.offset | 0);
                         };
@@ -156609,7 +156744,7 @@ var plotly = { exports: {} };
                           s0[i2] = 0 <= ix[i2] && ix[i2] < arr.shape[i2];
                           s1[i2] = 0 <= ix[i2] + 1 && ix[i2] + 1 < arr.shape[i2];
                         }
-                        var r3 = 0, j, w2, idx;
+                        var r2 = 0, j, w2, idx;
                         i_loop: for (i2 = 0; i2 < 1 << d2; ++i2) {
                           w2 = 1;
                           idx = arr.offset;
@@ -156628,9 +156763,9 @@ var plotly = { exports: {} };
                               idx += arr.stride[j] * ix[j];
                             }
                           }
-                          r3 += w2 * arr.data[idx];
+                          r2 += w2 * arr.data[idx];
                         }
-                        return r3;
+                        return r2;
                       }
                       function interpolate(arr, x2, y2, z2) {
                         switch (arr.shape.length) {
@@ -156849,9 +156984,9 @@ var plotly = { exports: {} };
                       var CACHED_thunk = { mul: function(compile22) {
                         var CACHED = {};
                         return function mul_cwise_thunk(array0, array1, array2) {
-                          var t0 = array0.dtype, r0 = array0.order, t1 = array1.dtype, r1 = array1.order, t22 = array2.dtype, r22 = array2.order, type = [t0, r0.join(), t1, r1.join(), t22, r22.join()].join(), proc = CACHED[type];
+                          var t0 = array0.dtype, r0 = array0.order, t1 = array1.dtype, r1 = array1.order, t22 = array2.dtype, r2 = array2.order, type = [t0, r0.join(), t1, r1.join(), t22, r2.join()].join(), proc = CACHED[type];
                           if (!proc) {
-                            CACHED[type] = proc = compile22([t0, r0, t1, r1, t22, r22]);
+                            CACHED[type] = proc = compile22([t0, r0, t1, r1, t22, r2]);
                           }
                           return proc(array0.shape.slice(0), array0.data, array0.stride, array0.offset | 0, array1.data, array1.stride, array1.offset | 0, array2.data, array2.stride, array2.offset | 0);
                         };
@@ -156876,9 +157011,9 @@ var plotly = { exports: {} };
                       }, div: function(compile22) {
                         var CACHED = {};
                         return function div_cwise_thunk(array0, array1, array2) {
-                          var t0 = array0.dtype, r0 = array0.order, t1 = array1.dtype, r1 = array1.order, t22 = array2.dtype, r22 = array2.order, type = [t0, r0.join(), t1, r1.join(), t22, r22.join()].join(), proc = CACHED[type];
+                          var t0 = array0.dtype, r0 = array0.order, t1 = array1.dtype, r1 = array1.order, t22 = array2.dtype, r2 = array2.order, type = [t0, r0.join(), t1, r1.join(), t22, r2.join()].join(), proc = CACHED[type];
                           if (!proc) {
-                            CACHED[type] = proc = compile22([t0, r0, t1, r1, t22, r22]);
+                            CACHED[type] = proc = compile22([t0, r0, t1, r1, t22, r2]);
                           }
                           return proc(array0.shape.slice(0), array0.data, array0.stride, array0.offset | 0, array1.data, array1.stride, array1.offset | 0, array2.data, array2.stride, array2.offset | 0);
                         };
@@ -158880,8 +159015,8 @@ var plotly = { exports: {} };
                           var cy = mat[13] / w2;
                           var cz = mat[14] / w2;
                           this.recalcMatrix(t3);
-                          var r3 = Math.exp(this.computedRadius[0]);
-                          this.center.set(t3, cx - mat[2] * r3, cy - mat[6] * r3, cz - mat[10] * r3);
+                          var r2 = Math.exp(this.computedRadius[0]);
+                          this.center.set(t3, cx - mat[2] * r2, cy - mat[6] * r2, cz - mat[10] * r2);
                           this.radius.idle(t3);
                         } else {
                           this.center.idle(t3);
@@ -158927,9 +159062,9 @@ var plotly = { exports: {} };
                         if (c2) {
                           this.center.set(t3, c2[0], c2[1], c2[2]);
                         }
-                        var r3 = options.rotation;
-                        if (r3) {
-                          this.rotation.set(t3, r3[0], r3[1], r3[2], r3[3]);
+                        var r2 = options.rotation;
+                        if (r2) {
+                          this.rotation.set(t3, r2[0], r2[1], r2[2], r2[3]);
                         }
                         var d2 = options.distance;
                         if (d2 && d2 > 0) {
@@ -159389,20 +159524,20 @@ var plotly = { exports: {} };
                           var lastOrientation = 1;
                           while (root2) {
                             var s2 = root2.key;
-                            var o2 = orient2(p2, s2[0], s2[1]);
+                            var o3 = orient2(p2, s2[0], s2[1]);
                             if (s2[0][0] < s2[1][0]) {
-                              if (o2 < 0) {
+                              if (o3 < 0) {
                                 root2 = root2.left;
-                              } else if (o2 > 0) {
+                              } else if (o3 > 0) {
                                 lastOrientation = -1;
                                 root2 = root2.right;
                               } else {
                                 return 0;
                               }
                             } else {
-                              if (o2 > 0) {
+                              if (o3 > 0) {
                                 root2 = root2.left;
-                              } else if (o2 < 0) {
+                              } else if (o3 < 0) {
                                 lastOrientation = 1;
                                 root2 = root2.right;
                               } else {
@@ -159659,11 +159794,11 @@ var plotly = { exports: {} };
                       module3.exports = add;
                       function add(a2, b2) {
                         var n2 = a2.length;
-                        var r3 = new Array(n2);
+                        var r2 = new Array(n2);
                         for (var i2 = 0; i2 < n2; ++i2) {
-                          r3[i2] = bnadd(a2[i2], b2[i2]);
+                          r2[i2] = bnadd(a2[i2], b2[i2]);
                         }
-                        return r3;
+                        return r2;
                       }
                     }
                   ),
@@ -159692,11 +159827,11 @@ var plotly = { exports: {} };
                       function muls(a2, x2) {
                         var s2 = rat(x2);
                         var n2 = a2.length;
-                        var r3 = new Array(n2);
+                        var r2 = new Array(n2);
                         for (var i2 = 0; i2 < n2; ++i2) {
-                          r3[i2] = mul(a2[i2], s2);
+                          r2[i2] = mul(a2[i2], s2);
                         }
-                        return r3;
+                        return r2;
                       }
                     }
                   ),
@@ -159708,11 +159843,11 @@ var plotly = { exports: {} };
                       module3.exports = sub;
                       function sub(a2, b2) {
                         var n2 = a2.length;
-                        var r3 = new Array(n2);
+                        var r2 = new Array(n2);
                         for (var i2 = 0; i2 < n2; ++i2) {
-                          r3[i2] = bnsub(a2[i2], b2[i2]);
+                          r2[i2] = bnsub(a2[i2], b2[i2]);
                         }
-                        return r3;
+                        return r2;
                       }
                     }
                   ),
@@ -159730,13 +159865,13 @@ var plotly = { exports: {} };
                         var ptr = 0;
                         for (var i2 = 0; i2 < n2; ++i2) {
                           var c2 = cells[i2];
-                          var o2 = orientation(c2);
-                          if (o2 === 0) {
+                          var o3 = orientation(c2);
+                          if (o3 === 0) {
                             continue;
                           }
                           if (ptr > 0) {
                             var f2 = cells[ptr - 1];
-                            if (compareCell(c2, f2) === 0 && orientation(f2) !== o2) {
+                            if (compareCell(c2, f2) === 0 && orientation(f2) !== o3) {
                               ptr -= 1;
                               continue;
                             }
@@ -159759,7 +159894,7 @@ var plotly = { exports: {} };
                       * Licensed under the MIT License.
                       */
                       var res = "";
-                      var cache2;
+                      var cache;
                       module3.exports = repeat;
                       function repeat(str, num) {
                         if (typeof str !== "string") {
@@ -159768,8 +159903,8 @@ var plotly = { exports: {} };
                         if (num === 1) return str;
                         if (num === 2) return str + str;
                         var max2 = str.length * num;
-                        if (cache2 !== str || typeof cache2 === "undefined") {
-                          cache2 = str;
+                        if (cache !== str || typeof cache === "undefined") {
+                          cache = str;
                           res = "";
                         } else if (res.length >= max2) {
                           return res.substr(0, max2);
@@ -159914,11 +160049,11 @@ var plotly = { exports: {} };
                       var robustSum = __nested_webpack_require_754471__(8210);
                       module3.exports = robustDotProduct;
                       function robustDotProduct(a2, b2) {
-                        var r3 = twoProduct(a2[0], b2[0]);
+                        var r2 = twoProduct(a2[0], b2[0]);
                         for (var i2 = 1; i2 < a2.length; ++i2) {
-                          r3 = robustSum(r3, twoProduct(a2[i2], b2[i2]));
+                          r2 = robustSum(r2, twoProduct(a2[i2], b2[i2]));
                         }
-                        return r3;
+                        return r2;
                       }
                     }
                   ),
@@ -160074,14 +160209,14 @@ var plotly = { exports: {} };
                         }
                         return proc2.apply(void 0, args);
                       }
-                      function proc(slow, o0, o1, o2, o3, o4, o5, o6) {
+                      function proc(slow, o0, o1, o22, o3, o4, o5, o6) {
                         function testInSphere(a0, a1, a2, a3, a4, a5) {
                           switch (arguments.length) {
                             case 0:
                             case 1:
                               return 0;
                             case 2:
-                              return o2(a0, a1);
+                              return o22(a0, a1);
                             case 3:
                               return o3(a0, a1, a2);
                             case 4:
@@ -160239,20 +160374,20 @@ var plotly = { exports: {} };
                         return b2[0] - a2[0];
                       }, function orientation3(a2, b2, c2) {
                         var l2 = (a2[1] - c2[1]) * (b2[0] - c2[0]);
-                        var r3 = (a2[0] - c2[0]) * (b2[1] - c2[1]);
-                        var det = l2 - r3;
+                        var r2 = (a2[0] - c2[0]) * (b2[1] - c2[1]);
+                        var det = l2 - r2;
                         var s2;
                         if (l2 > 0) {
-                          if (r3 <= 0) {
+                          if (r2 <= 0) {
                             return det;
                           } else {
-                            s2 = l2 + r3;
+                            s2 = l2 + r2;
                           }
                         } else if (l2 < 0) {
-                          if (r3 >= 0) {
+                          if (r2 >= 0) {
                             return det;
                           } else {
-                            s2 = -(l2 + r3);
+                            s2 = -(l2 + r2);
                           }
                         } else {
                           return det;
@@ -160293,14 +160428,14 @@ var plotly = { exports: {} };
                         }
                         return proc2.apply(void 0, args);
                       }
-                      function proc(slow, o0, o1, o2, o3, o4, o5) {
+                      function proc(slow, o0, o1, o22, o3, o4, o5) {
                         return function getOrientation(a0, a1, a2, a3, a4) {
                           switch (arguments.length) {
                             case 0:
                             case 1:
                               return 0;
                             case 2:
-                              return o2(a0, a1);
+                              return o22(a0, a1);
                             case 3:
                               return o3(a0, a1, a2);
                             case 4:
@@ -160344,17 +160479,17 @@ var plotly = { exports: {} };
                         if (a2.length === 0 || b2.length === 0) {
                           return [0];
                         }
-                        var r3 = [0];
+                        var r2 = [0];
                         if (a2.length < b2.length) {
                           for (var i2 = 0; i2 < a2.length; ++i2) {
-                            r3 = robustSum(r3, robustScale(b2, a2[i2]));
+                            r2 = robustSum(r2, robustScale(b2, a2[i2]));
                           }
                         } else {
                           for (var i2 = 0; i2 < b2.length; ++i2) {
-                            r3 = robustSum(r3, robustScale(a2, b2[i2]));
+                            r2 = robustSum(r2, robustScale(a2, b2[i2]));
                           }
                         }
-                        return r3;
+                        return r2;
                       }
                     }
                   ),
@@ -161228,19 +161363,19 @@ var plotly = { exports: {} };
                         return !(v2 & v2 - 1) && !!v2;
                       };
                       exports2.log2 = function(v2) {
-                        var r3, shift;
-                        r3 = (v2 > 65535) << 4;
-                        v2 >>>= r3;
+                        var r2, shift;
+                        r2 = (v2 > 65535) << 4;
+                        v2 >>>= r2;
                         shift = (v2 > 255) << 3;
                         v2 >>>= shift;
-                        r3 |= shift;
+                        r2 |= shift;
                         shift = (v2 > 15) << 2;
                         v2 >>>= shift;
-                        r3 |= shift;
+                        r2 |= shift;
                         shift = (v2 > 3) << 1;
                         v2 >>>= shift;
-                        r3 |= shift;
-                        return r3 | v2 >> 1;
+                        r2 |= shift;
+                        return r2 | v2 >> 1;
                       };
                       exports2.log10 = function(v2) {
                         return v2 >= 1e9 ? 9 : v2 >= 1e8 ? 8 : v2 >= 1e7 ? 7 : v2 >= 1e6 ? 6 : v2 >= 1e5 ? 5 : v2 >= 1e4 ? 4 : v2 >= 1e3 ? 3 : v2 >= 100 ? 2 : v2 >= 10 ? 1 : 0;
@@ -161290,13 +161425,13 @@ var plotly = { exports: {} };
                       var REVERSE_TABLE = new Array(256);
                       (function(tab) {
                         for (var i2 = 0; i2 < 256; ++i2) {
-                          var v2 = i2, r3 = i2, s2 = 7;
+                          var v2 = i2, r2 = i2, s2 = 7;
                           for (v2 >>>= 1; v2; v2 >>>= 1) {
-                            r3 <<= 1;
-                            r3 |= v2 & 1;
+                            r2 <<= 1;
+                            r2 |= v2 & 1;
                             --s2;
                           }
-                          tab[i2] = r3 << s2 & 255;
+                          tab[i2] = r2 << s2 & 255;
                         }
                       })(REVERSE_TABLE);
                       exports2.reverse = function(v2) {
@@ -161473,19 +161608,19 @@ var plotly = { exports: {} };
                       }
                       exports2.unique = unique;
                       function findCell(cells, c2) {
-                        var lo = 0, hi2 = cells.length - 1, r3 = -1;
+                        var lo = 0, hi2 = cells.length - 1, r2 = -1;
                         while (lo <= hi2) {
                           var mid = lo + hi2 >> 1, s2 = compareCells(cells[mid], c2);
                           if (s2 <= 0) {
                             if (s2 === 0) {
-                              r3 = mid;
+                              r2 = mid;
                             }
                             lo = mid + 1;
                           } else if (s2 > 0) {
                             hi2 = mid - 1;
                           }
                         }
-                        return r3;
+                        return r2;
                       }
                       exports2.findCell = findCell;
                       function incidence(from_cells, to_cells) {
@@ -162044,18 +162179,18 @@ var plotly = { exports: {} };
                         var lastNode = null;
                         while (root2) {
                           var seg = root2.key;
-                          var l2, r3;
+                          var l2, r2;
                           if (seg[0][0] < seg[1][0]) {
                             l2 = seg[0];
-                            r3 = seg[1];
+                            r2 = seg[1];
                           } else {
                             l2 = seg[1];
-                            r3 = seg[0];
+                            r2 = seg[0];
                           }
-                          var o2 = orient2(l2, r3, p2);
-                          if (o2 < 0) {
+                          var o3 = orient2(l2, r2, p2);
+                          if (o3 < 0) {
                             root2 = root2.left;
-                          } else if (o2 > 0) {
+                          } else if (o3 > 0) {
                             if (p2[0] !== seg[1][0]) {
                               lastNode = root2;
                               root2 = root2.right;
@@ -162137,11 +162272,11 @@ var plotly = { exports: {} };
                               }
                               if (e4.start) {
                                 if (lastSegment) {
-                                  var o2 = orient2(lastSegment[0], lastSegment[1], [p2[0], e4.y]);
+                                  var o3 = orient2(lastSegment[0], lastSegment[1], [p2[0], e4.y]);
                                   if (lastSegment[0][0] > lastSegment[1][0]) {
-                                    o2 = -o2;
+                                    o3 = -o3;
                                   }
-                                  if (o2 > 0) {
+                                  if (o3 > 0) {
                                     lastHit = e4.index;
                                   }
                                 } else {
@@ -162237,8 +162372,8 @@ var plotly = { exports: {} };
                       module3.exports.positive = positive;
                       module3.exports.negative = negative;
                       function planeT(p2, plane) {
-                        var r3 = robustSum(robustDot(p2, plane), [plane[plane.length - 1]]);
-                        return r3[r3.length - 1];
+                        var r2 = robustSum(robustDot(p2, plane), [plane[plane.length - 1]]);
+                        return r2[r2.length - 1];
                       }
                       function lerpW(a2, wa2, b2, wb2) {
                         var d2 = wb2 - wa2;
@@ -162250,11 +162385,11 @@ var plotly = { exports: {} };
                         }
                         var ti2 = 1 - t3;
                         var n2 = a2.length;
-                        var r3 = new Array(n2);
+                        var r2 = new Array(n2);
                         for (var i2 = 0; i2 < n2; ++i2) {
-                          r3[i2] = t3 * a2[i2] + ti2 * b2[i2];
+                          r2[i2] = t3 * a2[i2] + ti2 * b2[i2];
                         }
-                        return r3;
+                        return r2;
                       }
                       function splitPolygon(points2, plane) {
                         var pos = [];
@@ -163413,9 +163548,9 @@ var plotly = { exports: {} };
                       function mallocBuffer(n2) {
                         n2 = bits.nextPow2(n2);
                         var log_n = bits.log2(n2);
-                        var cache2 = BUFFER[log_n];
-                        if (cache2.length > 0) {
-                          return cache2.pop();
+                        var cache = BUFFER[log_n];
+                        if (cache.length > 0) {
+                          return cache.pop();
                         }
                         return new Buffer2(n2);
                       }
@@ -164378,31 +164513,31 @@ var plotly = { exports: {} };
               function _classCallCheck(a2, n2) {
                 if (!(a2 instanceof n2)) throw new TypeError("Cannot call a class as a function");
               }
-              function _defineProperties(e4, r3) {
-                for (var t3 = 0; t3 < r3.length; t3++) {
-                  var o2 = r3[t3];
-                  o2.enumerable = o2.enumerable || false, o2.configurable = true, "value" in o2 && (o2.writable = true), Object.defineProperty(e4, _toPropertyKey(o2.key), o2);
+              function _defineProperties(e4, r2) {
+                for (var t3 = 0; t3 < r2.length; t3++) {
+                  var o3 = r2[t3];
+                  o3.enumerable = o3.enumerable || false, o3.configurable = true, "value" in o3 && (o3.writable = true), Object.defineProperty(e4, _toPropertyKey(o3.key), o3);
                 }
               }
-              function _createClass(e4, r3, t3) {
-                return r3 && _defineProperties(e4.prototype, r3), Object.defineProperty(e4, "prototype", { writable: false }), e4;
+              function _createClass(e4, r2, t3) {
+                return r2 && _defineProperties(e4.prototype, r2), Object.defineProperty(e4, "prototype", { writable: false }), e4;
               }
               function _toPropertyKey(t3) {
                 var i2 = _toPrimitive(t3, "string");
                 return "symbol" == _typeof(i2) ? i2 : i2 + "";
               }
-              function _toPrimitive(t3, r3) {
+              function _toPrimitive(t3, r2) {
                 if ("object" != _typeof(t3) || !t3) return t3;
                 var e4 = t3[Symbol.toPrimitive];
                 if (void 0 !== e4) {
-                  var i2 = e4.call(t3, r3);
+                  var i2 = e4.call(t3, r2);
                   if ("object" != _typeof(i2)) return i2;
                   throw new TypeError("@@toPrimitive must return a primitive value.");
                 }
                 return String(t3);
               }
-              function _callSuper(t3, o2, e4) {
-                return o2 = _getPrototypeOf(o2), _possibleConstructorReturn(t3, _isNativeReflectConstruct() ? Reflect.construct(o2, [], _getPrototypeOf(t3).constructor) : o2.apply(t3, e4));
+              function _callSuper(t3, o3, e4) {
+                return o3 = _getPrototypeOf(o3), _possibleConstructorReturn(t3, _isNativeReflectConstruct() ? Reflect.construct(o3, [], _getPrototypeOf(t3).constructor) : o3.apply(t3, e4));
               }
               function _possibleConstructorReturn(t3, e4) {
                 if (e4 && ("object" == _typeof(e4) || "function" == typeof e4)) return e4;
@@ -164437,13 +164572,13 @@ var plotly = { exports: {} };
                   return t22.__proto__ = e22, t22;
                 }, _setPrototypeOf2(t3, e4);
               }
-              function _typeof(o2) {
+              function _typeof(o3) {
                 "@babel/helpers - typeof";
                 return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o22) {
                   return typeof o22;
                 } : function(o22) {
                   return o22 && "function" == typeof Symbol && o22.constructor === Symbol && o22 !== Symbol.prototype ? "symbol" : typeof o22;
-                }, _typeof(o2);
+                }, _typeof(o3);
               }
               var base64 = __webpack_require__2(76226);
               var ieee754 = __webpack_require__2(27415);
@@ -167855,9 +167990,9 @@ var plotly = { exports: {} };
                       map2.set(key2, value);
                     });
                   } else if (Array.isArray(object)) {
-                    var i2 = -1, n2 = object.length, o2;
+                    var i2 = -1, n2 = object.length, o3;
                     if (arguments.length === 1) while (++i2 < n2) map2.set(i2, object[i2]);
-                    else while (++i2 < n2) map2.set(f2.call(object, o2 = object[i2], i2), o2);
+                    else while (++i2 < n2) map2.set(f2.call(object, o3 = object[i2], i2), o3);
                   } else {
                     for (var key in object) map2.set(key, object[key]);
                   }
@@ -168055,9 +168190,9 @@ var plotly = { exports: {} };
                   }
                 };
                 function d3_dispatch_event(dispatch) {
-                  var listeners2 = [], listenerByName = new d3_Map();
+                  var listeners = [], listenerByName = new d3_Map();
                   function event() {
-                    var z2 = listeners2, i2 = -1, n2 = z2.length, l2;
+                    var z2 = listeners, i2 = -1, n2 = z2.length, l2;
                     while (++i2 < n2) if (l2 = z2[i2].on) l2.apply(this, arguments);
                     return dispatch;
                   }
@@ -168066,10 +168201,10 @@ var plotly = { exports: {} };
                     if (arguments.length < 2) return l2 && l2.on;
                     if (l2) {
                       l2.on = null;
-                      listeners2 = listeners2.slice(0, i2 = listeners2.indexOf(l2)).concat(listeners2.slice(i2 + 1));
+                      listeners = listeners.slice(0, i2 = listeners.indexOf(l2)).concat(listeners.slice(i2 + 1));
                       listenerByName.remove(name2);
                     }
-                    if (listener) listeners2.push(listenerByName.set(name2, {
+                    if (listener) listeners.push(listenerByName.set(name2, {
                       on: listener
                     }));
                     return dispatch;
@@ -168674,13 +168809,13 @@ var plotly = { exports: {} };
                 }
                 function d3_selection_onListener(listener, argumentz) {
                   return function(e4) {
-                    var o2 = d3.event;
+                    var o3 = d3.event;
                     d3.event = e4;
                     argumentz[0] = this.__data__;
                     try {
                       listener.apply(this, argumentz);
                     } finally {
-                      d3.event = o2;
+                      d3.event = o3;
                     }
                   };
                 }
@@ -169220,12 +169355,12 @@ var plotly = { exports: {} };
                 function d3_xyz_lab(x2) {
                   return x2 > 8856e-6 ? Math.pow(x2, 1 / 3) : 7.787037 * x2 + 4 / 29;
                 }
-                function d3_xyz_rgb(r3) {
-                  return Math.round(255 * (r3 <= 304e-5 ? 12.92 * r3 : 1.055 * Math.pow(r3, 1 / 2.4) - 0.055));
+                function d3_xyz_rgb(r2) {
+                  return Math.round(255 * (r2 <= 304e-5 ? 12.92 * r2 : 1.055 * Math.pow(r2, 1 / 2.4) - 0.055));
                 }
                 d3.rgb = d3_rgb;
-                function d3_rgb(r3, g2, b2) {
-                  return this instanceof d3_rgb ? void (this.r = ~~r3, this.g = ~~g2, this.b = ~~b2) : arguments.length < 2 ? r3 instanceof d3_rgb ? new d3_rgb(r3.r, r3.g, r3.b) : d3_rgb_parse("" + r3, d3_rgb, d3_hsl_rgb) : new d3_rgb(r3, g2, b2);
+                function d3_rgb(r2, g2, b2) {
+                  return this instanceof d3_rgb ? void (this.r = ~~r2, this.g = ~~g2, this.b = ~~b2) : arguments.length < 2 ? r2 instanceof d3_rgb ? new d3_rgb(r2.r, r2.g, r2.b) : d3_rgb_parse("" + r2, d3_rgb, d3_hsl_rgb) : new d3_rgb(r2, g2, b2);
                 }
                 function d3_rgbNumber(value) {
                   return new d3_rgb(value >> 16, value >> 8 & 255, value & 255);
@@ -169236,12 +169371,12 @@ var plotly = { exports: {} };
                 var d3_rgbPrototype = d3_rgb.prototype = new d3_color();
                 d3_rgbPrototype.brighter = function(k2) {
                   k2 = Math.pow(0.7, arguments.length ? k2 : 1);
-                  var r3 = this.r, g2 = this.g, b2 = this.b, i2 = 30;
-                  if (!r3 && !g2 && !b2) return new d3_rgb(i2, i2, i2);
-                  if (r3 && r3 < i2) r3 = i2;
+                  var r2 = this.r, g2 = this.g, b2 = this.b, i2 = 30;
+                  if (!r2 && !g2 && !b2) return new d3_rgb(i2, i2, i2);
+                  if (r2 && r2 < i2) r2 = i2;
                   if (g2 && g2 < i2) g2 = i2;
                   if (b2 && b2 < i2) b2 = i2;
-                  return new d3_rgb(Math.min(255, r3 / k2), Math.min(255, g2 / k2), Math.min(255, b2 / k2));
+                  return new d3_rgb(Math.min(255, r2 / k2), Math.min(255, g2 / k2), Math.min(255, b2 / k2));
                 };
                 d3_rgbPrototype.darker = function(k2) {
                   k2 = Math.pow(0.7, arguments.length ? k2 : 1);
@@ -169257,7 +169392,7 @@ var plotly = { exports: {} };
                   return v2 < 16 ? "0" + Math.max(0, v2).toString(16) : Math.min(255, v2).toString(16);
                 }
                 function d3_rgb_parse(format, rgb, hsl) {
-                  var r3 = 0, g2 = 0, b2 = 0, m1, m2, color2;
+                  var r2 = 0, g2 = 0, b2 = 0, m1, m2, color2;
                   m1 = /([a-z]+)\((.*)\)/.exec(format = format.toLowerCase());
                   if (m1) {
                     m2 = m1[2].split(",");
@@ -169275,27 +169410,27 @@ var plotly = { exports: {} };
                   }
                   if (format != null && format.charAt(0) === "#" && !isNaN(color2 = parseInt(format.slice(1), 16))) {
                     if (format.length === 4) {
-                      r3 = (color2 & 3840) >> 4;
-                      r3 = r3 >> 4 | r3;
+                      r2 = (color2 & 3840) >> 4;
+                      r2 = r2 >> 4 | r2;
                       g2 = color2 & 240;
                       g2 = g2 >> 4 | g2;
                       b2 = color2 & 15;
                       b2 = b2 << 4 | b2;
                     } else if (format.length === 7) {
-                      r3 = (color2 & 16711680) >> 16;
+                      r2 = (color2 & 16711680) >> 16;
                       g2 = (color2 & 65280) >> 8;
                       b2 = color2 & 255;
                     }
                   }
-                  return rgb(r3, g2, b2);
+                  return rgb(r2, g2, b2);
                 }
-                function d3_rgb_hsl(r3, g2, b2) {
-                  var min2 = Math.min(r3 /= 255, g2 /= 255, b2 /= 255), max2 = Math.max(r3, g2, b2), d2 = max2 - min2, h2, s2, l2 = (max2 + min2) / 2;
+                function d3_rgb_hsl(r2, g2, b2) {
+                  var min2 = Math.min(r2 /= 255, g2 /= 255, b2 /= 255), max2 = Math.max(r2, g2, b2), d2 = max2 - min2, h2, s2, l2 = (max2 + min2) / 2;
                   if (d2) {
                     s2 = l2 < 0.5 ? d2 / (max2 + min2) : d2 / (2 - max2 - min2);
-                    if (r3 == max2) h2 = (g2 - b2) / d2 + (g2 < b2 ? 6 : 0);
-                    else if (g2 == max2) h2 = (b2 - r3) / d2 + 2;
-                    else h2 = (r3 - g2) / d2 + 4;
+                    if (r2 == max2) h2 = (g2 - b2) / d2 + (g2 < b2 ? 6 : 0);
+                    else if (g2 == max2) h2 = (b2 - r2) / d2 + 2;
+                    else h2 = (r2 - g2) / d2 + 4;
                     h2 *= 60;
                   } else {
                     h2 = NaN;
@@ -169303,15 +169438,15 @@ var plotly = { exports: {} };
                   }
                   return new d3_hsl(h2, s2, l2);
                 }
-                function d3_rgb_lab(r3, g2, b2) {
-                  r3 = d3_rgb_xyz(r3);
+                function d3_rgb_lab(r2, g2, b2) {
+                  r2 = d3_rgb_xyz(r2);
                   g2 = d3_rgb_xyz(g2);
                   b2 = d3_rgb_xyz(b2);
-                  var x2 = d3_xyz_lab((0.4124564 * r3 + 0.3575761 * g2 + 0.1804375 * b2) / d3_lab_X), y2 = d3_xyz_lab((0.2126729 * r3 + 0.7151522 * g2 + 0.072175 * b2) / d3_lab_Y), z2 = d3_xyz_lab((0.0193339 * r3 + 0.119192 * g2 + 0.9503041 * b2) / d3_lab_Z);
+                  var x2 = d3_xyz_lab((0.4124564 * r2 + 0.3575761 * g2 + 0.1804375 * b2) / d3_lab_X), y2 = d3_xyz_lab((0.2126729 * r2 + 0.7151522 * g2 + 0.072175 * b2) / d3_lab_Y), z2 = d3_xyz_lab((0.0193339 * r2 + 0.119192 * g2 + 0.9503041 * b2) / d3_lab_Z);
                   return d3_lab(116 * y2 - 16, 500 * (x2 - y2), 200 * (y2 - z2));
                 }
-                function d3_rgb_xyz(r3) {
-                  return (r3 /= 255) <= 0.04045 ? r3 / 12.92 : Math.pow((r3 + 0.055) / 1.055, 2.4);
+                function d3_rgb_xyz(r2) {
+                  return (r2 /= 255) <= 0.04045 ? r2 / 12.92 : Math.pow((r2 + 0.055) / 1.055, 2.4);
                 }
                 function d3_rgb_parseNumber(c2) {
                   var f2 = parseFloat(c2);
@@ -169504,12 +169639,12 @@ var plotly = { exports: {} };
                     }
                   }
                   request.onprogress = function(event) {
-                    var o2 = d3.event;
+                    var o3 = d3.event;
                     d3.event = event;
                     try {
                       dispatch.progress.call(xhr, request);
                     } finally {
-                      d3.event = o2;
+                      d3.event = o3;
                     }
                   };
                   xhr.header = function(name2, value) {
@@ -169587,9 +169722,9 @@ var plotly = { exports: {} };
                     };
                   }
                   dsv.parse = function(text, f2) {
-                    var o2;
+                    var o3;
                     return dsv.parseRows(text, function(row, i2) {
-                      if (o2) return o2(row, i2 - 1);
+                      if (o3) return o3(row, i2 - 1);
                       var a2 = function(d2) {
                         var obj = {};
                         var len = row.length;
@@ -169598,7 +169733,7 @@ var plotly = { exports: {} };
                         }
                         return obj;
                       };
-                      o2 = f2 ? function(row2, i22) {
+                      o3 = f2 ? function(row2, i22) {
                         return f2(a2(row2), i22);
                       } : a2;
                     });
@@ -170071,46 +170206,46 @@ var plotly = { exports: {} };
                 }
                 function d3_geom_clipLine(x0, y0, x1, y1) {
                   return function(line2) {
-                    var a2 = line2.a, b2 = line2.b, ax = a2.x, ay = a2.y, bx = b2.x, by = b2.y, t0 = 0, t1 = 1, dx = bx - ax, dy = by - ay, r3;
-                    r3 = x0 - ax;
-                    if (!dx && r3 > 0) return;
-                    r3 /= dx;
+                    var a2 = line2.a, b2 = line2.b, ax = a2.x, ay = a2.y, bx = b2.x, by = b2.y, t0 = 0, t1 = 1, dx = bx - ax, dy = by - ay, r2;
+                    r2 = x0 - ax;
+                    if (!dx && r2 > 0) return;
+                    r2 /= dx;
                     if (dx < 0) {
-                      if (r3 < t0) return;
-                      if (r3 < t1) t1 = r3;
+                      if (r2 < t0) return;
+                      if (r2 < t1) t1 = r2;
                     } else if (dx > 0) {
-                      if (r3 > t1) return;
-                      if (r3 > t0) t0 = r3;
+                      if (r2 > t1) return;
+                      if (r2 > t0) t0 = r2;
                     }
-                    r3 = x1 - ax;
-                    if (!dx && r3 < 0) return;
-                    r3 /= dx;
+                    r2 = x1 - ax;
+                    if (!dx && r2 < 0) return;
+                    r2 /= dx;
                     if (dx < 0) {
-                      if (r3 > t1) return;
-                      if (r3 > t0) t0 = r3;
+                      if (r2 > t1) return;
+                      if (r2 > t0) t0 = r2;
                     } else if (dx > 0) {
-                      if (r3 < t0) return;
-                      if (r3 < t1) t1 = r3;
+                      if (r2 < t0) return;
+                      if (r2 < t1) t1 = r2;
                     }
-                    r3 = y0 - ay;
-                    if (!dy && r3 > 0) return;
-                    r3 /= dy;
+                    r2 = y0 - ay;
+                    if (!dy && r2 > 0) return;
+                    r2 /= dy;
                     if (dy < 0) {
-                      if (r3 < t0) return;
-                      if (r3 < t1) t1 = r3;
+                      if (r2 < t0) return;
+                      if (r2 < t1) t1 = r2;
                     } else if (dy > 0) {
-                      if (r3 > t1) return;
-                      if (r3 > t0) t0 = r3;
+                      if (r2 > t1) return;
+                      if (r2 > t0) t0 = r2;
                     }
-                    r3 = y1 - ay;
-                    if (!dy && r3 < 0) return;
-                    r3 /= dy;
+                    r2 = y1 - ay;
+                    if (!dy && r2 < 0) return;
+                    r2 /= dy;
                     if (dy < 0) {
-                      if (r3 > t1) return;
-                      if (r3 > t0) t0 = r3;
+                      if (r2 > t1) return;
+                      if (r2 > t0) t0 = r2;
                     } else if (dy > 0) {
-                      if (r3 < t0) return;
-                      if (r3 < t1) t1 = r3;
+                      if (r2 < t0) return;
+                      if (r2 < t1) t1 = r2;
                     }
                     if (t0 > 0) line2.a = {
                       x: ax + t0 * dx,
@@ -170801,7 +170936,7 @@ var plotly = { exports: {} };
                   }) : function() {
                     return b2;
                   } : (b2 = q2.length, function(t3) {
-                    for (var i22 = 0, o2; i22 < b2; ++i22) s2[(o2 = q2[i22]).i] = o2.x(t3);
+                    for (var i22 = 0, o3; i22 < b2; ++i22) s2[(o3 = q2[i22]).i] = o3.x(t3);
                     return s2.join("");
                   });
                 }
@@ -171082,8 +171217,8 @@ var plotly = { exports: {} };
                   d3_interpolateScale(a2.scale, b2.scale, s2, q2);
                   a2 = b2 = null;
                   return function(t3) {
-                    var i2 = -1, n2 = q2.length, o2;
-                    while (++i2 < n2) s2[(o2 = q2[i2]).i] = o2.x(t3);
+                    var i2 = -1, n2 = q2.length, o3;
+                    while (++i2 < n2) s2[(o3 = q2[i2]).i] = o3.x(t3);
                     return s2.join("");
                   };
                 }
@@ -171285,11 +171420,11 @@ var plotly = { exports: {} };
                       });
                       return true;
                     }
-                    var n2 = nodes.length, m2 = links.length, q2, i2, o2, s2, t3, l2, k2, x2, y2;
+                    var n2 = nodes.length, m2 = links.length, q2, i2, o3, s2, t3, l2, k2, x2, y2;
                     for (i2 = 0; i2 < m2; ++i2) {
-                      o2 = links[i2];
-                      s2 = o2.source;
-                      t3 = o2.target;
+                      o3 = links[i2];
+                      s2 = o3.source;
+                      t3 = o3.target;
                       x2 = t3.x - s2.x;
                       y2 = t3.y - s2.y;
                       if (l2 = x2 * x2 + y2 * y2) {
@@ -171307,29 +171442,29 @@ var plotly = { exports: {} };
                       y2 = size[1] / 2;
                       i2 = -1;
                       if (k2) while (++i2 < n2) {
-                        o2 = nodes[i2];
-                        o2.x += (x2 - o2.x) * k2;
-                        o2.y += (y2 - o2.y) * k2;
+                        o3 = nodes[i2];
+                        o3.x += (x2 - o3.x) * k2;
+                        o3.y += (y2 - o3.y) * k2;
                       }
                     }
                     if (charge) {
                       d3_layout_forceAccumulate(q2 = d3.geom.quadtree(nodes), alpha2, charges);
                       i2 = -1;
                       while (++i2 < n2) {
-                        if (!(o2 = nodes[i2]).fixed) {
-                          q2.visit(repulse(o2));
+                        if (!(o3 = nodes[i2]).fixed) {
+                          q2.visit(repulse(o3));
                         }
                       }
                     }
                     i2 = -1;
                     while (++i2 < n2) {
-                      o2 = nodes[i2];
-                      if (o2.fixed) {
-                        o2.x = o2.px;
-                        o2.y = o2.py;
+                      o3 = nodes[i2];
+                      if (o3.fixed) {
+                        o3.x = o3.px;
+                        o3.y = o3.py;
                       } else {
-                        o2.x -= (o2.px - (o2.px = o2.x)) * friction;
-                        o2.y -= (o2.py - (o2.py = o2.y)) * friction;
+                        o3.x -= (o3.px - (o3.px = o3.x)) * friction;
+                        o3.y -= (o3.py - (o3.py = o3.y)) * friction;
                       }
                     }
                     event.tick({
@@ -171411,24 +171546,24 @@ var plotly = { exports: {} };
                     return force;
                   };
                   force.start = function() {
-                    var i2, n2 = nodes.length, m2 = links.length, w2 = size[0], h2 = size[1], neighbors, o2;
+                    var i2, n2 = nodes.length, m2 = links.length, w2 = size[0], h2 = size[1], neighbors, o3;
                     for (i2 = 0; i2 < n2; ++i2) {
-                      (o2 = nodes[i2]).index = i2;
-                      o2.weight = 0;
+                      (o3 = nodes[i2]).index = i2;
+                      o3.weight = 0;
                     }
                     for (i2 = 0; i2 < m2; ++i2) {
-                      o2 = links[i2];
-                      if (typeof o2.source == "number") o2.source = nodes[o2.source];
-                      if (typeof o2.target == "number") o2.target = nodes[o2.target];
-                      ++o2.source.weight;
-                      ++o2.target.weight;
+                      o3 = links[i2];
+                      if (typeof o3.source == "number") o3.source = nodes[o3.source];
+                      if (typeof o3.target == "number") o3.target = nodes[o3.target];
+                      ++o3.source.weight;
+                      ++o3.target.weight;
                     }
                     for (i2 = 0; i2 < n2; ++i2) {
-                      o2 = nodes[i2];
-                      if (isNaN(o2.x)) o2.x = position2("x", w2);
-                      if (isNaN(o2.y)) o2.y = position2("y", h2);
-                      if (isNaN(o2.px)) o2.px = o2.x;
-                      if (isNaN(o2.py)) o2.py = o2.y;
+                      o3 = nodes[i2];
+                      if (isNaN(o3.x)) o3.x = position2("x", w2);
+                      if (isNaN(o3.y)) o3.y = position2("y", h2);
+                      if (isNaN(o3.px)) o3.px = o3.x;
+                      if (isNaN(o3.py)) o3.py = o3.y;
                     }
                     distances = [];
                     if (typeof linkDistance === "function") for (i2 = 0; i2 < m2; ++i2) distances[i2] = +linkDistance.call(this, links[i2], i2);
@@ -171724,11 +171859,11 @@ var plotly = { exports: {} };
                     series = d3.permute(series, orders);
                     points2 = d3.permute(points2, orders);
                     var offsets = offset2.call(stack, points2, index);
-                    var m2 = series[0].length, n2, i2, j, o2;
+                    var m2 = series[0].length, n2, i2, j, o3;
                     for (j = 0; j < m2; ++j) {
-                      out.call(stack, series[0][j], o2 = offsets[j], points2[0][j][1]);
+                      out.call(stack, series[0][j], o3 = offsets[j], points2[0][j][1]);
                       for (i2 = 1; i2 < n2; ++i2) {
-                        out.call(stack, series[i2][j], o2 += points2[i2 - 1][j][1], points2[i2][j][1]);
+                        out.call(stack, series[i2][j], o3 += points2[i2 - 1][j][1], points2[i2][j][1]);
                       }
                     }
                     return data;
@@ -171799,11 +171934,11 @@ var plotly = { exports: {} };
                 });
                 var d3_layout_stackOffsets = d3.map({
                   silhouette: function(data) {
-                    var n2 = data.length, m2 = data[0].length, sums = [], max2 = 0, i2, j, o2, y0 = [];
+                    var n2 = data.length, m2 = data[0].length, sums = [], max2 = 0, i2, j, o3, y0 = [];
                     for (j = 0; j < m2; ++j) {
-                      for (i2 = 0, o2 = 0; i2 < n2; i2++) o2 += data[i2][j][1];
-                      if (o2 > max2) max2 = o2;
-                      sums.push(o2);
+                      for (i2 = 0, o3 = 0; i2 < n2; i2++) o3 += data[i2][j][1];
+                      if (o3 > max2) max2 = o3;
+                      sums.push(o3);
                     }
                     for (j = 0; j < m2; ++j) {
                       y0[j] = (max2 - sums[j]) / 2;
@@ -171811,8 +171946,8 @@ var plotly = { exports: {} };
                     return y0;
                   },
                   wiggle: function(data) {
-                    var n2 = data.length, x2 = data[0], m2 = x2.length, i2, j, k2, s1, s2, s3, dx, o2, o0, y0 = [];
-                    y0[0] = o2 = o0 = 0;
+                    var n2 = data.length, x2 = data[0], m2 = x2.length, i2, j, k2, s1, s2, s3, dx, o3, o0, y0 = [];
+                    y0[0] = o3 = o0 = 0;
                     for (j = 1; j < m2; ++j) {
                       for (i2 = 0, s1 = 0; i2 < n2; ++i2) s1 += data[i2][j][1];
                       for (i2 = 0, s2 = 0, dx = x2[j][0] - x2[j - 1][0]; i2 < n2; ++i2) {
@@ -171821,17 +171956,17 @@ var plotly = { exports: {} };
                         }
                         s2 += s3 * data[i2][j][1];
                       }
-                      y0[j] = o2 -= s1 ? s2 / s1 * dx : 0;
-                      if (o2 < o0) o0 = o2;
+                      y0[j] = o3 -= s1 ? s2 / s1 * dx : 0;
+                      if (o3 < o0) o0 = o3;
                     }
                     for (j = 0; j < m2; ++j) y0[j] -= o0;
                     return y0;
                   },
                   expand: function(data) {
-                    var n2 = data.length, m2 = data[0].length, k2 = 1 / n2, i2, j, o2, y0 = [];
+                    var n2 = data.length, m2 = data[0].length, k2 = 1 / n2, i2, j, o3, y0 = [];
                     for (j = 0; j < m2; ++j) {
-                      for (i2 = 0, o2 = 0; i2 < n2; i2++) o2 += data[i2][j][1];
-                      if (o2) for (i2 = 0; i2 < n2; i2++) data[i2][j][1] /= o2;
+                      for (i2 = 0, o3 = 0; i2 < n2; i2++) o3 += data[i2][j][1];
+                      if (o3) for (i2 = 0; i2 < n2; i2++) data[i2][j][1] /= o3;
                       else for (i2 = 0; i2 < n2; i2++) data[i2][j][1] = k2;
                     }
                     for (j = 0; j < m2; ++j) y0[j] = 0;
@@ -171923,12 +172058,12 @@ var plotly = { exports: {} };
                 d3.layout.pack = function() {
                   var hierarchy = d3.layout.hierarchy().sort(d3_layout_packSort), padding2 = 0, size = [1, 1], radius;
                   function pack(d2, i2) {
-                    var nodes = hierarchy.call(this, d2, i2), root2 = nodes[0], w2 = size[0], h2 = size[1], r3 = radius == null ? Math.sqrt : typeof radius === "function" ? radius : function() {
+                    var nodes = hierarchy.call(this, d2, i2), root2 = nodes[0], w2 = size[0], h2 = size[1], r2 = radius == null ? Math.sqrt : typeof radius === "function" ? radius : function() {
                       return radius;
                     };
                     root2.x = root2.y = 0;
                     d3_layout_hierarchyVisitAfter(root2, function(d22) {
-                      d22.r = +r3(d22.value);
+                      d22.r = +r2(d22.value);
                     });
                     d3_layout_hierarchyVisitAfter(root2, d3_layout_packSiblings);
                     if (padding2) {
@@ -172337,42 +172472,42 @@ var plotly = { exports: {} };
                     }
                   }
                   function worst(row, u2) {
-                    var s2 = row.area, r3, rmax = 0, rmin = Infinity, i2 = -1, n2 = row.length;
+                    var s2 = row.area, r2, rmax = 0, rmin = Infinity, i2 = -1, n2 = row.length;
                     while (++i2 < n2) {
-                      if (!(r3 = row[i2].area)) continue;
-                      if (r3 < rmin) rmin = r3;
-                      if (r3 > rmax) rmax = r3;
+                      if (!(r2 = row[i2].area)) continue;
+                      if (r2 < rmin) rmin = r2;
+                      if (r2 > rmax) rmax = r2;
                     }
                     s2 *= s2;
                     u2 *= u2;
                     return s2 ? Math.max(u2 * rmax * ratio / s2, s2 / (u2 * rmin * ratio)) : Infinity;
                   }
                   function position2(row, u2, rect2, flush) {
-                    var i2 = -1, n2 = row.length, x2 = rect2.x, y2 = rect2.y, v2 = u2 ? round2(row.area / u2) : 0, o2;
+                    var i2 = -1, n2 = row.length, x2 = rect2.x, y2 = rect2.y, v2 = u2 ? round2(row.area / u2) : 0, o3;
                     if (u2 == rect2.dx) {
                       if (flush || v2 > rect2.dy) v2 = rect2.dy;
                       while (++i2 < n2) {
-                        o2 = row[i2];
-                        o2.x = x2;
-                        o2.y = y2;
-                        o2.dy = v2;
-                        x2 += o2.dx = Math.min(rect2.x + rect2.dx - x2, v2 ? round2(o2.area / v2) : 0);
+                        o3 = row[i2];
+                        o3.x = x2;
+                        o3.y = y2;
+                        o3.dy = v2;
+                        x2 += o3.dx = Math.min(rect2.x + rect2.dx - x2, v2 ? round2(o3.area / v2) : 0);
                       }
-                      o2.z = true;
-                      o2.dx += rect2.x + rect2.dx - x2;
+                      o3.z = true;
+                      o3.dx += rect2.x + rect2.dx - x2;
                       rect2.y += v2;
                       rect2.dy -= v2;
                     } else {
                       if (flush || v2 > rect2.dx) v2 = rect2.dx;
                       while (++i2 < n2) {
-                        o2 = row[i2];
-                        o2.x = x2;
-                        o2.y = y2;
-                        o2.dx = v2;
-                        y2 += o2.dy = Math.min(rect2.y + rect2.dy - y2, v2 ? round2(o2.area / v2) : 0);
+                        o3 = row[i2];
+                        o3.x = x2;
+                        o3.y = y2;
+                        o3.dx = v2;
+                        y2 += o3.dy = Math.min(rect2.y + rect2.dy - y2, v2 ? round2(o3.area / v2) : 0);
                       }
-                      o2.z = false;
-                      o2.dy += rect2.y + rect2.dy - y2;
+                      o3.z = false;
+                      o3.dy += rect2.y + rect2.dy - y2;
                       rect2.x += v2;
                       rect2.dx -= v2;
                     }
@@ -172460,13 +172595,13 @@ var plotly = { exports: {} };
                     if (n2 < 2) sigma = 1;
                     if (n2 < 1) mu = 0;
                     return function() {
-                      var x2, y2, r3;
+                      var x2, y2, r2;
                       do {
                         x2 = Math.random() * 2 - 1;
                         y2 = Math.random() * 2 - 1;
-                        r3 = x2 * x2 + y2 * y2;
-                      } while (!r3 || r3 > 1);
-                      return mu + sigma * x2 * Math.sqrt(-2 * Math.log(r3) / r3);
+                        r2 = x2 * x2 + y2 * y2;
+                      } while (!r2 || r2 > 1);
+                      return mu + sigma * x2 * Math.sqrt(-2 * Math.log(r2) / r2);
                     };
                   },
                   logNormal: function() {
@@ -173080,8 +173215,8 @@ var plotly = { exports: {} };
                     return arc;
                   };
                   arc.centroid = function() {
-                    var r3 = (+innerRadius.apply(this, arguments) + +outerRadius.apply(this, arguments)) / 2, a2 = (+startAngle.apply(this, arguments) + +endAngle.apply(this, arguments)) / 2 - halfπ;
-                    return [Math.cos(a2) * r3, Math.sin(a2) * r3];
+                    var r2 = (+innerRadius.apply(this, arguments) + +outerRadius.apply(this, arguments)) / 2, a2 = (+startAngle.apply(this, arguments) + +endAngle.apply(this, arguments)) / 2 - halfπ;
+                    return [Math.cos(a2) * r2, Math.sin(a2) * r2];
                   };
                   return arc;
                 };
@@ -173105,9 +173240,9 @@ var plotly = { exports: {} };
                   return (x0 - x1) * y0 - (y0 - y1) * x0 > 0 ? 0 : 1;
                 }
                 function d3_svg_arcCornerTangents(p0, p1, r1, rc2, cw) {
-                  var x01 = p0[0] - p1[0], y01 = p0[1] - p1[1], lo = (cw ? rc2 : -rc2) / Math.sqrt(x01 * x01 + y01 * y01), ox = lo * y01, oy = -lo * x01, x1 = p0[0] + ox, y1 = p0[1] + oy, x2 = p1[0] + ox, y2 = p1[1] + oy, x3 = (x1 + x2) / 2, y3 = (y1 + y2) / 2, dx = x2 - x1, dy = y2 - y1, d2 = dx * dx + dy * dy, r3 = r1 - rc2, D2 = x1 * y2 - x2 * y1, d4 = (dy < 0 ? -1 : 1) * Math.sqrt(Math.max(0, r3 * r3 * d2 - D2 * D2)), cx0 = (D2 * dy - dx * d4) / d2, cy0 = (-D2 * dx - dy * d4) / d2, cx1 = (D2 * dy + dx * d4) / d2, cy1 = (-D2 * dx + dy * d4) / d2, dx0 = cx0 - x3, dy0 = cy0 - y3, dx1 = cx1 - x3, dy1 = cy1 - y3;
+                  var x01 = p0[0] - p1[0], y01 = p0[1] - p1[1], lo = (cw ? rc2 : -rc2) / Math.sqrt(x01 * x01 + y01 * y01), ox = lo * y01, oy = -lo * x01, x1 = p0[0] + ox, y1 = p0[1] + oy, x2 = p1[0] + ox, y2 = p1[1] + oy, x3 = (x1 + x2) / 2, y3 = (y1 + y2) / 2, dx = x2 - x1, dy = y2 - y1, d2 = dx * dx + dy * dy, r2 = r1 - rc2, D2 = x1 * y2 - x2 * y1, d4 = (dy < 0 ? -1 : 1) * Math.sqrt(Math.max(0, r2 * r2 * d2 - D2 * D2)), cx0 = (D2 * dy - dx * d4) / d2, cy0 = (-D2 * dx - dy * d4) / d2, cx1 = (D2 * dy + dx * d4) / d2, cy1 = (-D2 * dx + dy * d4) / d2, dx0 = cx0 - x3, dy0 = cy0 - y3, dx1 = cx1 - x3, dy1 = cy1 - y3;
                   if (dx0 * dx0 + dy0 * dy0 > dx1 * dx1 + dy1 * dy1) cx0 = cx1, cy0 = cy1;
-                  return [[cx0 - ox, cy0 - oy], [cx0 * r1 / r3, cy0 * r1 / r3]];
+                  return [[cx0 - ox, cy0 - oy], [cx0 * r1 / r2, cy0 * r1 / r2]];
                 }
                 function d3_true() {
                   return true;
@@ -173368,13 +173503,13 @@ var plotly = { exports: {} };
                   return line2;
                 };
                 function d3_svg_lineRadial(points2) {
-                  var point, i2 = -1, n2 = points2.length, r3, a2;
+                  var point, i2 = -1, n2 = points2.length, r2, a2;
                   while (++i2 < n2) {
                     point = points2[i2];
-                    r3 = point[0];
+                    r2 = point[0];
                     a2 = point[1] - halfπ;
-                    point[0] = r3 * Math.cos(a2);
-                    point[1] = r3 * Math.sin(a2);
+                    point[0] = r2 * Math.cos(a2);
+                    point[1] = r2 * Math.sin(a2);
                   }
                   return points2;
                 }
@@ -173480,20 +173615,20 @@ var plotly = { exports: {} };
                     return "M" + s2.p0 + arc(s2.r, s2.p1, s2.a1 - s2.a0) + (equals(s2, t3) ? curve(s2.r, s2.p1, s2.r, s2.p0) : curve(s2.r, s2.p1, t3.r, t3.p0) + arc(t3.r, t3.p1, t3.a1 - t3.a0) + curve(t3.r, t3.p1, s2.r, s2.p0)) + "Z";
                   }
                   function subgroup(self2, f2, d2, i2) {
-                    var subgroup2 = f2.call(self2, d2, i2), r3 = radius.call(self2, subgroup2, i2), a0 = startAngle.call(self2, subgroup2, i2) - halfπ, a1 = endAngle.call(self2, subgroup2, i2) - halfπ;
+                    var subgroup2 = f2.call(self2, d2, i2), r2 = radius.call(self2, subgroup2, i2), a0 = startAngle.call(self2, subgroup2, i2) - halfπ, a1 = endAngle.call(self2, subgroup2, i2) - halfπ;
                     return {
-                      r: r3,
+                      r: r2,
                       a0,
                       a1,
-                      p0: [r3 * Math.cos(a0), r3 * Math.sin(a0)],
-                      p1: [r3 * Math.cos(a1), r3 * Math.sin(a1)]
+                      p0: [r2 * Math.cos(a0), r2 * Math.sin(a0)],
+                      p1: [r2 * Math.cos(a1), r2 * Math.sin(a1)]
                     };
                   }
                   function equals(a2, b2) {
                     return a2.a0 == b2.a0 && a2.a1 == b2.a1;
                   }
-                  function arc(r3, p2, a2) {
-                    return "A" + r3 + "," + r3 + " 0 " + +(a2 > π) + ",1 " + p2;
+                  function arc(r2, p2, a2) {
+                    return "A" + r2 + "," + r2 + " 0 " + +(a2 > π) + ",1 " + p2;
                   }
                   function curve(r0, p0, r1, p1) {
                     return "Q 0,0 " + p1;
@@ -173570,8 +173705,8 @@ var plotly = { exports: {} };
                 };
                 function d3_svg_diagonalRadialProjection(projection) {
                   return function() {
-                    var d2 = projection.apply(this, arguments), r3 = d2[0], a2 = d2[1] - halfπ;
-                    return [r3 * Math.cos(a2), r3 * Math.sin(a2)];
+                    var d2 = projection.apply(this, arguments), r2 = d2[0], a2 = d2[1] - halfπ;
+                    return [r2 * Math.cos(a2), r2 * Math.sin(a2)];
                   };
                 }
                 d3.svg.symbol = function() {
@@ -173598,22 +173733,22 @@ var plotly = { exports: {} };
                   return "circle";
                 }
                 function d3_svg_symbolCircle(size) {
-                  var r3 = Math.sqrt(size / π);
-                  return "M0," + r3 + "A" + r3 + "," + r3 + " 0 1,1 0," + -r3 + "A" + r3 + "," + r3 + " 0 1,1 0," + r3 + "Z";
+                  var r2 = Math.sqrt(size / π);
+                  return "M0," + r2 + "A" + r2 + "," + r2 + " 0 1,1 0," + -r2 + "A" + r2 + "," + r2 + " 0 1,1 0," + r2 + "Z";
                 }
                 var d3_svg_symbols = d3.map({
                   circle: d3_svg_symbolCircle,
                   cross: function(size) {
-                    var r3 = Math.sqrt(size / 5) / 2;
-                    return "M" + -3 * r3 + "," + -r3 + "H" + -r3 + "V" + -3 * r3 + "H" + r3 + "V" + -r3 + "H" + 3 * r3 + "V" + r3 + "H" + r3 + "V" + 3 * r3 + "H" + -r3 + "V" + r3 + "H" + -3 * r3 + "Z";
+                    var r2 = Math.sqrt(size / 5) / 2;
+                    return "M" + -3 * r2 + "," + -r2 + "H" + -r2 + "V" + -3 * r2 + "H" + r2 + "V" + -r2 + "H" + 3 * r2 + "V" + r2 + "H" + r2 + "V" + 3 * r2 + "H" + -r2 + "V" + r2 + "H" + -3 * r2 + "Z";
                   },
                   diamond: function(size) {
                     var ry = Math.sqrt(size / (2 * d3_svg_symbolTan30)), rx = ry * d3_svg_symbolTan30;
                     return "M0," + -ry + "L" + rx + ",0 0," + ry + " " + -rx + ",0Z";
                   },
                   square: function(size) {
-                    var r3 = Math.sqrt(size) / 2;
-                    return "M" + -r3 + "," + -r3 + "L" + r3 + "," + -r3 + " " + r3 + "," + r3 + " " + -r3 + "," + r3 + "Z";
+                    var r2 = Math.sqrt(size) / 2;
+                    return "M" + -r2 + "," + -r2 + "L" + r2 + "," + -r2 + " " + r2 + "," + r2 + " " + -r2 + "," + r2 + "Z";
                   },
                   "triangle-down": function(size) {
                     var rx = Math.sqrt(size / d3_svg_symbolSqrt3), ry = rx * d3_svg_symbolSqrt3 / 2;
@@ -173700,7 +173835,7 @@ var plotly = { exports: {} };
                         transition = node2[ns][id2];
                         subnodes = selector.call(node2, node2.__data__, i2, j);
                         subgroups.push(subgroup = []);
-                        for (var k2 = -1, o2 = subnodes.length; ++k2 < o2; ) {
+                        for (var k2 = -1, o3 = subnodes.length; ++k2 < o3; ) {
                           if (subnode = subnodes[k2]) d3_transitionNode(subnode, k2, ns, id2, transition);
                           subgroup.push(subnode);
                         }
@@ -174838,16 +174973,16 @@ var plotly = { exports: {} };
                     return sum;
                   }
                   function sphericalToCartesian(ref) {
-                    var r3 = ref[0];
+                    var r2 = ref[0];
                     var azimuthal = ref[1];
                     var polar = ref[2];
                     azimuthal += 90;
                     azimuthal *= Math.PI / 180;
                     polar *= Math.PI / 180;
                     return {
-                      x: r3 * Math.cos(azimuthal) * Math.sin(polar),
-                      y: r3 * Math.sin(azimuthal) * Math.sin(polar),
-                      z: r3 * Math.cos(polar)
+                      x: r2 * Math.cos(azimuthal) * Math.sin(polar),
+                      y: r2 * Math.sin(azimuthal) * Math.sin(polar),
+                      z: r2 * Math.cos(polar)
                     };
                   }
                   function isWorker() {
@@ -175469,8 +175604,8 @@ var plotly = { exports: {} };
                       if (!sharedCache) {
                         return;
                       }
-                      sharedCache.then(function(cache2) {
-                        return cache2.put(stripQueryParameters(request.url), clonedResponse);
+                      sharedCache.then(function(cache) {
+                        return cache.put(stripQueryParameters(request.url), clonedResponse);
                       }).catch(function(e4) {
                         return warnOnce(e4.message);
                       });
@@ -175486,12 +175621,12 @@ var plotly = { exports: {} };
                       return callback(null);
                     }
                     var strippedURL = stripQueryParameters(request.url);
-                    sharedCache.then(function(cache2) {
-                      cache2.match(strippedURL).then(function(response) {
+                    sharedCache.then(function(cache) {
+                      cache.match(strippedURL).then(function(response) {
                         var fresh = isFresh(response);
-                        cache2.delete(strippedURL);
+                        cache.delete(strippedURL);
                         if (fresh) {
-                          cache2.put(strippedURL, response.clone());
+                          cache.put(strippedURL, response.clone());
                         }
                         callback(null, response, fresh);
                       }).catch(callback);
@@ -175518,10 +175653,10 @@ var plotly = { exports: {} };
                     if (!sharedCache) {
                       return;
                     }
-                    sharedCache.then(function(cache2) {
-                      cache2.keys().then(function(keys2) {
+                    sharedCache.then(function(cache) {
+                      cache.keys().then(function(keys2) {
                         for (var i2 = 0; i2 < keys2.length - limit; i2++) {
-                          cache2.delete(keys2[i2]);
+                          cache.delete(keys2[i2]);
                         }
                       });
                     });
@@ -175890,8 +176025,8 @@ var plotly = { exports: {} };
                     var type = event.type;
                     if (this.listens(type)) {
                       event.target = this;
-                      var listeners2 = this._listeners && this._listeners[type] ? this._listeners[type].slice() : [];
-                      for (var i2 = 0, list = listeners2; i2 < list.length; i2 += 1) {
+                      var listeners = this._listeners && this._listeners[type] ? this._listeners[type].slice() : [];
+                      for (var i2 = 0, list = listeners; i2 < list.length; i2 += 1) {
                         var listener = list[i2];
                         listener.call(this, event);
                       }
@@ -179907,10 +180042,10 @@ var plotly = { exports: {} };
                     }
                   });
                   var csscolorparser_1 = csscolorparser.parseCSSColor;
-                  var Color = function Color2(r3, g2, b2, a2) {
+                  var Color = function Color2(r2, g2, b2, a2) {
                     if (a2 === void 0)
                       a2 = 1;
-                    this.r = r3;
+                    this.r = r2;
                     this.g = g2;
                     this.b = b2;
                     this.a = a2;
@@ -179933,15 +180068,15 @@ var plotly = { exports: {} };
                   };
                   Color.prototype.toString = function toString2() {
                     var ref = this.toArray();
-                    var r3 = ref[0];
+                    var r2 = ref[0];
                     var g2 = ref[1];
                     var b2 = ref[2];
                     var a2 = ref[3];
-                    return "rgba(" + Math.round(r3) + "," + Math.round(g2) + "," + Math.round(b2) + "," + a2 + ")";
+                    return "rgba(" + Math.round(r2) + "," + Math.round(g2) + "," + Math.round(b2) + "," + a2 + ")";
                   };
                   Color.prototype.toArray = function toArray() {
                     var ref = this;
-                    var r3 = ref.r;
+                    var r2 = ref.r;
                     var g2 = ref.g;
                     var b2 = ref.b;
                     var a2 = ref.a;
@@ -179951,7 +180086,7 @@ var plotly = { exports: {} };
                       0,
                       0
                     ] : [
-                      r3 * 255 / a2,
+                      r2 * 255 / a2,
                       g2 * 255 / a2,
                       b2 * 255 / a2,
                       a2
@@ -180066,15 +180201,15 @@ var plotly = { exports: {} };
                       this.name
                     ];
                   };
-                  function validateRGBA(r3, g2, b2, a2) {
-                    if (!(typeof r3 === "number" && r3 >= 0 && r3 <= 255 && typeof g2 === "number" && g2 >= 0 && g2 <= 255 && typeof b2 === "number" && b2 >= 0 && b2 <= 255)) {
+                  function validateRGBA(r2, g2, b2, a2) {
+                    if (!(typeof r2 === "number" && r2 >= 0 && r2 <= 255 && typeof g2 === "number" && g2 >= 0 && g2 <= 255 && typeof b2 === "number" && b2 >= 0 && b2 <= 255)) {
                       var value = typeof a2 === "number" ? [
-                        r3,
+                        r2,
                         g2,
                         b2,
                         a2
                       ] : [
-                        r3,
+                        r2,
                         g2,
                         b2
                       ];
@@ -180082,7 +180217,7 @@ var plotly = { exports: {} };
                     }
                     if (!(typeof a2 === "undefined" || typeof a2 === "number" && a2 >= 0 && a2 <= 1)) {
                       return "Invalid rgba value [" + [
-                        r3,
+                        r2,
                         g2,
                         b2,
                         a2
@@ -182634,19 +182769,19 @@ var plotly = { exports: {} };
                     "within": Within
                   };
                   function rgba(ctx, ref) {
-                    var r3 = ref[0];
+                    var r2 = ref[0];
                     var g2 = ref[1];
                     var b2 = ref[2];
                     var a2 = ref[3];
-                    r3 = r3.evaluate(ctx);
+                    r2 = r2.evaluate(ctx);
                     g2 = g2.evaluate(ctx);
                     b2 = b2.evaluate(ctx);
                     var alpha2 = a2 ? a2.evaluate(ctx) : 1;
-                    var error2 = validateRGBA(r3, g2, b2, alpha2);
+                    var error2 = validateRGBA(r2, g2, b2, alpha2);
                     if (error2) {
                       throw new RuntimeError(error2);
                     }
-                    return new Color(r3 / 255 * alpha2, g2 / 255 * alpha2, b2 / 255 * alpha2, alpha2);
+                    return new Color(r2 / 255 * alpha2, g2 / 255 * alpha2, b2 / 255 * alpha2, alpha2);
                   }
                   function has(key, obj) {
                     return key in obj;
@@ -186436,9 +186571,9 @@ var plotly = { exports: {} };
                       return this.emplace(i2, v0, v1);
                     };
                     StructArrayLayout2i42.prototype.emplace = function emplace(i2, v0, v1) {
-                      var o2 = i2 * 2;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
+                      var o22 = i2 * 2;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
                       return i2;
                     };
                     return StructArrayLayout2i42;
@@ -186463,11 +186598,11 @@ var plotly = { exports: {} };
                       return this.emplace(i2, v0, v1, v2, v3);
                     };
                     StructArrayLayout4i82.prototype.emplace = function emplace(i2, v0, v1, v2, v3) {
-                      var o2 = i2 * 4;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.int16[o2 + 2] = v2;
-                      this.int16[o2 + 3] = v3;
+                      var o22 = i2 * 4;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.int16[o22 + 2] = v2;
+                      this.int16[o22 + 3] = v3;
                       return i2;
                     };
                     return StructArrayLayout4i82;
@@ -186492,13 +186627,13 @@ var plotly = { exports: {} };
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5);
                     };
                     StructArrayLayout2i4i122.prototype.emplace = function emplace(i2, v0, v1, v2, v3, v4, v5) {
-                      var o2 = i2 * 6;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.int16[o2 + 2] = v2;
-                      this.int16[o2 + 3] = v3;
-                      this.int16[o2 + 4] = v4;
-                      this.int16[o2 + 5] = v5;
+                      var o22 = i2 * 6;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.int16[o22 + 2] = v2;
+                      this.int16[o22 + 3] = v3;
+                      this.int16[o22 + 4] = v4;
+                      this.int16[o22 + 5] = v5;
                       return i2;
                     };
                     return StructArrayLayout2i4i122;
@@ -186523,10 +186658,10 @@ var plotly = { exports: {} };
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5);
                     };
                     StructArrayLayout2i4ub82.prototype.emplace = function emplace(i2, v0, v1, v2, v3, v4, v5) {
-                      var o2 = i2 * 4;
+                      var o22 = i2 * 4;
                       var o1 = i2 * 8;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
                       this.uint8[o1 + 4] = v2;
                       this.uint8[o1 + 5] = v3;
                       this.uint8[o1 + 6] = v4;
@@ -186582,17 +186717,17 @@ var plotly = { exports: {} };
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9);
                     };
                     StructArrayLayout10ui202.prototype.emplace = function emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9) {
-                      var o2 = i2 * 10;
-                      this.uint16[o2 + 0] = v0;
-                      this.uint16[o2 + 1] = v1;
-                      this.uint16[o2 + 2] = v2;
-                      this.uint16[o2 + 3] = v3;
-                      this.uint16[o2 + 4] = v4;
-                      this.uint16[o2 + 5] = v5;
-                      this.uint16[o2 + 6] = v6;
-                      this.uint16[o2 + 7] = v7;
-                      this.uint16[o2 + 8] = v8;
-                      this.uint16[o2 + 9] = v9;
+                      var o22 = i2 * 10;
+                      this.uint16[o22 + 0] = v0;
+                      this.uint16[o22 + 1] = v1;
+                      this.uint16[o22 + 2] = v2;
+                      this.uint16[o22 + 3] = v3;
+                      this.uint16[o22 + 4] = v4;
+                      this.uint16[o22 + 5] = v5;
+                      this.uint16[o22 + 6] = v6;
+                      this.uint16[o22 + 7] = v7;
+                      this.uint16[o22 + 8] = v8;
+                      this.uint16[o22 + 9] = v9;
                       return i2;
                     };
                     return StructArrayLayout10ui202;
@@ -186618,19 +186753,19 @@ var plotly = { exports: {} };
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11);
                     };
                     StructArrayLayout4i4ui4i242.prototype.emplace = function emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11) {
-                      var o2 = i2 * 12;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.int16[o2 + 2] = v2;
-                      this.int16[o2 + 3] = v3;
-                      this.uint16[o2 + 4] = v4;
-                      this.uint16[o2 + 5] = v5;
-                      this.uint16[o2 + 6] = v6;
-                      this.uint16[o2 + 7] = v7;
-                      this.int16[o2 + 8] = v8;
-                      this.int16[o2 + 9] = v9;
-                      this.int16[o2 + 10] = v10;
-                      this.int16[o2 + 11] = v11;
+                      var o22 = i2 * 12;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.int16[o22 + 2] = v2;
+                      this.int16[o22 + 3] = v3;
+                      this.uint16[o22 + 4] = v4;
+                      this.uint16[o22 + 5] = v5;
+                      this.uint16[o22 + 6] = v6;
+                      this.uint16[o22 + 7] = v7;
+                      this.int16[o22 + 8] = v8;
+                      this.int16[o22 + 9] = v9;
+                      this.int16[o22 + 10] = v10;
+                      this.int16[o22 + 11] = v11;
                       return i2;
                     };
                     return StructArrayLayout4i4ui4i242;
@@ -186711,17 +186846,17 @@ var plotly = { exports: {} };
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8);
                     };
                     StructArrayLayout6i1ul2ui202.prototype.emplace = function emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8) {
-                      var o2 = i2 * 10;
+                      var o22 = i2 * 10;
                       var o4 = i2 * 5;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.int16[o2 + 2] = v2;
-                      this.int16[o2 + 3] = v3;
-                      this.int16[o2 + 4] = v4;
-                      this.int16[o2 + 5] = v5;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.int16[o22 + 2] = v2;
+                      this.int16[o22 + 3] = v3;
+                      this.int16[o22 + 4] = v4;
+                      this.int16[o22 + 5] = v5;
                       this.uint32[o4 + 3] = v6;
-                      this.uint16[o2 + 8] = v7;
-                      this.uint16[o2 + 9] = v8;
+                      this.uint16[o22 + 8] = v7;
+                      this.uint16[o22 + 9] = v8;
                       return i2;
                     };
                     return StructArrayLayout6i1ul2ui202;
@@ -186746,13 +186881,13 @@ var plotly = { exports: {} };
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5);
                     };
                     StructArrayLayout2i2i2i122.prototype.emplace = function emplace(i2, v0, v1, v2, v3, v4, v5) {
-                      var o2 = i2 * 6;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.int16[o2 + 2] = v2;
-                      this.int16[o2 + 3] = v3;
-                      this.int16[o2 + 4] = v4;
-                      this.int16[o2 + 5] = v5;
+                      var o22 = i2 * 6;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.int16[o22 + 2] = v2;
+                      this.int16[o22 + 3] = v3;
+                      this.int16[o22 + 4] = v4;
+                      this.int16[o22 + 5] = v5;
                       return i2;
                     };
                     return StructArrayLayout2i2i2i122;
@@ -186779,12 +186914,12 @@ var plotly = { exports: {} };
                     };
                     StructArrayLayout2f1f2i162.prototype.emplace = function emplace(i2, v0, v1, v2, v3, v4) {
                       var o4 = i2 * 4;
-                      var o2 = i2 * 8;
+                      var o22 = i2 * 8;
                       this.float32[o4 + 0] = v0;
                       this.float32[o4 + 1] = v1;
                       this.float32[o4 + 2] = v2;
-                      this.int16[o2 + 6] = v3;
-                      this.int16[o2 + 7] = v4;
+                      this.int16[o22 + 6] = v3;
+                      this.int16[o22 + 7] = v4;
                       return i2;
                     };
                     return StructArrayLayout2f1f2i162;
@@ -186839,10 +186974,10 @@ var plotly = { exports: {} };
                       return this.emplace(i2, v0, v1, v2);
                     };
                     StructArrayLayout3ui62.prototype.emplace = function emplace(i2, v0, v1, v2) {
-                      var o2 = i2 * 3;
-                      this.uint16[o2 + 0] = v0;
-                      this.uint16[o2 + 1] = v1;
-                      this.uint16[o2 + 2] = v2;
+                      var o22 = i2 * 3;
+                      this.uint16[o22 + 0] = v0;
+                      this.uint16[o22 + 1] = v1;
+                      this.uint16[o22 + 2] = v2;
                       return i2;
                     };
                     return StructArrayLayout3ui62;
@@ -186870,26 +187005,26 @@ var plotly = { exports: {} };
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16);
                     };
                     StructArrayLayout2i2ui3ul3ui2f3ub1ul1i482.prototype.emplace = function emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16) {
-                      var o2 = i2 * 24;
+                      var o22 = i2 * 24;
                       var o4 = i2 * 12;
                       var o1 = i2 * 48;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.uint16[o2 + 2] = v2;
-                      this.uint16[o2 + 3] = v3;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.uint16[o22 + 2] = v2;
+                      this.uint16[o22 + 3] = v3;
                       this.uint32[o4 + 2] = v4;
                       this.uint32[o4 + 3] = v5;
                       this.uint32[o4 + 4] = v6;
-                      this.uint16[o2 + 10] = v7;
-                      this.uint16[o2 + 11] = v8;
-                      this.uint16[o2 + 12] = v9;
+                      this.uint16[o22 + 10] = v7;
+                      this.uint16[o22 + 11] = v8;
+                      this.uint16[o22 + 12] = v9;
                       this.float32[o4 + 7] = v10;
                       this.float32[o4 + 8] = v11;
                       this.uint8[o1 + 36] = v12;
                       this.uint8[o1 + 37] = v13;
                       this.uint8[o1 + 38] = v14;
                       this.uint32[o4 + 10] = v15;
-                      this.int16[o2 + 22] = v16;
+                      this.int16[o22 + 22] = v16;
                       return i2;
                     };
                     return StructArrayLayout2i2ui3ul3ui2f3ub1ul1i482;
@@ -186917,31 +187052,31 @@ var plotly = { exports: {} };
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27);
                     };
                     StructArrayLayout8i15ui1ul4f682.prototype.emplace = function emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27) {
-                      var o2 = i2 * 34;
+                      var o22 = i2 * 34;
                       var o4 = i2 * 17;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.int16[o2 + 2] = v2;
-                      this.int16[o2 + 3] = v3;
-                      this.int16[o2 + 4] = v4;
-                      this.int16[o2 + 5] = v5;
-                      this.int16[o2 + 6] = v6;
-                      this.int16[o2 + 7] = v7;
-                      this.uint16[o2 + 8] = v8;
-                      this.uint16[o2 + 9] = v9;
-                      this.uint16[o2 + 10] = v10;
-                      this.uint16[o2 + 11] = v11;
-                      this.uint16[o2 + 12] = v12;
-                      this.uint16[o2 + 13] = v13;
-                      this.uint16[o2 + 14] = v14;
-                      this.uint16[o2 + 15] = v15;
-                      this.uint16[o2 + 16] = v16;
-                      this.uint16[o2 + 17] = v17;
-                      this.uint16[o2 + 18] = v18;
-                      this.uint16[o2 + 19] = v19;
-                      this.uint16[o2 + 20] = v20;
-                      this.uint16[o2 + 21] = v21;
-                      this.uint16[o2 + 22] = v22;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.int16[o22 + 2] = v2;
+                      this.int16[o22 + 3] = v3;
+                      this.int16[o22 + 4] = v4;
+                      this.int16[o22 + 5] = v5;
+                      this.int16[o22 + 6] = v6;
+                      this.int16[o22 + 7] = v7;
+                      this.uint16[o22 + 8] = v8;
+                      this.uint16[o22 + 9] = v9;
+                      this.uint16[o22 + 10] = v10;
+                      this.uint16[o22 + 11] = v11;
+                      this.uint16[o22 + 12] = v12;
+                      this.uint16[o22 + 13] = v13;
+                      this.uint16[o22 + 14] = v14;
+                      this.uint16[o22 + 15] = v15;
+                      this.uint16[o22 + 16] = v16;
+                      this.uint16[o22 + 17] = v17;
+                      this.uint16[o22 + 18] = v18;
+                      this.uint16[o22 + 19] = v19;
+                      this.uint16[o22 + 20] = v20;
+                      this.uint16[o22 + 21] = v21;
+                      this.uint16[o22 + 22] = v22;
                       this.uint32[o4 + 12] = v23;
                       this.float32[o4 + 13] = v24;
                       this.float32[o4 + 14] = v25;
@@ -186997,10 +187132,10 @@ var plotly = { exports: {} };
                       return this.emplace(i2, v0, v1, v2);
                     };
                     StructArrayLayout3i62.prototype.emplace = function emplace(i2, v0, v1, v2) {
-                      var o2 = i2 * 3;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.int16[o2 + 2] = v2;
+                      var o22 = i2 * 3;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.int16[o22 + 2] = v2;
                       return i2;
                     };
                     return StructArrayLayout3i62;
@@ -187027,10 +187162,10 @@ var plotly = { exports: {} };
                     };
                     StructArrayLayout1ul2ui82.prototype.emplace = function emplace(i2, v0, v1, v2) {
                       var o4 = i2 * 2;
-                      var o2 = i2 * 4;
+                      var o22 = i2 * 4;
                       this.uint32[o4 + 0] = v0;
-                      this.uint16[o2 + 2] = v1;
-                      this.uint16[o2 + 3] = v2;
+                      this.uint16[o22 + 2] = v1;
+                      this.uint16[o22 + 3] = v2;
                       return i2;
                     };
                     return StructArrayLayout1ul2ui82;
@@ -187055,9 +187190,9 @@ var plotly = { exports: {} };
                       return this.emplace(i2, v0, v1);
                     };
                     StructArrayLayout2ui42.prototype.emplace = function emplace(i2, v0, v1) {
-                      var o2 = i2 * 2;
-                      this.uint16[o2 + 0] = v0;
-                      this.uint16[o2 + 1] = v1;
+                      var o22 = i2 * 2;
+                      this.uint16[o22 + 0] = v0;
+                      this.uint16[o22 + 1] = v1;
                       return i2;
                     };
                     return StructArrayLayout2ui42;
@@ -187082,8 +187217,8 @@ var plotly = { exports: {} };
                       return this.emplace(i2, v0);
                     };
                     StructArrayLayout1ui22.prototype.emplace = function emplace(i2, v0) {
-                      var o2 = i2 * 1;
-                      this.uint16[o2 + 0] = v0;
+                      var o22 = i2 * 1;
+                      this.uint16[o22 + 0] = v0;
                       return i2;
                     };
                     return StructArrayLayout1ui22;
@@ -188424,8 +188559,8 @@ var plotly = { exports: {} };
                   function loadGeometry(feature) {
                     var scale2 = EXTENT$1 / feature.extent;
                     var geometry = feature.loadGeometry();
-                    for (var r3 = 0; r3 < geometry.length; r3++) {
-                      var ring = geometry[r3];
+                    for (var r2 = 0; r2 < geometry.length; r2++) {
+                      var ring = geometry[r2];
                       for (var p2 = 0; p2 < ring.length; p2++) {
                         var point = ring[p2];
                         var x2 = Math.round(point.x * scale2);
@@ -190004,24 +190139,24 @@ var plotly = { exports: {} };
                   function isValidDiagonal(a2, b2) {
                     return a2.next.i !== b2.i && a2.prev.i !== b2.i && !intersectsPolygon(a2, b2) && (locallyInside(a2, b2) && locallyInside(b2, a2) && middleInside(a2, b2) && (area(a2.prev, a2, b2.prev) || area(a2, b2.prev, b2)) || equals(a2, b2) && area(a2.prev, a2, a2.next) > 0 && area(b2.prev, b2, b2.next) > 0);
                   }
-                  function area(p2, q2, r3) {
-                    return (q2.y - p2.y) * (r3.x - q2.x) - (q2.x - p2.x) * (r3.y - q2.y);
+                  function area(p2, q2, r2) {
+                    return (q2.y - p2.y) * (r2.x - q2.x) - (q2.x - p2.x) * (r2.y - q2.y);
                   }
                   function equals(p1, p2) {
                     return p1.x === p2.x && p1.y === p2.y;
                   }
                   function intersects(p1, q1, p2, q2) {
                     var o1 = sign2(area(p1, q1, p2));
-                    var o2 = sign2(area(p1, q1, q2));
+                    var o22 = sign2(area(p1, q1, q2));
                     var o3 = sign2(area(p2, q2, p1));
                     var o4 = sign2(area(p2, q2, q1));
-                    if (o1 !== o2 && o3 !== o4) {
+                    if (o1 !== o22 && o3 !== o4) {
                       return true;
                     }
                     if (o1 === 0 && onSegment(p1, p2, q1)) {
                       return true;
                     }
-                    if (o2 === 0 && onSegment(p1, q2, q1)) {
+                    if (o22 === 0 && onSegment(p1, q2, q1)) {
                       return true;
                     }
                     if (o3 === 0 && onSegment(p2, p1, q2)) {
@@ -190032,8 +190167,8 @@ var plotly = { exports: {} };
                     }
                     return false;
                   }
-                  function onSegment(p2, q2, r3) {
-                    return q2.x <= Math.max(p2.x, r3.x) && q2.x >= Math.min(p2.x, r3.x) && q2.y <= Math.max(p2.y, r3.y) && q2.y >= Math.min(p2.y, r3.y);
+                  function onSegment(p2, q2, r2) {
+                    return q2.x <= Math.max(p2.x, r2.x) && q2.x >= Math.min(p2.x, r2.x) && q2.y <= Math.max(p2.y, r2.y) && q2.y >= Math.min(p2.y, r2.y);
                   }
                   function sign2(num) {
                     return num > 0 ? 1 : num < 0 ? -1 : 0;
@@ -190062,7 +190197,7 @@ var plotly = { exports: {} };
                     return inside;
                   }
                   function splitPolygon(a2, b2) {
-                    var a22 = new Node(a2.i, a2.x, a2.y), b22 = new Node(b2.i, b2.x, b2.y), an = a2.next, bp = b2.prev;
+                    var a22 = new Node2(a2.i, a2.x, a2.y), b22 = new Node2(b2.i, b2.x, b2.y), an = a2.next, bp = b2.prev;
                     a2.next = b2;
                     b2.prev = a2;
                     a22.next = an;
@@ -190074,7 +190209,7 @@ var plotly = { exports: {} };
                     return b22;
                   }
                   function insertNode(i2, x2, y2, last) {
-                    var p2 = new Node(i2, x2, y2);
+                    var p2 = new Node2(i2, x2, y2);
                     if (!last) {
                       p2.prev = p2;
                       p2.next = p2;
@@ -190096,7 +190231,7 @@ var plotly = { exports: {} };
                       p2.nextZ.prevZ = p2.prevZ;
                     }
                   }
-                  function Node(i2, x2, y2) {
+                  function Node2(i2, x2, y2) {
                     this.i = i2;
                     this.x = x2;
                     this.y = y2;
@@ -191050,9 +191185,9 @@ var plotly = { exports: {} };
                     if (polygonIntersectsMultiPolygon(projectedQueryGeometry, projectedTop)) {
                       closestDistance = getIntersectionDistance(projectedQueryGeometry, projectedTop[0]);
                     }
-                    for (var r3 = 0; r3 < projectedTop.length; r3++) {
-                      var ringTop = projectedTop[r3];
-                      var ringBase = projectedBase[r3];
+                    for (var r2 = 0; r2 < projectedTop.length; r2++) {
+                      var ringTop = projectedTop[r2];
+                      var ringBase = projectedBase[r2];
                       for (var p2 = 0; p2 < ringTop.length - 1; p2++) {
                         var topA = ringTop[p2];
                         var topB = ringTop[p2 + 1];
@@ -191084,10 +191219,10 @@ var plotly = { exports: {} };
                     var topZZ = m2[10] * zTop;
                     var topWZ = m2[11] * zTop;
                     for (var i$12 = 0, list$1 = geometry; i$12 < list$1.length; i$12 += 1) {
-                      var r3 = list$1[i$12];
+                      var r2 = list$1[i$12];
                       var ringBase = [];
                       var ringTop = [];
-                      for (var i2 = 0, list = r3; i2 < list.length; i2 += 1) {
+                      for (var i2 = 0, list = r2; i2 < list.length; i2 += 1) {
                         var p2 = list[i2];
                         var x2 = p2.x;
                         var y2 = p2.y;
@@ -195615,11 +195750,11 @@ var plotly = { exports: {} };
                     "text-opacity": new DataDrivenProperty(spec["paint_symbol"]["text-opacity"]),
                     "text-color": new DataDrivenProperty(spec["paint_symbol"]["text-color"], {
                       runtimeType: ColorType,
-                      getOverride: function(o2) {
-                        return o2.textColor;
+                      getOverride: function(o3) {
+                        return o3.textColor;
                       },
-                      hasOverride: function(o2) {
-                        return !!o2.textColor;
+                      hasOverride: function(o3) {
+                        return !!o3.textColor;
                       }
                     }),
                     "text-halo-color": new DataDrivenProperty(spec["paint_symbol"]["text-halo-color"]),
@@ -196538,11 +196673,11 @@ var plotly = { exports: {} };
                     }
                     return (y2 + 1) * this.stride + (x2 + 1);
                   };
-                  DEMData.prototype._unpackMapbox = function _unpackMapbox(r3, g2, b2) {
-                    return (r3 * 256 * 256 + g2 * 256 + b2) / 10 - 1e4;
+                  DEMData.prototype._unpackMapbox = function _unpackMapbox(r2, g2, b2) {
+                    return (r2 * 256 * 256 + g2 * 256 + b2) / 10 - 1e4;
                   };
-                  DEMData.prototype._unpackTerrarium = function _unpackTerrarium(r3, g2, b2) {
-                    return r3 * 256 + g2 + b2 / 256 - 32768;
+                  DEMData.prototype._unpackTerrarium = function _unpackTerrarium(r2, g2, b2) {
+                    return r2 * 256 + g2 + b2 / 256 - 32768;
                   };
                   DEMData.prototype.getPixels = function getPixels() {
                     return new RGBAImage({
@@ -196801,8 +196936,8 @@ var plotly = { exports: {} };
                     var key = this.featureIndexArray.length;
                     this.featureIndexArray.emplaceBack(featureIndex, sourceLayerIndex, bucketIndex);
                     var grid2 = is3D ? this.grid3D : this.grid;
-                    for (var r3 = 0; r3 < geometry.length; r3++) {
-                      var ring = geometry[r3];
+                    for (var r2 = 0; r2 < geometry.length; r2++) {
+                      var ring = geometry[r2];
                       var bbox = [
                         Infinity,
                         Infinity,
@@ -198177,8 +198312,8 @@ var plotly = { exports: {} };
                     var x2 = 0;
                     var y2 = 0;
                     var rings = geometry.length;
-                    for (var r3 = 0; r3 < rings; r3++) {
-                      var ring = geometry[r3];
+                    for (var r2 = 0; r2 < rings; r2++) {
+                      var ring = geometry[r2];
                       var count = 1;
                       if (type === 1) {
                         count = ring.length;
@@ -198325,14 +198460,14 @@ var plotly = { exports: {} };
                     }
                     return result;
                   }
-                  function within2(ids, coords, qx, qy, r3, nodeSize) {
+                  function within2(ids, coords, qx, qy, r2, nodeSize) {
                     var stack = [
                       0,
                       ids.length - 1,
                       0
                     ];
                     var result = [];
-                    var r22 = r3 * r3;
+                    var r22 = r2 * r2;
                     while (stack.length) {
                       var axis = stack.pop();
                       var right2 = stack.pop();
@@ -198352,12 +198487,12 @@ var plotly = { exports: {} };
                         result.push(ids[m2]);
                       }
                       var nextAxis = (axis + 1) % 2;
-                      if (axis === 0 ? qx - r3 <= x2 : qy - r3 <= y2) {
+                      if (axis === 0 ? qx - r2 <= x2 : qy - r2 <= y2) {
                         stack.push(left2);
                         stack.push(m2 - 1);
                         stack.push(nextAxis);
                       }
-                      if (axis === 0 ? qx + r3 >= x2 : qy + r3 >= y2) {
+                      if (axis === 0 ? qx + r2 >= x2 : qy + r2 >= y2) {
                         stack.push(m2 + 1);
                         stack.push(right2);
                         stack.push(nextAxis);
@@ -198400,8 +198535,8 @@ var plotly = { exports: {} };
                   KDBush.prototype.range = function range$1(minX, minY, maxX, maxY) {
                     return range2(this.ids, this.coords, minX, minY, maxX, maxY, this.nodeSize);
                   };
-                  KDBush.prototype.within = function within$1(x2, y2, r3) {
-                    return within2(this.ids, this.coords, x2, y2, r3, this.nodeSize);
+                  KDBush.prototype.within = function within$1(x2, y2, r2) {
+                    return within2(this.ids, this.coords, x2, y2, r2, this.nodeSize);
                   };
                   var defaultOptions = {
                     minZoom: 0,
@@ -198504,8 +198639,8 @@ var plotly = { exports: {} };
                     if (!origin) {
                       throw new Error(errorMsg);
                     }
-                    var r3 = this.options.radius / (this.options.extent * Math.pow(2, originZoom - 1));
-                    var ids = index.within(origin.x, origin.y, r3);
+                    var r2 = this.options.radius / (this.options.extent * Math.pow(2, originZoom - 1));
+                    var ids = index.within(origin.x, origin.y, r2);
                     var children = [];
                     for (var i2 = 0, list = ids; i2 < list.length; i2 += 1) {
                       var id2 = list[i2];
@@ -198616,7 +198751,7 @@ var plotly = { exports: {} };
                     var extent2 = ref.extent;
                     var reduce = ref.reduce;
                     var minPoints = ref.minPoints;
-                    var r3 = radius / (extent2 * Math.pow(2, zoom));
+                    var r2 = radius / (extent2 * Math.pow(2, zoom));
                     for (var i2 = 0; i2 < points2.length; i2++) {
                       var p2 = points2[i2];
                       if (p2.zoom <= zoom) {
@@ -198624,7 +198759,7 @@ var plotly = { exports: {} };
                       }
                       p2.zoom = zoom;
                       var tree = this.trees[zoom + 1];
-                      var neighborIds = tree.within(p2.x, p2.y, r3);
+                      var neighborIds = tree.within(p2.x, p2.y, r2);
                       var numPointsOrigin = p2.numPoints || 1;
                       var numPoints = numPointsOrigin;
                       for (var i$12 = 0, list = neighborIds; i$12 < list.length; i$12 += 1) {
@@ -202403,8 +202538,8 @@ var plotly = { exports: {} };
                       }
                     }
                     for (var i$12 = 0, list$1 = removed; i$12 < list$1.length; i$12 += 1) {
-                      var r3 = list$1[i$12];
-                      this.remove(r3.value.tileID, r3);
+                      var r2 = list$1[i$12];
+                      this.remove(r2.value.tileID, r2);
                     }
                   };
                   var IndexBuffer = function IndexBuffer2(context, array, dynamicDraw) {
@@ -204998,10 +205133,10 @@ var plotly = { exports: {} };
                   GridIndex.prototype._convertToYCellCoord = function _convertToYCellCoord(y2) {
                     return Math.max(0, Math.min(this.yCellCount - 1, Math.floor(y2 * this.yScale)));
                   };
-                  GridIndex.prototype._circlesCollide = function _circlesCollide(x1, y1, r1, x2, y2, r22) {
+                  GridIndex.prototype._circlesCollide = function _circlesCollide(x1, y1, r1, x2, y2, r2) {
                     var dx = x2 - x1;
                     var dy = y2 - y1;
-                    var bothRadii = r1 + r22;
+                    var bothRadii = r1 + r2;
                     return bothRadii * bothRadii > dx * dx + dy * dy;
                   };
                   GridIndex.prototype._circleAndRectCollide = function _circleAndRectCollide(circleX, circleY, radius, x1, y1, x2, y2) {
@@ -210799,9 +210934,9 @@ var plotly = { exports: {} };
                     if (aligned === void 0)
                       aligned = false;
                     var posMatrixKey = unwrappedTileID.key;
-                    var cache2 = aligned ? this._alignedPosMatrixCache : this._posMatrixCache;
-                    if (cache2[posMatrixKey]) {
-                      return cache2[posMatrixKey];
+                    var cache = aligned ? this._alignedPosMatrixCache : this._posMatrixCache;
+                    if (cache[posMatrixKey]) {
+                      return cache[posMatrixKey];
                     }
                     var canonical = unwrappedTileID.canonical;
                     var scale = this.worldSize / this.zoomScale(canonical.z);
@@ -210818,8 +210953,8 @@ var plotly = { exports: {} };
                       1
                     ]);
                     performance2.multiply(posMatrix, aligned ? this.alignedProjMatrix : this.projMatrix, posMatrix);
-                    cache2[posMatrixKey] = new Float32Array(posMatrix);
-                    return cache2[posMatrixKey];
+                    cache[posMatrixKey] = new Float32Array(posMatrix);
+                    return cache[posMatrixKey];
                   };
                   Transform.prototype.customLayerMatrix = function customLayerMatrix() {
                     return this.mercatorMatrix.slice();
@@ -213531,7 +213666,7 @@ var plotly = { exports: {} };
                         rho = Math.sqrt(wMax / u1 * 2);
                       }
                       var rho2 = rho * rho;
-                      function r3(i2) {
+                      function r2(i2) {
                         var b2 = (w1 * w1 - w0 * w0 + (i2 ? -1 : 1) * rho2 * rho2 * u1 * u1) / (2 * (i2 ? w1 : w0) * rho2 * u1);
                         return Math.log(Math.sqrt(b2 * b2 + 1) - b2);
                       }
@@ -213544,14 +213679,14 @@ var plotly = { exports: {} };
                       function tanh(n2) {
                         return sinh2(n2) / cosh(n2);
                       }
-                      var r0 = r3(0);
+                      var r0 = r2(0);
                       var w2 = function(s2) {
                         return cosh(r0) / cosh(r0 + rho * s2);
                       };
                       var u2 = function(s2) {
                         return w0 * ((cosh(r0) * tanh(r0 + rho * s2) - sinh2(r0)) / rho2) / u1;
                       };
-                      var S2 = (r3(1) - r0) / rho;
+                      var S2 = (r2(1) - r0) / rho;
                       if (Math.abs(u1) < 1e-6 || !isFinite(S2)) {
                         if (Math.abs(w0 - w1) < 1e-6) {
                           return this.easeTo(options, eventData);
@@ -214377,14 +214512,14 @@ var plotly = { exports: {} };
                         return Camera2.prototype.off.call(this, type, layerId);
                       }
                       var removeDelegatedListener = function(delegatedListeners) {
-                        var listeners2 = delegatedListeners[type];
-                        for (var i2 = 0; i2 < listeners2.length; i2++) {
-                          var delegatedListener = listeners2[i2];
+                        var listeners = delegatedListeners[type];
+                        for (var i2 = 0; i2 < listeners.length; i2++) {
+                          var delegatedListener = listeners[i2];
                           if (delegatedListener.layer === layerId && delegatedListener.listener === listener) {
                             for (var event in delegatedListener.delegates) {
                               this$1$1.off(event, delegatedListener.delegates[event]);
                             }
-                            listeners2.splice(i2, 1);
+                            listeners.splice(i2, 1);
                             return this$1$1;
                           }
                         }
@@ -215174,9 +215309,9 @@ var plotly = { exports: {} };
                   };
                   MouseRotateWrapper.prototype.move = function move(e4, point) {
                     var map2 = this.map;
-                    var r3 = this.mouseRotate.mousemoveWindow(e4, point);
-                    if (r3 && r3.bearingDelta) {
-                      map2.setBearing(map2.getBearing() + r3.bearingDelta);
+                    var r2 = this.mouseRotate.mousemoveWindow(e4, point);
+                    if (r2 && r2.bearingDelta) {
+                      map2.setBearing(map2.getBearing() + r2.bearingDelta);
                     }
                     if (this.mousePitch) {
                       var p2 = this.mousePitch.mousemoveWindow(e4, point);
@@ -217079,13 +217214,13 @@ var plotly = { exports: {} };
             /***/
             function(module2, __unused_webpack_exports, __webpack_require__2) {
               var process = __webpack_require__2(33282);
-              function _typeof(o2) {
+              function _typeof(o3) {
                 "@babel/helpers - typeof";
                 return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o22) {
                   return typeof o22;
                 } : function(o22) {
                   return o22 && "function" == typeof Symbol && o22.constructor === Symbol && o22 !== Symbol.prototype ? "symbol" : typeof o22;
-                }, _typeof(o2);
+                }, _typeof(o3);
               }
               function _createClass(Constructor, protoProps, staticProps) {
                 Object.defineProperty(Constructor, "prototype", { writable: false });
@@ -217577,20 +217712,20 @@ var plotly = { exports: {} };
             /***/
             function(module2, __unused_webpack_exports, __webpack_require__2) {
               var process = __webpack_require__2(33282);
-              function ownKeys(e4, r3) {
+              function ownKeys(e4, r2) {
                 var t3 = Object.keys(e4);
                 if (Object.getOwnPropertySymbols) {
-                  var o2 = Object.getOwnPropertySymbols(e4);
-                  r3 && (o2 = o2.filter(function(r22) {
+                  var o3 = Object.getOwnPropertySymbols(e4);
+                  r2 && (o3 = o3.filter(function(r22) {
                     return Object.getOwnPropertyDescriptor(e4, r22).enumerable;
-                  })), t3.push.apply(t3, o2);
+                  })), t3.push.apply(t3, o3);
                 }
                 return t3;
               }
               function _objectSpread(e4) {
-                for (var r3 = 1; r3 < arguments.length; r3++) {
-                  var t3 = null != arguments[r3] ? arguments[r3] : {};
-                  r3 % 2 ? ownKeys(Object(t3), true).forEach(function(r22) {
+                for (var r2 = 1; r2 < arguments.length; r2++) {
+                  var t3 = null != arguments[r2] ? arguments[r2] : {};
+                  r2 % 2 ? ownKeys(Object(t3), true).forEach(function(r22) {
                     _defineProperty2(e4, r22, t3[r22]);
                   }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e4, Object.getOwnPropertyDescriptors(t3)) : ownKeys(Object(t3)).forEach(function(r22) {
                     Object.defineProperty(e4, r22, Object.getOwnPropertyDescriptor(t3, r22));
@@ -217724,26 +217859,26 @@ var plotly = { exports: {} };
               function _isNativeFunction(fn2) {
                 return Function.toString.call(fn2).indexOf("[native code]") !== -1;
               }
-              function _setPrototypeOf2(o2, p2) {
+              function _setPrototypeOf2(o3, p2) {
                 _setPrototypeOf2 = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf22(o22, p22) {
                   o22.__proto__ = p22;
                   return o22;
                 };
-                return _setPrototypeOf2(o2, p2);
+                return _setPrototypeOf2(o3, p2);
               }
-              function _getPrototypeOf(o2) {
+              function _getPrototypeOf(o3) {
                 _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf2(o22) {
                   return o22.__proto__ || Object.getPrototypeOf(o22);
                 };
-                return _getPrototypeOf(o2);
+                return _getPrototypeOf(o3);
               }
-              function _typeof(o2) {
+              function _typeof(o3) {
                 "@babel/helpers - typeof";
                 return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o22) {
                   return typeof o22;
                 } : function(o22) {
                   return o22 && "function" == typeof Symbol && o22.constructor === Symbol && o22 !== Symbol.prototype ? "symbol" : typeof o22;
-                }, _typeof(o2);
+                }, _typeof(o3);
               }
               var _require = __webpack_require__2(56557), inspect = _require.inspect;
               var _require2 = __webpack_require__2(34585), ERR_INVALID_ARG_TYPE = _require2.codes.ERR_INVALID_ARG_TYPE;
@@ -218075,13 +218210,13 @@ var plotly = { exports: {} };
           34585: (
             /***/
             function(module2, __unused_webpack_exports, __webpack_require__2) {
-              function _typeof(o2) {
+              function _typeof(o3) {
                 "@babel/helpers - typeof";
                 return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o22) {
                   return typeof o22;
                 } : function(o22) {
                   return o22 && "function" == typeof Symbol && o22.constructor === Symbol && o22 !== Symbol.prototype ? "symbol" : typeof o22;
-                }, _typeof(o2);
+                }, _typeof(o3);
               }
               function _createClass(Constructor, protoProps, staticProps) {
                 Object.defineProperty(Constructor, "prototype", { writable: false });
@@ -218100,12 +218235,12 @@ var plotly = { exports: {} };
                 Object.defineProperty(subClass, "prototype", { writable: false });
                 if (superClass) _setPrototypeOf2(subClass, superClass);
               }
-              function _setPrototypeOf2(o2, p2) {
+              function _setPrototypeOf2(o3, p2) {
                 _setPrototypeOf2 = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf22(o22, p22) {
                   o22.__proto__ = p22;
                   return o22;
                 };
-                return _setPrototypeOf2(o2, p2);
+                return _setPrototypeOf2(o3, p2);
               }
               function _createSuper(Derived) {
                 var hasNativeReflectConstruct = _isNativeReflectConstruct();
@@ -218146,11 +218281,11 @@ var plotly = { exports: {} };
                   return false;
                 }
               }
-              function _getPrototypeOf(o2) {
+              function _getPrototypeOf(o3) {
                 _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf2(o22) {
                   return o22.__proto__ || Object.getPrototypeOf(o22);
                 };
-                return _getPrototypeOf(o2);
+                return _getPrototypeOf(o3);
               }
               var codes = {};
               var assert;
@@ -218293,33 +218428,33 @@ var plotly = { exports: {} };
               function _nonIterableRest() {
                 throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
               }
-              function _unsupportedIterableToArray(o2, minLen) {
-                if (!o2) return;
-                if (typeof o2 === "string") return _arrayLikeToArray(o2, minLen);
-                var n2 = Object.prototype.toString.call(o2).slice(8, -1);
-                if (n2 === "Object" && o2.constructor) n2 = o2.constructor.name;
-                if (n2 === "Map" || n2 === "Set") return Array.from(o2);
-                if (n2 === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n2)) return _arrayLikeToArray(o2, minLen);
+              function _unsupportedIterableToArray(o3, minLen) {
+                if (!o3) return;
+                if (typeof o3 === "string") return _arrayLikeToArray(o3, minLen);
+                var n2 = Object.prototype.toString.call(o3).slice(8, -1);
+                if (n2 === "Object" && o3.constructor) n2 = o3.constructor.name;
+                if (n2 === "Map" || n2 === "Set") return Array.from(o3);
+                if (n2 === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n2)) return _arrayLikeToArray(o3, minLen);
               }
               function _arrayLikeToArray(arr, len) {
                 if (len == null || len > arr.length) len = arr.length;
                 for (var i2 = 0, arr2 = new Array(len); i2 < len; i2++) arr2[i2] = arr[i2];
                 return arr2;
               }
-              function _iterableToArrayLimit(r3, l2) {
-                var t3 = null == r3 ? null : "undefined" != typeof Symbol && r3[Symbol.iterator] || r3["@@iterator"];
+              function _iterableToArrayLimit(r2, l2) {
+                var t3 = null == r2 ? null : "undefined" != typeof Symbol && r2[Symbol.iterator] || r2["@@iterator"];
                 if (null != t3) {
-                  var e4, n2, i2, u2, a2 = [], f2 = true, o2 = false;
+                  var e4, n2, i2, u2, a2 = [], f2 = true, o3 = false;
                   try {
-                    if (i2 = (t3 = t3.call(r3)).next, 0 === l2) ;
+                    if (i2 = (t3 = t3.call(r2)).next, 0 === l2) ;
                     else for (; !(f2 = (e4 = i2.call(t3)).done) && (a2.push(e4.value), a2.length !== l2); f2 = true) ;
                   } catch (r22) {
-                    o2 = true, n2 = r22;
+                    o3 = true, n2 = r22;
                   } finally {
                     try {
                       if (!f2 && null != t3.return && (u2 = t3.return(), Object(u2) !== u2)) return;
                     } finally {
-                      if (o2) throw n2;
+                      if (o3) throw n2;
                     }
                   }
                   return a2;
@@ -218328,13 +218463,13 @@ var plotly = { exports: {} };
               function _arrayWithHoles(arr) {
                 if (Array.isArray(arr)) return arr;
               }
-              function _typeof(o2) {
+              function _typeof(o3) {
                 "@babel/helpers - typeof";
                 return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o22) {
                   return typeof o22;
                 } : function(o22) {
                   return o22 && "function" == typeof Symbol && o22.constructor === Symbol && o22 !== Symbol.prototype ? "symbol" : typeof o22;
-                }, _typeof(o2);
+                }, _typeof(o3);
               }
               var regexFlagsSupported = /a/g.flags !== void 0;
               var arrayFromSet = function arrayFromSet2(set) {
@@ -219080,19 +219215,19 @@ var plotly = { exports: {} };
                 return !(v2 & v2 - 1) && !!v2;
               };
               exports2.log2 = function(v2) {
-                var r3, shift;
-                r3 = (v2 > 65535) << 4;
-                v2 >>>= r3;
+                var r2, shift;
+                r2 = (v2 > 65535) << 4;
+                v2 >>>= r2;
                 shift = (v2 > 255) << 3;
                 v2 >>>= shift;
-                r3 |= shift;
+                r2 |= shift;
                 shift = (v2 > 15) << 2;
                 v2 >>>= shift;
-                r3 |= shift;
+                r2 |= shift;
                 shift = (v2 > 3) << 1;
                 v2 >>>= shift;
-                r3 |= shift;
-                return r3 | v2 >> 1;
+                r2 |= shift;
+                return r2 | v2 >> 1;
               };
               exports2.log10 = function(v2) {
                 return v2 >= 1e9 ? 9 : v2 >= 1e8 ? 8 : v2 >= 1e7 ? 7 : v2 >= 1e6 ? 6 : v2 >= 1e5 ? 5 : v2 >= 1e4 ? 4 : v2 >= 1e3 ? 3 : v2 >= 100 ? 2 : v2 >= 10 ? 1 : 0;
@@ -219142,13 +219277,13 @@ var plotly = { exports: {} };
               var REVERSE_TABLE = new Array(256);
               (function(tab) {
                 for (var i2 = 0; i2 < 256; ++i2) {
-                  var v2 = i2, r3 = i2, s2 = 7;
+                  var v2 = i2, r2 = i2, s2 = 7;
                   for (v2 >>>= 1; v2; v2 >>>= 1) {
-                    r3 <<= 1;
-                    r3 |= v2 & 1;
+                    r2 <<= 1;
+                    r2 |= v2 & 1;
                     --s2;
                   }
-                  tab[i2] = r3 << s2 & 255;
+                  tab[i2] = r2 << s2 & 255;
                 }
               })(REVERSE_TABLE);
               exports2.reverse = function(v2) {
@@ -219390,29 +219525,29 @@ var plotly = { exports: {} };
               module2.exports.from = fromNumber;
               function toNumber(rgba, normalized) {
                 if (normalized == null) normalized = true;
-                var r3 = rgba[0], g2 = rgba[1], b2 = rgba[2], a2 = rgba[3];
+                var r2 = rgba[0], g2 = rgba[1], b2 = rgba[2], a2 = rgba[3];
                 if (a2 == null) a2 = normalized ? 1 : 255;
                 if (normalized) {
-                  r3 *= 255;
+                  r2 *= 255;
                   g2 *= 255;
                   b2 *= 255;
                   a2 *= 255;
                 }
-                r3 = clamp2(r3, 0, 255) & 255;
+                r2 = clamp2(r2, 0, 255) & 255;
                 g2 = clamp2(g2, 0, 255) & 255;
                 b2 = clamp2(b2, 0, 255) & 255;
                 a2 = clamp2(a2, 0, 255) & 255;
-                var n2 = r3 * 16777216 + (g2 << 16) + (b2 << 8) + a2;
+                var n2 = r2 * 16777216 + (g2 << 16) + (b2 << 8) + a2;
                 return n2;
               }
               function fromNumber(n2, normalized) {
                 n2 = +n2;
-                var r3 = n2 >>> 24;
+                var r2 = n2 >>> 24;
                 var g2 = (n2 & 16711680) >>> 16;
                 var b2 = (n2 & 65280) >>> 8;
                 var a2 = n2 & 255;
-                if (normalized === false) return [r3, g2, b2, a2];
-                return [r3 / 255, g2 / 255, b2 / 255, a2 / 255];
+                if (normalized === false) return [r2, g2, b2, a2];
+                return [r2 / 255, g2 / 255, b2 / 255, a2 / 255];
               }
             }
           ),
@@ -219810,15 +219945,15 @@ var plotly = { exports: {} };
                 }
               };
               rgb.hsl = function(rgb2) {
-                var r3 = rgb2[0] / 255, g2 = rgb2[1] / 255, b2 = rgb2[2] / 255, min2 = Math.min(r3, g2, b2), max2 = Math.max(r3, g2, b2), delta = max2 - min2, h2, s2, l2;
+                var r2 = rgb2[0] / 255, g2 = rgb2[1] / 255, b2 = rgb2[2] / 255, min2 = Math.min(r2, g2, b2), max2 = Math.max(r2, g2, b2), delta = max2 - min2, h2, s2, l2;
                 if (max2 === min2) {
                   h2 = 0;
-                } else if (r3 === max2) {
+                } else if (r2 === max2) {
                   h2 = (g2 - b2) / delta;
                 } else if (g2 === max2) {
-                  h2 = 2 + (b2 - r3) / delta;
+                  h2 = 2 + (b2 - r2) / delta;
                 } else if (b2 === max2) {
-                  h2 = 4 + (r3 - g2) / delta;
+                  h2 = 4 + (r2 - g2) / delta;
                 }
                 h2 = Math.min(h2 * 60, 360);
                 if (h2 < 0) {
@@ -220147,15 +220282,15 @@ var plotly = { exports: {} };
               var splitBy = __webpack_require__2(28089);
               var isSize = __webpack_require__2(87724).isSize;
               module2.exports = parseFont;
-              var cache2 = parseFont.cache = {};
+              var cache = parseFont.cache = {};
               function parseFont(value) {
                 if (typeof value !== "string") throw new Error("Font argument must be a string.");
-                if (cache2[value]) return cache2[value];
+                if (cache[value]) return cache[value];
                 if (value === "") {
                   throw new Error("Cannot parse an empty string.");
                 }
                 if (systemFontKeywords.indexOf(value) !== -1) {
-                  return cache2[value] = { system: value };
+                  return cache[value] = { system: value };
                 }
                 var font2 = {
                   style: "normal",
@@ -220173,7 +220308,7 @@ var plotly = { exports: {} };
                     ["style", "variant", "weight", "stretch"].forEach(function(prop) {
                       font2[prop] = token2;
                     });
-                    return cache2[value] = font2;
+                    return cache[value] = font2;
                   }
                   if (fontStyleKeywords.indexOf(token2) !== -1) {
                     font2.style = token2;
@@ -220204,7 +220339,7 @@ var plotly = { exports: {} };
                       throw new Error("Missing required font-family.");
                     }
                     font2.family = splitBy(tokens.join(" "), /\s*,\s*/).map(unquote);
-                    return cache2[value] = font2;
+                    return cache[value] = font2;
                   }
                   throw new Error("Unknown or unsupported font token: " + token2);
                 }
@@ -220243,8 +220378,8 @@ var plotly = { exports: {} };
                 size: "1rem",
                 family: "serif"
               };
-              module2.exports = function stringifyFont(o2) {
-                o2 = pick(o2, {
+              module2.exports = function stringifyFont(o3) {
+                o3 = pick(o3, {
                   style: "style fontstyle fontStyle font-style slope distinction",
                   variant: "variant font-variant fontVariant fontvariant var capitalization",
                   weight: "weight w font-weight fontWeight fontweight",
@@ -220254,31 +220389,31 @@ var plotly = { exports: {} };
                   family: "font family fontFamily font-family fontfamily type typeface face",
                   system: "system reserved default global"
                 });
-                if (o2.system) {
-                  if (o2.system) verify(o2.system, systems);
-                  return o2.system;
+                if (o3.system) {
+                  if (o3.system) verify(o3.system, systems);
+                  return o3.system;
                 }
-                verify(o2.style, styles2);
-                verify(o2.variant, variants);
-                verify(o2.weight, weights);
-                verify(o2.stretch, stretches);
-                if (o2.size == null) o2.size = defaults.size;
-                if (typeof o2.size === "number") o2.size += "px";
-                if (!isSize) throw Error("Bad size value `" + o2.size + "`");
-                if (!o2.family) o2.family = defaults.family;
-                if (Array.isArray(o2.family)) {
-                  if (!o2.family.length) o2.family = [defaults.family];
-                  o2.family = o2.family.map(function(f2) {
+                verify(o3.style, styles2);
+                verify(o3.variant, variants);
+                verify(o3.weight, weights);
+                verify(o3.stretch, stretches);
+                if (o3.size == null) o3.size = defaults.size;
+                if (typeof o3.size === "number") o3.size += "px";
+                if (!isSize) throw Error("Bad size value `" + o3.size + "`");
+                if (!o3.family) o3.family = defaults.family;
+                if (Array.isArray(o3.family)) {
+                  if (!o3.family.length) o3.family = [defaults.family];
+                  o3.family = o3.family.map(function(f2) {
                     return fams[f2] ? f2 : '"' + f2 + '"';
                   }).join(", ");
                 }
                 var result = [];
-                result.push(o2.style);
-                if (o2.variant !== o2.style) result.push(o2.variant);
-                if (o2.weight !== o2.variant && o2.weight !== o2.style) result.push(o2.weight);
-                if (o2.stretch !== o2.weight && o2.stretch !== o2.variant && o2.stretch !== o2.style) result.push(o2.stretch);
-                result.push(o2.size + (o2.lineHeight == null || o2.lineHeight === "normal" || o2.lineHeight + "" === "1" ? "" : "/" + o2.lineHeight));
-                result.push(o2.family);
+                result.push(o3.style);
+                if (o3.variant !== o3.style) result.push(o3.variant);
+                if (o3.weight !== o3.variant && o3.weight !== o3.style) result.push(o3.weight);
+                if (o3.stretch !== o3.weight && o3.stretch !== o3.variant && o3.stretch !== o3.style) result.push(o3.stretch);
+                result.push(o3.size + (o3.lineHeight == null || o3.lineHeight === "normal" || o3.lineHeight + "" === "1" ? "" : "/" + o3.lineHeight));
+                result.push(o3.family);
                 return result.filter(Boolean).join(" ");
               };
               function verify(value, values2) {
@@ -220286,11 +220421,11 @@ var plotly = { exports: {} };
                 return value;
               }
               function a2o(a2) {
-                var o2 = {};
+                var o3 = {};
                 for (var i2 = 0; i2 < a2.length; i2++) {
-                  o2[a2[i2]] = 1;
+                  o3[a2[i2]] = 1;
                 }
-                return o2;
+                return o3;
               }
             }
           ),
@@ -220759,9 +220894,9 @@ var plotly = { exports: {} };
                   map3.set(key2, value);
                 });
                 else if (Array.isArray(object)) {
-                  var i2 = -1, n2 = object.length, o2;
+                  var i2 = -1, n2 = object.length, o3;
                   if (f2 == null) while (++i2 < n2) map3.set(i2, object[i2]);
-                  else while (++i2 < n2) map3.set(f2(o2 = object[i2], i2, object), o2);
+                  else while (++i2 < n2) map3.set(f2(o3 = object[i2], i2, object), o3);
                 } else if (object) for (var key in object) map3.set(key, object[key]);
                 return map3;
               }
@@ -221233,23 +221368,23 @@ var plotly = { exports: {} };
                     }
                   }
                   function apply(quad2, x0, y0, x1, y1) {
-                    var data2 = quad2.data, rj2 = quad2.r, r3 = ri2 + rj2;
+                    var data2 = quad2.data, rj2 = quad2.r, r2 = ri2 + rj2;
                     if (data2) {
                       if (data2.index > node2.index) {
                         var x22 = xi2 - data2.x - data2.vx, y22 = yi2 - data2.y - data2.vy, l2 = x22 * x22 + y22 * y22;
-                        if (l2 < r3 * r3) {
+                        if (l2 < r2 * r2) {
                           if (x22 === 0) x22 = jiggle(), l2 += x22 * x22;
                           if (y22 === 0) y22 = jiggle(), l2 += y22 * y22;
-                          l2 = (r3 - (l2 = Math.sqrt(l2))) / l2 * strength;
-                          node2.vx += (x22 *= l2) * (r3 = (rj2 *= rj2) / (ri22 + rj2));
-                          node2.vy += (y22 *= l2) * r3;
-                          data2.vx -= x22 * (r3 = 1 - r3);
-                          data2.vy -= y22 * r3;
+                          l2 = (r2 - (l2 = Math.sqrt(l2))) / l2 * strength;
+                          node2.vx += (x22 *= l2) * (r2 = (rj2 *= rj2) / (ri22 + rj2));
+                          node2.vy += (y22 *= l2) * r2;
+                          data2.vx -= x22 * (r2 = 1 - r2);
+                          data2.vy -= y22 * r2;
                         }
                       }
                       return;
                     }
-                    return x0 > xi2 + r3 || x1 < xi2 - r3 || y0 > yi2 + r3 || y1 < yi2 - r3;
+                    return x0 > xi2 + r2 || x1 < xi2 - r2 || y0 > yi2 + r2 || y1 < yi2 - r2;
                   }
                 }
                 function prepare2(quad2) {
@@ -221705,7 +221840,7 @@ var plotly = { exports: {} };
                 if (y22 == null) y22 = 0;
                 function force(alpha2) {
                   for (var i2 = 0, n2 = nodes.length; i2 < n2; ++i2) {
-                    var node2 = nodes[i2], dx = node2.x - x22 || 1e-6, dy = node2.y - y22 || 1e-6, r3 = Math.sqrt(dx * dx + dy * dy), k2 = (radiuses[i2] - r3) * strengths[i2] * alpha2 / r3;
+                    var node2 = nodes[i2], dx = node2.x - x22 || 1e-6, dy = node2.y - y22 || 1e-6, r2 = Math.sqrt(dx * dx + dy * dy), k2 = (radiuses[i2] - r2) * strengths[i2] * alpha2 / r2;
                     node2.vx += dx * k2;
                     node2.vy += dy * k2;
                   }
@@ -223206,14 +223341,14 @@ var plotly = { exports: {} };
                   return [k22 * cosy * sin(x2), k22 * siny];
                 }
                 forward.invert = function(x2, y2) {
-                  var r3 = sqrt(x2 * x2 + y2 * y2), z2 = -beta / 2, i2 = 50, delta;
-                  if (!r3) return [0, 0];
+                  var r2 = sqrt(x2 * x2 + y2 * y2), z2 = -beta / 2, i2 = 50, delta;
+                  if (!r2) return [0, 0];
                   do {
                     var z_2 = z2 / 2, cosz_2 = cos(z_2), sinz_2 = sin(z_2), tanz_2 = sinz_2 / cosz_2, lnsecz_2 = -log(abs2(cosz_2));
-                    z2 -= delta = (2 / tanz_2 * lnsecz_2 - b2 * tanz_2 - r3) / (-lnsecz_2 / (sinz_2 * sinz_2) + 1 - b2 / (2 * cosz_2 * cosz_2)) * (cosz_2 < 0 ? 0.7 : 1);
+                    z2 -= delta = (2 / tanz_2 * lnsecz_2 - b2 * tanz_2 - r2) / (-lnsecz_2 / (sinz_2 * sinz_2) + 1 - b2 / (2 * cosz_2 * cosz_2)) * (cosz_2 < 0 ? 0.7 : 1);
                   } while (abs2(delta) > epsilon && --i2 > 0);
                   var sinz = sin(z2);
-                  return [atan2(x2 * sinz, r3 * cos(z2)), asin(y2 * sinz / r3)];
+                  return [atan2(x2 * sinz, r2 * cos(z2)), asin(y2 * sinz / r2)];
                 };
                 return forward;
               }
@@ -223328,19 +223463,19 @@ var plotly = { exports: {} };
                 function forward(lambda, phi) {
                   var p2 = (0, azimuthalEquidistant.j)(lambda, phi);
                   if (abs2(lambda) > halfPi) {
-                    var theta = atan2(p2[1], p2[0]), r3 = sqrt(p2[0] * p2[0] + p2[1] * p2[1]), theta0 = k22 * round2((theta - halfPi) / k22) + halfPi, alpha2 = atan2(sin(theta -= theta0), 2 - cos(theta));
-                    theta = theta0 + asin(pi2 / r3 * sin(alpha2)) - alpha2;
-                    p2[0] = r3 * cos(theta);
-                    p2[1] = r3 * sin(theta);
+                    var theta = atan2(p2[1], p2[0]), r2 = sqrt(p2[0] * p2[0] + p2[1] * p2[1]), theta0 = k22 * round2((theta - halfPi) / k22) + halfPi, alpha2 = atan2(sin(theta -= theta0), 2 - cos(theta));
+                    theta = theta0 + asin(pi2 / r2 * sin(alpha2)) - alpha2;
+                    p2[0] = r2 * cos(theta);
+                    p2[1] = r2 * sin(theta);
                   }
                   return p2;
                 }
                 forward.invert = function(x2, y2) {
-                  var r3 = sqrt(x2 * x2 + y2 * y2);
-                  if (r3 > halfPi) {
-                    var theta = atan2(y2, x2), theta0 = k22 * round2((theta - halfPi) / k22) + halfPi, s2 = theta > theta0 ? -1 : 1, A22 = r3 * cos(theta0 - theta), cotAlpha = 1 / tan(s2 * acos((A22 - pi2) / sqrt(pi2 * (pi2 - 2 * A22) + r3 * r3)));
+                  var r2 = sqrt(x2 * x2 + y2 * y2);
+                  if (r2 > halfPi) {
+                    var theta = atan2(y2, x2), theta0 = k22 * round2((theta - halfPi) / k22) + halfPi, s2 = theta > theta0 ? -1 : 1, A22 = r2 * cos(theta0 - theta), cotAlpha = 1 / tan(s2 * acos((A22 - pi2) / sqrt(pi2 * (pi2 - 2 * A22) + r2 * r2)));
                     theta = theta0 + 2 * atan((cotAlpha + s2 * sqrt(cotAlpha * cotAlpha - 3)) / 3);
-                    x2 = r3 * cos(theta), y2 = r3 * sin(theta);
+                    x2 = r2 * cos(theta), y2 = r2 * sin(theta);
                   }
                   return azimuthalEquidistant.j.invert(x2, y2);
                 };
@@ -223457,15 +223592,15 @@ var plotly = { exports: {} };
                     lambda += u2;
                     phi -= 0.8 * u2 * sin(phi + pi2 / 2);
                   }
-                  var r3 = hammer2(lambda, phi);
+                  var r2 = hammer2(lambda, phi);
                   var d2 = (1 - cos(lambda * phi)) / k22;
-                  if (r3[1] < 0) {
-                    r3[0] *= 1 + d2;
+                  if (r2[1] < 0) {
+                    r2[0] *= 1 + d2;
                   }
-                  if (r3[1] > 0) {
-                    r3[1] *= 1 + d2 / 1.5 * r3[0] * r3[0];
+                  if (r2[1] > 0) {
+                    r2[1] *= 1 + d2 / 1.5 * r2[0] * r2[0];
                   }
-                  return r3;
+                  return r2;
                 }
                 forward.invert = solve2d(forward);
                 return forward;
@@ -223567,14 +223702,14 @@ var plotly = { exports: {} };
               var centroid = __webpack_require__2(30021);
               var rotation = __webpack_require__2(30915);
               function distance(dPhi, c1, s1, c2, s2, dLambda) {
-                var cosdLambda = cos(dLambda), r3;
+                var cosdLambda = cos(dLambda), r2;
                 if (abs2(dPhi) > 1 || abs2(dLambda) > 1) {
-                  r3 = acos(s1 * s2 + c1 * c2 * cosdLambda);
+                  r2 = acos(s1 * s2 + c1 * c2 * cosdLambda);
                 } else {
                   var sindPhi = sin(dPhi / 2), sindLambda = sin(dLambda / 2);
-                  r3 = 2 * asin(sqrt(sindPhi * sindPhi + c1 * c2 * sindLambda * sindLambda));
+                  r2 = 2 * asin(sqrt(sindPhi * sindPhi + c1 * c2 * sindLambda * sindLambda));
                 }
-                return abs2(r3) > epsilon ? [r3, atan2(c2 * sin(dLambda), c1 * s2 - s1 * c2 * cosdLambda)] : [0, 0];
+                return abs2(r2) > epsilon ? [r2, atan2(c2 * sin(dLambda), c1 * s2 - s1 * c2 * cosdLambda)] : [0, 0];
               }
               function angle(b2, c2, a2) {
                 return acos((b2 * b2 + c2 * c2 - a2 * a2) / (2 * b2 * c2));
@@ -223638,12 +223773,12 @@ var plotly = { exports: {} };
                 return chamberlin([0, 22], [45, 22], [22.5, -22]).scale(380).center([22.5, 2]);
               }
               function chamberlin(p0, p1, p2) {
-                var c2 = (0, centroid.A)({ type: "MultiPoint", coordinates: [p0, p1, p2] }), R2 = [-c2[0], -c2[1]], r3 = (0, rotation.A)(R2), f2 = chamberlinRaw(pointRadians(r3(p0)), pointRadians(r3(p1)), pointRadians(r3(p2)));
+                var c2 = (0, centroid.A)({ type: "MultiPoint", coordinates: [p0, p1, p2] }), R2 = [-c2[0], -c2[1]], r2 = (0, rotation.A)(R2), f2 = chamberlinRaw(pointRadians(r2(p0)), pointRadians(r2(p1)), pointRadians(r2(p2)));
                 f2.invert = solve2d(f2);
                 var p3 = (0, src_projection.A)(f2).rotate(R2), center = p3.center;
                 delete p3.rotate;
                 p3.center = function(_2) {
-                  return arguments.length ? center(r3(_2)) : r3.invert(center());
+                  return arguments.length ? center(r2(_2)) : r2.invert(center());
                 };
                 return p3.clipAngle(90);
               }
@@ -223962,9 +224097,9 @@ var plotly = { exports: {} };
               function gingeryRaw(rho, n2) {
                 var k22 = 2 * pi2 / n2, rho2 = rho * rho;
                 function forward(lambda, phi) {
-                  var p2 = (0, azimuthalEquidistant.j)(lambda, phi), x2 = p2[0], y2 = p2[1], r22 = x2 * x2 + y2 * y2;
-                  if (r22 > rho2) {
-                    var r3 = sqrt(r22), theta = atan2(y2, x2), theta0 = k22 * round2(theta / k22), alpha2 = theta - theta0, rhoCosAlpha = rho * cos(alpha2), k_ = (rho * sin(alpha2) - alpha2 * sin(rhoCosAlpha)) / (halfPi - rhoCosAlpha), s_ = gingeryLength(alpha2, k_), e4 = (pi2 - rho) / gingeryIntegrate(s_, rhoCosAlpha, pi2);
+                  var p2 = (0, azimuthalEquidistant.j)(lambda, phi), x2 = p2[0], y2 = p2[1], r2 = x2 * x2 + y2 * y2;
+                  if (r2 > rho2) {
+                    var r3 = sqrt(r2), theta = atan2(y2, x2), theta0 = k22 * round2(theta / k22), alpha2 = theta - theta0, rhoCosAlpha = rho * cos(alpha2), k_ = (rho * sin(alpha2) - alpha2 * sin(rhoCosAlpha)) / (halfPi - rhoCosAlpha), s_ = gingeryLength(alpha2, k_), e4 = (pi2 - rho) / gingeryIntegrate(s_, rhoCosAlpha, pi2);
                     x2 = r3;
                     var i2 = 50, delta;
                     do {
@@ -223979,9 +224114,9 @@ var plotly = { exports: {} };
                   return p2;
                 }
                 forward.invert = function(x2, y2) {
-                  var r22 = x2 * x2 + y2 * y2;
-                  if (r22 > rho2) {
-                    var r3 = sqrt(r22), theta = atan2(y2, x2), theta0 = k22 * round2(theta / k22), dTheta = theta - theta0;
+                  var r2 = x2 * x2 + y2 * y2;
+                  if (r2 > rho2) {
+                    var r3 = sqrt(r2), theta = atan2(y2, x2), theta0 = k22 * round2(theta / k22), dTheta = theta - theta0;
                     x2 = r3 * cos(dTheta);
                     y2 = r3 * sin(dTheta);
                     var x_halfPi = x2 - halfPi, sinx = sin(x2), alpha2 = y2 / sinx, delta = x2 < halfPi ? Infinity : 0, i2 = 10;
@@ -224131,11 +224266,11 @@ var plotly = { exports: {} };
               };
               function gringortenHexadecant(lambda, phi) {
                 if (phi === halfPi) return [0, 0];
-                var sinPhi = sin(phi), r3 = sinPhi * sinPhi, r22 = r3 * r3, j = 1 + r22, k22 = 1 + 3 * r22, q2 = 1 - r22, z2 = asin(1 / sqrt(j)), v2 = q2 + r3 * j * z2, p2 = (1 - sinPhi) / v2, p3 = sqrt(p2), a2 = p2 * j, a3 = sqrt(a2), h2 = p3 * q2, x2, i2;
-                if (lambda === 0) return [0, -(h2 + r3 * a3)];
-                var cosPhi = cos(phi), secPhi = 1 / cosPhi, drdPhi = 2 * sinPhi * cosPhi, dvdPhi = (-3 * r3 + z2 * k22) * drdPhi, dp2dPhi = (-v2 * cosPhi - (1 - sinPhi) * dvdPhi) / (v2 * v2), dpdPhi = 0.5 * dp2dPhi / p3, dhdPhi = q2 * dpdPhi - 2 * r3 * p3 * drdPhi, dra2dPhi = r3 * j * dp2dPhi + p2 * k22 * drdPhi, mu = -secPhi * drdPhi, nu = -secPhi * dra2dPhi, zeta = -2 * secPhi * dhdPhi, lambda1 = 4 * lambda / pi2, delta;
+                var sinPhi = sin(phi), r2 = sinPhi * sinPhi, r22 = r2 * r2, j = 1 + r22, k22 = 1 + 3 * r22, q2 = 1 - r22, z2 = asin(1 / sqrt(j)), v2 = q2 + r2 * j * z2, p2 = (1 - sinPhi) / v2, p3 = sqrt(p2), a2 = p2 * j, a3 = sqrt(a2), h2 = p3 * q2, x2, i2;
+                if (lambda === 0) return [0, -(h2 + r2 * a3)];
+                var cosPhi = cos(phi), secPhi = 1 / cosPhi, drdPhi = 2 * sinPhi * cosPhi, dvdPhi = (-3 * r2 + z2 * k22) * drdPhi, dp2dPhi = (-v2 * cosPhi - (1 - sinPhi) * dvdPhi) / (v2 * v2), dpdPhi = 0.5 * dp2dPhi / p3, dhdPhi = q2 * dpdPhi - 2 * r2 * p3 * drdPhi, dra2dPhi = r2 * j * dp2dPhi + p2 * k22 * drdPhi, mu = -secPhi * drdPhi, nu = -secPhi * dra2dPhi, zeta = -2 * secPhi * dhdPhi, lambda1 = 4 * lambda / pi2, delta;
                 if (lambda > 0.222 * pi2 || phi < pi2 / 4 && lambda > 0.175 * pi2) {
-                  x2 = (h2 + r3 * sqrt(a2 * (1 + r22) - h2 * h2)) / (1 + r22);
+                  x2 = (h2 + r2 * sqrt(a2 * (1 + r22) - h2 * h2)) / (1 + r22);
                   if (lambda > pi2 / 4) return [x2, x2];
                   var x12 = x2, x02 = 0.5 * x2;
                   x2 = 0.5 * (x02 + x12), i2 = 50;
@@ -224153,19 +224288,19 @@ var plotly = { exports: {} };
                     x2 -= delta = g22 ? f22 / df2 : 0;
                   } while (abs2(delta) > epsilon && --i2 > 0);
                 }
-                return [x2, -h2 - r3 * sqrt(a2 - x2 * x2)];
+                return [x2, -h2 - r2 * sqrt(a2 - x2 * x2)];
               }
               function gringortenHexadecantInvert(x2, y2) {
-                var x02 = 0, x12 = 1, r3 = 0.5, i2 = 50;
+                var x02 = 0, x12 = 1, r2 = 0.5, i2 = 50;
                 while (true) {
-                  var r22 = r3 * r3, sinPhi = sqrt(r3), z2 = asin(1 / sqrt(1 + r22)), v2 = 1 - r22 + r3 * (1 + r22) * z2, p2 = (1 - sinPhi) / v2, p3 = sqrt(p2), a2 = p2 * (1 + r22), h2 = p3 * (1 - r22), g2 = a2 - x2 * x2, g3 = sqrt(g2), y02 = y2 + h2 + r3 * g3;
+                  var r22 = r2 * r2, sinPhi = sqrt(r2), z2 = asin(1 / sqrt(1 + r22)), v2 = 1 - r22 + r2 * (1 + r22) * z2, p2 = (1 - sinPhi) / v2, p3 = sqrt(p2), a2 = p2 * (1 + r22), h2 = p3 * (1 - r22), g2 = a2 - x2 * x2, g3 = sqrt(g2), y02 = y2 + h2 + r2 * g3;
                   if (abs2(x12 - x02) < epsilon2 || --i2 === 0 || y02 === 0) break;
-                  if (y02 > 0) x02 = r3;
-                  else x12 = r3;
-                  r3 = 0.5 * (x02 + x12);
+                  if (y02 > 0) x02 = r2;
+                  else x12 = r2;
+                  r2 = 0.5 * (x02 + x12);
                 }
                 if (!i2) return null;
-                var phi = asin(sinPhi), cosPhi = cos(phi), secPhi = 1 / cosPhi, drdPhi = 2 * sinPhi * cosPhi, dvdPhi = (-3 * r3 + z2 * (1 + 3 * r22)) * drdPhi, dp2dPhi = (-v2 * cosPhi - (1 - sinPhi) * dvdPhi) / (v2 * v2), dpdPhi = 0.5 * dp2dPhi / p3, dhdPhi = (1 - r22) * dpdPhi - 2 * r3 * p3 * drdPhi, zeta = -2 * secPhi * dhdPhi, mu = -secPhi * drdPhi, nu = -secPhi * (r3 * (1 + r22) * dp2dPhi + p2 * (1 + 3 * r22) * drdPhi);
+                var phi = asin(sinPhi), cosPhi = cos(phi), secPhi = 1 / cosPhi, drdPhi = 2 * sinPhi * cosPhi, dvdPhi = (-3 * r2 + z2 * (1 + 3 * r22)) * drdPhi, dp2dPhi = (-v2 * cosPhi - (1 - sinPhi) * dvdPhi) / (v2 * v2), dpdPhi = 0.5 * dp2dPhi / p3, dhdPhi = (1 - r22) * dpdPhi - 2 * r2 * p3 * drdPhi, zeta = -2 * secPhi * dhdPhi, mu = -secPhi * drdPhi, nu = -secPhi * (r2 * (1 + r22) * dp2dPhi + p2 * (1 + 3 * r22) * drdPhi);
                 return [pi2 / 4 * (x2 * (zeta + mu * g3) + nu * asin(x2 / sqrt(a2))), phi];
               }
               function gringorten() {
@@ -224235,9 +224370,9 @@ var plotly = { exports: {} };
                 return [sin(phi), t3 = cos(phi), t3 / cos(phi - b2), phi];
               }
               function ellipticFi(phi, psi, m2) {
-                var r3 = abs2(phi), i2 = abs2(psi), sinhPsi = sinh2(i2);
-                if (r3) {
-                  var cscPhi = 1 / sin(r3), cotPhi2 = 1 / (tan(r3) * tan(r3)), b2 = -(cotPhi2 + m2 * (sinhPsi * sinhPsi * cscPhi * cscPhi) - 1 + m2), c2 = (m2 - 1) * cotPhi2, cotLambda2 = (-b2 + sqrt(b2 * b2 - 4 * c2)) / 2;
+                var r2 = abs2(phi), i2 = abs2(psi), sinhPsi = sinh2(i2);
+                if (r2) {
+                  var cscPhi = 1 / sin(r2), cotPhi2 = 1 / (tan(r2) * tan(r2)), b2 = -(cotPhi2 + m2 * (sinhPsi * sinhPsi * cscPhi * cscPhi) - 1 + m2), c2 = (m2 - 1) * cotPhi2, cotLambda2 = (-b2 + sqrt(b2 * b2 - 4 * c2)) / 2;
                   return [
                     ellipticF(atan(1 / sqrt(cotLambda2)), m2) * sign2(phi),
                     ellipticF(atan(sqrt((cotLambda2 / cotPhi2 - 1) / m2)), 1 - m2) * sign2(psi)
@@ -224265,7 +224400,7 @@ var plotly = { exports: {} };
                 return phi / (pow2(2, i2) * a2);
               }
               function guyouRaw(lambda, phi) {
-                var k_ = (sqrt2 - 1) / (sqrt2 + 1), k22 = sqrt(1 - k_ * k_), K22 = ellipticF(halfPi, k22 * k22), f2 = -1, psi = log(tan(pi2 / 4 + abs2(phi) / 2)), r3 = exp(f2 * psi) / sqrt(k_), at = guyouComplexAtan(r3 * cos(f2 * lambda), r3 * sin(f2 * lambda)), t3 = ellipticFi(at[0], at[1], k22 * k22);
+                var k_ = (sqrt2 - 1) / (sqrt2 + 1), k22 = sqrt(1 - k_ * k_), K22 = ellipticF(halfPi, k22 * k22), f2 = -1, psi = log(tan(pi2 / 4 + abs2(phi) / 2)), r2 = exp(f2 * psi) / sqrt(k_), at = guyouComplexAtan(r2 * cos(f2 * lambda), r2 * sin(f2 * lambda)), t3 = ellipticFi(at[0], at[1], k22 * k22);
                 return [-t3[1], (phi >= 0 ? 1 : -1) * (0.5 * K22 - t3[0])];
               }
               function guyouComplexAtan(x2, y2) {
@@ -224325,8 +224460,8 @@ var plotly = { exports: {} };
                 var phi02 = 0, m2 = (0, src_projection.U)(hammerRetroazimuthalRaw), p2 = m2(phi02), rotate_ = p2.rotate, stream_ = p2.stream, circle = (0, src_circle.A)();
                 p2.parallel = function(_2) {
                   if (!arguments.length) return phi02 * degrees;
-                  var r3 = p2.rotate();
-                  return m2(phi02 = _2 * radians).rotate(r3);
+                  var r2 = p2.rotate();
+                  return m2(phi02 = _2 * radians).rotate(r2);
                 };
                 p2.rotate = function(_2) {
                   if (!arguments.length) return _2 = rotate_.call(p2), _2[1] += phi02 * degrees, _2;
@@ -224601,15 +224736,15 @@ var plotly = { exports: {} };
                 for (var i2 = 0; i2 <= n2; i2++)
                   approx.push(z2(i2 / n2) * m2);
                 function Y2(sinphi) {
-                  var rmin = 0, rmax = n2, r3 = n2 >> 1;
+                  var rmin = 0, rmax = n2, r2 = n2 >> 1;
                   do {
-                    if (approx[r3] > sinphi) rmax = r3;
-                    else rmin = r3;
-                    r3 = rmin + rmax >> 1;
-                  } while (r3 > rmin);
-                  var u2 = approx[r3 + 1] - approx[r3];
-                  if (u2) u2 = (sinphi - approx[r3 + 1]) / u2;
-                  return (r3 + 1 + u2) / n2;
+                    if (approx[r2] > sinphi) rmax = r2;
+                    else rmin = r2;
+                    r2 = rmin + rmax >> 1;
+                  } while (r2 > rmin);
+                  var u2 = approx[r2 + 1] - approx[r2];
+                  if (u2) u2 = (sinphi - approx[r2 + 1]) / u2;
+                  return (r2 + 1 + u2) / n2;
                 }
                 var ratio = 2 * Y2(1) / pi2 * G2 / gamma;
                 var forward = function(lambda, phi) {
@@ -225006,10 +225141,10 @@ var plotly = { exports: {} };
                 return modifiedStereographic(lee, [165, 10]).scale(250).clipAngle(130).center([-165, -10]);
               }
               function modifiedStereographic(coefficients, rotate) {
-                var p2 = (0, src_projection.A)(modifiedStereographicRaw(coefficients)).rotate(rotate).clipAngle(90), r3 = (0, rotation.A)(rotate), center = p2.center;
+                var p2 = (0, src_projection.A)(modifiedStereographicRaw(coefficients)).rotate(rotate).clipAngle(90), r2 = (0, rotation.A)(rotate), center = p2.center;
                 delete p2.rotate;
                 p2.center = function(_2) {
-                  return arguments.length ? center(r3(_2)) : r3.invert(center());
+                  return arguments.length ? center(r2(_2)) : r2.invert(center());
                 };
                 return p2;
               }
@@ -225268,7 +225403,7 @@ var plotly = { exports: {} };
               function matrix_angle(a2, b2) {
                 return atan2(a2[0] * b2[1] - a2[1] * b2[0], a2[0] * b2[0] + a2[1] * b2[1]);
               }
-              function polyhedral(root2, face, r3) {
+              function polyhedral(root2, face, r2) {
                 recurse(root2, { transform: null });
                 function recurse(node2, parent) {
                   node2.edges = faceEdges(node2.face);
@@ -225341,7 +225476,7 @@ var plotly = { exports: {} };
                   };
                   return rotateStream;
                 };
-                return proj.angle(r3 == null ? -30 : r3 * degrees);
+                return proj.angle(r2 == null ? -30 : r2 * degrees);
               }
               function outline2(stream, node2, parent) {
                 var point, edges = node2.edges, n2 = edges.length, edge, multiPoint = { type: "MultiPoint", coordinates: node2.face }, notPoles = node2.face.filter(function(d2) {
@@ -225567,35 +225702,35 @@ var plotly = { exports: {} };
                 }
                 return project2(object, stream);
               }
-              function projectFeatureCollection(o2, stream) {
+              function projectFeatureCollection(o3, stream) {
                 return {
                   type: "FeatureCollection",
-                  features: o2.features.map(function(f2) {
+                  features: o3.features.map(function(f2) {
                     return projectFeature(f2, stream);
                   })
                 };
               }
-              function projectFeature(o2, stream) {
+              function projectFeature(o3, stream) {
                 return {
                   type: "Feature",
-                  id: o2.id,
-                  properties: o2.properties,
-                  geometry: projectGeometry(o2.geometry, stream)
+                  id: o3.id,
+                  properties: o3.properties,
+                  geometry: projectGeometry(o3.geometry, stream)
                 };
               }
-              function projectGeometryCollection(o2, stream) {
+              function projectGeometryCollection(o3, stream) {
                 return {
                   type: "GeometryCollection",
-                  geometries: o2.geometries.map(function(o22) {
+                  geometries: o3.geometries.map(function(o22) {
                     return projectGeometry(o22, stream);
                   })
                 };
               }
-              function projectGeometry(o2, stream) {
-                if (!o2) return null;
-                if (o2.type === "GeometryCollection") return projectGeometryCollection(o2, stream);
+              function projectGeometry(o3, stream) {
+                if (!o3) return null;
+                if (o3.type === "GeometryCollection") return projectGeometryCollection(o3, stream);
                 var sink;
-                switch (o2.type) {
+                switch (o3.type) {
                   case "Point":
                     sink = sinkPoint;
                     break;
@@ -225620,7 +225755,7 @@ var plotly = { exports: {} };
                   default:
                     return null;
                 }
-                (0, src_stream.A)(o2, stream(sink));
+                (0, src_stream.A)(o3, stream(sink));
                 return sink.result();
               }
               var points2 = [], lines = [];
@@ -226103,10 +226238,10 @@ var plotly = { exports: {} };
                 return (0, src_projection.A)(timesRaw).scale(146.153);
               }
               function twoPoint(raw, p0, p1) {
-                var i2 = (0, interpolate.A)(p0, p1), o2 = i2(0.5), a2 = (0, rotation.A)([-o2[0], -o2[1]])(p0), b2 = i2.distance / 2, y2 = -asin(sin(a2[1] * radians) / sin(b2)), R2 = [-o2[0], -o2[1], -(a2[0] > 0 ? pi2 - y2 : y2) * degrees], p2 = (0, src_projection.A)(raw(b2)).rotate(R2), r3 = (0, rotation.A)(R2), center = p2.center;
+                var i2 = (0, interpolate.A)(p0, p1), o3 = i2(0.5), a2 = (0, rotation.A)([-o3[0], -o3[1]])(p0), b2 = i2.distance / 2, y2 = -asin(sin(a2[1] * radians) / sin(b2)), R2 = [-o3[0], -o3[1], -(a2[0] > 0 ? pi2 - y2 : y2) * degrees], p2 = (0, src_projection.A)(raw(b2)).rotate(R2), r2 = (0, rotation.A)(R2), center = p2.center;
                 delete p2.rotate;
                 p2.center = function(_2) {
-                  return arguments.length ? center(r3(_2)) : r3.invert(center());
+                  return arguments.length ? center(r2(_2)) : r2.invert(center());
                 };
                 return p2.clipAngle(90);
               }
@@ -226870,10 +227005,10 @@ var plotly = { exports: {} };
                   x2[0] *= math.uj, x2[1] *= math.uj;
                 }
                 function circle2() {
-                  var c2 = center.apply(this, arguments), r3 = radius.apply(this, arguments) * math.F2, p2 = precision.apply(this, arguments) * math.F2;
+                  var c2 = center.apply(this, arguments), r2 = radius.apply(this, arguments) * math.F2, p2 = precision.apply(this, arguments) * math.F2;
                   ring = [];
                   rotate = (0, rotation.y)(-c2[0] * math.F2, -c2[1] * math.F2, 0).invert;
-                  circleStream(stream, r3, p2, 1);
+                  circleStream(stream, r2, p2, 1);
                   c2 = { type: "Polygon", coordinates: [ring] };
                   ring = rotate = null;
                   return c2;
@@ -227121,11 +227256,11 @@ var plotly = { exports: {} };
                   }
                 }
                 function code(lambda, phi) {
-                  var r3 = smallRadius ? radius : _math_js__WEBPACK_IMPORTED_MODULE_0__.pi - radius, code2 = 0;
-                  if (lambda < -r3) code2 |= 1;
-                  else if (lambda > r3) code2 |= 2;
-                  if (phi < -r3) code2 |= 4;
-                  else if (phi > r3) code2 |= 8;
+                  var r2 = smallRadius ? radius : _math_js__WEBPACK_IMPORTED_MODULE_0__.pi - radius, code2 = 0;
+                  if (lambda < -r2) code2 |= 1;
+                  else if (lambda > r2) code2 |= 2;
+                  if (phi < -r2) code2 |= 4;
+                  else if (phi > r2) code2 |= 8;
                   return code2;
                 }
                 return (0, _index_js__WEBPACK_IMPORTED_MODULE_4__.A)(visible, clipLine, interpolate, smallRadius ? [0, -radius] : [-_math_js__WEBPACK_IMPORTED_MODULE_0__.pi, radius - _math_js__WEBPACK_IMPORTED_MODULE_0__.pi]);
@@ -227260,46 +227395,46 @@ var plotly = { exports: {} };
               var math = __webpack_require__2(61323);
               var buffer = __webpack_require__2(39608);
               function line2(a2, b2, x0, y0, x1, y1) {
-                var ax = a2[0], ay = a2[1], bx = b2[0], by = b2[1], t0 = 0, t1 = 1, dx = bx - ax, dy = by - ay, r3;
-                r3 = x0 - ax;
-                if (!dx && r3 > 0) return;
-                r3 /= dx;
+                var ax = a2[0], ay = a2[1], bx = b2[0], by = b2[1], t0 = 0, t1 = 1, dx = bx - ax, dy = by - ay, r2;
+                r2 = x0 - ax;
+                if (!dx && r2 > 0) return;
+                r2 /= dx;
                 if (dx < 0) {
-                  if (r3 < t0) return;
-                  if (r3 < t1) t1 = r3;
+                  if (r2 < t0) return;
+                  if (r2 < t1) t1 = r2;
                 } else if (dx > 0) {
-                  if (r3 > t1) return;
-                  if (r3 > t0) t0 = r3;
+                  if (r2 > t1) return;
+                  if (r2 > t0) t0 = r2;
                 }
-                r3 = x1 - ax;
-                if (!dx && r3 < 0) return;
-                r3 /= dx;
+                r2 = x1 - ax;
+                if (!dx && r2 < 0) return;
+                r2 /= dx;
                 if (dx < 0) {
-                  if (r3 > t1) return;
-                  if (r3 > t0) t0 = r3;
+                  if (r2 > t1) return;
+                  if (r2 > t0) t0 = r2;
                 } else if (dx > 0) {
-                  if (r3 < t0) return;
-                  if (r3 < t1) t1 = r3;
+                  if (r2 < t0) return;
+                  if (r2 < t1) t1 = r2;
                 }
-                r3 = y0 - ay;
-                if (!dy && r3 > 0) return;
-                r3 /= dy;
+                r2 = y0 - ay;
+                if (!dy && r2 > 0) return;
+                r2 /= dy;
                 if (dy < 0) {
-                  if (r3 < t0) return;
-                  if (r3 < t1) t1 = r3;
+                  if (r2 < t0) return;
+                  if (r2 < t1) t1 = r2;
                 } else if (dy > 0) {
-                  if (r3 > t1) return;
-                  if (r3 > t0) t0 = r3;
+                  if (r2 > t1) return;
+                  if (r2 > t0) t0 = r2;
                 }
-                r3 = y1 - ay;
-                if (!dy && r3 < 0) return;
-                r3 /= dy;
+                r2 = y1 - ay;
+                if (!dy && r2 < 0) return;
+                r2 /= dy;
                 if (dy < 0) {
-                  if (r3 > t1) return;
-                  if (r3 > t0) t0 = r3;
+                  if (r2 > t1) return;
+                  if (r2 > t0) t0 = r2;
                 } else if (dy > 0) {
-                  if (r3 < t0) return;
-                  if (r3 < t1) t1 = r3;
+                  if (r2 < t0) return;
+                  if (r2 < t1) t1 = r2;
                 }
                 if (t0 > 0) a2[0] = ax + t0 * dx, a2[1] = ay + t0 * dy;
                 if (t1 < 1) b2[0] = ax + t1 * dx, b2[1] = ay + t1 * dy;
@@ -227876,13 +228011,13 @@ var plotly = { exports: {} };
               var clip_circle = __webpack_require__2(47402);
               var rectangle = __webpack_require__2(21503);
               function extent2() {
-                var x02 = 0, y02 = 0, x1 = 960, y1 = 500, cache2, cacheStream, clip;
+                var x02 = 0, y02 = 0, x1 = 960, y1 = 500, cache, cacheStream, clip;
                 return clip = {
                   stream: function(stream2) {
-                    return cache2 && cacheStream === stream2 ? cache2 : cache2 = (0, rectangle.A)(x02, y02, x1, y1)(cacheStream = stream2);
+                    return cache && cacheStream === stream2 ? cache : cache = (0, rectangle.A)(x02, y02, x1, y1)(cacheStream = stream2);
                   },
                   extent: function(_2) {
-                    return arguments.length ? (x02 = +_2[0][0], y02 = +_2[0][1], x1 = +_2[1][0], y1 = +_2[1][1], cache2 = cacheStream = null, clip) : [[x02, y02], [x1, y1]];
+                    return arguments.length ? (x02 = +_2[0][0], y02 = +_2[0][1], x1 = +_2[1][0], y1 = +_2[1][1], cache = cacheStream = null, clip) : [[x02, y02], [x1, y1]];
                   }
                 };
               }
@@ -228392,8 +228527,8 @@ var plotly = { exports: {} };
                 if ((0, math.tn)(n2) < math.Ni) return cylindricalEqualAreaRaw(y02);
                 var c2 = 1 + sy0 * (2 * n2 - sy0), r0 = (0, math.RZ)(c2) / n2;
                 function project(x2, y2) {
-                  var r3 = (0, math.RZ)(c2 - 2 * n2 * (0, math.F8)(y2)) / n2;
-                  return [r3 * (0, math.F8)(x2 *= n2), r0 - r3 * (0, math.gn)(x2)];
+                  var r2 = (0, math.RZ)(c2 - 2 * n2 * (0, math.F8)(y2)) / n2;
+                  return [r2 * (0, math.F8)(x2 *= n2), r0 - r2 * (0, math.gn)(x2)];
                 }
                 project.invert = function(x2, y2) {
                   var r0y = r0 - y2, l2 = (0, math.FP)(x2, (0, math.tn)(r0y)) * (0, math._S)(r0y);
@@ -228440,7 +228575,7 @@ var plotly = { exports: {} };
                 };
               }
               function albersUsa() {
-                var cache2, cacheStream, lower48 = albers(), lower48Point, alaska = conicEqualArea().rotate([154, 0]).center([-2, 58.5]).parallels([55, 65]), alaskaPoint, hawaii = conicEqualArea().rotate([157, 0]).center([-3, 19.9]).parallels([8, 18]), hawaiiPoint, point, pointStream = { point: function(x2, y2) {
+                var cache, cacheStream, lower48 = albers(), lower48Point, alaska = conicEqualArea().rotate([154, 0]).center([-2, 58.5]).parallels([55, 65]), alaskaPoint, hawaii = conicEqualArea().rotate([157, 0]).center([-3, 19.9]).parallels([8, 18]), hawaiiPoint, point, pointStream = { point: function(x2, y2) {
                   point = [x2, y2];
                 } };
                 function albersUsa2(coordinates2) {
@@ -228452,7 +228587,7 @@ var plotly = { exports: {} };
                   return (y2 >= 0.12 && y2 < 0.234 && x2 >= -0.425 && x2 < -0.214 ? alaska : y2 >= 0.166 && y2 < 0.234 && x2 >= -0.214 && x2 < -0.115 ? hawaii : lower48).invert(coordinates2);
                 };
                 albersUsa2.stream = function(stream2) {
-                  return cache2 && cacheStream === stream2 ? cache2 : cache2 = multiplex([lower48.stream(cacheStream = stream2), alaska.stream(stream2), hawaii.stream(stream2)]);
+                  return cache && cacheStream === stream2 ? cache : cache = multiplex([lower48.stream(cacheStream = stream2), alaska.stream(stream2), hawaii.stream(stream2)]);
                 };
                 albersUsa2.precision = function(_2) {
                   if (!arguments.length) return lower48.precision();
@@ -228485,7 +228620,7 @@ var plotly = { exports: {} };
                   return (0, fit.FL)(albersUsa2, height2, object2);
                 };
                 function reset() {
-                  cache2 = cacheStream = null;
+                  cache = cacheStream = null;
                   return albersUsa2;
                 }
                 return albersUsa2.scale(1070);
@@ -228534,14 +228669,14 @@ var plotly = { exports: {} };
                   } else {
                     if (y2 > math.TW - math.Ni) y2 = math.TW - math.Ni;
                   }
-                  var r3 = f2 / (0, math.n7)(tany(y2), n2);
-                  return [r3 * (0, math.F8)(n2 * x2), f2 - r3 * (0, math.gn)(n2 * x2)];
+                  var r2 = f2 / (0, math.n7)(tany(y2), n2);
+                  return [r2 * (0, math.F8)(n2 * x2), f2 - r2 * (0, math.gn)(n2 * x2)];
                 }
                 project.invert = function(x2, y2) {
-                  var fy = f2 - y2, r3 = (0, math._S)(n2) * (0, math.RZ)(x2 * x2 + fy * fy), l2 = (0, math.FP)(x2, (0, math.tn)(fy)) * (0, math._S)(fy);
+                  var fy = f2 - y2, r2 = (0, math._S)(n2) * (0, math.RZ)(x2 * x2 + fy * fy), l2 = (0, math.FP)(x2, (0, math.tn)(fy)) * (0, math._S)(fy);
                   if (fy * n2 < 0)
                     l2 -= math.pi * (0, math._S)(x2) * (0, math._S)(fy);
-                  return [l2 / n2, 2 * (0, math.rY)((0, math.n7)(f2 / r3, 1 / n2)) - math.TW];
+                  return [l2 / n2, 2 * (0, math.rY)((0, math.n7)(f2 / r2, 1 / n2)) - math.TW];
                 };
                 return project;
               }
@@ -228599,11 +228734,11 @@ var plotly = { exports: {} };
                     var p2 = projection2([x2, y2]);
                     this.stream.point(p2[0], p2[1]);
                   }
-                }), postclip = identity2.A, cache2, cacheStream;
+                }), postclip = identity2.A, cache, cacheStream;
                 function reset() {
                   kx = k2 * sx;
                   ky = k2 * sy;
-                  cache2 = cacheStream = null;
+                  cache = cacheStream = null;
                   return projection2;
                 }
                 function projection2(p2) {
@@ -228625,7 +228760,7 @@ var plotly = { exports: {} };
                   return [x2 / kx, y2 / ky];
                 };
                 projection2.stream = function(stream2) {
-                  return cache2 && cacheStream === stream2 ? cache2 : cache2 = transform(postclip(cacheStream = stream2));
+                  return cache && cacheStream === stream2 ? cache : cache = transform(postclip(cacheStream = stream2));
                 };
                 projection2.postclip = function(_2) {
                   return arguments.length ? (postclip = _2, x02 = y02 = x1 = y1 = null, reset()) : postclip;
@@ -229398,8 +229533,8 @@ var plotly = { exports: {} };
               function transformRotate(rotate) {
                 return (0, transform.G)({
                   point: function(x2, y2) {
-                    var r3 = rotate(x2, y2);
-                    return this.stream.point(r3[0], r3[1]);
+                    var r2 = rotate(x2, y2);
+                    return this.stream.point(r2[0], r2[1]);
                   }
                 });
               }
@@ -229432,7 +229567,7 @@ var plotly = { exports: {} };
                 })();
               }
               function projectionMutator(projectAt) {
-                var project, k2 = 150, x2 = 480, y2 = 250, lambda = 0, phi = 0, deltaLambda = 0, deltaPhi = 0, deltaGamma = 0, rotate, alpha2 = 0, sx = 1, sy = 1, theta = null, preclip = antimeridian.A, x0 = null, y0, x1, y1, postclip = identity2.A, delta2 = 0.5, projectResample, projectTransform, projectRotateTransform, cache2, cacheStream;
+                var project, k2 = 150, x2 = 480, y2 = 250, lambda = 0, phi = 0, deltaLambda = 0, deltaPhi = 0, deltaGamma = 0, rotate, alpha2 = 0, sx = 1, sy = 1, theta = null, preclip = antimeridian.A, x0 = null, y0, x1, y1, postclip = identity2.A, delta2 = 0.5, projectResample, projectTransform, projectRotateTransform, cache, cacheStream;
                 function projection2(point) {
                   return projectRotateTransform(point[0] * math.F2, point[1] * math.F2);
                 }
@@ -229441,7 +229576,7 @@ var plotly = { exports: {} };
                   return point && [point[0] * math.uj, point[1] * math.uj];
                 }
                 projection2.stream = function(stream) {
-                  return cache2 && cacheStream === stream ? cache2 : cache2 = transformRadians(transformRotate(rotate)(preclip(projectResample(postclip(cacheStream = stream)))));
+                  return cache && cacheStream === stream ? cache : cache = transformRadians(transformRotate(rotate)(preclip(projectResample(postclip(cacheStream = stream)))));
                 };
                 projection2.preclip = function(_2) {
                   return arguments.length ? (preclip = _2, theta = void 0, reset()) : preclip;
@@ -229500,7 +229635,7 @@ var plotly = { exports: {} };
                   return reset();
                 }
                 function reset() {
-                  cache2 = cacheStream = null;
+                  cache = cacheStream = null;
                   return projection2;
                 }
                 return function() {
@@ -230075,14 +230210,14 @@ var plotly = { exports: {} };
                 return links2;
               }
               function hierarchy(data, children) {
-                var root2 = new Node(data), valued = +data.value && (root2.value = data.value), node2, nodes = [root2], child, childs, i2, n2;
+                var root2 = new Node2(data), valued = +data.value && (root2.value = data.value), node2, nodes = [root2], child, childs, i2, n2;
                 if (children == null) children = defaultChildren;
                 while (node2 = nodes.pop()) {
                   if (valued) node2.value = +node2.data.value;
                   if ((childs = children(node2.data)) && (n2 = childs.length)) {
                     node2.children = new Array(n2);
                     for (i2 = n2 - 1; i2 >= 0; --i2) {
-                      nodes.push(child = node2.children[i2] = new Node(childs[i2]));
+                      nodes.push(child = node2.children[i2] = new Node2(childs[i2]));
                       child.parent = node2;
                       child.depth = node2.depth + 1;
                     }
@@ -230105,13 +230240,13 @@ var plotly = { exports: {} };
                   node2.height = height2;
                 while ((node2 = node2.parent) && node2.height < ++height2);
               }
-              function Node(data) {
+              function Node2(data) {
                 this.data = data;
                 this.depth = this.height = 0;
                 this.parent = null;
               }
-              Node.prototype = hierarchy.prototype = {
-                constructor: Node,
+              Node2.prototype = hierarchy.prototype = {
+                constructor: Node2,
                 count: hierarchy_count,
                 each,
                 eachAfter,
@@ -230196,15 +230331,15 @@ var plotly = { exports: {} };
                 };
               }
               function encloseBasis2(a2, b2) {
-                var x1 = a2.x, y1 = a2.y, r1 = a2.r, x2 = b2.x, y2 = b2.y, r22 = b2.r, x21 = x2 - x1, y21 = y2 - y1, r21 = r22 - r1, l2 = Math.sqrt(x21 * x21 + y21 * y21);
+                var x1 = a2.x, y1 = a2.y, r1 = a2.r, x2 = b2.x, y2 = b2.y, r2 = b2.r, x21 = x2 - x1, y21 = y2 - y1, r21 = r2 - r1, l2 = Math.sqrt(x21 * x21 + y21 * y21);
                 return {
                   x: (x1 + x2 + x21 / l2 * r21) / 2,
                   y: (y1 + y2 + y21 / l2 * r21) / 2,
-                  r: (l2 + r1 + r22) / 2
+                  r: (l2 + r1 + r2) / 2
                 };
               }
               function encloseBasis3(a2, b2, c2) {
-                var x1 = a2.x, y1 = a2.y, r1 = a2.r, x2 = b2.x, y2 = b2.y, r22 = b2.r, x3 = c2.x, y3 = c2.y, r3 = c2.r, a22 = x1 - x2, a3 = x1 - x3, b22 = y1 - y2, b3 = y1 - y3, c22 = r22 - r1, c3 = r3 - r1, d1 = x1 * x1 + y1 * y1 - r1 * r1, d2 = d1 - x2 * x2 - y2 * y2 + r22 * r22, d3 = d1 - x3 * x3 - y3 * y3 + r3 * r3, ab2 = a3 * b22 - a22 * b3, xa = (b22 * d3 - b3 * d2) / (ab2 * 2) - x1, xb2 = (b3 * c22 - b22 * c3) / ab2, ya2 = (a3 * d2 - a22 * d3) / (ab2 * 2) - y1, yb2 = (a22 * c3 - a3 * c22) / ab2, A2 = xb2 * xb2 + yb2 * yb2 - 1, B2 = 2 * (r1 + xa * xb2 + ya2 * yb2), C2 = xa * xa + ya2 * ya2 - r1 * r1, r4 = -(A2 ? (B2 + Math.sqrt(B2 * B2 - 4 * A2 * C2)) / (2 * A2) : C2 / B2);
+                var x1 = a2.x, y1 = a2.y, r1 = a2.r, x2 = b2.x, y2 = b2.y, r2 = b2.r, x3 = c2.x, y3 = c2.y, r3 = c2.r, a22 = x1 - x2, a3 = x1 - x3, b22 = y1 - y2, b3 = y1 - y3, c22 = r2 - r1, c3 = r3 - r1, d1 = x1 * x1 + y1 * y1 - r1 * r1, d2 = d1 - x2 * x2 - y2 * y2 + r2 * r2, d3 = d1 - x3 * x3 - y3 * y3 + r3 * r3, ab2 = a3 * b22 - a22 * b3, xa = (b22 * d3 - b3 * d2) / (ab2 * 2) - x1, xb2 = (b3 * c22 - b22 * c3) / ab2, ya2 = (a3 * d2 - a22 * d3) / (ab2 * 2) - y1, yb2 = (a22 * c3 - a3 * c22) / ab2, A2 = xb2 * xb2 + yb2 * yb2 - 1, B2 = 2 * (r1 + xa * xb2 + ya2 * yb2), C2 = xa * xa + ya2 * ya2 - r1 * r1, r4 = -(A2 ? (B2 + Math.sqrt(B2 * B2 - 4 * A2 * C2)) / (2 * A2) : C2 / B2);
                 return {
                   x: x1 + xa + xb2 * r4,
                   y: y1 + ya2 + yb2 * r4,
@@ -230344,11 +230479,11 @@ var plotly = { exports: {} };
               function packChildren(padding2, k2) {
                 return function(node2) {
                   if (children = node2.children) {
-                    var children, i2, n2 = children.length, r3 = padding2(node2) * k2 || 0, e4;
-                    if (r3) for (i2 = 0; i2 < n2; ++i2) children[i2].r += r3;
+                    var children, i2, n2 = children.length, r2 = padding2(node2) * k2 || 0, e4;
+                    if (r2) for (i2 = 0; i2 < n2; ++i2) children[i2].r += r2;
                     e4 = packEnclose(children);
-                    if (r3) for (i2 = 0; i2 < n2; ++i2) children[i2].r -= r3;
-                    node2.r = e4 + r3;
+                    if (r2) for (i2 = 0; i2 < n2; ++i2) children[i2].r -= r2;
+                    node2.r = e4 + r2;
                   }
                 };
               }
@@ -230423,7 +230558,7 @@ var plotly = { exports: {} };
                 function stratify2(data) {
                   var d2, i2, n2 = data.length, root2, parent, node2, nodes = new Array(n2), nodeId, nodeKey, nodeByKey = {};
                   for (i2 = 0; i2 < n2; ++i2) {
-                    d2 = data[i2], node2 = nodes[i2] = new Node(d2);
+                    d2 = data[i2], node2 = nodes[i2] = new Node2(d2);
                     if ((nodeId = id2(d2, i2, data)) != null && (nodeId += "")) {
                       nodeKey = keyPrefix + (node2.id = nodeId);
                       nodeByKey[nodeKey] = nodeKey in nodeByKey ? ambiguous : node2;
@@ -230505,7 +230640,7 @@ var plotly = { exports: {} };
                 this.t = null;
                 this.i = i2;
               }
-              TreeNode.prototype = Object.create(Node.prototype);
+              TreeNode.prototype = Object.create(Node2.prototype);
               function treeRoot(root2) {
                 var tree2 = new TreeNode(root2, 0), node2, nodes = [tree2], child, children, i2, n2;
                 while (node2 = nodes.pop()) {
@@ -230815,38 +230950,38 @@ var plotly = { exports: {} };
                 bezierCurveTo: function(x1, y1, x2, y2, x3, y3) {
                   this._ += "C" + +x1 + "," + +y1 + "," + +x2 + "," + +y2 + "," + (this._x1 = +x3) + "," + (this._y1 = +y3);
                 },
-                arcTo: function(x1, y1, x2, y2, r3) {
-                  x1 = +x1, y1 = +y1, x2 = +x2, y2 = +y2, r3 = +r3;
+                arcTo: function(x1, y1, x2, y2, r2) {
+                  x1 = +x1, y1 = +y1, x2 = +x2, y2 = +y2, r2 = +r2;
                   var x0 = this._x1, y0 = this._y1, x21 = x2 - x1, y21 = y2 - y1, x01 = x0 - x1, y01 = y0 - y1, l01_2 = x01 * x01 + y01 * y01;
-                  if (r3 < 0) throw new Error("negative radius: " + r3);
+                  if (r2 < 0) throw new Error("negative radius: " + r2);
                   if (this._x1 === null) {
                     this._ += "M" + (this._x1 = x1) + "," + (this._y1 = y1);
                   } else if (!(l01_2 > epsilon)) ;
-                  else if (!(Math.abs(y01 * x21 - y21 * x01) > epsilon) || !r3) {
+                  else if (!(Math.abs(y01 * x21 - y21 * x01) > epsilon) || !r2) {
                     this._ += "L" + (this._x1 = x1) + "," + (this._y1 = y1);
                   } else {
-                    var x20 = x2 - x0, y20 = y2 - y0, l21_2 = x21 * x21 + y21 * y21, l20_2 = x20 * x20 + y20 * y20, l21 = Math.sqrt(l21_2), l01 = Math.sqrt(l01_2), l2 = r3 * Math.tan((pi2 - Math.acos((l21_2 + l01_2 - l20_2) / (2 * l21 * l01))) / 2), t01 = l2 / l01, t21 = l2 / l21;
+                    var x20 = x2 - x0, y20 = y2 - y0, l21_2 = x21 * x21 + y21 * y21, l20_2 = x20 * x20 + y20 * y20, l21 = Math.sqrt(l21_2), l01 = Math.sqrt(l01_2), l2 = r2 * Math.tan((pi2 - Math.acos((l21_2 + l01_2 - l20_2) / (2 * l21 * l01))) / 2), t01 = l2 / l01, t21 = l2 / l21;
                     if (Math.abs(t01 - 1) > epsilon) {
                       this._ += "L" + (x1 + t01 * x01) + "," + (y1 + t01 * y01);
                     }
-                    this._ += "A" + r3 + "," + r3 + ",0,0," + +(y01 * x20 > x01 * y20) + "," + (this._x1 = x1 + t21 * x21) + "," + (this._y1 = y1 + t21 * y21);
+                    this._ += "A" + r2 + "," + r2 + ",0,0," + +(y01 * x20 > x01 * y20) + "," + (this._x1 = x1 + t21 * x21) + "," + (this._y1 = y1 + t21 * y21);
                   }
                 },
-                arc: function(x2, y2, r3, a0, a1, ccw) {
-                  x2 = +x2, y2 = +y2, r3 = +r3, ccw = !!ccw;
-                  var dx = r3 * Math.cos(a0), dy = r3 * Math.sin(a0), x0 = x2 + dx, y0 = y2 + dy, cw = 1 ^ ccw, da2 = ccw ? a0 - a1 : a1 - a0;
-                  if (r3 < 0) throw new Error("negative radius: " + r3);
+                arc: function(x2, y2, r2, a0, a1, ccw) {
+                  x2 = +x2, y2 = +y2, r2 = +r2, ccw = !!ccw;
+                  var dx = r2 * Math.cos(a0), dy = r2 * Math.sin(a0), x0 = x2 + dx, y0 = y2 + dy, cw = 1 ^ ccw, da2 = ccw ? a0 - a1 : a1 - a0;
+                  if (r2 < 0) throw new Error("negative radius: " + r2);
                   if (this._x1 === null) {
                     this._ += "M" + x0 + "," + y0;
                   } else if (Math.abs(this._x1 - x0) > epsilon || Math.abs(this._y1 - y0) > epsilon) {
                     this._ += "L" + x0 + "," + y0;
                   }
-                  if (!r3) return;
+                  if (!r2) return;
                   if (da2 < 0) da2 = da2 % tau + tau;
                   if (da2 > tauEpsilon) {
-                    this._ += "A" + r3 + "," + r3 + ",0,1," + cw + "," + (x2 - dx) + "," + (y2 - dy) + "A" + r3 + "," + r3 + ",0,1," + cw + "," + (this._x1 = x0) + "," + (this._y1 = y0);
+                    this._ += "A" + r2 + "," + r2 + ",0,1," + cw + "," + (x2 - dx) + "," + (y2 - dy) + "A" + r2 + "," + r2 + ",0,1," + cw + "," + (this._x1 = x0) + "," + (this._y1 = y0);
                   } else if (da2 > epsilon) {
-                    this._ += "A" + r3 + "," + r3 + ",0," + +(da2 >= pi2) + "," + cw + "," + (this._x1 = x2 + r3 * Math.cos(a1)) + "," + (this._y1 = y2 + r3 * Math.sin(a1));
+                    this._ += "A" + r2 + "," + r2 + ",0," + +(da2 >= pi2) + "," + cw + "," + (this._x1 = x2 + r2 * Math.cos(a1)) + "," + (this._y1 = y2 + r2 * Math.sin(a1));
                   }
                 },
                 rect: function(x2, y2, w2, h2) {
@@ -232595,19 +232730,19 @@ var plotly = { exports: {} };
               var asciiPairs = createPairs([32, 126]);
               kerning.createPairs = createPairs;
               kerning.ascii = asciiPairs;
-              function kerning(family, o2) {
+              function kerning(family, o3) {
                 if (Array.isArray(family)) family = family.join(", ");
                 var table = {}, pairs, fs = 16, threshold = 0.05;
-                if (o2) {
-                  if (o2.length === 2 && typeof o2[0] === "number") {
-                    pairs = createPairs(o2);
-                  } else if (Array.isArray(o2)) {
-                    pairs = o2;
+                if (o3) {
+                  if (o3.length === 2 && typeof o3[0] === "number") {
+                    pairs = createPairs(o3);
+                  } else if (Array.isArray(o3)) {
+                    pairs = o3;
                   } else {
-                    if (o2.o) pairs = createPairs(o2.o);
-                    else if (o2.pairs) pairs = o2.pairs;
-                    if (o2.fontSize) fs = o2.fontSize;
-                    if (o2.threshold != null) threshold = o2.threshold;
+                    if (o3.o) pairs = createPairs(o3.o);
+                    else if (o3.pairs) pairs = o3.pairs;
+                    if (o3.fontSize) fs = o3.fontSize;
+                    if (o3.threshold != null) threshold = o3.threshold;
                   }
                 }
                 if (!pairs) pairs = asciiPairs;
@@ -233037,26 +233172,26 @@ var plotly = { exports: {} };
                 (area(a2.prev, a2, b2.prev) || area(a2, b2.prev, b2)) || // does not create opposite-facing sectors
                 equals(a2, b2) && area(a2.prev, a2, a2.next) > 0 && area(b2.prev, b2, b2.next) > 0);
               }
-              function area(p2, q2, r3) {
-                return (q2.y - p2.y) * (r3.x - q2.x) - (q2.x - p2.x) * (r3.y - q2.y);
+              function area(p2, q2, r2) {
+                return (q2.y - p2.y) * (r2.x - q2.x) - (q2.x - p2.x) * (r2.y - q2.y);
               }
               function equals(p1, p2) {
                 return p1.x === p2.x && p1.y === p2.y;
               }
               function intersects(p1, q1, p2, q2) {
                 var o1 = sign2(area(p1, q1, p2));
-                var o2 = sign2(area(p1, q1, q2));
+                var o22 = sign2(area(p1, q1, q2));
                 var o3 = sign2(area(p2, q2, p1));
                 var o4 = sign2(area(p2, q2, q1));
-                if (o1 !== o2 && o3 !== o4) return true;
+                if (o1 !== o22 && o3 !== o4) return true;
                 if (o1 === 0 && onSegment(p1, p2, q1)) return true;
-                if (o2 === 0 && onSegment(p1, q2, q1)) return true;
+                if (o22 === 0 && onSegment(p1, q2, q1)) return true;
                 if (o3 === 0 && onSegment(p2, p1, q2)) return true;
                 if (o4 === 0 && onSegment(p2, q1, q2)) return true;
                 return false;
               }
-              function onSegment(p2, q2, r3) {
-                return q2.x <= Math.max(p2.x, r3.x) && q2.x >= Math.min(p2.x, r3.x) && q2.y <= Math.max(p2.y, r3.y) && q2.y >= Math.min(p2.y, r3.y);
+              function onSegment(p2, q2, r2) {
+                return q2.x <= Math.max(p2.x, r2.x) && q2.x >= Math.min(p2.x, r2.x) && q2.y <= Math.max(p2.y, r2.y) && q2.y >= Math.min(p2.y, r2.y);
               }
               function sign2(num) {
                 return num > 0 ? 1 : num < 0 ? -1 : 0;
@@ -233082,7 +233217,7 @@ var plotly = { exports: {} };
                 return inside;
               }
               function splitPolygon(a2, b2) {
-                var a22 = new Node(a2.i, a2.x, a2.y), b22 = new Node(b2.i, b2.x, b2.y), an = a2.next, bp = b2.prev;
+                var a22 = new Node2(a2.i, a2.x, a2.y), b22 = new Node2(b2.i, b2.x, b2.y), an = a2.next, bp = b2.prev;
                 a2.next = b2;
                 b2.prev = a2;
                 a22.next = an;
@@ -233094,7 +233229,7 @@ var plotly = { exports: {} };
                 return b22;
               }
               function insertNode(i2, x2, y2, last) {
-                var p2 = new Node(i2, x2, y2);
+                var p2 = new Node2(i2, x2, y2);
                 if (!last) {
                   p2.prev = p2;
                   p2.next = p2;
@@ -233112,7 +233247,7 @@ var plotly = { exports: {} };
                 if (p2.prevZ) p2.prevZ.nextZ = p2.nextZ;
                 if (p2.nextZ) p2.nextZ.prevZ = p2.prevZ;
               }
-              function Node(i2, x2, y2) {
+              function Node2(i2, x2, y2) {
                 this.i = i2;
                 this.x = x2;
                 this.y = y2;
@@ -234596,9 +234731,9 @@ var plotly = { exports: {} };
                   ReflectApply(handler, this, args);
                 } else {
                   var len = handler.length;
-                  var listeners2 = arrayClone(handler, len);
+                  var listeners = arrayClone(handler, len);
                   for (var i2 = 0; i2 < len; ++i2)
-                    ReflectApply(listeners2[i2], this, args);
+                    ReflectApply(listeners[i2], this, args);
                 }
                 return true;
               };
@@ -234721,7 +234856,7 @@ var plotly = { exports: {} };
               };
               EventEmitter.prototype.off = EventEmitter.prototype.removeListener;
               EventEmitter.prototype.removeAllListeners = function removeAllListeners(type) {
-                var listeners2, events, i2;
+                var listeners, events, i2;
                 events = this._events;
                 if (events === void 0)
                   return this;
@@ -234750,12 +234885,12 @@ var plotly = { exports: {} };
                   this._eventsCount = 0;
                   return this;
                 }
-                listeners2 = events[type];
-                if (typeof listeners2 === "function") {
-                  this.removeListener(type, listeners2);
-                } else if (listeners2 !== void 0) {
-                  for (i2 = listeners2.length - 1; i2 >= 0; i2--) {
-                    this.removeListener(type, listeners2[i2]);
+                listeners = events[type];
+                if (typeof listeners === "function") {
+                  this.removeListener(type, listeners);
+                } else if (listeners !== void 0) {
+                  for (i2 = listeners.length - 1; i2 >= 0; i2--) {
+                    this.removeListener(type, listeners[i2]);
                   }
                 }
                 return this;
@@ -234771,7 +234906,7 @@ var plotly = { exports: {} };
                   return unwrap ? [evlistener.listener || evlistener] : [evlistener];
                 return unwrap ? unwrapListeners(evlistener) : arrayClone(evlistener, evlistener.length);
               }
-              EventEmitter.prototype.listeners = function listeners2(type) {
+              EventEmitter.prototype.listeners = function listeners(type) {
                 return _listeners(this, type, true);
               };
               EventEmitter.prototype.rawListeners = function rawListeners(type) {
@@ -235025,32 +235160,32 @@ var plotly = { exports: {} };
               module2.exports = measure;
               measure.canvas = document.createElement("canvas");
               measure.cache = {};
-              function measure(font2, o2) {
-                if (!o2) o2 = {};
+              function measure(font2, o3) {
+                if (!o3) o3 = {};
                 if (typeof font2 === "string" || Array.isArray(font2)) {
-                  o2.family = font2;
+                  o3.family = font2;
                 }
-                var family = Array.isArray(o2.family) ? o2.family.join(", ") : o2.family;
+                var family = Array.isArray(o3.family) ? o3.family.join(", ") : o3.family;
                 if (!family) throw Error("`family` must be defined");
-                var fs = o2.size || o2.fontSize || o2.em || 48;
-                var weight = o2.weight || o2.fontWeight || "";
-                var style2 = o2.style || o2.fontStyle || "";
+                var fs = o3.size || o3.fontSize || o3.em || 48;
+                var weight = o3.weight || o3.fontWeight || "";
+                var style2 = o3.style || o3.fontStyle || "";
                 var font2 = [style2, weight, fs].join(" ") + "px " + family;
-                var origin = o2.origin || "top";
+                var origin = o3.origin || "top";
                 if (measure.cache[family]) {
                   if (fs <= measure.cache[family].em) {
                     return applyOrigin(measure.cache[family], origin);
                   }
                 }
-                var canvas = o2.canvas || measure.canvas;
+                var canvas = o3.canvas || measure.canvas;
                 var ctx = canvas.getContext("2d");
                 var chars = {
-                  upper: o2.upper !== void 0 ? o2.upper : "H",
-                  lower: o2.lower !== void 0 ? o2.lower : "x",
-                  descent: o2.descent !== void 0 ? o2.descent : "p",
-                  ascent: o2.ascent !== void 0 ? o2.ascent : "h",
-                  tittle: o2.tittle !== void 0 ? o2.tittle : "i",
-                  overshoot: o2.overshoot !== void 0 ? o2.overshoot : "O"
+                  upper: o3.upper !== void 0 ? o3.upper : "H",
+                  lower: o3.lower !== void 0 ? o3.lower : "x",
+                  descent: o3.descent !== void 0 ? o3.descent : "p",
+                  ascent: o3.ascent !== void 0 ? o3.ascent : "h",
+                  tittle: o3.tittle !== void 0 ? o3.tittle : "i",
+                  overshoot: o3.overshoot !== void 0 ? o3.overshoot : "O"
                 };
                 var l2 = Math.ceil(fs * 1.5);
                 canvas.height = l2;
@@ -236614,16 +236749,16 @@ var plotly = { exports: {} };
                 }
                 document.body.removeChild(el2);
               }
-              var GlText = function GlText2(o2) {
-                if (isRegl(o2)) {
-                  o2 = { regl: o2 };
-                  this.gl = o2.regl._gl;
+              var GlText = function GlText2(o3) {
+                if (isRegl(o3)) {
+                  o3 = { regl: o3 };
+                  this.gl = o3.regl._gl;
                 } else {
-                  this.gl = createGl(o2);
+                  this.gl = createGl(o3);
                 }
                 this.shader = shaderCache.get(this.gl);
                 if (!this.shader) {
-                  this.regl = o2.regl || createRegl({ gl: this.gl });
+                  this.regl = o3.regl || createRegl({ gl: this.gl });
                 } else {
                   this.regl = this.shader.regl;
                 }
@@ -236643,7 +236778,7 @@ var plotly = { exports: {} };
                   this.draw(this.batch);
                 };
                 this.canvas = this.gl.canvas;
-                this.update(isObj2(o2) ? o2 : {});
+                this.update(isObj2(o3) ? o3 : {});
               };
               GlText.prototype.createShader = function createShader() {
                 var regl = this.regl;
@@ -236709,14 +236844,14 @@ var plotly = { exports: {} };
                 var atlas = {};
                 return { regl, draw, atlas };
               };
-              GlText.prototype.update = function update(o2) {
+              GlText.prototype.update = function update(o3) {
                 var this$1$1 = this;
-                if (typeof o2 === "string") {
-                  o2 = { text: o2 };
-                } else if (!o2) {
+                if (typeof o3 === "string") {
+                  o3 = { text: o3 };
+                } else if (!o3) {
                   return;
                 }
-                o2 = pick(o2, {
+                o3 = pick(o3, {
                   position: "position positions coord coords coordinates",
                   font: "font fontFace fontface typeface cssFont css-font family fontFamily",
                   fontSize: "fontSize fontsize size font-size",
@@ -236731,17 +236866,17 @@ var plotly = { exports: {} };
                   opacity: "opacity alpha transparency visible visibility opaque",
                   offset: "offset positionOffset padding shift indent indentation"
                 }, true);
-                if (o2.opacity != null) {
-                  if (Array.isArray(o2.opacity)) {
-                    this.opacity = o2.opacity.map(function(o22) {
+                if (o3.opacity != null) {
+                  if (Array.isArray(o3.opacity)) {
+                    this.opacity = o3.opacity.map(function(o22) {
                       return parseFloat(o22);
                     });
                   } else {
-                    this.opacity = parseFloat(o2.opacity);
+                    this.opacity = parseFloat(o3.opacity);
                   }
                 }
-                if (o2.viewport != null) {
-                  this.viewport = parseRect(o2.viewport);
+                if (o3.viewport != null) {
+                  this.viewport = parseRect(o3.viewport);
                   this.viewportArray = [this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height];
                 }
                 if (this.viewport == null) {
@@ -236753,28 +236888,28 @@ var plotly = { exports: {} };
                   };
                   this.viewportArray = [this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height];
                 }
-                if (o2.kerning != null) {
-                  this.kerning = o2.kerning;
+                if (o3.kerning != null) {
+                  this.kerning = o3.kerning;
                 }
-                if (o2.offset != null) {
-                  if (typeof o2.offset === "number") {
-                    o2.offset = [o2.offset, 0];
+                if (o3.offset != null) {
+                  if (typeof o3.offset === "number") {
+                    o3.offset = [o3.offset, 0];
                   }
-                  this.positionOffset = flatten(o2.offset);
+                  this.positionOffset = flatten(o3.offset);
                 }
-                if (o2.direction) {
-                  this.direction = o2.direction;
+                if (o3.direction) {
+                  this.direction = o3.direction;
                 }
-                if (o2.range) {
-                  this.range = o2.range;
-                  this.scale = [1 / (o2.range[2] - o2.range[0]), 1 / (o2.range[3] - o2.range[1])];
-                  this.translate = [-o2.range[0], -o2.range[1]];
+                if (o3.range) {
+                  this.range = o3.range;
+                  this.scale = [1 / (o3.range[2] - o3.range[0]), 1 / (o3.range[3] - o3.range[1])];
+                  this.translate = [-o3.range[0], -o3.range[1]];
                 }
-                if (o2.scale) {
-                  this.scale = o2.scale;
+                if (o3.scale) {
+                  this.scale = o3.scale;
                 }
-                if (o2.translate) {
-                  this.translate = o2.translate;
+                if (o3.translate) {
+                  this.translate = o3.translate;
                 }
                 if (!this.scale) {
                   this.scale = [1 / this.viewport.width, 1 / this.viewport.height];
@@ -236782,12 +236917,12 @@ var plotly = { exports: {} };
                 if (!this.translate) {
                   this.translate = [0, 0];
                 }
-                if (!this.font.length && !o2.font) {
-                  o2.font = GlText.baseFontSize + "px sans-serif";
+                if (!this.font.length && !o3.font) {
+                  o3.font = GlText.baseFontSize + "px sans-serif";
                 }
                 var newFont = false, newFontSize = false;
-                if (o2.font) {
-                  (Array.isArray(o2.font) ? o2.font : [o2.font]).forEach(function(font22, i22) {
+                if (o3.font) {
+                  (Array.isArray(o3.font) ? o3.font : [o3.font]).forEach(function(font22, i22) {
                     if (typeof font22 === "string") {
                       try {
                         font22 = Font.parse(font22);
@@ -236884,32 +237019,32 @@ var plotly = { exports: {} };
                         texture: this$1$1.regl.texture()
                       };
                     }
-                    if (o2.text == null) {
-                      o2.text = this$1$1.text;
+                    if (o3.text == null) {
+                      o3.text = this$1$1.text;
                     }
                   });
                 }
-                if (typeof o2.text === "string" && o2.position && o2.position.length > 2) {
-                  var textArray = Array(o2.position.length * 0.5);
+                if (typeof o3.text === "string" && o3.position && o3.position.length > 2) {
+                  var textArray = Array(o3.position.length * 0.5);
                   for (var i2 = 0; i2 < textArray.length; i2++) {
-                    textArray[i2] = o2.text;
+                    textArray[i2] = o3.text;
                   }
-                  o2.text = textArray;
+                  o3.text = textArray;
                 }
                 var newAtlasChars;
-                if (o2.text != null || newFont) {
+                if (o3.text != null || newFont) {
                   this.textOffsets = [0];
-                  if (Array.isArray(o2.text)) {
-                    this.count = o2.text[0].length;
+                  if (Array.isArray(o3.text)) {
+                    this.count = o3.text[0].length;
                     this.counts = [this.count];
-                    for (var i$12 = 1; i$12 < o2.text.length; i$12++) {
-                      this.textOffsets[i$12] = this.textOffsets[i$12 - 1] + o2.text[i$12 - 1].length;
-                      this.count += o2.text[i$12].length;
-                      this.counts.push(o2.text[i$12].length);
+                    for (var i$12 = 1; i$12 < o3.text.length; i$12++) {
+                      this.textOffsets[i$12] = this.textOffsets[i$12 - 1] + o3.text[i$12 - 1].length;
+                      this.count += o3.text[i$12].length;
+                      this.counts.push(o3.text[i$12].length);
                     }
-                    this.text = o2.text.join("");
+                    this.text = o3.text.join("");
                   } else {
-                    this.text = o2.text;
+                    this.text = o3.text;
                     this.count = this.text.length;
                     this.counts = [this.count];
                   }
@@ -236939,21 +237074,21 @@ var plotly = { exports: {} };
                     }
                   });
                 }
-                if (o2.position) {
-                  if (o2.position.length > 2) {
-                    var flat = !o2.position[0].length;
+                if (o3.position) {
+                  if (o3.position.length > 2) {
+                    var flat = !o3.position[0].length;
                     var positionData = pool.mallocFloat(this.count * 2);
                     for (var i$22 = 0, ptr = 0; i$22 < this.counts.length; i$22++) {
                       var count = this.counts[i$22];
                       if (flat) {
                         for (var j = 0; j < count; j++) {
-                          positionData[ptr++] = o2.position[i$22 * 2];
-                          positionData[ptr++] = o2.position[i$22 * 2 + 1];
+                          positionData[ptr++] = o3.position[i$22 * 2];
+                          positionData[ptr++] = o3.position[i$22 * 2 + 1];
                         }
                       } else {
                         for (var j$1 = 0; j$1 < count; j$1++) {
-                          positionData[ptr++] = o2.position[i$22][0];
-                          positionData[ptr++] = o2.position[i$22][1];
+                          positionData[ptr++] = o3.position[i$22][0];
+                          positionData[ptr++] = o3.position[i$22][1];
                         }
                       }
                     }
@@ -236974,11 +237109,11 @@ var plotly = { exports: {} };
                       this.position.destroy();
                     }
                     this.position = {
-                      constant: o2.position
+                      constant: o3.position
                     };
                   }
                 }
-                if (o2.text || newFont) {
+                if (o3.text || newFont) {
                   var charIds = pool.mallocUint8(this.count);
                   var sizeData = pool.mallocFloat(this.count * 2);
                   this.textWidth = [];
@@ -237015,8 +237150,8 @@ var plotly = { exports: {} };
                       )
                     );
                   }
-                  if (!o2.align) {
-                    o2.align = this.align;
+                  if (!o3.align) {
+                    o3.align = this.align;
                   }
                   this.charBuffer({ data: charIds, type: "uint8", usage: "stream" });
                   this.sizeBuffer({ data: sizeData, type: "float", usage: "stream" });
@@ -237050,8 +237185,8 @@ var plotly = { exports: {} };
                     });
                   }
                 }
-                if (o2.align) {
-                  this.align = o2.align;
+                if (o3.align) {
+                  this.align = o3.align;
                   this.alignOffset = this.textWidth.map(function(textWidth, i22) {
                     var align = !Array.isArray(this$1$1.align) ? this$1$1.align : this$1$1.align.length > 1 ? this$1$1.align[i22] : this$1$1.align[0];
                     if (typeof align === "number") {
@@ -237069,11 +237204,11 @@ var plotly = { exports: {} };
                     return 0;
                   });
                 }
-                if (this.baseline == null && o2.baseline == null) {
-                  o2.baseline = 0;
+                if (this.baseline == null && o3.baseline == null) {
+                  o3.baseline = 0;
                 }
-                if (o2.baseline != null) {
-                  this.baseline = o2.baseline;
+                if (o3.baseline != null) {
+                  this.baseline = o3.baseline;
                   if (!Array.isArray(this.baseline)) {
                     this.baseline = [this.baseline];
                   }
@@ -237090,32 +237225,32 @@ var plotly = { exports: {} };
                     return base;
                   });
                 }
-                if (o2.color != null) {
-                  if (!o2.color) {
-                    o2.color = "transparent";
+                if (o3.color != null) {
+                  if (!o3.color) {
+                    o3.color = "transparent";
                   }
-                  if (typeof o2.color === "string" || !isNaN(o2.color)) {
-                    this.color = rgba(o2.color, "uint8");
+                  if (typeof o3.color === "string" || !isNaN(o3.color)) {
+                    this.color = rgba(o3.color, "uint8");
                   } else {
                     var colorData;
-                    if (typeof o2.color[0] === "number" && o2.color.length > this.counts.length) {
-                      var l2 = o2.color.length;
+                    if (typeof o3.color[0] === "number" && o3.color.length > this.counts.length) {
+                      var l2 = o3.color.length;
                       colorData = pool.mallocUint8(l2);
-                      var sub = (o2.color.subarray || o2.color.slice).bind(o2.color);
+                      var sub = (o3.color.subarray || o3.color.slice).bind(o3.color);
                       for (var i$4 = 0; i$4 < l2; i$4 += 4) {
                         colorData.set(rgba(sub(i$4, i$4 + 4), "uint8"), i$4);
                       }
                     } else {
-                      var l$12 = o2.color.length;
+                      var l$12 = o3.color.length;
                       colorData = pool.mallocUint8(l$12 * 4);
                       for (var i$5 = 0; i$5 < l$12; i$5++) {
-                        colorData.set(rgba(o2.color[i$5] || 0, "uint8"), i$5 * 4);
+                        colorData.set(rgba(o3.color[i$5] || 0, "uint8"), i$5 * 4);
                       }
                     }
                     this.color = colorData;
                   }
                 }
-                if (o2.position || o2.text || o2.color || o2.baseline || o2.align || o2.font || o2.offset || o2.opacity) {
+                if (o3.position || o3.text || o3.color || o3.baseline || o3.align || o3.font || o3.offset || o3.opacity) {
                   var isBatch = this.color.length > 4 || this.baselineOffset.length > 1 || this.align && this.align.length > 1 || this.fontAtlas.length > 1 || this.positionOffset.length > 2;
                   if (isBatch) {
                     var length2 = Math.max(
@@ -237175,8 +237310,8 @@ var plotly = { exports: {} };
               GlText.atlasContext = GlText.atlasCanvas.getContext("2d", { alpha: false });
               GlText.baseFontSize = 64;
               GlText.fonts = {};
-              function isRegl(o2) {
-                return typeof o2 === "function" && o2._gl && o2.prop && o2.texture && o2.buffer;
+              function isRegl(o3) {
+                return typeof o3 === "function" && o3._gl && o3.prop && o3.texture && o3.buffer;
               }
               module2.exports = GlText;
             }
@@ -237186,17 +237321,17 @@ var plotly = { exports: {} };
             /***/
             function(module2, __unused_webpack_exports, __webpack_require__2) {
               var pick = __webpack_require__2(6807);
-              module2.exports = function setContext(o2) {
-                if (!o2) o2 = {};
-                else if (typeof o2 === "string") o2 = { container: o2 };
-                if (isCanvas(o2)) {
-                  o2 = { container: o2 };
-                } else if (isElement2(o2)) {
-                  o2 = { container: o2 };
-                } else if (isContext(o2)) {
-                  o2 = { gl: o2 };
+              module2.exports = function setContext(o3) {
+                if (!o3) o3 = {};
+                else if (typeof o3 === "string") o3 = { container: o3 };
+                if (isCanvas(o3)) {
+                  o3 = { container: o3 };
+                } else if (isElement2(o3)) {
+                  o3 = { container: o3 };
+                } else if (isContext(o3)) {
+                  o3 = { gl: o3 };
                 } else {
-                  o2 = pick(o2, {
+                  o3 = pick(o3, {
                     container: "container target element el canvas holder parent parentNode wrapper use ref root node",
                     gl: "gl context webgl glContext",
                     attrs: "attributes attrs contextAttributes",
@@ -237205,57 +237340,57 @@ var plotly = { exports: {} };
                     height: "h height"
                   }, true);
                 }
-                if (!o2.pixelRatio) o2.pixelRatio = __webpack_require__2.g.pixelRatio || 1;
-                if (o2.gl) {
-                  return o2.gl;
+                if (!o3.pixelRatio) o3.pixelRatio = __webpack_require__2.g.pixelRatio || 1;
+                if (o3.gl) {
+                  return o3.gl;
                 }
-                if (o2.canvas) {
-                  o2.container = o2.canvas.parentNode;
+                if (o3.canvas) {
+                  o3.container = o3.canvas.parentNode;
                 }
-                if (o2.container) {
-                  if (typeof o2.container === "string") {
-                    var c2 = document.querySelector(o2.container);
-                    if (!c2) throw Error("Element " + o2.container + " is not found");
-                    o2.container = c2;
+                if (o3.container) {
+                  if (typeof o3.container === "string") {
+                    var c2 = document.querySelector(o3.container);
+                    if (!c2) throw Error("Element " + o3.container + " is not found");
+                    o3.container = c2;
                   }
-                  if (isCanvas(o2.container)) {
-                    o2.canvas = o2.container;
-                    o2.container = o2.canvas.parentNode;
-                  } else if (!o2.canvas) {
-                    o2.canvas = createCanvas();
-                    o2.container.appendChild(o2.canvas);
-                    resize2(o2);
+                  if (isCanvas(o3.container)) {
+                    o3.canvas = o3.container;
+                    o3.container = o3.canvas.parentNode;
+                  } else if (!o3.canvas) {
+                    o3.canvas = createCanvas();
+                    o3.container.appendChild(o3.canvas);
+                    resize2(o3);
                   }
-                } else if (!o2.canvas) {
+                } else if (!o3.canvas) {
                   if (typeof document !== "undefined") {
-                    o2.container = document.body || document.documentElement;
-                    o2.canvas = createCanvas();
-                    o2.container.appendChild(o2.canvas);
-                    resize2(o2);
+                    o3.container = document.body || document.documentElement;
+                    o3.canvas = createCanvas();
+                    o3.container.appendChild(o3.canvas);
+                    resize2(o3);
                   } else {
                     throw Error("Not DOM environment. Use headless-gl.");
                   }
                 }
-                if (!o2.gl) {
+                if (!o3.gl) {
                   ["webgl", "experimental-webgl", "webgl-experimental"].some(function(c22) {
                     try {
-                      o2.gl = o2.canvas.getContext(c22, o2.attrs);
+                      o3.gl = o3.canvas.getContext(c22, o3.attrs);
                     } catch (e4) {
                     }
-                    return o2.gl;
+                    return o3.gl;
                   });
                 }
-                return o2.gl;
+                return o3.gl;
               };
-              function resize2(o2) {
-                if (o2.container) {
-                  if (o2.container == document.body) {
-                    if (!document.body.style.width) o2.canvas.width = o2.width || o2.pixelRatio * __webpack_require__2.g.innerWidth;
-                    if (!document.body.style.height) o2.canvas.height = o2.height || o2.pixelRatio * __webpack_require__2.g.innerHeight;
+              function resize2(o3) {
+                if (o3.container) {
+                  if (o3.container == document.body) {
+                    if (!document.body.style.width) o3.canvas.width = o3.width || o3.pixelRatio * __webpack_require__2.g.innerWidth;
+                    if (!document.body.style.height) o3.canvas.height = o3.height || o3.pixelRatio * __webpack_require__2.g.innerHeight;
                   } else {
-                    var bounds = o2.container.getBoundingClientRect();
-                    o2.canvas.width = o2.width || bounds.right - bounds.left;
-                    o2.canvas.height = o2.height || bounds.bottom - bounds.top;
+                    var bounds = o3.container.getBoundingClientRect();
+                    o3.canvas.width = o3.width || bounds.right - bounds.left;
+                    o3.canvas.height = o3.height || bounds.bottom - bounds.top;
                   }
                 }
               }
@@ -238343,10 +238478,10 @@ var plotly = { exports: {} };
                     cycle = timer(scheduling_queue.drain);
                   }
                 }
-                function isThenable(o2) {
-                  var _then, o_type = typeof o2;
-                  if (o2 != null && (o_type == "object" || o_type == "function")) {
-                    _then = o2.then;
+                function isThenable(o3) {
+                  var _then, o_type = typeof o3;
+                  if (o3 != null && (o_type == "object" || o_type == "function")) {
+                    _then = o3.then;
                   }
                   return typeof _then == "function" ? _then : false;
                 }
@@ -238469,22 +238604,22 @@ var plotly = { exports: {} };
                   this.__NPO__ = 1;
                   var def = new MakeDef(this);
                   this["then"] = function then(success, failure) {
-                    var o2 = {
+                    var o3 = {
                       success: typeof success == "function" ? success : true,
                       failure: typeof failure == "function" ? failure : false
                     };
-                    o2.promise = new this.constructor(function extractChain(resolve2, reject2) {
+                    o3.promise = new this.constructor(function extractChain(resolve2, reject2) {
                       if (typeof resolve2 != "function" || typeof reject2 != "function") {
                         throw TypeError("Not a function");
                       }
-                      o2.resolve = resolve2;
-                      o2.reject = reject2;
+                      o3.resolve = resolve2;
+                      o3.reject = reject2;
                     });
-                    def.chain.push(o2);
+                    def.chain.push(o3);
                     if (def.state !== 0) {
                       schedule(notify, def);
                     }
-                    return o2.promise;
+                    return o3.promise;
                   };
                   this["catch"] = function $catch$(failure) {
                     return this.then(void 0, failure);
@@ -238914,9 +239049,9 @@ var plotly = { exports: {} };
                   "propertyIsEnumerable",
                   "constructor"
                 ];
-                var equalsConstructorPrototype = function(o2) {
-                  var ctor = o2.constructor;
-                  return ctor && ctor.prototype === o2;
+                var equalsConstructorPrototype = function(o3) {
+                  var ctor = o3.constructor;
+                  return ctor && ctor.prototype === o3;
                 };
                 var excludedKeys = {
                   $applicationCache: true,
@@ -238962,12 +239097,12 @@ var plotly = { exports: {} };
                   }
                   return false;
                 }();
-                var equalsConstructorPrototypeIfNotBuggy = function(o2) {
+                var equalsConstructorPrototypeIfNotBuggy = function(o3) {
                   if (typeof window === "undefined" || !hasAutomationEqualityBug) {
-                    return equalsConstructorPrototype(o2);
+                    return equalsConstructorPrototype(o3);
                   }
                   try {
-                    return equalsConstructorPrototype(o2);
+                    return equalsConstructorPrototype(o3);
                   } catch (e4) {
                     return false;
                   }
@@ -239019,8 +239154,8 @@ var plotly = { exports: {} };
               var slice2 = Array.prototype.slice;
               var isArgs = __webpack_require__2(52385);
               var origKeys = Object.keys;
-              var keysShim = origKeys ? function keys2(o2) {
-                return origKeys(o2);
+              var keysShim = origKeys ? function keys2(o3) {
+                return origKeys(o3);
               } : __webpack_require__2(61663);
               var originalKeys = Object.keys;
               keysShim.shim = function shimObjectKeys() {
@@ -239867,11 +240002,11 @@ var plotly = { exports: {} };
                 // convert a PolyBool polygon to a GeoJSON object
                 fromPolygon: function(PolyBool, eps, poly) {
                   poly = PolyBool.polygon(PolyBool.segments(poly));
-                  function regionInsideRegion(r1, r22) {
+                  function regionInsideRegion(r1, r2) {
                     return eps.pointInsideRegion([
                       (r1[0][0] + r1[1][0]) * 0.5,
                       (r1[0][1] + r1[1][1]) * 0.5
-                    ], r22);
+                    ], r2);
                   }
                   function newNode(region2) {
                     return {
@@ -242660,19 +242795,19 @@ var plotly = { exports: {} };
                 var ref2 = this;
                 var regl = ref2.regl;
                 var gl2 = ref2.gl;
-                options.forEach(function(o2, i22) {
+                options.forEach(function(o3, i22) {
                   var state = this$1$1.passes[i22];
-                  if (o2 === void 0) {
+                  if (o3 === void 0) {
                     return;
                   }
-                  if (o2 === null) {
+                  if (o3 === null) {
                     this$1$1.passes[i22] = null;
                     return;
                   }
-                  if (typeof o2[0] === "number") {
-                    o2 = { positions: o2 };
+                  if (typeof o3[0] === "number") {
+                    o3 = { positions: o3 };
                   }
-                  o2 = pick(o2, {
+                  o3 = pick(o3, {
                     positions: "positions points data coords",
                     thickness: "thickness lineWidth lineWidths line-width linewidth width stroke-width strokewidth strokeWidth",
                     join: "lineJoin linejoin join type mode",
@@ -242723,34 +242858,34 @@ var plotly = { exports: {} };
                         data: new Uint8Array()
                       })
                     };
-                    o2 = extend({}, Line2D.defaults, o2);
+                    o3 = extend({}, Line2D.defaults, o3);
                   }
-                  if (o2.thickness != null) {
-                    state.thickness = parseFloat(o2.thickness);
+                  if (o3.thickness != null) {
+                    state.thickness = parseFloat(o3.thickness);
                   }
-                  if (o2.opacity != null) {
-                    state.opacity = parseFloat(o2.opacity);
+                  if (o3.opacity != null) {
+                    state.opacity = parseFloat(o3.opacity);
                   }
-                  if (o2.miterLimit != null) {
-                    state.miterLimit = parseFloat(o2.miterLimit);
+                  if (o3.miterLimit != null) {
+                    state.miterLimit = parseFloat(o3.miterLimit);
                   }
-                  if (o2.overlay != null) {
-                    state.overlay = !!o2.overlay;
+                  if (o3.overlay != null) {
+                    state.overlay = !!o3.overlay;
                     if (i22 < Line2D.maxLines) {
                       state.depth = 2 * (Line2D.maxLines - 1 - i22 % Line2D.maxLines) / Line2D.maxLines - 1;
                     }
                   }
-                  if (o2.join != null) {
-                    state.join = o2.join;
+                  if (o3.join != null) {
+                    state.join = o3.join;
                   }
-                  if (o2.hole != null) {
-                    state.hole = o2.hole;
+                  if (o3.hole != null) {
+                    state.hole = o3.hole;
                   }
-                  if (o2.fill != null) {
-                    state.fill = !o2.fill ? null : rgba(o2.fill, "uint8");
+                  if (o3.fill != null) {
+                    state.fill = !o3.fill ? null : rgba(o3.fill, "uint8");
                   }
-                  if (o2.viewport != null) {
-                    state.viewport = parseRect(o2.viewport);
+                  if (o3.viewport != null) {
+                    state.viewport = parseRect(o3.viewport);
                   }
                   if (!state.viewport) {
                     state.viewport = parseRect([
@@ -242758,17 +242893,17 @@ var plotly = { exports: {} };
                       gl2.drawingBufferHeight
                     ]);
                   }
-                  if (o2.close != null) {
-                    state.close = o2.close;
+                  if (o3.close != null) {
+                    state.close = o3.close;
                   }
-                  if (o2.positions === null) {
-                    o2.positions = [];
+                  if (o3.positions === null) {
+                    o3.positions = [];
                   }
-                  if (o2.positions) {
+                  if (o3.positions) {
                     var positions, count;
-                    if (o2.positions.x && o2.positions.y) {
-                      var xPos = o2.positions.x;
-                      var yPos = o2.positions.y;
+                    if (o3.positions.x && o3.positions.y) {
+                      var xPos = o3.positions.x;
+                      var yPos = o3.positions.y;
                       count = state.count = Math.max(
                         xPos.length,
                         yPos.length
@@ -242779,7 +242914,7 @@ var plotly = { exports: {} };
                         positions[i$122 * 2 + 1] = yPos[i$122];
                       }
                     } else {
-                      positions = flatten(o2.positions, "float64");
+                      positions = flatten(o3.positions, "float64");
                       count = state.count = Math.floor(positions.length / 2);
                     }
                     var bounds = state.bounds = getBounds(positions, 2);
@@ -242800,7 +242935,7 @@ var plotly = { exports: {} };
                         pos[ptr++] = x2;
                         pos[ptr++] = y2;
                       }
-                      if (o2.splitNull) {
+                      if (o3.splitNull) {
                         if (!(state.count - 1 in ids)) {
                           ids[state.count] = state.count - 1;
                         }
@@ -242889,12 +243024,12 @@ var plotly = { exports: {} };
                     var frac_data = fract32(positionData, float_data);
                     state.positionFractBuffer(frac_data);
                   }
-                  if (o2.range) {
-                    state.range = o2.range;
+                  if (o3.range) {
+                    state.range = o3.range;
                   } else if (!state.range) {
                     state.range = state.bounds;
                   }
-                  if ((o2.range || o2.positions) && state.count) {
+                  if ((o3.range || o3.positions) && state.count) {
                     var bounds$1 = state.bounds;
                     var boundsW = bounds$1[2] - bounds$1[0], boundsH = bounds$1[3] - bounds$1[1];
                     var rangeW = state.range[2] - state.range[0], rangeH = state.range[3] - state.range[1];
@@ -242909,22 +243044,22 @@ var plotly = { exports: {} };
                     state.scaleFract = fract32(state.scale);
                     state.translateFract = fract32(state.translate);
                   }
-                  if (o2.dashes) {
+                  if (o3.dashes) {
                     var dashLength = 0, dashData;
-                    if (!o2.dashes || o2.dashes.length < 2) {
+                    if (!o3.dashes || o3.dashes.length < 2) {
                       dashLength = 1;
                       dashData = new Uint8Array([255, 255, 255, 255, 255, 255, 255, 255]);
                     } else {
                       dashLength = 0;
-                      for (var i$6 = 0; i$6 < o2.dashes.length; ++i$6) {
-                        dashLength += o2.dashes[i$6];
+                      for (var i$6 = 0; i$6 < o3.dashes.length; ++i$6) {
+                        dashLength += o3.dashes[i$6];
                       }
                       dashData = new Uint8Array(dashLength * Line2D.dashMult);
                       var ptr$1 = 0;
                       var fillColor = 255;
                       for (var k2 = 0; k2 < 2; k2++) {
-                        for (var i$7 = 0; i$7 < o2.dashes.length; ++i$7) {
-                          for (var j = 0, l$32 = o2.dashes[i$7] * Line2D.dashMult * 0.5; j < l$32; ++j) {
+                        for (var i$7 = 0; i$7 < o3.dashes.length; ++i$7) {
+                          for (var j = 0, l$32 = o3.dashes[i$7] * Line2D.dashMult * 0.5; j < l$32; ++j) {
                             dashData[ptr$1++] = fillColor;
                           }
                           fillColor ^= 255;
@@ -242941,9 +243076,9 @@ var plotly = { exports: {} };
                       min: "linear"
                     }, 0, 0);
                   }
-                  if (o2.color) {
+                  if (o3.color) {
                     var count$1 = state.count;
-                    var colors = o2.color;
+                    var colors = o3.color;
                     if (!colors) {
                       colors = "transparent";
                     }
@@ -243037,13 +243172,13 @@ var plotly = { exports: {} };
               function _iterableToArray(iter) {
                 if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
               }
-              function _unsupportedIterableToArray(o2, minLen) {
-                if (!o2) return;
-                if (typeof o2 === "string") return _arrayLikeToArray(o2, minLen);
-                var n2 = Object.prototype.toString.call(o2).slice(8, -1);
-                if (n2 === "Object" && o2.constructor) n2 = o2.constructor.name;
-                if (n2 === "Map" || n2 === "Set") return Array.from(o2);
-                if (n2 === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n2)) return _arrayLikeToArray(o2, minLen);
+              function _unsupportedIterableToArray(o3, minLen) {
+                if (!o3) return;
+                if (typeof o3 === "string") return _arrayLikeToArray(o3, minLen);
+                var n2 = Object.prototype.toString.call(o3).slice(8, -1);
+                if (n2 === "Object" && o3.constructor) n2 = o3.constructor.name;
+                if (n2 === "Map" || n2 === "Set") return Array.from(o3);
+                if (n2 === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n2)) return _arrayLikeToArray(o3, minLen);
               }
               function _arrayLikeToArray(arr, len) {
                 if (len == null || len > arr.length) len = arr.length;
@@ -243862,7 +243997,7 @@ var plotly = { exports: {} };
                 if (!options) {
                   return this;
                 }
-                var o2 = pick(options, {
+                var o3 = pick(options, {
                   data: "data items columns rows values dimensions samples x",
                   snap: "snap cluster",
                   size: "sizes size radius",
@@ -243899,60 +244034,60 @@ var plotly = { exports: {} };
                   upper: true,
                   lower: true
                 });
-                if (o2.color != null) {
-                  trace.color = o2.color;
+                if (o3.color != null) {
+                  trace.color = o3.color;
                 }
-                if (o2.size != null) {
-                  trace.size = o2.size;
+                if (o3.size != null) {
+                  trace.size = o3.size;
                 }
-                if (o2.marker != null) {
-                  trace.marker = o2.marker;
+                if (o3.marker != null) {
+                  trace.marker = o3.marker;
                 }
-                if (o2.borderColor != null) {
-                  trace.borderColor = o2.borderColor;
+                if (o3.borderColor != null) {
+                  trace.borderColor = o3.borderColor;
                 }
-                if (o2.borderSize != null) {
-                  trace.borderSize = o2.borderSize;
+                if (o3.borderSize != null) {
+                  trace.borderSize = o3.borderSize;
                 }
-                if (o2.opacity != null) {
-                  trace.opacity = o2.opacity;
+                if (o3.opacity != null) {
+                  trace.opacity = o3.opacity;
                 }
-                if (o2.viewport) {
-                  trace.viewport = rect2(o2.viewport);
+                if (o3.viewport) {
+                  trace.viewport = rect2(o3.viewport);
                 }
-                if (o2.diagonal != null) {
-                  trace.diagonal = o2.diagonal;
+                if (o3.diagonal != null) {
+                  trace.diagonal = o3.diagonal;
                 }
-                if (o2.upper != null) {
-                  trace.upper = o2.upper;
+                if (o3.upper != null) {
+                  trace.upper = o3.upper;
                 }
-                if (o2.lower != null) {
-                  trace.lower = o2.lower;
+                if (o3.lower != null) {
+                  trace.lower = o3.lower;
                 }
-                if (o2.data) {
-                  trace.buffer(flatten(o2.data));
-                  trace.columns = o2.data.length;
-                  trace.count = o2.data[0].length;
+                if (o3.data) {
+                  trace.buffer(flatten(o3.data));
+                  trace.columns = o3.data.length;
+                  trace.count = o3.data[0].length;
                   trace.bounds = [];
                   for (var i$12 = 0; i$12 < trace.columns; i$12++) {
-                    trace.bounds[i$12] = getBounds(o2.data[i$12], 1);
+                    trace.bounds[i$12] = getBounds(o3.data[i$12], 1);
                   }
                 }
                 var multirange;
-                if (o2.range) {
-                  trace.range = o2.range;
+                if (o3.range) {
+                  trace.range = o3.range;
                   multirange = trace.range && typeof trace.range[0] !== "number";
                 }
-                if (o2.domain) {
-                  trace.domain = o2.domain;
+                if (o3.domain) {
+                  trace.domain = o3.domain;
                 }
                 var multipadding = false;
-                if (o2.padding != null) {
-                  if (Array.isArray(o2.padding) && o2.padding.length === trace.columns && typeof o2.padding[o2.padding.length - 1] === "number") {
-                    trace.padding = o2.padding.map(getPad);
+                if (o3.padding != null) {
+                  if (Array.isArray(o3.padding) && o3.padding.length === trace.columns && typeof o3.padding[o3.padding.length - 1] === "number") {
+                    trace.padding = o3.padding.map(getPad);
                     multipadding = true;
                   } else {
-                    trace.padding = getPad(o2.padding);
+                    trace.padding = getPad(o3.padding);
                   }
                 }
                 var m2 = trace.columns;
@@ -243977,8 +244112,8 @@ var plotly = { exports: {} };
                     }
                     var key = passId(trace.id, i$22, j);
                     var pass = this.passes[key] || (this.passes[key] = {});
-                    if (o2.data) {
-                      if (o2.transpose) {
+                    if (o3.data) {
+                      if (o3.transpose) {
                         pass.positions = {
                           x: { buffer: trace.buffer, offset: j, count: n2, stride: m2 },
                           y: { buffer: trace.buffer, offset: i$22, count: n2, stride: m2 }
@@ -243991,7 +244126,7 @@ var plotly = { exports: {} };
                       }
                       pass.bounds = getBox(trace.bounds, i$22, j);
                     }
-                    if (o2.domain || o2.viewport || o2.data) {
+                    if (o3.domain || o3.viewport || o3.data) {
                       var pad = multipadding ? getBox(trace.padding, i$22, j) : trace.padding;
                       if (trace.domain) {
                         var ref$1 = getBox(trace.domain, i$22, j);
@@ -244014,25 +244149,25 @@ var plotly = { exports: {} };
                         ];
                       }
                     }
-                    if (o2.color) {
+                    if (o3.color) {
                       pass.color = trace.color;
                     }
-                    if (o2.size) {
+                    if (o3.size) {
                       pass.size = trace.size;
                     }
-                    if (o2.marker) {
+                    if (o3.marker) {
                       pass.marker = trace.marker;
                     }
-                    if (o2.borderSize) {
+                    if (o3.borderSize) {
                       pass.borderSize = trace.borderSize;
                     }
-                    if (o2.borderColor) {
+                    if (o3.borderColor) {
                       pass.borderColor = trace.borderColor;
                     }
-                    if (o2.opacity) {
+                    if (o3.opacity) {
                       pass.opacity = trace.opacity;
                     }
-                    if (o2.range) {
+                    if (o3.range) {
                       pass.range = multirange ? getBox(trace.range, i$22, j) : trace.range || pass.bounds;
                     }
                     trace.passes.push(key);
@@ -244220,10 +244355,10 @@ var plotly = { exports: {} };
                 function Hb2(a2) {
                   var b2 = a2 || {}, c2, d2, f2, e4;
                   a2 = {};
-                  var m2 = [], q2 = [], u2 = "undefined" === typeof window ? 1 : window.devicePixelRatio, r3 = false, k2 = {}, n2 = function(a22) {
+                  var m2 = [], q2 = [], u2 = "undefined" === typeof window ? 1 : window.devicePixelRatio, r2 = false, k2 = {}, n2 = function(a22) {
                   }, t3 = function() {
                   };
-                  "string" === typeof b2 ? c2 = document.querySelector(b2) : "object" === typeof b2 && ("string" === typeof b2.nodeName && "function" === typeof b2.appendChild && "function" === typeof b2.getBoundingClientRect ? c2 = b2 : "function" === typeof b2.drawArrays || "function" === typeof b2.drawElements ? (e4 = b2, f2 = e4.canvas) : ("gl" in b2 ? e4 = b2.gl : "canvas" in b2 ? f2 = eb2(b2.canvas) : "container" in b2 && (d2 = eb2(b2.container)), "attributes" in b2 && (a2 = b2.attributes), "extensions" in b2 && (m2 = db2(b2.extensions)), "optionalExtensions" in b2 && (q2 = db2(b2.optionalExtensions)), "onDone" in b2 && (n2 = b2.onDone), "profile" in b2 && (r3 = !!b2.profile), "pixelRatio" in b2 && (u2 = +b2.pixelRatio), "cachedCode" in b2 && (k2 = b2.cachedCode)));
+                  "string" === typeof b2 ? c2 = document.querySelector(b2) : "object" === typeof b2 && ("string" === typeof b2.nodeName && "function" === typeof b2.appendChild && "function" === typeof b2.getBoundingClientRect ? c2 = b2 : "function" === typeof b2.drawArrays || "function" === typeof b2.drawElements ? (e4 = b2, f2 = e4.canvas) : ("gl" in b2 ? e4 = b2.gl : "canvas" in b2 ? f2 = eb2(b2.canvas) : "container" in b2 && (d2 = eb2(b2.container)), "attributes" in b2 && (a2 = b2.attributes), "extensions" in b2 && (m2 = db2(b2.extensions)), "optionalExtensions" in b2 && (q2 = db2(b2.optionalExtensions)), "onDone" in b2 && (n2 = b2.onDone), "profile" in b2 && (r2 = !!b2.profile), "pixelRatio" in b2 && (u2 = +b2.pixelRatio), "cachedCode" in b2 && (k2 = b2.cachedCode)));
                   c2 && ("canvas" === c2.nodeName.toLowerCase() ? f2 = c2 : d2 = c2);
                   if (!e4) {
                     if (!f2) {
@@ -244235,7 +244370,7 @@ var plotly = { exports: {} };
                     void 0 === a2.premultipliedAlpha && (a2.premultipliedAlpha = true);
                     e4 = Gb2(f2, a2);
                   }
-                  return e4 ? { gl: e4, canvas: f2, container: d2, extensions: m2, optionalExtensions: q2, pixelRatio: u2, profile: r3, cachedCode: k2, onDone: n2, onDestroy: t3 } : (t3(), n2("webgl not supported, try upgrading your browser or graphics drivers http://get.webgl.org"), null);
+                  return e4 ? { gl: e4, canvas: f2, container: d2, extensions: m2, optionalExtensions: q2, pixelRatio: u2, profile: r2, cachedCode: k2, onDone: n2, onDestroy: t3 } : (t3(), n2("webgl not supported, try upgrading your browser or graphics drivers http://get.webgl.org"), null);
                 }
                 function Ib2(a2, b2) {
                   function c2(b22) {
@@ -244329,18 +244464,18 @@ var plotly = { exports: {} };
                   return !!a2 && "object" === typeof a2 && Array.isArray(a2.shape) && Array.isArray(a2.stride) && "number" === typeof a2.offset && a2.shape.length === a2.stride.length && (Array.isArray(a2.data) || P2(a2.data));
                 }
                 function hb2(a2, b2, c2, d2, f2, e4) {
-                  for (var m2 = 0; m2 < b2; ++m2) for (var q2 = a2[m2], u2 = 0; u2 < c2; ++u2) for (var r3 = q2[u2], k2 = 0; k2 < d2; ++k2) f2[e4++] = r3[k2];
+                  for (var m2 = 0; m2 < b2; ++m2) for (var q2 = a2[m2], u2 = 0; u2 < c2; ++u2) for (var r2 = q2[u2], k2 = 0; k2 < d2; ++k2) f2[e4++] = r2[k2];
                 }
                 function ib2(a2, b2, c2, d2, f2) {
                   for (var e4 = 1, m2 = c2 + 1; m2 < b2.length; ++m2) e4 *= b2[m2];
                   var q2 = b2[c2];
                   if (4 === b2.length - c2) {
-                    var u2 = b2[c2 + 1], r3 = b2[c2 + 2];
+                    var u2 = b2[c2 + 1], r2 = b2[c2 + 2];
                     b2 = b2[c2 + 3];
                     for (m2 = 0; m2 < q2; ++m2) hb2(
                       a2[m2],
                       u2,
-                      r3,
+                      r2,
                       b2,
                       d2,
                       f2
@@ -244354,7 +244489,7 @@ var plotly = { exports: {} };
                   for (var c2 = 0; c2 < b2.length; ++c2) a2[c2] = b2[c2];
                 }
                 function kb2(a2, b2, c2, d2, f2, e4, m2) {
-                  for (var q2 = 0, u2 = 0; u2 < c2; ++u2) for (var r3 = 0; r3 < d2; ++r3) a2[q2++] = b2[f2 * u2 + e4 * r3 + m2];
+                  for (var q2 = 0, u2 = 0; u2 < c2; ++u2) for (var r2 = 0; r2 < d2; ++r2) a2[q2++] = b2[f2 * u2 + e4 * r2 + m2];
                 }
                 function Jb2(a2, b2, c2, d2) {
                   function f2(b22) {
@@ -244405,9 +244540,9 @@ var plotly = { exports: {} };
                     d2(c22);
                     a2.deleteBuffer(c22.buffer);
                     c22.buffer = null;
-                    delete r3[c22.id];
+                    delete r2[c22.id];
                   }
-                  var u2 = 0, r3 = {};
+                  var u2 = 0, r2 = {};
                   f2.prototype.bind = function() {
                     a2.bindBuffer(this.type, this.buffer);
                   };
@@ -244417,8 +244552,8 @@ var plotly = { exports: {} };
                   var k2 = [];
                   c2.profile && (b2.getTotalBufferSize = function() {
                     var a22 = 0;
-                    Object.keys(r3).forEach(function(b22) {
-                      a22 += r3[b22].stats.size;
+                    Object.keys(r2).forEach(function(b22) {
+                      a22 += r2[b22].stats.size;
                     });
                     return a22;
                   });
@@ -244433,7 +244568,7 @@ var plotly = { exports: {} };
                     }
                     b2.bufferCount++;
                     var p2 = new f2(e22);
-                    r3[p2.id] = p2;
+                    r2[p2.id] = p2;
                     g2 || h2(d22);
                     h2._reglType = "buffer";
                     h2._buffer = p2;
@@ -244479,12 +244614,12 @@ var plotly = { exports: {} };
                   }, destroyStream: function(a22) {
                     k2.push(a22);
                   }, clear: function() {
-                    T2(r3).forEach(q2);
+                    T2(r2).forEach(q2);
                     k2.forEach(q2);
                   }, getBuffer: function(a22) {
                     return a22 && a22._buffer instanceof f2 ? a22._buffer : null;
                   }, restore: function() {
-                    T2(r3).forEach(function(b22) {
+                    T2(r2).forEach(function(b22) {
                       b22.buffer = a2.createBuffer();
                       a2.bindBuffer(b22.type, b22.buffer);
                       a2.bufferData(b22.type, b22.persistentData || b22.byteLength, b22.usage);
@@ -244534,8 +244669,8 @@ var plotly = { exports: {} };
                     a22.buffer.destroy();
                     a22.buffer = null;
                   }
-                  var q2 = {}, u2 = 0, r3 = { uint8: 5121, uint16: 5123 };
-                  b2.oes_element_index_uint && (r3.uint32 = 5125);
+                  var q2 = {}, u2 = 0, r2 = { uint8: 5121, uint16: 5123 };
+                  b2.oes_element_index_uint && (r2.uint32 = 5125);
                   f2.prototype.bind = function() {
                     this.buffer.bind();
                   };
@@ -244546,7 +244681,7 @@ var plotly = { exports: {} };
                       else {
                         var b3 = null, c22 = 35044, d22 = -1, f22 = -1, n2 = 0, k22 = 0;
                         if (Array.isArray(a3) || P2(a3) || fa2(a3)) b3 = a3;
-                        else if ("data" in a3 && (b3 = a3.data), "usage" in a3 && (c22 = mb2[a3.usage]), "primitive" in a3 && (d22 = Ka2[a3.primitive]), "count" in a3 && (f22 = a3.count | 0), "type" in a3 && (k22 = r3[a3.type]), "length" in a3) n2 = a3.length | 0;
+                        else if ("data" in a3 && (b3 = a3.data), "usage" in a3 && (c22 = mb2[a3.usage]), "primitive" in a3 && (d22 = Ka2[a3.primitive]), "count" in a3 && (f22 = a3.count | 0), "type" in a3 && (k22 = r2[a3.type]), "length" in a3) n2 = a3.length | 0;
                         else if (n2 = f22, 5123 === k22 || 5122 === k22) n2 *= 2;
                         else if (5125 === k22 || 5124 === k22) n2 *= 4;
                         e4(h2, b3, c22, d22, f22, n2, k22);
@@ -244652,7 +244787,7 @@ var plotly = { exports: {} };
                     a22.height = b22.height;
                     a22.channels = b22.channels;
                   }
-                  function r3(a22, b22) {
+                  function r2(a22, b22) {
                     if ("object" === typeof b22 && b22) {
                       "premultiplyAlpha" in b22 && (a22.premultiplyAlpha = b22.premultiplyAlpha);
                       "flipY" in b22 && (a22.flipY = b22.flipY);
@@ -244685,7 +244820,7 @@ var plotly = { exports: {} };
                   }
                   function t3(a22, b22) {
                     var c22 = null;
-                    Va2(b22) ? c22 = b22 : b22 && (r3(a22, b22), "x" in b22 && (a22.xOffset = b22.x | 0), "y" in b22 && (a22.yOffset = b22.y | 0), Va2(b22.data) && (c22 = b22.data));
+                    Va2(b22) ? c22 = b22 : b22 && (r2(a22, b22), "x" in b22 && (a22.xOffset = b22.x | 0), "y" in b22 && (a22.yOffset = b22.y | 0), Va2(b22.data) && (c22 = b22.data));
                     if (b22.copy) {
                       var d22 = f2.viewportWidth, e22 = f2.viewportHeight;
                       a22.width = a22.width || d22 - a22.xOffset;
@@ -244795,7 +244930,7 @@ var plotly = { exports: {} };
                   function C2(a22, b22) {
                     var c22 = null;
                     if (Va2(b22)) c22 = a22.images[0] = l2(), u2(c22, a22), t3(c22, b22), a22.mipmask = 1;
-                    else if (r3(a22, b22), Array.isArray(b22.mipmap)) for (var d22 = b22.mipmap, e22 = 0; e22 < d22.length; ++e22) c22 = a22.images[e22] = l2(), u2(c22, a22), c22.width >>= e22, c22.height >>= e22, t3(c22, d22[e22]), a22.mipmask |= 1 << e22;
+                    else if (r2(a22, b22), Array.isArray(b22.mipmap)) for (var d22 = b22.mipmap, e22 = 0; e22 < d22.length; ++e22) c22 = a22.images[e22] = l2(), u2(c22, a22), c22.width >>= e22, c22.height >>= e22, t3(c22, d22[e22]), a22.mipmask |= 1 << e22;
                     else c22 = a22.images[0] = l2(), u2(c22, a22), t3(c22, b22), a22.mipmask = 1;
                     u2(a22, a22.images[0]);
                   }
@@ -245064,7 +245199,7 @@ var plotly = { exports: {} };
                       for (f3 = 0; 6 > f3; ++f3) J22[f3] = z2();
                       if ("number" === typeof a22 || !a22) for (a22 = a22 | 0 || 1, f3 = 0; 6 > f3; ++f3) y2(J22[f3], a22, a22);
                       else if ("object" === typeof a22) if (b3) C2(J22[0], a22), C2(J22[1], b3), C2(J22[2], c3), C2(J22[3], d3), C2(J22[4], e22), C2(J22[5], h22);
-                      else if (nb2(g22, a22), r3(A22, a22), "faces" in a22) for (a22 = a22.faces, f3 = 0; 6 > f3; ++f3) u2(J22[f3], A22), C2(J22[f3], a22[f3]);
+                      else if (nb2(g22, a22), r2(A22, a22), "faces" in a22) for (a22 = a22.faces, f3 = 0; 6 > f3; ++f3) u2(J22[f3], A22), C2(J22[f3], a22[f3]);
                       else for (f3 = 0; 6 > f3; ++f3) C2(J22[f3], a22);
                       u2(A22, J22[0]);
                       A22.mipmask = g22.genMipmaps ? (J22[0].width << 1) - 1 : J22[0].mipmask;
@@ -245181,7 +245316,7 @@ var plotly = { exports: {} };
                   function u2(a22, b22, c22) {
                     a22 && (a22.texture ? a22.texture._texture.refCount += 1 : a22.renderbuffer._renderbuffer.refCount += 1);
                   }
-                  function r3(b22, c22) {
+                  function r2(b22, c22) {
                     c22 && (c22.texture ? a2.framebufferTexture2D(36160, b22, c22.target, c22.texture._texture.texture, 0) : a2.framebufferRenderbuffer(36160, b22, 36161, c22.renderbuffer._renderbuffer.renderbuffer));
                   }
                   function k2(a22) {
@@ -245227,14 +245362,14 @@ var plotly = { exports: {} };
                     var d22;
                     a2.bindFramebuffer(36160, b22.framebuffer);
                     var e22 = b22.colorAttachments;
-                    for (d22 = 0; d22 < e22.length; ++d22) r3(36064 + d22, e22[d22]);
+                    for (d22 = 0; d22 < e22.length; ++d22) r2(36064 + d22, e22[d22]);
                     for (d22 = e22.length; d22 < c2.maxColorAttachments; ++d22) a2.framebufferTexture2D(36160, 36064 + d22, 3553, null, 0);
                     a2.framebufferTexture2D(36160, 33306, 3553, null, 0);
                     a2.framebufferTexture2D(36160, 36096, 3553, null, 0);
                     a2.framebufferTexture2D(36160, 36128, 3553, null, 0);
-                    r3(36096, b22.depthAttachment);
-                    r3(36128, b22.stencilAttachment);
-                    r3(33306, b22.depthStencilAttachment);
+                    r2(36096, b22.depthAttachment);
+                    r2(36128, b22.stencilAttachment);
+                    r2(33306, b22.depthStencilAttachment);
                     a2.checkFramebufferStatus(36160);
                     a2.isContextLost();
                     a2.bindFramebuffer(36160, w2.next ? w2.next.framebuffer : null);
@@ -245421,7 +245556,7 @@ var plotly = { exports: {} };
                       p2.currentVAO = c22;
                     }
                   }
-                  function r3() {
+                  function r2() {
                     T2(h2).forEach(function(a22) {
                       a22.destroy();
                     });
@@ -245504,7 +245639,7 @@ var plotly = { exports: {} };
                       }
                     },
                     setVAO: b2.oes_vertex_array_object ? q2 : u2,
-                    clear: b2.oes_vertex_array_object ? r3 : function() {
+                    clear: b2.oes_vertex_array_object ? r2 : function() {
                     }
                   };
                   k2.prototype.bindAttrs = function() {
@@ -245546,7 +245681,7 @@ var plotly = { exports: {} };
                     a22.push(b22);
                   }
                   function m2(c22, d22, e22) {
-                    e22 = 35632 === c22 ? r3 : k2;
+                    e22 = 35632 === c22 ? r2 : k2;
                     var f22 = e22[d22];
                     if (!f22) {
                       var g22 = b2.str(d22), f22 = a2.createShader(c22);
@@ -245588,7 +245723,7 @@ var plotly = { exports: {} };
                     c22 = c22.attributes;
                     for (n22 = 0; n22 < t22; ++n22) (k22 = a2.getActiveAttrib(g22, n22)) && e4(c22, new f2(k22.name, b2.id(k22.name), a2.getAttribLocation(g22, k22.name), k22));
                   }
-                  var r3 = {}, k2 = {}, n2 = {}, t3 = [], g2 = 0;
+                  var r2 = {}, k2 = {}, n2 = {}, t3 = [], g2 = 0;
                   d2.profile && (c2.getMaxUniformsCount = function() {
                     var a22 = 0;
                     t3.forEach(function(b22) {
@@ -245604,8 +245739,8 @@ var plotly = { exports: {} };
                   });
                   return { clear: function() {
                     var b22 = a2.deleteShader.bind(a2);
-                    T2(r3).forEach(b22);
-                    r3 = {};
+                    T2(r2).forEach(b22);
+                    r2 = {};
                     T2(k2).forEach(b22);
                     k2 = {};
                     t3.forEach(function(b3) {
@@ -245633,10 +245768,10 @@ var plotly = { exports: {} };
                         c2.shaderCount--;
                       }
                       0 >= g22[z2.vertId].refCount && (a2.deleteShader(k2[z2.vertId]), delete k2[z2.vertId], delete n2[z2.fragId][z2.vertId]);
-                      Object.keys(n2[z2.fragId]).length || (a2.deleteShader(r3[z2.fragId]), delete r3[z2.fragId], delete n2[z2.fragId]);
+                      Object.keys(n2[z2.fragId]).length || (a2.deleteShader(r2[z2.fragId]), delete r2[z2.fragId], delete n2[z2.fragId]);
                     } });
                   }, restore: function() {
-                    r3 = {};
+                    r2 = {};
                     k2 = {};
                     for (var a22 = 0; a22 < t3.length; ++a22) u2(t3[a22], null, t3[a22].attributes.map(function(a3) {
                       return [a3.location, a3.name];
@@ -245681,7 +245816,7 @@ var plotly = { exports: {} };
                     528734635,
                     1541459225
                   ];
-                  var c2 = Array(64), f2, e4, m2, q2, u2, r3, k2, n2, t3, g2, l2;
+                  var c2 = Array(64), f2, e4, m2, q2, u2, r2, k2, n2, t3, g2, l2;
                   b2[d2 >> 5] |= 128 << 24 - d2 % 32;
                   b2[(d2 + 64 >> 9 << 4) + 15] = d2;
                   for (n2 = 0; n2 < b2.length; n2 += 16) {
@@ -245691,7 +245826,7 @@ var plotly = { exports: {} };
                     m2 = a2[3];
                     q2 = a2[4];
                     u2 = a2[5];
-                    r3 = a2[6];
+                    r2 = a2[6];
                     k2 = a2[7];
                     for (t3 = 0; 64 > t3; t3++) {
                       if (16 > t3) c2[t3] = b2[t3 + n2];
@@ -245707,12 +245842,12 @@ var plotly = { exports: {} };
                       }
                       g2 = q2;
                       g2 = Y2(g2, 6) ^ Y2(g2, 11) ^ Y2(g2, 25);
-                      g2 = H2(H2(H2(H2(k2, g2), q2 & u2 ^ ~q2 & r3), Vb2[t3]), c2[t3]);
+                      g2 = H2(H2(H2(H2(k2, g2), q2 & u2 ^ ~q2 & r2), Vb2[t3]), c2[t3]);
                       k2 = d2;
                       k2 = Y2(k2, 2) ^ Y2(k2, 13) ^ Y2(k2, 22);
                       l2 = H2(k2, d2 & f2 ^ d2 & e4 ^ f2 & e4);
-                      k2 = r3;
-                      r3 = u2;
+                      k2 = r2;
+                      r2 = u2;
                       u2 = q2;
                       q2 = H2(m2, g2);
                       m2 = e4;
@@ -245726,7 +245861,7 @@ var plotly = { exports: {} };
                     a2[3] = H2(m2, a2[3]);
                     a2[4] = H2(q2, a2[4]);
                     a2[5] = H2(u2, a2[5]);
-                    a2[6] = H2(r3, a2[6]);
+                    a2[6] = H2(r2, a2[6]);
                     a2[7] = H2(k2, a2[7]);
                   }
                   b2 = "";
@@ -245782,7 +245917,7 @@ var plotly = { exports: {} };
                       return e22() + f22();
                     } });
                   }
-                  var d2 = a2 && a2.cache, f2 = 0, e4 = [], m2 = [], q2 = [], u2 = b2(), r3 = {};
+                  var d2 = a2 && a2.cache, f2 = 0, e4 = [], m2 = [], q2 = [], u2 = b2(), r2 = {};
                   return {
                     global: u2,
                     link: function(a22, b22) {
@@ -245807,7 +245942,7 @@ var plotly = { exports: {} };
                       b22 = b22 || 0;
                       for (var f22 = 0; f22 < b22; ++f22) d22();
                       var f22 = c2(), h2 = f22.toString;
-                      return r3[a22] = O2(f22, { arg: d22, toString: function() {
+                      return r2[a22] = O2(f22, { arg: d22, toString: function() {
                         return Ba2(["function(", e22.join(), "){", h2(), "}"]);
                       } });
                     },
@@ -245828,8 +245963,8 @@ var plotly = { exports: {} };
                     },
                     compile: function() {
                       var a22 = ['"use strict";', u2, "return {"];
-                      Object.keys(r3).forEach(function(b3) {
-                        a22.push('"', b3, '":', r3[b3].toString(), ",");
+                      Object.keys(r2).forEach(function(b3) {
+                        a22.push('"', b3, '":', r2[b3].toString(), ",");
                       });
                       a22.push("}");
                       var b22 = Ba2(a22).replace(/;/g, ";\n").replace(/}/g, "}\n").replace(
@@ -245877,7 +246012,7 @@ var plotly = { exports: {} };
                   }
                   return new K2(3 === c2, 2 === c2, 1 === c2, b2);
                 }
-                function Zb2(a2, b2, c2, d2, f2, e4, m2, q2, u2, r3, k2, n2, t3, g2, l2, h2) {
+                function Zb2(a2, b2, c2, d2, f2, e4, m2, q2, u2, r2, k2, n2, t3, g2, l2, h2) {
                   function p2(a22) {
                     return a22.replace(
                       ".",
@@ -245938,8 +246073,8 @@ var plotly = { exports: {} };
                     a22.scopeAttrib = function(a3) {
                       a3 = b2.id(a3);
                       if (a3 in N2) return N2[a3];
-                      var d3 = r3.scope[a3];
-                      d3 || (d3 = r3.scope[a3] = new ha2());
+                      var d3 = r2.scope[a3];
+                      d3 || (d3 = r2.scope[a3] = new ha2());
                       return N2[a3] = c22(d3);
                     };
                     return a22;
@@ -246117,11 +246252,11 @@ var plotly = { exports: {} };
                     var d22 = a22["static"], f22 = a22.dynamic, g22 = {}, k22 = false, h22 = function() {
                       if ("vao" in d22) {
                         var a3 = d22.vao;
-                        null !== a3 && null === r3.getVAO(a3) && (a3 = r3.createVAO(a3));
+                        null !== a3 && null === r2.getVAO(a3) && (a3 = r2.createVAO(a3));
                         k22 = true;
                         g22.vao = a3;
                         return E2(function(b4) {
-                          var c3 = r3.getVAO(a3);
+                          var c3 = r2.getVAO(a3);
                           return c3 ? b4.link(c3) : "null";
                         });
                       }
@@ -246652,7 +246787,7 @@ var plotly = { exports: {} };
                         return a3;
                       });
                       if (u22 && 0 < a22.length) {
-                        var $b2 = r3.getVAO(r3.createVAO({ attributes: a22, elements: n22["static"].elements }));
+                        var $b2 = r2.getVAO(r2.createVAO({ attributes: a22, elements: n22["static"].elements }));
                         h22.drawVAO = new K2(null, null, null, function(a3, b3) {
                           return a3.link($b2);
                         });
@@ -247275,7 +247410,7 @@ var plotly = { exports: {} };
                       delete b22["static"][c22];
                     }
                   }
-                  var ha2 = r3.Record, X2 = { add: 32774, subtract: 32778, "reverse subtract": 32779 };
+                  var ha2 = r2.Record, X2 = { add: 32774, subtract: 32778, "reverse subtract": 32779 };
                   c2.ext_blend_minmax && (X2.min = 32775, X2.max = 32776);
                   var sa2 = c2.angle_instanced_arrays, R22 = c2.webgl_draw_buffers, ja22 = c2.oes_vertex_array_object, ta2 = { dirty: true, profile: h2.profile }, Da2 = {}, Ma2 = [], ua2 = {}, ma2 = {};
                   y2("dither", 3024);
@@ -247313,7 +247448,7 @@ var plotly = { exports: {} };
                     [0, 0, a2.drawingBufferWidth, a2.drawingBufferHeight]
                   );
                   C2("viewport", "viewport", [0, 0, a2.drawingBufferWidth, a2.drawingBufferHeight]);
-                  var tb2 = { gl: a2, context: t3, strings: b2, next: Da2, current: ta2, draw: n2, elements: e4, buffer: f2, shader: k2, attributes: r3.state, vao: r3, uniforms: u2, framebuffer: q2, extensions: c2, timer: g2, isBufferArgs: Sa2 }, Oa2 = { primTypes: Ka2, compareFuncs: $a, blendFuncs: Ga2, blendEquations: X2, stencilOps: Ta2, glTypes: Ja2, orientationType: zb2 };
+                  var tb2 = { gl: a2, context: t3, strings: b2, next: Da2, current: ta2, draw: n2, elements: e4, buffer: f2, shader: k2, attributes: r2.state, vao: r2, uniforms: u2, framebuffer: q2, extensions: c2, timer: g2, isBufferArgs: Sa2 }, Oa2 = { primTypes: Ka2, compareFuncs: $a, blendFuncs: Ga2, blendEquations: X2, stencilOps: Ta2, glTypes: Ja2, orientationType: zb2 };
                   R22 && (Oa2.backBuffer = [1029], Oa2.drawBuffer = S2(d2.maxDrawbuffers, function(a22) {
                     return 0 === a22 ? [0] : S2(a22, function(a3) {
                       return 36064 + a3;
@@ -247601,7 +247736,7 @@ var plotly = { exports: {} };
                 M2[34843] = 6;
                 var cc2 = function(a2, b2, c2, d2, f2) {
                   function e4(a22) {
-                    this.id = r3++;
+                    this.id = r2++;
                     this.refCount = 1;
                     this.renderbuffer = a22;
                     this.format = 32854;
@@ -247625,7 +247760,7 @@ var plotly = { exports: {} };
                   Object.keys(q2).forEach(function(a22) {
                     u2[q2[a22]] = a22;
                   });
-                  var r3 = 0, k2 = {};
+                  var r2 = 0, k2 = {};
                   e4.prototype.decRef = function() {
                     0 >= --this.refCount && m2(this);
                   };
@@ -247779,7 +247914,7 @@ var plotly = { exports: {} };
                     q2.push(e22);
                   }
                   if (!b2.ext_disjoint_timer_query) return null;
-                  var f2 = [], e4 = [], m2 = [], q2 = [], u2 = [], r3 = [];
+                  var f2 = [], e4 = [], m2 = [], q2 = [], u2 = [], r2 = [];
                   return {
                     beginQuery: function(a22) {
                       var c22 = f2.pop() || b2.ext_disjoint_timer_query.createQueryEXT();
@@ -247795,22 +247930,22 @@ var plotly = { exports: {} };
                       var a22, c22;
                       a22 = e4.length;
                       if (0 !== a22) {
-                        r3.length = Math.max(r3.length, a22 + 1);
+                        r2.length = Math.max(r2.length, a22 + 1);
                         u2.length = Math.max(u2.length, a22 + 1);
                         u2[0] = 0;
-                        var d22 = r3[0] = 0;
+                        var d22 = r2[0] = 0;
                         for (c22 = a22 = 0; c22 < e4.length; ++c22) {
                           var g2 = e4[c22];
                           b2.ext_disjoint_timer_query.getQueryObjectEXT(g2, 34919) ? (d22 += b2.ext_disjoint_timer_query.getQueryObjectEXT(g2, 34918), f2.push(g2)) : e4[a22++] = g2;
                           u2[c22 + 1] = d22;
-                          r3[c22 + 1] = a22;
+                          r2[c22 + 1] = a22;
                         }
                         e4.length = a22;
                         for (c22 = a22 = 0; c22 < q2.length; ++c22) {
                           var d22 = q2[c22], l2 = d22.startQueryIndex, g2 = d22.endQueryIndex;
                           d22.sum += u2[g2] - u2[l2];
-                          l2 = r3[l2];
-                          g2 = r3[g2];
+                          l2 = r2[l2];
+                          g2 = r2[g2];
                           g2 === l2 ? (d22.stats.gpuTime += d22.sum / 1e6, m2.push(d22)) : (d22.startQueryIndex = l2, d22.endQueryIndex = g2, q2[a22++] = d22);
                         }
                         q2.length = a22;
@@ -247966,7 +248101,7 @@ var plotly = { exports: {} };
                       I2[c22] = b22;
                     } };
                   }
-                  function r3() {
+                  function r2() {
                     var a22 = W2.viewport, b22 = W2.scissor_box;
                     a22[0] = a22[1] = b22[0] = b22[1] = 0;
                     D2.viewportWidth = D2.framebufferWidth = D2.drawingBufferWidth = a22[2] = b22[2] = g2.drawingBufferWidth;
@@ -247975,12 +248110,12 @@ var plotly = { exports: {} };
                   function k2() {
                     D2.tick += 1;
                     D2.time = t3();
-                    r3();
+                    r2();
                     M22.procs.poll();
                   }
                   function n2() {
                     L22.refresh();
-                    r3();
+                    r2();
                     M22.procs.refresh();
                     z2 && z2.update();
                   }
@@ -250587,18 +250722,18 @@ var plotly = { exports: {} };
               }
               StringDecoder.prototype.write = function(buf) {
                 if (buf.length === 0) return "";
-                var r3;
+                var r2;
                 var i2;
                 if (this.lastNeed) {
-                  r3 = this.fillLast(buf);
-                  if (r3 === void 0) return "";
+                  r2 = this.fillLast(buf);
+                  if (r2 === void 0) return "";
                   i2 = this.lastNeed;
                   this.lastNeed = 0;
                 } else {
                   i2 = 0;
                 }
-                if (i2 < buf.length) return r3 ? r3 + this.text(buf, i2) : this.text(buf, i2);
-                return r3 || "";
+                if (i2 < buf.length) return r2 ? r2 + this.text(buf, i2) : this.text(buf, i2);
+                return r2 || "";
               };
               StringDecoder.prototype.end = utf8End;
               StringDecoder.prototype.text = utf8Text;
@@ -250662,8 +250797,8 @@ var plotly = { exports: {} };
               }
               function utf8FillLast(buf) {
                 var p2 = this.lastTotal - this.lastNeed;
-                var r3 = utf8CheckExtraBytes(this, buf);
-                if (r3 !== void 0) return r3;
+                var r2 = utf8CheckExtraBytes(this, buf);
+                if (r2 !== void 0) return r2;
                 if (this.lastNeed <= buf.length) {
                   buf.copy(this.lastChar, p2, 0, this.lastNeed);
                   return this.lastChar.toString(this.encoding, 0, this.lastTotal);
@@ -250680,24 +250815,24 @@ var plotly = { exports: {} };
                 return buf.toString("utf8", i2, end2);
               }
               function utf8End(buf) {
-                var r3 = buf && buf.length ? this.write(buf) : "";
-                if (this.lastNeed) return r3 + "�";
-                return r3;
+                var r2 = buf && buf.length ? this.write(buf) : "";
+                if (this.lastNeed) return r2 + "�";
+                return r2;
               }
               function utf16Text(buf, i2) {
                 if ((buf.length - i2) % 2 === 0) {
-                  var r3 = buf.toString("utf16le", i2);
-                  if (r3) {
-                    var c2 = r3.charCodeAt(r3.length - 1);
+                  var r2 = buf.toString("utf16le", i2);
+                  if (r2) {
+                    var c2 = r2.charCodeAt(r2.length - 1);
                     if (c2 >= 55296 && c2 <= 56319) {
                       this.lastNeed = 2;
                       this.lastTotal = 4;
                       this.lastChar[0] = buf[buf.length - 2];
                       this.lastChar[1] = buf[buf.length - 1];
-                      return r3.slice(0, -1);
+                      return r2.slice(0, -1);
                     }
                   }
-                  return r3;
+                  return r2;
                 }
                 this.lastNeed = 1;
                 this.lastTotal = 2;
@@ -250705,12 +250840,12 @@ var plotly = { exports: {} };
                 return buf.toString("utf16le", i2, buf.length - 1);
               }
               function utf16End(buf) {
-                var r3 = buf && buf.length ? this.write(buf) : "";
+                var r2 = buf && buf.length ? this.write(buf) : "";
                 if (this.lastNeed) {
                   var end2 = this.lastTotal - this.lastNeed;
-                  return r3 + this.lastChar.toString("utf16le", 0, end2);
+                  return r2 + this.lastChar.toString("utf16le", 0, end2);
                 }
-                return r3;
+                return r2;
               }
               function base64Text(buf, i2) {
                 var n2 = (buf.length - i2) % 3;
@@ -250726,9 +250861,9 @@ var plotly = { exports: {} };
                 return buf.toString("base64", i2, buf.length - n2);
               }
               function base64End(buf) {
-                var r3 = buf && buf.length ? this.write(buf) : "";
-                if (this.lastNeed) return r3 + this.lastChar.toString("base64", 0, 3 - this.lastNeed);
-                return r3;
+                var r2 = buf && buf.length ? this.write(buf) : "";
+                if (this.lastNeed) return r2 + this.lastChar.toString("base64", 0, 3 - this.lastNeed);
+                return r2;
               }
               function simpleWrite(buf) {
                 return buf.toString(this.encoding);
@@ -250959,15 +251094,15 @@ var plotly = { exports: {} };
                 }
               }
               function load() {
-                var r3;
+                var r2;
                 try {
-                  r3 = exports2.storage.debug;
+                  r2 = exports2.storage.debug;
                 } catch (e4) {
                 }
-                if (!r3 && typeof process !== "undefined" && "env" in process) {
-                  r3 = process.env.DEBUG;
+                if (!r2 && typeof process !== "undefined" && "env" in process) {
+                  r2 = process.env.DEBUG;
                 }
-                return r3;
+                return r2;
               }
               exports2.enable(load());
               function localstorage() {
@@ -251190,28 +251325,28 @@ var plotly = { exports: {} };
             /***/
             function(module2, __unused_webpack_exports, __webpack_require__2) {
               var paren = __webpack_require__2(59811);
-              module2.exports = function splitBy(string, separator, o2) {
+              module2.exports = function splitBy(string, separator, o3) {
                 if (string == null) throw Error("First argument should be a string");
                 if (separator == null) throw Error("Separator should be a string or a RegExp");
-                if (!o2) o2 = {};
-                else if (typeof o2 === "string" || Array.isArray(o2)) {
-                  o2 = { ignore: o2 };
+                if (!o3) o3 = {};
+                else if (typeof o3 === "string" || Array.isArray(o3)) {
+                  o3 = { ignore: o3 };
                 }
-                if (o2.escape == null) o2.escape = true;
-                if (o2.ignore == null) o2.ignore = ["[]", "()", "{}", "<>", '""', "''", "``", "“”", "«»"];
+                if (o3.escape == null) o3.escape = true;
+                if (o3.ignore == null) o3.ignore = ["[]", "()", "{}", "<>", '""', "''", "``", "“”", "«»"];
                 else {
-                  if (typeof o2.ignore === "string") {
-                    o2.ignore = [o2.ignore];
+                  if (typeof o3.ignore === "string") {
+                    o3.ignore = [o3.ignore];
                   }
-                  o2.ignore = o2.ignore.map(function(pair) {
+                  o3.ignore = o3.ignore.map(function(pair) {
                     if (pair.length === 1) pair = pair + pair;
                     return pair;
                   });
                 }
-                var tokens = paren.parse(string, { flat: true, brackets: o2.ignore });
+                var tokens = paren.parse(string, { flat: true, brackets: o3.ignore });
                 var str = tokens[0];
                 var parts = str.split(separator);
-                if (o2.escape) {
+                if (o3.escape) {
                   var cleanParts = [];
                   for (var i2 = 0; i2 < parts.length; i2++) {
                     var prev2 = parts[i2];
@@ -251999,18 +252134,18 @@ var plotly = { exports: {} };
                     a: a2
                   };
                 }
-                function rgbToRgb(r3, g2, b2) {
+                function rgbToRgb(r2, g2, b2) {
                   return {
-                    r: bound01(r3, 255) * 255,
+                    r: bound01(r2, 255) * 255,
                     g: bound01(g2, 255) * 255,
                     b: bound01(b2, 255) * 255
                   };
                 }
-                function rgbToHsl(r3, g2, b2) {
-                  r3 = bound01(r3, 255);
+                function rgbToHsl(r2, g2, b2) {
+                  r2 = bound01(r2, 255);
                   g2 = bound01(g2, 255);
                   b2 = bound01(b2, 255);
-                  var max2 = mathMax(r3, g2, b2), min2 = mathMin(r3, g2, b2);
+                  var max2 = mathMax(r2, g2, b2), min2 = mathMin(r2, g2, b2);
                   var h2, s2, l2 = (max2 + min2) / 2;
                   if (max2 == min2) {
                     h2 = s2 = 0;
@@ -252018,14 +252153,14 @@ var plotly = { exports: {} };
                     var d2 = max2 - min2;
                     s2 = l2 > 0.5 ? d2 / (2 - max2 - min2) : d2 / (max2 + min2);
                     switch (max2) {
-                      case r3:
+                      case r2:
                         h2 = (g2 - b2) / d2 + (g2 < b2 ? 6 : 0);
                         break;
                       case g2:
-                        h2 = (b2 - r3) / d2 + 2;
+                        h2 = (b2 - r2) / d2 + 2;
                         break;
                       case b2:
-                        h2 = (r3 - g2) / d2 + 4;
+                        h2 = (r2 - g2) / d2 + 4;
                         break;
                     }
                     h2 /= 6;
@@ -252033,7 +252168,7 @@ var plotly = { exports: {} };
                   return { h: h2, s: s2, l: l2 };
                 }
                 function hslToRgb2(h2, s2, l2) {
-                  var r3, g2, b2;
+                  var r2, g2, b2;
                   h2 = bound01(h2, 360);
                   s2 = bound01(s2, 100);
                   l2 = bound01(l2, 100);
@@ -252046,21 +252181,21 @@ var plotly = { exports: {} };
                     return p22;
                   }
                   if (s2 === 0) {
-                    r3 = g2 = b2 = l2;
+                    r2 = g2 = b2 = l2;
                   } else {
                     var q2 = l2 < 0.5 ? l2 * (1 + s2) : l2 + s2 - l2 * s2;
                     var p2 = 2 * l2 - q2;
-                    r3 = hue2rgb(p2, q2, h2 + 1 / 3);
+                    r2 = hue2rgb(p2, q2, h2 + 1 / 3);
                     g2 = hue2rgb(p2, q2, h2);
                     b2 = hue2rgb(p2, q2, h2 - 1 / 3);
                   }
-                  return { r: r3 * 255, g: g2 * 255, b: b2 * 255 };
+                  return { r: r2 * 255, g: g2 * 255, b: b2 * 255 };
                 }
-                function rgbToHsv(r3, g2, b2) {
-                  r3 = bound01(r3, 255);
+                function rgbToHsv(r2, g2, b2) {
+                  r2 = bound01(r2, 255);
                   g2 = bound01(g2, 255);
                   b2 = bound01(b2, 255);
-                  var max2 = mathMax(r3, g2, b2), min2 = mathMin(r3, g2, b2);
+                  var max2 = mathMax(r2, g2, b2), min2 = mathMin(r2, g2, b2);
                   var h2, s2, v2 = max2;
                   var d2 = max2 - min2;
                   s2 = max2 === 0 ? 0 : d2 / max2;
@@ -252068,14 +252203,14 @@ var plotly = { exports: {} };
                     h2 = 0;
                   } else {
                     switch (max2) {
-                      case r3:
+                      case r2:
                         h2 = (g2 - b2) / d2 + (g2 < b2 ? 6 : 0);
                         break;
                       case g2:
-                        h2 = (b2 - r3) / d2 + 2;
+                        h2 = (b2 - r2) / d2 + 2;
                         break;
                       case b2:
-                        h2 = (r3 - g2) / d2 + 4;
+                        h2 = (r2 - g2) / d2 + 4;
                         break;
                     }
                     h2 /= 6;
@@ -252086,12 +252221,12 @@ var plotly = { exports: {} };
                   h2 = bound01(h2, 360) * 6;
                   s2 = bound01(s2, 100);
                   v2 = bound01(v2, 100);
-                  var i2 = Math2.floor(h2), f2 = h2 - i2, p2 = v2 * (1 - s2), q2 = v2 * (1 - f2 * s2), t3 = v2 * (1 - (1 - f2) * s2), mod = i2 % 6, r3 = [v2, q2, p2, p2, t3, v2][mod], g2 = [t3, v2, v2, q2, p2, p2][mod], b2 = [p2, p2, t3, v2, v2, q2][mod];
-                  return { r: r3 * 255, g: g2 * 255, b: b2 * 255 };
+                  var i2 = Math2.floor(h2), f2 = h2 - i2, p2 = v2 * (1 - s2), q2 = v2 * (1 - f2 * s2), t3 = v2 * (1 - (1 - f2) * s2), mod = i2 % 6, r2 = [v2, q2, p2, p2, t3, v2][mod], g2 = [t3, v2, v2, q2, p2, p2][mod], b2 = [p2, p2, t3, v2, v2, q2][mod];
+                  return { r: r2 * 255, g: g2 * 255, b: b2 * 255 };
                 }
-                function rgbToHex2(r3, g2, b2, allow3Char) {
+                function rgbToHex2(r2, g2, b2, allow3Char) {
                   var hex = [
-                    pad2(mathRound(r3).toString(16)),
+                    pad2(mathRound(r2).toString(16)),
                     pad2(mathRound(g2).toString(16)),
                     pad2(mathRound(b2).toString(16))
                   ];
@@ -252100,9 +252235,9 @@ var plotly = { exports: {} };
                   }
                   return hex.join("");
                 }
-                function rgbaToHex(r3, g2, b2, a2, allow4Char) {
+                function rgbaToHex(r2, g2, b2, a2, allow4Char) {
                   var hex = [
-                    pad2(mathRound(r3).toString(16)),
+                    pad2(mathRound(r2).toString(16)),
                     pad2(mathRound(g2).toString(16)),
                     pad2(mathRound(b2).toString(16)),
                     pad2(convertDecimalToHex(a2))
@@ -252112,10 +252247,10 @@ var plotly = { exports: {} };
                   }
                   return hex.join("");
                 }
-                function rgbaToArgbHex(r3, g2, b2, a2) {
+                function rgbaToArgbHex(r2, g2, b2, a2) {
                   var hex = [
                     pad2(convertDecimalToHex(a2)),
-                    pad2(mathRound(r3).toString(16)),
+                    pad2(mathRound(r2).toString(16)),
                     pad2(mathRound(g2).toString(16)),
                     pad2(mathRound(b2).toString(16))
                   ];
@@ -252448,11 +252583,11 @@ var plotly = { exports: {} };
                   yellowgreen: "9acd32"
                 };
                 var hexNames = tinycolor.hexNames = flip2(names);
-                function flip2(o2) {
+                function flip2(o3) {
                   var flipped = {};
-                  for (var i2 in o2) {
-                    if (o2.hasOwnProperty(i2)) {
-                      flipped[o2[i2]] = i2;
+                  for (var i2 in o3) {
+                    if (o3.hasOwnProperty(i2)) {
+                      flipped[o3[i2]] = i2;
                     }
                   }
                   return flipped;
@@ -252733,17 +252868,17 @@ var plotly = { exports: {} };
                   return output;
                 };
               }
-              function feature(topology, o2) {
-                if (typeof o2 === "string") o2 = topology.objects[o2];
-                return o2.type === "GeometryCollection" ? { type: "FeatureCollection", features: o2.geometries.map(function(o22) {
+              function feature(topology, o3) {
+                if (typeof o3 === "string") o3 = topology.objects[o3];
+                return o3.type === "GeometryCollection" ? { type: "FeatureCollection", features: o3.geometries.map(function(o22) {
                   return feature_feature(topology, o22);
-                }) } : feature_feature(topology, o2);
+                }) } : feature_feature(topology, o3);
               }
-              function feature_feature(topology, o2) {
-                var id2 = o2.id, bbox = o2.bbox, properties2 = o2.properties == null ? {} : o2.properties, geometry = object(topology, o2);
+              function feature_feature(topology, o3) {
+                var id2 = o3.id, bbox = o3.bbox, properties2 = o3.properties == null ? {} : o3.properties, geometry = object(topology, o3);
                 return id2 == null && bbox == null ? { type: "Feature", properties: properties2, geometry } : bbox == null ? { type: "Feature", id: id2, properties: properties2, geometry } : { type: "Feature", id: id2, bbox, properties: properties2, geometry };
               }
-              function object(topology, o2) {
+              function object(topology, o3) {
                 var transformPoint = transform(topology.transform), arcs = topology.arcs;
                 function arc(i2, points2) {
                   if (points2.length) points2.pop();
@@ -252797,7 +252932,7 @@ var plotly = { exports: {} };
                   }
                   return { type, coordinates };
                 }
-                return geometry(o2);
+                return geometry(o3);
               }
             }
           ),
@@ -253169,9 +253304,9 @@ var plotly = { exports: {} };
               function mallocBuffer(n2) {
                 n2 = bits.nextPow2(n2);
                 var log_n = bits.log2(n2);
-                var cache2 = BUFFER[log_n];
-                if (cache2.length > 0) {
-                  return cache2.pop();
+                var cache = BUFFER[log_n];
+                if (cache.length > 0) {
+                  return cache.pop();
                 }
                 return new Buffer(n2);
               }
@@ -253927,8 +254062,8 @@ var plotly = { exports: {} };
               }
               exports2.isPrimitive = isPrimitive;
               exports2.isBuffer = __webpack_require__2(44123);
-              function objectToString2(o2) {
-                return Object.prototype.toString.call(o2);
+              function objectToString2(o3) {
+                return Object.prototype.toString.call(o3);
               }
               function pad(n2) {
                 return n2 < 10 ? "0" + n2.toString(10) : n2.toString(10);
@@ -254104,7 +254239,7 @@ var plotly = { exports: {} };
                 }
                 return -1;
               };
-              var cache2 = { __proto__: null };
+              var cache = { __proto__: null };
               if (hasToStringTag && gOPD && getPrototypeOf) {
                 forEach(typedArrays, function(typedArray) {
                   var arr = new g2[typedArray]();
@@ -254115,7 +254250,7 @@ var plotly = { exports: {} };
                       var superProto = getPrototypeOf(proto);
                       descriptor = gOPD(superProto, Symbol.toStringTag);
                     }
-                    cache2["$" + typedArray] = callBind(descriptor.get);
+                    cache["$" + typedArray] = callBind(descriptor.get);
                   }
                 });
               } else {
@@ -254123,7 +254258,7 @@ var plotly = { exports: {} };
                   var arr = new g2[typedArray]();
                   var fn2 = arr.slice || arr.set;
                   if (fn2) {
-                    cache2["$" + typedArray] = callBind(fn2);
+                    cache["$" + typedArray] = callBind(fn2);
                   }
                 });
               }
@@ -254133,7 +254268,7 @@ var plotly = { exports: {} };
                   // eslint-disable-next-line no-extra-parens
                   /** @type {Record<`\$${TypedArrayName}`, typeof cache>} */
                   /** @type {any} */
-                  cache2,
+                  cache,
                   /** @type {(getter: typeof cache, name: `\$${TypedArrayName}`) => void} */
                   function(getter, typedArray) {
                     if (!found) {
@@ -254153,7 +254288,7 @@ var plotly = { exports: {} };
                 forEach(
                   // eslint-disable-next-line no-extra-parens
                   /** @type {any} */
-                  cache2,
+                  cache,
                   /** @type {(getter: typeof cache, name: `\$${TypedArrayName}`) => void} */
                   function(getter, name2) {
                     if (!found) {
@@ -264079,14 +264214,14 @@ var plotly = { exports: {} };
                     const aInterpolation = (bDeltaX * originDeltaY - bDeltaY * originDeltaX) / denominator;
                     return new Point$2(a1.x + aInterpolation * aDeltaX, a1.y + aInterpolation * aDeltaY);
                   }
-                  function sphericalToCartesian([r3, azimuthal, polar]) {
+                  function sphericalToCartesian([r2, azimuthal, polar]) {
                     azimuthal += 90;
                     azimuthal *= Math.PI / 180;
                     polar *= Math.PI / 180;
                     return {
-                      x: r3 * Math.cos(azimuthal) * Math.sin(polar),
-                      y: r3 * Math.sin(azimuthal) * Math.sin(polar),
-                      z: r3 * Math.cos(polar)
+                      x: r2 * Math.cos(azimuthal) * Math.sin(polar),
+                      y: r2 * Math.sin(azimuthal) * Math.sin(polar),
+                      z: r2 * Math.cos(polar)
                     };
                   }
                   function isWorker(self2) {
@@ -264222,7 +264357,7 @@ var plotly = { exports: {} };
                       return readImageDataUsingOffscreenCanvas(image, x2, y2, width2, height2);
                     });
                   }
-                  function subscribe2(target, message, listener, options) {
+                  function subscribe(target, message, listener, options) {
                     target.addEventListener(message, listener, options);
                     return {
                       unsubscribe: () => {
@@ -264484,8 +264619,8 @@ var plotly = { exports: {} };
                       const type = event.type;
                       if (this.listens(type)) {
                         event.target = this;
-                        const listeners2 = this._listeners && this._listeners[type] ? this._listeners[type].slice() : [];
-                        for (const listener of listeners2) {
+                        const listeners = this._listeners && this._listeners[type] ? this._listeners[type].slice() : [];
+                        for (const listener of listeners) {
                           listener.call(this, event);
                         }
                         const oneTimeListeners = this._oneTimeListeners && this._oneTimeListeners[type] ? this._oneTimeListeners[type].slice() : [];
@@ -267953,17 +268088,17 @@ var plotly = { exports: {} };
                     }
                     return angle;
                   }
-                  function rgbToLab([r3, g2, b2, alpha2]) {
-                    r3 = rgb2xyz(r3);
+                  function rgbToLab([r2, g2, b2, alpha2]) {
+                    r2 = rgb2xyz(r2);
                     g2 = rgb2xyz(g2);
                     b2 = rgb2xyz(b2);
                     let x2, z2;
-                    const y2 = xyz2lab((0.2225045 * r3 + 0.7168786 * g2 + 0.0606169 * b2) / Yn);
-                    if (r3 === g2 && g2 === b2) {
+                    const y2 = xyz2lab((0.2225045 * r2 + 0.7168786 * g2 + 0.0606169 * b2) / Yn);
+                    if (r2 === g2 && g2 === b2) {
                       x2 = z2 = y2;
                     } else {
-                      x2 = xyz2lab((0.4360747 * r3 + 0.3850649 * g2 + 0.1430804 * b2) / Xn);
-                      z2 = xyz2lab((0.0139322 * r3 + 0.0971045 * g2 + 0.7141733 * b2) / Zn);
+                      x2 = xyz2lab((0.4360747 * r2 + 0.3850649 * g2 + 0.1430804 * b2) / Xn);
+                      z2 = xyz2lab((0.0139322 * r2 + 0.0971045 * g2 + 0.7141733 * b2) / Zn);
                     }
                     const l2 = 116 * y2 - 16;
                     return [l2 < 0 ? 0 : l2, 500 * (x2 - y2), 200 * (y2 - z2), alpha2];
@@ -268022,8 +268157,8 @@ var plotly = { exports: {} };
                     }
                     const namedColorsMatch = namedColors[input];
                     if (namedColorsMatch) {
-                      const [r3, g2, b2] = namedColorsMatch;
-                      return [r3 / 255, g2 / 255, b2 / 255, 1];
+                      const [r2, g2, b2] = namedColorsMatch;
+                      return [r2 / 255, g2 / 255, b2 / 255, 1];
                     }
                     if (input.startsWith("#")) {
                       const hexRegexp = /^#(?:[0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$/;
@@ -268045,7 +268180,7 @@ var plotly = { exports: {} };
                         const [
                           _2,
                           // eslint-disable-line @typescript-eslint/no-unused-vars
-                          r3,
+                          r2,
                           // <numeric>
                           rp,
                           // %         (optional)
@@ -268074,7 +268209,7 @@ var plotly = { exports: {} };
                           const maxValue = valFormat === "%%%" ? 100 : valFormat === "" ? 255 : 0;
                           if (maxValue) {
                             const rgba2 = [
-                              clamp2(+r3 / maxValue, 0, 1),
+                              clamp2(+r2 / maxValue, 0, 1),
                               clamp2(+g2 / maxValue, 0, 1),
                               clamp2(+b2 / maxValue, 0, 1),
                               a2 ? parseAlpha(+a2, ap) : 1
@@ -268296,8 +268431,8 @@ var plotly = { exports: {} };
                      * been multiplied by alpha. If `true` nothing happens if `false` then they will
                      * be multiplied automatically.
                      */
-                    constructor(r3, g2, b2, alpha2 = 1, premultiplied = true) {
-                      this.r = r3;
+                    constructor(r2, g2, b2, alpha2 = 1, premultiplied = true) {
+                      this.r = r2;
                       this.g = g2;
                       this.b = b2;
                       this.a = alpha2;
@@ -268306,7 +268441,7 @@ var plotly = { exports: {} };
                         this.g *= alpha2;
                         this.b *= alpha2;
                         if (!alpha2) {
-                          this.overwriteGetter("rgb", [r3, g2, b2, alpha2]);
+                          this.overwriteGetter("rgb", [r2, g2, b2, alpha2]);
                         }
                       }
                     }
@@ -268339,9 +268474,9 @@ var plotly = { exports: {} };
                      * @returns Gien color, with reversed alpha blending, in sRGB color space.
                      */
                     get rgb() {
-                      const { r: r3, g: g2, b: b2, a: a2 } = this;
+                      const { r: r2, g: g2, b: b2, a: a2 } = this;
                       const f2 = a2 || Infinity;
-                      return this.overwriteGetter("rgb", [r3 / f2, g2 / f2, b2 / f2, a2]);
+                      return this.overwriteGetter("rgb", [r2 / f2, g2 / f2, b2 / f2, a2]);
                     }
                     /**
                      * Used in color interpolation.
@@ -268395,8 +268530,8 @@ var plotly = { exports: {} };
                      * translucentGreen.toString(); // = "rgba(26,207,26,0.73)"
                      */
                     toString() {
-                      const [r3, g2, b2, a2] = this.rgb;
-                      return `rgba(${[r3, g2, b2].map((n2) => Math.round(n2 * 255)).join(",")},${a2})`;
+                      const [r2, g2, b2, a2] = this.rgb;
+                      return `rgba(${[r2, g2, b2].map((n2) => Math.round(n2 * 255)).join(",")},${a2})`;
                     }
                   }
                   Color.black = new Color(0, 0, 0, 1);
@@ -268539,13 +268674,13 @@ var plotly = { exports: {} };
                       return new ResolvedImage({ name: name2, available: false });
                     }
                   }
-                  function validateRGBA(r3, g2, b2, a2) {
-                    if (!(typeof r3 === "number" && r3 >= 0 && r3 <= 255 && typeof g2 === "number" && g2 >= 0 && g2 <= 255 && typeof b2 === "number" && b2 >= 0 && b2 <= 255)) {
-                      const value = typeof a2 === "number" ? [r3, g2, b2, a2] : [r3, g2, b2];
+                  function validateRGBA(r2, g2, b2, a2) {
+                    if (!(typeof r2 === "number" && r2 >= 0 && r2 <= 255 && typeof g2 === "number" && g2 >= 0 && g2 <= 255 && typeof b2 === "number" && b2 >= 0 && b2 <= 255)) {
+                      const value = typeof a2 === "number" ? [r2, g2, b2, a2] : [r2, g2, b2];
                       return `Invalid rgba value [${value.join(", ")}]: 'r', 'g', and 'b' must be between 0 and 255.`;
                     }
                     if (!(typeof a2 === "undefined" || typeof a2 === "number" && a2 >= 0 && a2 <= 1)) {
-                      return `Invalid rgba value [${[r3, g2, b2, a2].join(", ")}]: 'a' must be between 0 and 1.`;
+                      return `Invalid rgba value [${[r2, g2, b2, a2].join(", ")}]: 'a' must be between 0 and 1.`;
                     }
                     return null;
                   }
@@ -269532,8 +269667,8 @@ var plotly = { exports: {} };
                   function color2(from2, to, t4, spaceKey = "rgb") {
                     switch (spaceKey) {
                       case "rgb": {
-                        const [r3, g2, b2, alpha2] = array(from2.rgb, to.rgb, t4);
-                        return new Color(r3, g2, b2, alpha2, false);
+                        const [r2, g2, b2, alpha2] = array(from2.rgb, to.rgb, t4);
+                        return new Color(r2, g2, b2, alpha2, false);
                       }
                       case "hcl": {
                         const [hue0, chroma0, light0, alphaF] = from2.hcl;
@@ -269558,17 +269693,17 @@ var plotly = { exports: {} };
                         } else {
                           hue = NaN;
                         }
-                        const [r3, g2, b2, alpha2] = hclToRgb([
+                        const [r2, g2, b2, alpha2] = hclToRgb([
                           hue,
                           chroma !== null && chroma !== void 0 ? chroma : number2(chroma0, chroma1, t4),
                           number2(light0, light1, t4),
                           number2(alphaF, alphaT, t4)
                         ]);
-                        return new Color(r3, g2, b2, alpha2, false);
+                        return new Color(r2, g2, b2, alpha2, false);
                       }
                       case "lab": {
-                        const [r3, g2, b2, alpha2] = labToRgb(array(from2.lab, to.lab, t4));
-                        return new Color(r3, g2, b2, alpha2, false);
+                        const [r2, g2, b2, alpha2] = labToRgb(array(from2.lab, to.lab, t4));
+                        return new Color(r2, g2, b2, alpha2, false);
                       }
                     }
                   }
@@ -271322,15 +271457,15 @@ var plotly = { exports: {} };
                       }
                     }
                   }
-                  function rgba(ctx, [r3, g2, b2, a2]) {
-                    r3 = r3.evaluate(ctx);
+                  function rgba(ctx, [r2, g2, b2, a2]) {
+                    r2 = r2.evaluate(ctx);
                     g2 = g2.evaluate(ctx);
                     b2 = b2.evaluate(ctx);
                     const alpha2 = a2 ? a2.evaluate(ctx) : 1;
-                    const error2 = validateRGBA(r3, g2, b2, alpha2);
+                    const error2 = validateRGBA(r2, g2, b2, alpha2);
                     if (error2)
                       throw new RuntimeError(error2);
-                    return new Color(r3 / 255, g2 / 255, b2 / 255, alpha2, false);
+                    return new Color(r2 / 255, g2 / 255, b2 / 255, alpha2, false);
                   }
                   function has(key, obj) {
                     return key in obj;
@@ -271371,8 +271506,8 @@ var plotly = { exports: {} };
                       array$1(NumberType, 4),
                       [ColorType],
                       (ctx, [v2]) => {
-                        const [r3, g2, b2, a2] = v2.evaluate(ctx).rgb;
-                        return [r3 * 255, g2 * 255, b2 * 255, a2];
+                        const [r2, g2, b2, a2] = v2.evaluate(ctx).rgb;
+                        return [r2 * 255, g2 * 255, b2 * 255, a2];
                       }
                     ],
                     "rgb": [
@@ -275249,9 +275384,9 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       return this.emplace(i2, v0, v1);
                     }
                     emplace(i2, v0, v1) {
-                      const o2 = i2 * 2;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
+                      const o22 = i2 * 2;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
                       return i2;
                     }
                   }
@@ -275268,10 +275403,10 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       return this.emplace(i2, v0, v1, v2);
                     }
                     emplace(i2, v0, v1, v2) {
-                      const o2 = i2 * 3;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.int16[o2 + 2] = v2;
+                      const o22 = i2 * 3;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.int16[o22 + 2] = v2;
                       return i2;
                     }
                   }
@@ -275288,11 +275423,11 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       return this.emplace(i2, v0, v1, v2, v3);
                     }
                     emplace(i2, v0, v1, v2, v3) {
-                      const o2 = i2 * 4;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.int16[o2 + 2] = v2;
-                      this.int16[o2 + 3] = v3;
+                      const o22 = i2 * 4;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.int16[o22 + 2] = v2;
+                      this.int16[o22 + 3] = v3;
                       return i2;
                     }
                   }
@@ -275309,13 +275444,13 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5);
                     }
                     emplace(i2, v0, v1, v2, v3, v4, v5) {
-                      const o2 = i2 * 6;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.int16[o2 + 2] = v2;
-                      this.int16[o2 + 3] = v3;
-                      this.int16[o2 + 4] = v4;
-                      this.int16[o2 + 5] = v5;
+                      const o22 = i2 * 6;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.int16[o22 + 2] = v2;
+                      this.int16[o22 + 3] = v3;
+                      this.int16[o22 + 4] = v4;
+                      this.int16[o22 + 5] = v5;
                       return i2;
                     }
                   }
@@ -275332,10 +275467,10 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5);
                     }
                     emplace(i2, v0, v1, v2, v3, v4, v5) {
-                      const o2 = i2 * 4;
+                      const o22 = i2 * 4;
                       const o1 = i2 * 8;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
                       this.uint8[o1 + 4] = v2;
                       this.uint8[o1 + 5] = v3;
                       this.uint8[o1 + 6] = v4;
@@ -275375,17 +275510,17 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9);
                     }
                     emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9) {
-                      const o2 = i2 * 10;
-                      this.uint16[o2 + 0] = v0;
-                      this.uint16[o2 + 1] = v1;
-                      this.uint16[o2 + 2] = v2;
-                      this.uint16[o2 + 3] = v3;
-                      this.uint16[o2 + 4] = v4;
-                      this.uint16[o2 + 5] = v5;
-                      this.uint16[o2 + 6] = v6;
-                      this.uint16[o2 + 7] = v7;
-                      this.uint16[o2 + 8] = v8;
-                      this.uint16[o2 + 9] = v9;
+                      const o22 = i2 * 10;
+                      this.uint16[o22 + 0] = v0;
+                      this.uint16[o22 + 1] = v1;
+                      this.uint16[o22 + 2] = v2;
+                      this.uint16[o22 + 3] = v3;
+                      this.uint16[o22 + 4] = v4;
+                      this.uint16[o22 + 5] = v5;
+                      this.uint16[o22 + 6] = v6;
+                      this.uint16[o22 + 7] = v7;
+                      this.uint16[o22 + 8] = v8;
+                      this.uint16[o22 + 9] = v9;
                       return i2;
                     }
                   }
@@ -275403,19 +275538,19 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11);
                     }
                     emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11) {
-                      const o2 = i2 * 12;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.int16[o2 + 2] = v2;
-                      this.int16[o2 + 3] = v3;
-                      this.uint16[o2 + 4] = v4;
-                      this.uint16[o2 + 5] = v5;
-                      this.uint16[o2 + 6] = v6;
-                      this.uint16[o2 + 7] = v7;
-                      this.int16[o2 + 8] = v8;
-                      this.int16[o2 + 9] = v9;
-                      this.int16[o2 + 10] = v10;
-                      this.int16[o2 + 11] = v11;
+                      const o22 = i2 * 12;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.int16[o22 + 2] = v2;
+                      this.int16[o22 + 3] = v3;
+                      this.uint16[o22 + 4] = v4;
+                      this.uint16[o22 + 5] = v5;
+                      this.uint16[o22 + 6] = v6;
+                      this.uint16[o22 + 7] = v7;
+                      this.int16[o22 + 8] = v8;
+                      this.int16[o22 + 9] = v9;
+                      this.int16[o22 + 10] = v10;
+                      this.int16[o22 + 11] = v11;
                       return i2;
                     }
                   }
@@ -275472,17 +275607,17 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8);
                     }
                     emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8) {
-                      const o2 = i2 * 10;
+                      const o22 = i2 * 10;
                       const o4 = i2 * 5;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.int16[o2 + 2] = v2;
-                      this.int16[o2 + 3] = v3;
-                      this.int16[o2 + 4] = v4;
-                      this.int16[o2 + 5] = v5;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.int16[o22 + 2] = v2;
+                      this.int16[o22 + 3] = v3;
+                      this.int16[o22 + 4] = v4;
+                      this.int16[o22 + 5] = v5;
                       this.uint32[o4 + 3] = v6;
-                      this.uint16[o2 + 8] = v7;
-                      this.uint16[o2 + 9] = v8;
+                      this.uint16[o22 + 8] = v7;
+                      this.uint16[o22 + 9] = v8;
                       return i2;
                     }
                   }
@@ -275499,13 +275634,13 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5);
                     }
                     emplace(i2, v0, v1, v2, v3, v4, v5) {
-                      const o2 = i2 * 6;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.int16[o2 + 2] = v2;
-                      this.int16[o2 + 3] = v3;
-                      this.int16[o2 + 4] = v4;
-                      this.int16[o2 + 5] = v5;
+                      const o22 = i2 * 6;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.int16[o22 + 2] = v2;
+                      this.int16[o22 + 3] = v3;
+                      this.int16[o22 + 4] = v4;
+                      this.int16[o22 + 5] = v5;
                       return i2;
                     }
                   }
@@ -275524,12 +275659,12 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                     }
                     emplace(i2, v0, v1, v2, v3, v4) {
                       const o4 = i2 * 4;
-                      const o2 = i2 * 8;
+                      const o22 = i2 * 8;
                       this.float32[o4 + 0] = v0;
                       this.float32[o4 + 1] = v1;
                       this.float32[o4 + 2] = v2;
-                      this.int16[o2 + 6] = v3;
-                      this.int16[o2 + 7] = v4;
+                      this.int16[o22 + 6] = v3;
+                      this.int16[o22 + 7] = v4;
                       return i2;
                     }
                   }
@@ -275549,13 +275684,13 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                     emplace(i2, v0, v1, v2, v3, v4, v5) {
                       const o1 = i2 * 16;
                       const o4 = i2 * 4;
-                      const o2 = i2 * 8;
+                      const o22 = i2 * 8;
                       this.uint8[o1 + 0] = v0;
                       this.uint8[o1 + 1] = v1;
                       this.float32[o4 + 1] = v2;
                       this.float32[o4 + 2] = v3;
-                      this.int16[o2 + 6] = v4;
-                      this.int16[o2 + 7] = v5;
+                      this.int16[o22 + 6] = v4;
+                      this.int16[o22 + 7] = v5;
                       return i2;
                     }
                   }
@@ -275572,10 +275707,10 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       return this.emplace(i2, v0, v1, v2);
                     }
                     emplace(i2, v0, v1, v2) {
-                      const o2 = i2 * 3;
-                      this.uint16[o2 + 0] = v0;
-                      this.uint16[o2 + 1] = v1;
-                      this.uint16[o2 + 2] = v2;
+                      const o22 = i2 * 3;
+                      this.uint16[o22 + 0] = v0;
+                      this.uint16[o22 + 1] = v1;
+                      this.uint16[o22 + 2] = v2;
                       return i2;
                     }
                   }
@@ -275595,26 +275730,26 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16);
                     }
                     emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16) {
-                      const o2 = i2 * 24;
+                      const o22 = i2 * 24;
                       const o4 = i2 * 12;
                       const o1 = i2 * 48;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.uint16[o2 + 2] = v2;
-                      this.uint16[o2 + 3] = v3;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.uint16[o22 + 2] = v2;
+                      this.uint16[o22 + 3] = v3;
                       this.uint32[o4 + 2] = v4;
                       this.uint32[o4 + 3] = v5;
                       this.uint32[o4 + 4] = v6;
-                      this.uint16[o2 + 10] = v7;
-                      this.uint16[o2 + 11] = v8;
-                      this.uint16[o2 + 12] = v9;
+                      this.uint16[o22 + 10] = v7;
+                      this.uint16[o22 + 11] = v8;
+                      this.uint16[o22 + 12] = v9;
                       this.float32[o4 + 7] = v10;
                       this.float32[o4 + 8] = v11;
                       this.uint8[o1 + 36] = v12;
                       this.uint8[o1 + 37] = v13;
                       this.uint8[o1 + 38] = v14;
                       this.uint32[o4 + 10] = v15;
-                      this.int16[o2 + 22] = v16;
+                      this.int16[o22 + 22] = v16;
                       return i2;
                     }
                   }
@@ -275634,36 +275769,36 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       return this.emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27);
                     }
                     emplace(i2, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27) {
-                      const o2 = i2 * 32;
+                      const o22 = i2 * 32;
                       const o4 = i2 * 16;
-                      this.int16[o2 + 0] = v0;
-                      this.int16[o2 + 1] = v1;
-                      this.int16[o2 + 2] = v2;
-                      this.int16[o2 + 3] = v3;
-                      this.int16[o2 + 4] = v4;
-                      this.int16[o2 + 5] = v5;
-                      this.int16[o2 + 6] = v6;
-                      this.int16[o2 + 7] = v7;
-                      this.uint16[o2 + 8] = v8;
-                      this.uint16[o2 + 9] = v9;
-                      this.uint16[o2 + 10] = v10;
-                      this.uint16[o2 + 11] = v11;
-                      this.uint16[o2 + 12] = v12;
-                      this.uint16[o2 + 13] = v13;
-                      this.uint16[o2 + 14] = v14;
-                      this.uint16[o2 + 15] = v15;
-                      this.uint16[o2 + 16] = v16;
-                      this.uint16[o2 + 17] = v17;
-                      this.uint16[o2 + 18] = v18;
-                      this.uint16[o2 + 19] = v19;
-                      this.uint16[o2 + 20] = v20;
-                      this.uint16[o2 + 21] = v21;
-                      this.uint16[o2 + 22] = v22;
+                      this.int16[o22 + 0] = v0;
+                      this.int16[o22 + 1] = v1;
+                      this.int16[o22 + 2] = v2;
+                      this.int16[o22 + 3] = v3;
+                      this.int16[o22 + 4] = v4;
+                      this.int16[o22 + 5] = v5;
+                      this.int16[o22 + 6] = v6;
+                      this.int16[o22 + 7] = v7;
+                      this.uint16[o22 + 8] = v8;
+                      this.uint16[o22 + 9] = v9;
+                      this.uint16[o22 + 10] = v10;
+                      this.uint16[o22 + 11] = v11;
+                      this.uint16[o22 + 12] = v12;
+                      this.uint16[o22 + 13] = v13;
+                      this.uint16[o22 + 14] = v14;
+                      this.uint16[o22 + 15] = v15;
+                      this.uint16[o22 + 16] = v16;
+                      this.uint16[o22 + 17] = v17;
+                      this.uint16[o22 + 18] = v18;
+                      this.uint16[o22 + 19] = v19;
+                      this.uint16[o22 + 20] = v20;
+                      this.uint16[o22 + 21] = v21;
+                      this.uint16[o22 + 22] = v22;
                       this.uint32[o4 + 12] = v23;
                       this.float32[o4 + 13] = v24;
                       this.float32[o4 + 14] = v25;
-                      this.uint16[o2 + 30] = v26;
-                      this.uint16[o2 + 31] = v27;
+                      this.uint16[o22 + 30] = v26;
+                      this.uint16[o22 + 31] = v27;
                       return i2;
                     }
                   }
@@ -275699,9 +275834,9 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       return this.emplace(i2, v0, v1, v2);
                     }
                     emplace(i2, v0, v1, v2) {
-                      const o2 = i2 * 6;
+                      const o22 = i2 * 6;
                       const o4 = i2 * 3;
-                      this.uint16[o2 + 0] = v0;
+                      this.uint16[o22 + 0] = v0;
                       this.float32[o4 + 1] = v1;
                       this.float32[o4 + 2] = v2;
                       return i2;
@@ -275722,10 +275857,10 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                     }
                     emplace(i2, v0, v1, v2) {
                       const o4 = i2 * 2;
-                      const o2 = i2 * 4;
+                      const o22 = i2 * 4;
                       this.uint32[o4 + 0] = v0;
-                      this.uint16[o2 + 2] = v1;
-                      this.uint16[o2 + 3] = v2;
+                      this.uint16[o22 + 2] = v1;
+                      this.uint16[o22 + 3] = v2;
                       return i2;
                     }
                   }
@@ -275742,9 +275877,9 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       return this.emplace(i2, v0, v1);
                     }
                     emplace(i2, v0, v1) {
-                      const o2 = i2 * 2;
-                      this.uint16[o2 + 0] = v0;
-                      this.uint16[o2 + 1] = v1;
+                      const o22 = i2 * 2;
+                      this.uint16[o22 + 0] = v0;
+                      this.uint16[o22 + 1] = v1;
                       return i2;
                     }
                   }
@@ -275761,8 +275896,8 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       return this.emplace(i2, v0);
                     }
                     emplace(i2, v0) {
-                      const o2 = i2 * 1;
-                      this.uint16[o2 + 0] = v0;
+                      const o22 = i2 * 1;
+                      this.uint16[o22 + 0] = v0;
                       return i2;
                     }
                   }
@@ -276913,8 +277048,8 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                   function loadGeometry(feature) {
                     const scale2 = EXTENT / feature.extent;
                     const geometry = feature.loadGeometry();
-                    for (let r3 = 0; r3 < geometry.length; r3++) {
-                      const ring = geometry[r3];
+                    for (let r2 = 0; r2 < geometry.length; r2++) {
+                      const ring = geometry[r2];
                       for (let p2 = 0; p2 < ring.length; p2++) {
                         const point = ring[p2];
                         const x2 = Math.round(point.x * scale2);
@@ -278251,26 +278386,26 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                     (area(a2.prev, a2, b2.prev) || area(a2, b2.prev, b2)) || // does not create opposite-facing sectors
                     equals(a2, b2) && area(a2.prev, a2, a2.next) > 0 && area(b2.prev, b2, b2.next) > 0);
                   }
-                  function area(p2, q2, r3) {
-                    return (q2.y - p2.y) * (r3.x - q2.x) - (q2.x - p2.x) * (r3.y - q2.y);
+                  function area(p2, q2, r2) {
+                    return (q2.y - p2.y) * (r2.x - q2.x) - (q2.x - p2.x) * (r2.y - q2.y);
                   }
                   function equals(p1, p2) {
                     return p1.x === p2.x && p1.y === p2.y;
                   }
                   function intersects(p1, q1, p2, q2) {
                     const o1 = sign2(area(p1, q1, p2));
-                    const o2 = sign2(area(p1, q1, q2));
+                    const o22 = sign2(area(p1, q1, q2));
                     const o3 = sign2(area(p2, q2, p1));
                     const o4 = sign2(area(p2, q2, q1));
-                    if (o1 !== o2 && o3 !== o4) return true;
+                    if (o1 !== o22 && o3 !== o4) return true;
                     if (o1 === 0 && onSegment(p1, p2, q1)) return true;
-                    if (o2 === 0 && onSegment(p1, q2, q1)) return true;
+                    if (o22 === 0 && onSegment(p1, q2, q1)) return true;
                     if (o3 === 0 && onSegment(p2, p1, q2)) return true;
                     if (o4 === 0 && onSegment(p2, q1, q2)) return true;
                     return false;
                   }
-                  function onSegment(p2, q2, r3) {
-                    return q2.x <= Math.max(p2.x, r3.x) && q2.x >= Math.min(p2.x, r3.x) && q2.y <= Math.max(p2.y, r3.y) && q2.y >= Math.min(p2.y, r3.y);
+                  function onSegment(p2, q2, r2) {
+                    return q2.x <= Math.max(p2.x, r2.x) && q2.x >= Math.min(p2.x, r2.x) && q2.y <= Math.max(p2.y, r2.y) && q2.y >= Math.min(p2.y, r2.y);
                   }
                   function sign2(num) {
                     return num > 0 ? 1 : num < 0 ? -1 : 0;
@@ -279059,9 +279194,9 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                     if (polygonIntersectsMultiPolygon(projectedQueryGeometry, projectedTop)) {
                       closestDistance = getIntersectionDistance(projectedQueryGeometry, projectedTop[0]);
                     }
-                    for (let r3 = 0; r3 < projectedTop.length; r3++) {
-                      const ringTop = projectedTop[r3];
-                      const ringBase = projectedBase[r3];
+                    for (let r2 = 0; r2 < projectedTop.length; r2++) {
+                      const ringTop = projectedTop[r2];
+                      const ringBase = projectedBase[r2];
                       for (let p2 = 0; p2 < ringTop.length - 1; p2++) {
                         const topA = ringTop[p2];
                         const topB = ringTop[p2 + 1];
@@ -279086,10 +279221,10 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                     const topYZ = m2[9] * zTop;
                     const topZZ = m2[10] * zTop;
                     const topWZ = m2[11] * zTop;
-                    for (const r3 of geometry) {
+                    for (const r2 of geometry) {
                       const ringBase = [];
                       const ringTop = [];
-                      for (const p2 of r3) {
+                      for (const p2 of r2) {
                         const x2 = p2.x;
                         const y2 = p2.y;
                         const sX = m2[0] * x2 + m2[4] * y2 + m2[12];
@@ -281940,7 +282075,7 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                     "icon-translate": new DataConstantProperty(v8Spec["paint_symbol"]["icon-translate"]),
                     "icon-translate-anchor": new DataConstantProperty(v8Spec["paint_symbol"]["icon-translate-anchor"]),
                     "text-opacity": new DataDrivenProperty(v8Spec["paint_symbol"]["text-opacity"]),
-                    "text-color": new DataDrivenProperty(v8Spec["paint_symbol"]["text-color"], { runtimeType: ColorType, getOverride: (o2) => o2.textColor, hasOverride: (o2) => !!o2.textColor }),
+                    "text-color": new DataDrivenProperty(v8Spec["paint_symbol"]["text-color"], { runtimeType: ColorType, getOverride: (o3) => o3.textColor, hasOverride: (o3) => !!o3.textColor }),
                     "text-halo-color": new DataDrivenProperty(v8Spec["paint_symbol"]["text-halo-color"]),
                     "text-halo-width": new DataDrivenProperty(v8Spec["paint_symbol"]["text-halo-width"]),
                     "text-halo-blur": new DataDrivenProperty(v8Spec["paint_symbol"]["text-halo-blur"]),
@@ -282268,7 +282403,7 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       this.abortControllers = {};
                       this.messageHandlers = {};
                       this.invoker = new ThrottledInvoker(() => this.process());
-                      this.subscription = subscribe2(this.target, "message", (message) => this.receive(message), false);
+                      this.subscription = subscribe(this.target, "message", (message) => this.receive(message), false);
                       this.globalScope = isWorker(self) ? target : window;
                     }
                     registerMessageHandler(type, handler) {
@@ -282835,8 +282970,8 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                         throw new RangeError("out of range source coordinates for DEM data");
                       return (y2 + 1) * this.stride + (x2 + 1);
                     }
-                    unpack(r3, g2, b2) {
-                      return r3 * this.redFactor + g2 * this.greenFactor + b2 * this.blueFactor - this.baseShift;
+                    unpack(r2, g2, b2) {
+                      return r2 * this.redFactor + g2 * this.greenFactor + b2 * this.blueFactor - this.baseShift;
                     }
                     getPixels() {
                       return new RGBAImage({ width: this.stride, height: this.stride }, new Uint8Array(this.data.buffer));
@@ -282936,8 +283071,8 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       const key = this.featureIndexArray.length;
                       this.featureIndexArray.emplaceBack(featureIndex, sourceLayerIndex, bucketIndex);
                       const grid2 = is3D ? this.grid3D : this.grid;
-                      for (let r3 = 0; r3 < geometry.length; r3++) {
-                        const ring = geometry[r3];
+                      for (let r2 = 0; r2 < geometry.length; r2++) {
+                        const ring = geometry[r2];
                         const bbox = [Infinity, Infinity, -Infinity, -Infinity];
                         for (let i2 = 0; i2 < ring.length; i2++) {
                           const p2 = ring[i2];
@@ -284351,12 +284486,12 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                      * @param {number} r Query radius.
                      * @returns {number[]} An array of indices correponding to the found items.
                      */
-                    within(qx, qy, r3) {
+                    within(qx, qy, r2) {
                       if (!this._finished) throw new Error("Data not yet indexed - call index.finish().");
                       const { ids, coords, nodeSize } = this;
                       const stack = [0, ids.length - 1, 0];
                       const result = [];
-                      const r22 = r3 * r3;
+                      const r22 = r2 * r2;
                       while (stack.length) {
                         const axis = stack.pop() || 0;
                         const right2 = stack.pop() || 0;
@@ -284371,12 +284506,12 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                         const x2 = coords[2 * m2];
                         const y2 = coords[2 * m2 + 1];
                         if (sqDist(x2, y2, qx, qy) <= r22) result.push(ids[m2]);
-                        if (axis === 0 ? qx - r3 <= x2 : qy - r3 <= y2) {
+                        if (axis === 0 ? qx - r2 <= x2 : qy - r2 <= y2) {
                           stack.push(left2);
                           stack.push(m2 - 1);
                           stack.push(1 - axis);
                         }
-                        if (axis === 0 ? qx + r3 >= x2 : qy + r3 >= y2) {
+                        if (axis === 0 ? qx + r2 >= x2 : qy + r2 >= y2) {
                           stack.push(m2 + 1);
                           stack.push(right2);
                           stack.push(1 - axis);
@@ -285296,8 +285431,8 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                     var x2 = 0;
                     var y2 = 0;
                     var rings = geometry.length;
-                    for (var r3 = 0; r3 < rings; r3++) {
-                      var ring = geometry[r3];
+                    for (var r2 = 0; r2 < rings; r2++) {
+                      var ring = geometry[r2];
                       var count = 1;
                       if (type === 1) {
                         count = ring.length;
@@ -285447,10 +285582,10 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       if (!tree) throw new Error(errorMsg);
                       const data = tree.data;
                       if (originId * this.stride >= data.length) throw new Error(errorMsg);
-                      const r3 = this.options.radius / (this.options.extent * Math.pow(2, originZoom - 1));
+                      const r2 = this.options.radius / (this.options.extent * Math.pow(2, originZoom - 1));
                       const x2 = data[originId * this.stride];
                       const y2 = data[originId * this.stride + 1];
-                      const ids = tree.within(x2, y2, r3);
+                      const ids = tree.within(x2, y2, r2);
                       const children = [];
                       for (const id2 of ids) {
                         const k2 = id2 * this.stride;
@@ -285583,7 +285718,7 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                     }
                     _cluster(tree, zoom) {
                       const { radius, extent: extent2, reduce, minPoints } = this.options;
-                      const r3 = radius / (extent2 * Math.pow(2, zoom));
+                      const r2 = radius / (extent2 * Math.pow(2, zoom));
                       const data = tree.data;
                       const nextData = [];
                       const stride = this.stride;
@@ -285592,7 +285727,7 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                         data[i2 + OFFSET_ZOOM] = zoom;
                         const x2 = data[i2];
                         const y2 = data[i2 + 1];
-                        const neighborIds = tree.within(data[i2], data[i2 + 1], r3);
+                        const neighborIds = tree.within(data[i2], data[i2 + 1], r2);
                         const numPointsOrigin = data[i2 + OFFSET_NUM];
                         let numPoints = numPointsOrigin;
                         for (const neighborId of neighborIds) {
@@ -287896,8 +288031,8 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                       f2[q2] = grid2[offset2 + q2 * stride];
                       const q22 = q2 * q2;
                       do {
-                        const r3 = v2[k2];
-                        s2 = (f2[q2] - f2[r3] + q22 - r3 * r3) / (q2 - r3) / 2;
+                        const r2 = v2[k2];
+                        s2 = (f2[q2] - f2[r2] + q22 - r2 * r2) / (q2 - r2) / 2;
                       } while (s2 <= z2[k2] && --k2 > -1);
                       k2++;
                       v2[k2] = q2;
@@ -287906,9 +288041,9 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                     }
                     for (let q2 = 0, k2 = 0; q2 < length2; q2++) {
                       while (z2[k2 + 1] < q2) k2++;
-                      const r3 = v2[k2];
-                      const qr = q2 - r3;
-                      grid2[offset2 + q2 * stride] = f2[r3] + qr * qr;
+                      const r2 = v2[k2];
+                      const qr = q2 - r2;
+                      grid2[offset2 + q2 * stride] = f2[r2] + qr * qr;
                     }
                   }
                   class GlyphManager {
@@ -290657,8 +290792,8 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                           }
                         }
                       }
-                      for (const r3 of removed) {
-                        this.remove(r3.value.tileID, r3);
+                      for (const r2 of removed) {
+                        this.remove(r2.value.tileID, r2);
                       }
                     }
                   }
@@ -291846,10 +291981,10 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                     _convertToYCellCoord(y2) {
                       return Math.max(0, Math.min(this.yCellCount - 1, Math.floor(y2 * this.yScale)));
                     }
-                    _circlesCollide(x1, y1, r1, x2, y2, r22) {
+                    _circlesCollide(x1, y1, r1, x2, y2, r2) {
                       const dx = x2 - x1;
                       const dy = y2 - y1;
-                      const bothRadii = r1 + r22;
+                      const bothRadii = r1 + r2;
                       return bothRadii * bothRadii > dx * dx + dy * dy;
                     }
                     _circleAndRectCollide(circleX, circleY, radius, x1, y1, x2, y2) {
@@ -292062,15 +292197,15 @@ Use an identity property function instead: \`{ "type": "identity", "property": $
                     return previousProjectedPoint.add(projectedUnitSegment._mult(minimumLength / projectedUnitSegment.mag()));
                   }
                   function projectLineVertexToViewport(index, projectionContext, syntheticVertexArgs) {
-                    const cache22 = projectionContext.projectionCache;
-                    if (cache22.projections[index]) {
-                      return cache22.projections[index];
+                    const cache2 = projectionContext.projectionCache;
+                    if (cache2.projections[index]) {
+                      return cache2.projections[index];
                     }
                     const currentVertex = new performance$1.P(projectionContext.lineVertexArray.getx(index), projectionContext.lineVertexArray.gety(index));
                     const projection = projectTileCoordinatesToViewport(currentVertex.x, currentVertex.y, projectionContext);
                     if (projection.signedDistanceFromCamera > 0) {
-                      cache22.projections[index] = projection.point;
-                      cache22.anyProjectionOccluded = cache22.anyProjectionOccluded || projection.isOccluded;
+                      cache2.projections[index] = projection.point;
+                      cache2.anyProjectionOccluded = cache2.anyProjectionOccluded || projection.isOccluded;
                       return projection.point;
                     }
                     const previousLineVertexIndex = index - syntheticVertexArgs.direction;
@@ -296123,14 +296258,14 @@ uniform ${precision} ${type2} u_${name3};
                       }
                     }
                   }
-                  const cache2 = /* @__PURE__ */ new WeakMap();
+                  const cache = /* @__PURE__ */ new WeakMap();
                   function isWebGL2(gl2) {
                     var _a;
-                    if (cache2.has(gl2)) {
-                      return cache2.get(gl2);
+                    if (cache.has(gl2)) {
+                      return cache.get(gl2);
                     } else {
                       const value = (_a = gl2.getParameter(gl2.VERSION)) === null || _a === void 0 ? void 0 : _a.startsWith("WebGL 2.0");
-                      cache2.set(gl2, value);
+                      cache.set(gl2, value);
                       return value;
                     }
                   }
@@ -299194,14 +299329,14 @@ uniform ${precision} ${type2} u_${name3};
                      */
                     calculatePosMatrix(unwrappedTileID, aligned = false) {
                       const posMatrixKey = unwrappedTileID.key;
-                      const cache22 = aligned ? this._alignedPosMatrixCache : this._posMatrixCache;
-                      if (cache22[posMatrixKey]) {
-                        return cache22[posMatrixKey];
+                      const cache2 = aligned ? this._alignedPosMatrixCache : this._posMatrixCache;
+                      if (cache2[posMatrixKey]) {
+                        return cache2[posMatrixKey];
                       }
                       const posMatrix = this.calculateTileMatrix(unwrappedTileID);
                       performance$1.L(posMatrix, aligned ? this.alignedModelViewProjectionMatrix : this.modelViewProjectionMatrix, posMatrix);
-                      cache22[posMatrixKey] = new Float32Array(posMatrix);
-                      return cache22[posMatrixKey];
+                      cache2[posMatrixKey] = new Float32Array(posMatrix);
+                      return cache2[posMatrixKey];
                     }
                     /**
                      * Calculate the fogMatrix that, given a tile coordinate, would be used to calculate fog on the map.
@@ -299210,14 +299345,14 @@ uniform ${precision} ${type2} u_${name3};
                      */
                     calculateFogMatrix(unwrappedTileID) {
                       const posMatrixKey = unwrappedTileID.key;
-                      const cache22 = this._fogMatrixCache;
-                      if (cache22[posMatrixKey]) {
-                        return cache22[posMatrixKey];
+                      const cache2 = this._fogMatrixCache;
+                      if (cache2[posMatrixKey]) {
+                        return cache2[posMatrixKey];
                       }
                       const fogMatrix = this.calculateTileMatrix(unwrappedTileID);
                       performance$1.L(fogMatrix, this.fogMatrix, fogMatrix);
-                      cache22[posMatrixKey] = new Float32Array(fogMatrix);
-                      return cache22[posMatrixKey];
+                      cache2[posMatrixKey] = new Float32Array(fogMatrix);
+                      return cache2[posMatrixKey];
                     }
                     customLayerMatrix() {
                       return this.mercatorMatrix.slice();
@@ -303659,7 +303794,7 @@ uniform ${precision} ${type2} u_${name3};
                       if (this._objects.length < this._size) {
                         return false;
                       }
-                      return this._objects.some((o2) => !o2.inUse) === false;
+                      return this._objects.some((o3) => !o3.inUse) === false;
                     }
                   }
                   const LAYERS = {
@@ -304551,14 +304686,14 @@ uniform ${precision} ${type2} u_${name3};
                         return super.off(type2, layerIdOrListener);
                       }
                       const removeDelegatedListener = (delegatedListeners) => {
-                        const listeners2 = delegatedListeners[type2];
-                        for (let i2 = 0; i2 < listeners2.length; i2++) {
-                          const delegatedListener = listeners2[i2];
+                        const listeners = delegatedListeners[type2];
+                        for (let i2 = 0; i2 < listeners.length; i2++) {
+                          const delegatedListener = listeners[i2];
                           if (delegatedListener.layer === layerIdOrListener && delegatedListener.listener === listener) {
                             for (const event in delegatedListener.delegates) {
                               this.off(event, delegatedListener.delegates[event]);
                             }
-                            listeners2.splice(i2, 1);
+                            listeners.splice(i2, 1);
                             return this;
                           }
                         }
@@ -308517,21 +308652,21 @@ uniform ${precision} ${type2} u_${name3};
               function rgbn(n2) {
                 return new Rgb(n2 >> 16 & 255, n2 >> 8 & 255, n2 & 255, 1);
               }
-              function rgba(r3, g2, b2, a2) {
-                if (a2 <= 0) r3 = g2 = b2 = NaN;
-                return new Rgb(r3, g2, b2, a2);
+              function rgba(r2, g2, b2, a2) {
+                if (a2 <= 0) r2 = g2 = b2 = NaN;
+                return new Rgb(r2, g2, b2, a2);
               }
-              function rgbConvert(o2) {
-                if (!(o2 instanceof Color)) o2 = color2(o2);
-                if (!o2) return new Rgb();
-                o2 = o2.rgb();
-                return new Rgb(o2.r, o2.g, o2.b, o2.opacity);
+              function rgbConvert(o3) {
+                if (!(o3 instanceof Color)) o3 = color2(o3);
+                if (!o3) return new Rgb();
+                o3 = o3.rgb();
+                return new Rgb(o3.r, o3.g, o3.b, o3.opacity);
               }
-              function color_rgb(r3, g2, b2, opacity) {
-                return arguments.length === 1 ? rgbConvert(r3) : new Rgb(r3, g2, b2, opacity == null ? 1 : opacity);
+              function color_rgb(r2, g2, b2, opacity) {
+                return arguments.length === 1 ? rgbConvert(r2) : new Rgb(r2, g2, b2, opacity == null ? 1 : opacity);
               }
-              function Rgb(r3, g2, b2, opacity) {
-                this.r = +r3;
+              function Rgb(r2, g2, b2, opacity) {
+                this.r = +r2;
                 this.g = +g2;
                 this.b = +b2;
                 this.opacity = +opacity;
@@ -308587,23 +308722,23 @@ uniform ${precision} ${type2} u_${name3};
                 else if (s2 <= 0) h2 = NaN;
                 return new Hsl(h2, s2, l2, a2);
               }
-              function hslConvert(o2) {
-                if (o2 instanceof Hsl) return new Hsl(o2.h, o2.s, o2.l, o2.opacity);
-                if (!(o2 instanceof Color)) o2 = color2(o2);
-                if (!o2) return new Hsl();
-                if (o2 instanceof Hsl) return o2;
-                o2 = o2.rgb();
-                var r3 = o2.r / 255, g2 = o2.g / 255, b2 = o2.b / 255, min2 = Math.min(r3, g2, b2), max2 = Math.max(r3, g2, b2), h2 = NaN, s2 = max2 - min2, l2 = (max2 + min2) / 2;
+              function hslConvert(o3) {
+                if (o3 instanceof Hsl) return new Hsl(o3.h, o3.s, o3.l, o3.opacity);
+                if (!(o3 instanceof Color)) o3 = color2(o3);
+                if (!o3) return new Hsl();
+                if (o3 instanceof Hsl) return o3;
+                o3 = o3.rgb();
+                var r2 = o3.r / 255, g2 = o3.g / 255, b2 = o3.b / 255, min2 = Math.min(r2, g2, b2), max2 = Math.max(r2, g2, b2), h2 = NaN, s2 = max2 - min2, l2 = (max2 + min2) / 2;
                 if (s2) {
-                  if (r3 === max2) h2 = (g2 - b2) / s2 + (g2 < b2) * 6;
-                  else if (g2 === max2) h2 = (b2 - r3) / s2 + 2;
-                  else h2 = (r3 - g2) / s2 + 4;
+                  if (r2 === max2) h2 = (g2 - b2) / s2 + (g2 < b2) * 6;
+                  else if (g2 === max2) h2 = (b2 - r2) / s2 + 2;
+                  else h2 = (r2 - g2) / s2 + 4;
                   s2 /= l2 < 0.5 ? max2 + min2 : 2 - max2 - min2;
                   h2 *= 60;
                 } else {
                   s2 = l2 > 0 && l2 < 1 ? 0 : h2;
                 }
-                return new Hsl(h2, s2, l2, o2.opacity);
+                return new Hsl(h2, s2, l2, o3.opacity);
               }
               function hsl(h2, s2, l2, opacity) {
                 return arguments.length === 1 ? hslConvert(h2) : new Hsl(h2, s2, l2, opacity == null ? 1 : opacity);
@@ -308675,9 +308810,9 @@ uniform ${precision} ${type2} u_${name3};
               var rgb = function rgbGamma(y2) {
                 var color22 = gamma(y2);
                 function rgb2(start2, end2) {
-                  var r3 = color22((start2 = color_rgb(start2)).r, (end2 = color_rgb(end2)).r), g2 = color22(start2.g, end2.g), b2 = color22(start2.b, end2.b), opacity = nogamma(start2.opacity, end2.opacity);
+                  var r2 = color22((start2 = color_rgb(start2)).r, (end2 = color_rgb(end2)).r), g2 = color22(start2.g, end2.g), b2 = color22(start2.b, end2.b), opacity = nogamma(start2.opacity, end2.opacity);
                   return function(t3) {
-                    start2.r = r3(t3);
+                    start2.r = r2(t3);
                     start2.g = g2(t3);
                     start2.b = b2(t3);
                     start2.opacity = opacity(t3);
@@ -308707,13 +308842,13 @@ uniform ${precision} ${type2} u_${name3};
                   return a2 * (1 - t3) + b2 * t3;
                 };
               }
-              function _typeof(o2) {
+              function _typeof(o3) {
                 "@babel/helpers - typeof";
                 return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o22) {
                   return typeof o22;
                 } : function(o22) {
                   return o22 && "function" == typeof Symbol && o22.constructor === Symbol && o22 !== Symbol.prototype ? "symbol" : typeof o22;
-                }, _typeof(o2);
+                }, _typeof(o3);
               }
               function object(a2, b2) {
                 var i2 = {}, c2 = {}, k2;
@@ -308769,7 +308904,7 @@ uniform ${precision} ${type2} u_${name3};
                   else s2[++i2] = bs;
                 }
                 return s2.length < 2 ? q2[0] ? one(q2[0].x) : zero(b2) : (b2 = q2.length, function(t3) {
-                  for (var i22 = 0, o2; i22 < b2; ++i22) s2[(o2 = q2[i22]).i] = o2.x(t3);
+                  for (var i22 = 0, o3; i22 < b2; ++i22) s2[(o3 = q2[i22]).i] = o3.x(t3);
                   return s2.join("");
                 });
               }
@@ -308784,13 +308919,13 @@ uniform ${precision} ${type2} u_${name3};
               function numberArray_isNumberArray(x2) {
                 return ArrayBuffer.isView(x2) && !(x2 instanceof DataView);
               }
-              function value_typeof(o2) {
+              function value_typeof(o3) {
                 "@babel/helpers - typeof";
                 return value_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o22) {
                   return typeof o22;
                 } : function(o22) {
                   return o22 && "function" == typeof Symbol && o22.constructor === Symbol && o22 !== Symbol.prototype ? "symbol" : typeof o22;
-                }, value_typeof(o2);
+                }, value_typeof(o3);
               }
               function value(a2, b2) {
                 var t3 = value_typeof(b2), c2;
@@ -309082,7 +309217,7 @@ const WavePlotEditable = ({
   const [currentData, setCurrentData] = reactExports.useState(tasks?.[selectedTaskIndex]?.data);
   reactExports.useEffect(() => {
     setCurrentData(tasks[selectedTaskIndex].data);
-    setDataRevision((r3) => r3 + 1);
+    setDataRevision((r2) => r2 + 1);
   }, [tasks?.[selectedTaskIndex]?.data, selectedTaskIndex]);
   const [videoCurrentTime, setVideoCurrentTime] = reactExports.useState(startTime);
   const [blurEnd, setBlurEnd] = reactExports.useState(startTime);
@@ -309242,7 +309377,7 @@ const WavePlotEditable = ({
         const found = handleSelectElementFromArray(name2, x2);
         if (found) setSelectedPoint(found);
       }
-      setDataRevision((r3) => r3 + 1);
+      setDataRevision((r2) => r2 + 1);
     } else if (isMarkUp && selectedPoint.name === "peak values") {
       const idx = selectedPoint.idx;
       if (x2 > currentData.valleys_start.time[idx] && x2 < currentData.valleys_end.time[idx]) {
@@ -309254,7 +309389,7 @@ const WavePlotEditable = ({
         setSelectedPoint({});
         resetBlur();
         setIsMarkUp(false);
-        setDataRevision((r3) => r3 + 1);
+        setDataRevision((r2) => r2 + 1);
       } else {
         showPopUp("Peak must lie within the valley start/end range.");
       }
@@ -309269,7 +309404,7 @@ const WavePlotEditable = ({
       setTempCycle({ valleyStart: { x: x2, y: y2 }, peak: null });
       setAddPointName("peak");
       showPopUp("Next, select the new peak point.");
-      setDataRevision((r3) => r3 + 1);
+      setDataRevision((r2) => r2 + 1);
     } else if (addPointName === "peak") {
       if (!tempCycle.valleyStart) {
         showPopUp("No valley start found. Please cancel and try again.");
@@ -309286,7 +309421,7 @@ const WavePlotEditable = ({
       setTempCycle((prev2) => ({ ...prev2, peak: { x: x2, y: y2 } }));
       setAddPointName("valley_end");
       showPopUp("Finally, select the new valley end point.");
-      setDataRevision((r3) => r3 + 1);
+      setDataRevision((r2) => r2 + 1);
     } else if (addPointName === "valley_end") {
       if (!tempCycle.valleyStart || !tempCycle.peak) {
         showPopUp("No valley start or peak found. Please cancel and try again.");
@@ -309322,7 +309457,7 @@ const WavePlotEditable = ({
       updateRadarTable(updatedData);
       handleJSONUpload(true, updatedData);
       cancelCurrentTask();
-      setDataRevision((r3) => r3 + 1);
+      setDataRevision((r2) => r2 + 1);
     }
   };
   const removePeakAndValley = () => {
@@ -309350,7 +309485,7 @@ const WavePlotEditable = ({
     handleJSONUpload(true, updatedData);
     updateRadarTable(updatedData);
     cancelCurrentTask();
-    setDataRevision((r3) => r3 + 1);
+    setDataRevision((r2) => r2 + 1);
   };
   const continueAlert = () => {
     setAlertPopup({ msg: "", show: false });
@@ -309372,7 +309507,7 @@ const WavePlotEditable = ({
       setQuickAdd((q2) => ({ ...q2, peakLowEnd: false }));
     }
     updateCurrentTaskData(dataCopy);
-    setDataRevision((r3) => r3 + 1);
+    setDataRevision((r2) => r2 + 1);
     updateRadarTable(dataCopy);
   };
   const getPointArrays = (name2) => {
@@ -309887,7 +310022,7 @@ const FeatureTable = ({ tasks, selectedTaskIndex, fileName }) => {
           "button",
           {
             className: `${btn} rounded-l-none px-2`,
-            onClick: () => setOpen((o2) => !o2),
+            onClick: () => setOpen((o3) => !o3),
             disabled: !hasGroup,
             children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$1, { fontSize: "small" })
           }
@@ -310328,26 +310463,26 @@ function fastIsObj(v2) {
 }
 const TypedArray = Object.getPrototypeOf(Uint8Array);
 const __proto__ = "__proto__";
-function copy(o2, _isObj = isObj) {
+function copy(o3, _isObj = isObj) {
   let out;
-  if (isArr(o2)) {
-    let val = o2.find((v2) => v2 != null);
+  if (isArr(o3)) {
+    let val = o3.find((v2) => v2 != null);
     if (isArr(val) || _isObj(val)) {
-      out = Array(o2.length);
-      for (let i2 = 0; i2 < o2.length; i2++)
-        out[i2] = copy(o2[i2], _isObj);
+      out = Array(o3.length);
+      for (let i2 = 0; i2 < o3.length; i2++)
+        out[i2] = copy(o3[i2], _isObj);
     } else
-      out = o2.slice();
-  } else if (o2 instanceof TypedArray)
-    out = o2.slice();
-  else if (_isObj(o2)) {
+      out = o3.slice();
+  } else if (o3 instanceof TypedArray)
+    out = o3.slice();
+  else if (_isObj(o3)) {
     out = {};
-    for (let k2 in o2) {
+    for (let k2 in o3) {
       if (k2 != __proto__)
-        out[k2] = copy(o2[k2], _isObj);
+        out[k2] = copy(o3[k2], _isObj);
     }
   } else
-    out = o2;
+    out = o3;
   return out;
 }
 function assign(targ) {
@@ -310815,15 +310950,15 @@ const legendOpts = {
   values: []
 };
 function cursorPointShow(self2, si2) {
-  let o2 = self2.cursor.points;
+  let o3 = self2.cursor.points;
   let pt = placeDiv();
-  let size = o2.size(self2, si2);
+  let size = o3.size(self2, si2);
   setStylePx(pt, WIDTH, size);
   setStylePx(pt, HEIGHT, size);
   let mar = size / -2;
   setStylePx(pt, "marginLeft", mar);
   setStylePx(pt, "marginTop", mar);
-  let width2 = o2.width(self2, si2, size);
+  let width2 = o3.width(self2, si2, size);
   width2 && setStylePx(pt, "borderWidth", width2);
   return pt;
 }
@@ -311332,10 +311467,10 @@ function pxRoundGen(pxAlign) {
 }
 function rect(ori) {
   let moveTo = ori == 0 ? moveToH : moveToV;
-  let arcTo = ori == 0 ? (p2, x1, y1, x2, y2, r3) => {
-    p2.arcTo(x1, y1, x2, y2, r3);
-  } : (p2, y1, x1, y2, x2, r3) => {
-    p2.arcTo(x1, y1, x2, y2, r3);
+  let arcTo = ori == 0 ? (p2, x1, y1, x2, y2, r2) => {
+    p2.arcTo(x1, y1, x2, y2, r2);
+  } : (p2, y1, x1, y2, x2, r2) => {
+    p2.arcTo(x1, y1, x2, y2, r2);
   };
   let rect2 = ori == 0 ? (p2, x2, y2, w2, h2) => {
     p2.rect(x2, y2, w2, h2);
@@ -311371,11 +311506,11 @@ const lineToV = (p2, y2, x2) => {
 };
 const rectH = rect(0);
 const rectV = rect(1);
-const arcH = (p2, x2, y2, r3, startAngle, endAngle) => {
-  p2.arc(x2, y2, r3, startAngle, endAngle);
+const arcH = (p2, x2, y2, r2, startAngle, endAngle) => {
+  p2.arc(x2, y2, r2, startAngle, endAngle);
 };
-const arcV = (p2, y2, x2, r3, startAngle, endAngle) => {
-  p2.arc(x2, y2, r3, startAngle, endAngle);
+const arcV = (p2, y2, x2, r2, startAngle, endAngle) => {
+  p2.arc(x2, y2, r2, startAngle, endAngle);
 };
 const bezierCurveToH = (p2, bp1x, bp1y, bp2x, bp2y, p2x, p2y) => {
   p2.bezierCurveTo(bp1x, bp1y, bp2x, bp2y, p2x, p2y);
@@ -311912,13 +312047,13 @@ const linearPath = linear();
 const pointsPath = points();
 function setDefaults(d2, xo, yo, initY) {
   let d22 = initY ? [d2[0], d2[1]].concat(d2.slice(2)) : [d2[0]].concat(d2.slice(1));
-  return d22.map((o2, i2) => setDefault(o2, i2, xo, yo));
+  return d22.map((o3, i2) => setDefault(o3, i2, xo, yo));
 }
 function setDefaults2(d2, xyo) {
-  return d2.map((o2, i2) => i2 == 0 ? {} : assign({}, xyo, o2));
+  return d2.map((o3, i2) => i2 == 0 ? {} : assign({}, xyo, o3));
 }
-function setDefault(o2, i2, xo, yo) {
-  return assign({}, i2 == 0 ? xo : yo, o2);
+function setDefault(o3, i2, xo, yo) {
+  return assign({}, i2 == 0 ? xo : yo, o3);
 }
 function snapNumX(self2, dataMin, dataMax) {
   return dataMin == null ? nullNullTuple : [dataMin, dataMax];
@@ -315051,8 +315186,8 @@ const taskDetailsFiles = /* @__PURE__ */ Object.assign({
   "../pages/TaskDetails/Tasks/gait.jsx": __vite_glob_0_2,
   "../pages/TaskDetails/Tasks/hand_movement_left.jsx": __vite_glob_0_3,
   "../pages/TaskDetails/Tasks/hand_movement_right.jsx": __vite_glob_0_4,
-  "../pages/TaskDetails/Tasks/hand_tremor_left.jsx": __vite_glob_0_5,
-  "../pages/TaskDetails/Tasks/hand_tremor_right.jsx": __vite_glob_0_6,
+  "../pages/TaskDetails/Tasks/hand_tremor_left_elbow_extended.jsx": __vite_glob_0_5,
+  "../pages/TaskDetails/Tasks/hand_tremor_right_elbow_extended.jsx": __vite_glob_0_6,
   "../pages/TaskDetails/Tasks/leg_agility_left.jsx": __vite_glob_0_7,
   "../pages/TaskDetails/Tasks/leg_agility_right.jsx": __vite_glob_0_8,
   "../pages/TaskDetails/Tasks/toe_tapping_left.jsx": __vite_glob_0_9,
@@ -315065,8 +315200,8 @@ const taskSelectionFiles = /* @__PURE__ */ Object.assign({
   "../pages/TaskSelection/Tasks/gait.jsx": __vite_glob_0_3$1,
   "../pages/TaskSelection/Tasks/hand_movement_left.jsx": __vite_glob_0_4$1,
   "../pages/TaskSelection/Tasks/hand_movement_right.jsx": __vite_glob_0_5$1,
-  "../pages/TaskSelection/Tasks/hand_tremor_left.jsx": __vite_glob_0_6$1,
-  "../pages/TaskSelection/Tasks/hand_tremor_right.jsx": __vite_glob_0_7$1,
+  "../pages/TaskSelection/Tasks/hand_tremor_left_elbow_extended.jsx": __vite_glob_0_6$1,
+  "../pages/TaskSelection/Tasks/hand_tremor_right_elbow_extended.jsx": __vite_glob_0_7$1,
   "../pages/TaskSelection/Tasks/leg_agility_left.jsx": __vite_glob_0_8$1,
   "../pages/TaskSelection/Tasks/leg_agility_right.jsx": __vite_glob_0_9$1,
   "../pages/TaskSelection/Tasks/toe_tapping_left.jsx": __vite_glob_0_10$1,
@@ -315082,8 +315217,8 @@ const taskOptions = [
   { value: "Toe tapping Right", label: "Toe tapping Right" },
   { value: "Leg agility Left", label: "Leg agility Left" },
   { value: "Leg agility Right", label: "Leg agility Right" },
-  { value: "Hand Tremor Left", label: "Hand Tremor Left Elbow Extended" },
-  { value: "Hand Tremor Right", label: "Hand Tremor Right Elbow Extended" }
+  { value: "Hand Tremor Left Elbow Extended", label: "Hand Tremor Left Elbow Extended" },
+  { value: "Hand Tremor Right Elbow Extended", label: "Hand Tremor Right Elbow Extended" }
   // { label: 'Dynamic tremor', value: 'Dynamic tremor' },
   // { label: 'Mouth Opening', value: 'Mouth Opening' },
   // { label: 'Passage', value: 'Passage' },
@@ -315123,13 +315258,10 @@ if (errors.length > 0) {
   errors.forEach((msg) => console.error(msg));
   throw new Error(`Startup checks failed with ${errors.length} error(s).`);
 }
-const Header = ({ resetTaskSelection }) => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col border-b-2 py-2 text-gray-100 border-zinc-500", children: "Task Selection" });
-};
 const selectedTaskFiles = Object.fromEntries(
   taskOptions.map(({ value }) => {
     const fileName = value.toLowerCase().replace(/\s+/g, "_");
-    const module = /* @__PURE__ */ Object.assign({ "./Tasks/default.jsx": __vite_glob_0_0$1, "./Tasks/finger_tap_left.jsx": __vite_glob_0_1$1, "./Tasks/finger_tap_right.jsx": __vite_glob_0_2$1, "./Tasks/gait.jsx": __vite_glob_0_3$1, "./Tasks/hand_movement_left.jsx": __vite_glob_0_4$1, "./Tasks/hand_movement_right.jsx": __vite_glob_0_5$1, "./Tasks/hand_tremor_left.jsx": __vite_glob_0_6$1, "./Tasks/hand_tremor_right.jsx": __vite_glob_0_7$1, "./Tasks/leg_agility_left.jsx": __vite_glob_0_8$1, "./Tasks/leg_agility_right.jsx": __vite_glob_0_9$1, "./Tasks/toe_tapping_left.jsx": __vite_glob_0_10$1, "./Tasks/toe_tapping_right.jsx": __vite_glob_0_11 });
+    const module = /* @__PURE__ */ Object.assign({ "./Tasks/default.jsx": __vite_glob_0_0$1, "./Tasks/finger_tap_left.jsx": __vite_glob_0_1$1, "./Tasks/finger_tap_right.jsx": __vite_glob_0_2$1, "./Tasks/gait.jsx": __vite_glob_0_3$1, "./Tasks/hand_movement_left.jsx": __vite_glob_0_4$1, "./Tasks/hand_movement_right.jsx": __vite_glob_0_5$1, "./Tasks/hand_tremor_left_elbow_extended.jsx": __vite_glob_0_6$1, "./Tasks/hand_tremor_right_elbow_extended.jsx": __vite_glob_0_7$1, "./Tasks/leg_agility_left.jsx": __vite_glob_0_8$1, "./Tasks/leg_agility_right.jsx": __vite_glob_0_9$1, "./Tasks/toe_tapping_left.jsx": __vite_glob_0_10$1, "./Tasks/toe_tapping_right.jsx": __vite_glob_0_11 });
     const match2 = Object.entries(module).find(
       ([path]) => path.endsWith(`/${fileName}.jsx`)
     );
@@ -315141,14 +315273,17 @@ const TaskList = ({
   onTaskChange,
   onTaskDelete,
   videoRef,
-  resetTaskSelection
+  resetTaskSelection,
+  taskTypeData,
+  setTaskTypeData
 }) => {
   const [options, setOptions] = reactExports.useState(taskOptions);
   const onFieldChange = (newValue, fieldName, task) => {
-    let newTask = { ...task };
-    if (newTask[fieldName] && newTask[fieldName] == newValue) return;
-    newTask[fieldName] = fieldName === "start" || fieldName === "end" ? Number(Number(newValue).toFixed(3)) : newValue;
-    onTaskChange(newTask);
+    if (newValue === null || Array.isArray(newValue) && newValue.flat().every((v2) => v2 === null)) {
+      return;
+    }
+    const value = fieldName === "start" || fieldName === "end" ? Number(Number(newValue).toFixed(3)) : newValue;
+    onTaskChange({ id: task.id, [fieldName]: value });
   };
   const onTimeMark = (fieldName, task) => {
     let newTask = { ...task };
@@ -315160,21 +315295,15 @@ const TaskList = ({
   const onTimeClick = (time) => {
     if (videoRef.current) videoRef.current.currentTime = time;
   };
-  const typeCounts = {};
-  tasks.map((task, i2) => {
-    const taskType = task.name;
-    const typeIndex = typeCounts[taskType] ?? 0;
-    typeCounts[taskType] = typeIndex + 1;
-  });
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-2 p-4 py-2 h-full overflow-y-auto rounded-lg bg-[#333338] shadow-inner", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Header, { resetTaskSelection }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col", children: tasks.length > 0 ? (() => {
-      const typeCounts2 = {};
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-2 p-4 py-2 h-full rounded-lg bg-[#333338] shadow-inner", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col border-b-2 py-2 text-gray-100 border-zinc-500", children: "Task Selection" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col overflow-y-auto overflow-x-hidden", children: tasks.length > 0 ? (() => {
+      const typeCounts = {};
       return tasks.map((task, index) => {
         const taskType = task.name;
         const TaskComponent = selectedTaskFiles[taskType];
-        const taskTypeIndex = typeCounts2[taskType] ?? 0;
-        typeCounts2[taskType] = taskTypeIndex + 1;
+        const taskTypeIndex = typeCounts[taskType] ?? 0;
+        typeCounts[taskType] = taskTypeIndex + 1;
         if (!TaskComponent) {
           return /* @__PURE__ */ jsxRuntimeExports.jsx(
             Default,
@@ -315186,9 +315315,14 @@ const TaskList = ({
               onTimeMark,
               onTimeClick,
               options,
-              setOptions
+              setOptions,
+              taskGlobals: taskTypeData[task.name] || {},
+              setTaskGlobals: (updates) => setTaskTypeData((prev2) => ({
+                ...prev2,
+                [task.name]: { ...prev2[task.name], ...updates }
+              }))
             },
-            index
+            task.id
           );
         } else {
           return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -315201,9 +315335,14 @@ const TaskList = ({
               onTimeMark,
               onTimeClick,
               options,
-              setOptions
+              setOptions,
+              taskGlobals: taskTypeData[task.name] || {},
+              setTaskGlobals: (updates) => setTaskTypeData((prev2) => ({
+                ...prev2,
+                [task.name]: { ...prev2[task.name], ...updates }
+              }))
             },
-            index
+            task.id
           );
         }
       });
@@ -315361,7 +315500,7 @@ function JSONUploadDialog$1({
               "label",
               {
                 htmlFor: "file-upload",
-                className: "cursor-pointer px-4 py-2\r\n                      text-gray-100 bg-transparent rounded-md\r\n                      border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
+                className: "cursor-pointer px-4 py-2\n                      text-gray-100 bg-transparent rounded-md\n                      border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
                 children: "Upload JSON File"
               }
             ),
@@ -315395,7 +315534,9 @@ const TaskSelectionTab = ({
   videoRef,
   tasksReady,
   setTasksReady,
-  resetTaskSelection
+  resetTaskSelection,
+  taskTypeData,
+  setTaskTypeData
 }) => {
   const [openJsonUpload, setOpenJsonUpload] = reactExports.useState(false);
   const getTasksFromtasks = (curtasks) => {
@@ -315437,26 +315578,20 @@ const TaskSelectionTab = ({
       setTasksReady(true);
     }
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col w-full h-full p-2 py-4", children: [
-    isVideoReady && tasks.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      "div",
-      {
-        className: "flex justify-center items-center h-full flex-col gap-4 w-full px-10 flex-1 py-4 overflow-y-auto rounded-lg bg-[#333338]",
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-gray-100", children: "Setup the tasks" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "bg-[#1976d2] text-gray-100 rounded-md p-2", onClick: () => setOpenJsonUpload(true), children: "Setup" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            JSONUploadDialog$1,
-            {
-              dialogOpen: openJsonUpload,
-              setDialogOpen: setOpenJsonUpload,
-              handleJSONUpload: jsonFileHandle,
-              videoRef
-            }
-          )
-        ]
-      }
-    ),
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col w-full h-full overflow-hidden px-2 py-4", children: [
+    isVideoReady && tasks.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-center items-center h-full flex-col gap-4 w-full px-10 flex-1 py-4 overflow-y-auto rounded-lg bg-[#333338]", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-gray-100", children: "Setup the tasks" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "bg-[#1976d2] text-gray-100 rounded-md p-2", onClick: () => setOpenJsonUpload(true), children: "Setup" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        JSONUploadDialog$1,
+        {
+          dialogOpen: openJsonUpload,
+          setDialogOpen: setOpenJsonUpload,
+          handleJSONUpload: jsonFileHandle,
+          videoRef
+        }
+      )
+    ] }),
     isVideoReady && tasks.length !== 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(
       TaskList,
       {
@@ -315464,7 +315599,9 @@ const TaskSelectionTab = ({
         onTaskChange,
         onTaskDelete,
         videoRef,
-        resetTaskSelection
+        resetTaskSelection,
+        taskTypeData,
+        setTaskTypeData
       }
     )
   ] });
@@ -315498,40 +315635,40 @@ class t2 {
 }
 class e3 extends t2 {
   constructor(t3) {
-    super(), this.subscriptions = [], this.options = t3;
+    super(), this.subscriptions = [], this.isDestroyed = false, this.options = t3;
   }
   onInit() {
   }
   _init(t3) {
-    this.wavesurfer = t3, this.onInit();
+    this.isDestroyed && (this.subscriptions = [], this.isDestroyed = false), this.wavesurfer = t3, this.onInit();
   }
   destroy() {
-    this.emit("destroy"), this.subscriptions.forEach((t3) => t3());
+    this.emit("destroy"), this.subscriptions.forEach((t3) => t3()), this.subscriptions = [], this.isDestroyed = true, this.wavesurfer = void 0;
   }
 }
-function i(t3, e4, i2, n2, s2 = 3, r3 = 0, o2 = 100) {
+function i(t3, e4, i2, n2, s2 = 3, r2 = 0, o3 = 100) {
   if (!t3) return () => {
   };
-  const a2 = matchMedia("(pointer: coarse)").matches;
-  let h2 = () => {
+  const h2 = matchMedia("(pointer: coarse)").matches;
+  let a2 = () => {
   };
   const l2 = (l3) => {
-    if (l3.button !== r3) return;
+    if (l3.button !== r2) return;
     l3.preventDefault(), l3.stopPropagation();
     let d2 = l3.clientX, c2 = l3.clientY, u2 = false;
     const v2 = Date.now(), g2 = (n3) => {
-      if (n3.preventDefault(), n3.stopPropagation(), a2 && Date.now() - v2 < o2) return;
-      const r4 = n3.clientX, h3 = n3.clientY, l4 = r4 - d2, g3 = h3 - c2;
+      if (n3.preventDefault(), n3.stopPropagation(), h2 && Date.now() - v2 < o3) return;
+      const r3 = n3.clientX, a3 = n3.clientY, l4 = r3 - d2, g3 = a3 - c2;
       if (u2 || Math.abs(l4) > s2 || Math.abs(g3) > s2) {
-        const n4 = t3.getBoundingClientRect(), { left: s3, top: o3 } = n4;
-        u2 || (null == i2 || i2(d2 - s3, c2 - o3), u2 = true), e4(l4, g3, r4 - s3, h3 - o3), d2 = r4, c2 = h3;
+        const n4 = t3.getBoundingClientRect(), { left: s3, top: o4 } = n4;
+        u2 || (null == i2 || i2(d2 - s3, c2 - o4), u2 = true), e4(l4, g3, r3 - s3, a3 - o4), d2 = r3, c2 = a3;
       }
     }, p2 = (e5) => {
       if (u2) {
-        const i3 = e5.clientX, s3 = e5.clientY, r4 = t3.getBoundingClientRect(), { left: o3, top: a3 } = r4;
-        null == n2 || n2(i3 - o3, s3 - a3);
+        const i3 = e5.clientX, s3 = e5.clientY, r3 = t3.getBoundingClientRect(), { left: o4, top: h3 } = r3;
+        null == n2 || n2(i3 - o4, s3 - h3);
       }
-      h2();
+      a2();
     }, m2 = (t4) => {
       t4.relatedTarget && t4.relatedTarget !== document.documentElement || p2(t4);
     }, f2 = (t4) => {
@@ -315539,19 +315676,19 @@ function i(t3, e4, i2, n2, s2 = 3, r3 = 0, o2 = 100) {
     }, b2 = (t4) => {
       u2 && t4.preventDefault();
     };
-    document.addEventListener("pointermove", g2), document.addEventListener("pointerup", p2), document.addEventListener("pointerout", m2), document.addEventListener("pointercancel", m2), document.addEventListener("touchmove", b2, { passive: false }), document.addEventListener("click", f2, { capture: true }), h2 = () => {
+    document.addEventListener("pointermove", g2), document.addEventListener("pointerup", p2), document.addEventListener("pointerout", m2), document.addEventListener("pointercancel", m2), document.addEventListener("touchmove", b2, { passive: false }), document.addEventListener("click", f2, { capture: true }), a2 = () => {
       document.removeEventListener("pointermove", g2), document.removeEventListener("pointerup", p2), document.removeEventListener("pointerout", m2), document.removeEventListener("pointercancel", m2), document.removeEventListener("touchmove", b2), setTimeout(() => {
         document.removeEventListener("click", f2, { capture: true });
       }, 10);
     };
   };
   return t3.addEventListener("pointerdown", l2), () => {
-    h2(), t3.removeEventListener("pointerdown", l2);
+    a2(), t3.removeEventListener("pointerdown", l2);
   };
 }
 function n(t3, e4) {
   const i2 = e4.xmlns ? document.createElementNS(e4.xmlns, t3) : document.createElement(t3);
-  for (const [t4, s2] of Object.entries(e4)) if ("children" === t4) for (const [t5, s3] of Object.entries(e4)) "string" == typeof s3 ? i2.appendChild(document.createTextNode(s3)) : i2.appendChild(n(t5, s3));
+  for (const [t4, s2] of Object.entries(e4)) if ("children" === t4 && s2) for (const [t5, e5] of Object.entries(s2)) e5 instanceof Node ? i2.appendChild(e5) : "string" == typeof e5 ? i2.appendChild(document.createTextNode(e5)) : i2.appendChild(n(t5, e5));
   else "style" === t4 ? Object.assign(i2.style, s2) : "textContent" === t4 ? i2.textContent = s2 : i2.setAttribute(t4, s2.toString());
   return i2;
 }
@@ -315559,27 +315696,29 @@ function s(t3, e4, i2) {
   const s2 = n(t3, e4 || {});
   return null == i2 || i2.appendChild(s2), s2;
 }
-class r2 extends t2 {
+class r extends t2 {
   constructor(t3, e4, i2 = 0) {
-    var n2, s2, r3, o2, a2, h2, l2, d2, c2, u2;
-    super(), this.totalDuration = e4, this.numberOfChannels = i2, this.minLength = 0, this.maxLength = 1 / 0, this.contentEditable = false, this.subscriptions = [], this.subscriptions = [], this.id = t3.id || `region-${Math.random().toString(32).slice(2)}`, this.start = this.clampPosition(t3.start), this.end = this.clampPosition(null !== (n2 = t3.end) && void 0 !== n2 ? n2 : t3.start), this.drag = null === (s2 = t3.drag) || void 0 === s2 || s2, this.resize = null === (r3 = t3.resize) || void 0 === r3 || r3, this.resizeStart = null === (o2 = t3.resizeStart) || void 0 === o2 || o2, this.resizeEnd = null === (a2 = t3.resizeEnd) || void 0 === a2 || a2, this.color = null !== (h2 = t3.color) && void 0 !== h2 ? h2 : "rgba(0, 0, 0, 0.1)", this.minLength = null !== (l2 = t3.minLength) && void 0 !== l2 ? l2 : this.minLength, this.maxLength = null !== (d2 = t3.maxLength) && void 0 !== d2 ? d2 : this.maxLength, this.channelIdx = null !== (c2 = t3.channelIdx) && void 0 !== c2 ? c2 : -1, this.contentEditable = null !== (u2 = t3.contentEditable) && void 0 !== u2 ? u2 : this.contentEditable, this.element = this.initElement(), this.setContent(t3.content), this.setPart(), this.renderPosition(), this.initMouseEvents();
+    var n2, s2, r2, o3, h2, a2, l2, d2, c2, u2;
+    super(), this.totalDuration = e4, this.numberOfChannels = i2, this.element = null, this.minLength = 0, this.maxLength = 1 / 0, this.contentEditable = false, this.subscriptions = [], this.isRemoved = false, this.subscriptions = [], this.id = t3.id || `region-${Math.random().toString(32).slice(2)}`, this.start = this.clampPosition(t3.start), this.end = this.clampPosition(null !== (n2 = t3.end) && void 0 !== n2 ? n2 : t3.start), this.drag = null === (s2 = t3.drag) || void 0 === s2 || s2, this.resize = null === (r2 = t3.resize) || void 0 === r2 || r2, this.resizeStart = null === (o3 = t3.resizeStart) || void 0 === o3 || o3, this.resizeEnd = null === (h2 = t3.resizeEnd) || void 0 === h2 || h2, this.color = null !== (a2 = t3.color) && void 0 !== a2 ? a2 : "rgba(0, 0, 0, 0.1)", this.minLength = null !== (l2 = t3.minLength) && void 0 !== l2 ? l2 : this.minLength, this.maxLength = null !== (d2 = t3.maxLength) && void 0 !== d2 ? d2 : this.maxLength, this.channelIdx = null !== (c2 = t3.channelIdx) && void 0 !== c2 ? c2 : -1, this.contentEditable = null !== (u2 = t3.contentEditable) && void 0 !== u2 ? u2 : this.contentEditable, this.element = this.initElement(), this.setContent(t3.content), this.setPart(), this.renderPosition(), this.initMouseEvents();
   }
   clampPosition(t3) {
     return Math.max(0, Math.min(this.totalDuration, t3));
   }
   setPart() {
-    const t3 = this.start === this.end;
-    this.element.setAttribute("part", `${t3 ? "marker" : "region"} ${this.id}`);
+    var t3;
+    const e4 = this.start === this.end;
+    null === (t3 = this.element) || void 0 === t3 || t3.setAttribute("part", `${e4 ? "marker" : "region"} ${this.id}`);
   }
   addResizeHandles(t3) {
-    const e4 = { position: "absolute", zIndex: "2", width: "6px", height: "100%", top: "0", cursor: "ew-resize", wordBreak: "keep-all" }, n2 = s("div", { part: "region-handle region-handle-left", style: Object.assign(Object.assign({}, e4), { left: "0", borderLeft: "2px solid rgba(0, 0, 0, 0.5)", borderRadius: "2px 0 0 2px" }) }, t3), r3 = s("div", { part: "region-handle region-handle-right", style: Object.assign(Object.assign({}, e4), { right: "0", borderRight: "2px solid rgba(0, 0, 0, 0.5)", borderRadius: "0 2px 2px 0" }) }, t3);
-    this.subscriptions.push(i(n2, (t4) => this.onResize(t4, "start"), () => null, () => this.onEndResizing(), 1), i(r3, (t4) => this.onResize(t4, "end"), () => null, () => this.onEndResizing(), 1));
+    const e4 = { position: "absolute", zIndex: "2", width: "6px", height: "100%", top: "0", cursor: "ew-resize", wordBreak: "keep-all" }, n2 = s("div", { part: "region-handle region-handle-left", style: Object.assign(Object.assign({}, e4), { left: "0", borderLeft: "2px solid rgba(0, 0, 0, 0.5)", borderRadius: "2px 0 0 2px" }) }, t3), r2 = s("div", { part: "region-handle region-handle-right", style: Object.assign(Object.assign({}, e4), { right: "0", borderRight: "2px solid rgba(0, 0, 0, 0.5)", borderRadius: "0 2px 2px 0" }) }, t3);
+    this.subscriptions.push(i(n2, (t4) => this.onResize(t4, "start"), () => null, () => this.onEndResizing(), 1), i(r2, (t4) => this.onResize(t4, "end"), () => null, () => this.onEndResizing(), 1));
   }
   removeResizeHandles(t3) {
     const e4 = t3.querySelector('[part*="region-handle-left"]'), i2 = t3.querySelector('[part*="region-handle-right"]');
     e4 && t3.removeChild(e4), i2 && t3.removeChild(i2);
   }
   initElement() {
+    if (this.isRemoved) return null;
     const t3 = this.start === this.end;
     let e4 = 0, i2 = 100;
     this.channelIdx >= 0 && this.channelIdx < this.numberOfChannels && (i2 = 100 / this.numberOfChannels, e4 = i2 * this.channelIdx);
@@ -315587,6 +315726,7 @@ class r2 extends t2 {
     return !t3 && this.resize && this.addResizeHandles(n2), n2;
   }
   renderPosition() {
+    if (!this.element) return;
     const t3 = this.start / this.totalDuration, e4 = (this.totalDuration - this.end) / this.totalDuration;
     this.element.style.left = 100 * t3 + "%", this.element.style.right = 100 * e4 + "%";
   }
@@ -315601,9 +315741,10 @@ class r2 extends t2 {
     })), this.contentEditable && this.content && (this.content.addEventListener("click", (t4) => this.onContentClick(t4)), this.content.addEventListener("blur", () => this.onContentBlur())));
   }
   _onUpdate(t3, e4) {
-    if (!this.element.parentElement) return;
-    const { width: i2 } = this.element.parentElement.getBoundingClientRect(), n2 = t3 / i2 * this.totalDuration, s2 = e4 && "start" !== e4 ? this.start : this.start + n2, r3 = e4 && "end" !== e4 ? this.end : this.end + n2, o2 = r3 - s2;
-    s2 >= 0 && r3 <= this.totalDuration && s2 <= r3 && o2 >= this.minLength && o2 <= this.maxLength && (this.start = s2, this.end = r3, this.renderPosition(), this.emit("update", e4));
+    var i2;
+    if (!(null === (i2 = this.element) || void 0 === i2 ? void 0 : i2.parentElement)) return;
+    const { width: n2 } = this.element.parentElement.getBoundingClientRect(), s2 = t3 / n2 * this.totalDuration, r2 = e4 && "start" !== e4 ? this.start : this.start + s2, o3 = e4 && "end" !== e4 ? this.end : this.end + s2, h2 = o3 - r2;
+    r2 >= 0 && o3 <= this.totalDuration && r2 <= o3 && h2 >= this.minLength && h2 <= this.maxLength && (this.start = r2, this.end = o3, this.renderPosition(), this.emit("update", e4));
   }
   onMove(t3) {
     this.drag && this._onUpdate(t3);
@@ -315633,7 +315774,7 @@ class r2 extends t2 {
   }
   setContent(t3) {
     var e4;
-    if (null === (e4 = this.content) || void 0 === e4 || e4.remove(), t3) {
+    if (this.element) if (null === (e4 = this.content) || void 0 === e4 || e4.remove(), t3) {
       if ("string" == typeof t3) {
         const e5 = this.start === this.end;
         this.content = s("div", { style: { padding: `0.2em ${e5 ? 0.2 : 0.4}em`, display: "inline-block" }, textContent: t3 });
@@ -315643,26 +315784,28 @@ class r2 extends t2 {
   }
   setOptions(t3) {
     var e4, i2;
-    if (t3.color && (this.color = t3.color, this.element.style.backgroundColor = this.color), void 0 !== t3.drag && (this.drag = t3.drag, this.element.style.cursor = this.drag ? "grab" : "default"), void 0 !== t3.start || void 0 !== t3.end) {
-      const n2 = this.start === this.end;
-      this.start = this.clampPosition(null !== (e4 = t3.start) && void 0 !== e4 ? e4 : this.start), this.end = this.clampPosition(null !== (i2 = t3.end) && void 0 !== i2 ? i2 : n2 ? this.start : this.end), this.renderPosition(), this.setPart();
+    if (this.element) {
+      if (t3.color && (this.color = t3.color, this.element.style.backgroundColor = this.color), void 0 !== t3.drag && (this.drag = t3.drag, this.element.style.cursor = this.drag ? "grab" : "default"), void 0 !== t3.start || void 0 !== t3.end) {
+        const n2 = this.start === this.end;
+        this.start = this.clampPosition(null !== (e4 = t3.start) && void 0 !== e4 ? e4 : this.start), this.end = this.clampPosition(null !== (i2 = t3.end) && void 0 !== i2 ? i2 : n2 ? this.start : this.end), this.renderPosition(), this.setPart();
+      }
+      if (t3.content && this.setContent(t3.content), t3.id && (this.id = t3.id, this.setPart()), void 0 !== t3.resize && t3.resize !== this.resize) {
+        const e5 = this.start === this.end;
+        this.resize = t3.resize, this.resize && !e5 ? this.addResizeHandles(this.element) : this.removeResizeHandles(this.element);
+      }
+      void 0 !== t3.resizeStart && (this.resizeStart = t3.resizeStart), void 0 !== t3.resizeEnd && (this.resizeEnd = t3.resizeEnd);
     }
-    if (t3.content && this.setContent(t3.content), t3.id && (this.id = t3.id, this.setPart()), void 0 !== t3.resize && t3.resize !== this.resize) {
-      const e5 = this.start === this.end;
-      this.resize = t3.resize, this.resize && !e5 ? this.addResizeHandles(this.element) : this.removeResizeHandles(this.element);
-    }
-    void 0 !== t3.resizeStart && (this.resizeStart = t3.resizeStart), void 0 !== t3.resizeEnd && (this.resizeEnd = t3.resizeEnd);
   }
   remove() {
-    this.emit("remove"), this.subscriptions.forEach((t3) => t3()), this.element.remove(), this.element = null;
+    this.isRemoved = true, this.emit("remove"), this.subscriptions.forEach((t3) => t3()), this.element && (this.element.remove(), this.element = null);
   }
 }
-class o extends e3 {
+class o2 extends e3 {
   constructor(t3) {
     super(t3), this.regions = [], this.regionsContainer = this.initRegionsContainer();
   }
   static create(t3) {
-    return new o(t3);
+    return new o2(t3);
   }
   onInit() {
     if (!this.wavesurfer) throw Error("WaveSurfer is not initialized");
@@ -315695,27 +315838,29 @@ class o extends e3 {
   }
   adjustScroll(t3) {
     var e4, i2;
+    if (!t3.element) return;
     const n2 = null === (i2 = null === (e4 = this.wavesurfer) || void 0 === e4 ? void 0 : e4.getWrapper()) || void 0 === i2 ? void 0 : i2.parentElement;
     if (!n2) return;
-    const { clientWidth: s2, scrollWidth: r3 } = n2;
-    if (r3 <= s2) return;
-    const o2 = n2.getBoundingClientRect(), a2 = t3.element.getBoundingClientRect(), h2 = a2.left - o2.left, l2 = a2.right - o2.left;
-    h2 < 0 ? n2.scrollLeft += h2 : l2 > s2 && (n2.scrollLeft += l2 - s2);
+    const { clientWidth: s2, scrollWidth: r2 } = n2;
+    if (r2 <= s2) return;
+    const o3 = n2.getBoundingClientRect(), h2 = t3.element.getBoundingClientRect(), a2 = h2.left - o3.left, l2 = h2.right - o3.left;
+    a2 < 0 ? n2.scrollLeft += a2 : l2 > s2 && (n2.scrollLeft += l2 - s2);
   }
   virtualAppend(t3, e4, i2) {
     const n2 = () => {
       if (!this.wavesurfer) return;
-      const n3 = this.wavesurfer.getWidth(), s2 = this.wavesurfer.getScroll(), r3 = e4.clientWidth, o2 = this.wavesurfer.getDuration(), a2 = Math.round(t3.start / o2 * r3), h2 = a2 + (Math.round((t3.end - t3.start) / o2 * r3) || 1) > s2 && a2 < s2 + n3;
-      h2 && !i2.parentElement ? e4.appendChild(i2) : !h2 && i2.parentElement && i2.remove();
+      const n3 = this.wavesurfer.getWidth(), s2 = this.wavesurfer.getScroll(), r2 = e4.clientWidth, o3 = this.wavesurfer.getDuration(), h2 = Math.round(t3.start / o3 * r2), a2 = h2 + (Math.round((t3.end - t3.start) / o3 * r2) || 1) > s2 && h2 < s2 + n3;
+      a2 && !i2.parentElement ? e4.appendChild(i2) : !a2 && i2.parentElement && i2.remove();
     };
     setTimeout(() => {
-      if (!this.wavesurfer) return;
+      if (!this.wavesurfer || !t3.element) return;
       n2();
-      const e5 = this.wavesurfer.on("scroll", n2);
-      this.subscriptions.push(t3.once("remove", e5), e5);
+      const e5 = this.wavesurfer.on("scroll", n2), i3 = this.wavesurfer.on("zoom", n2);
+      this.subscriptions.push(t3.once("remove", e5), e5), this.subscriptions.push(t3.once("remove", i3), i3);
     }, 0);
   }
   saveRegion(t3) {
+    if (!t3.element) return;
     this.virtualAppend(t3, this.regionsContainer, t3.element), this.avoidOverlapping(t3), this.regions.push(t3);
     const e4 = [t3.on("update", (e5) => {
       e5 || this.adjustScroll(t3), this.emit("region-update", t3, e5);
@@ -315738,26 +315883,26 @@ class o extends e3 {
   addRegion(t3) {
     var e4, i2;
     if (!this.wavesurfer) throw Error("WaveSurfer is not initialized");
-    const n2 = this.wavesurfer.getDuration(), s2 = null === (i2 = null === (e4 = this.wavesurfer) || void 0 === e4 ? void 0 : e4.getDecodedData()) || void 0 === i2 ? void 0 : i2.numberOfChannels, o2 = new r2(t3, n2, s2);
-    return this.emit("region-initialized", o2), n2 ? this.saveRegion(o2) : this.subscriptions.push(this.wavesurfer.once("ready", (t4) => {
-      o2._setTotalDuration(t4), this.saveRegion(o2);
-    })), o2;
+    const n2 = this.wavesurfer.getDuration(), s2 = null === (i2 = null === (e4 = this.wavesurfer) || void 0 === e4 ? void 0 : e4.getDecodedData()) || void 0 === i2 ? void 0 : i2.numberOfChannels, o3 = new r(t3, n2, s2);
+    return this.emit("region-initialized", o3), n2 ? this.saveRegion(o3) : this.subscriptions.push(this.wavesurfer.once("ready", (t4) => {
+      o3._setTotalDuration(t4), this.saveRegion(o3);
+    })), o3;
   }
   enableDragSelection(t3, e4 = 3) {
     var n2;
     const s2 = null === (n2 = this.wavesurfer) || void 0 === n2 ? void 0 : n2.getWrapper();
     if (!(s2 && s2 instanceof HTMLElement)) return () => {
     };
-    let o2 = null, a2 = 0;
+    let o3 = null, h2 = 0;
     return i(s2, (t4, e5, i2) => {
-      o2 && o2._onUpdate(t4, i2 > a2 ? "end" : "start");
+      o3 && o3._onUpdate(t4, i2 > h2 ? "end" : "start");
     }, (e5) => {
       var i2, n3;
-      if (a2 = e5, !this.wavesurfer) return;
-      const s3 = this.wavesurfer.getDuration(), h2 = null === (n3 = null === (i2 = this.wavesurfer) || void 0 === i2 ? void 0 : i2.getDecodedData()) || void 0 === n3 ? void 0 : n3.numberOfChannels, { width: l2 } = this.wavesurfer.getWrapper().getBoundingClientRect(), d2 = e5 / l2 * s3, c2 = (e5 + 5) / l2 * s3;
-      o2 = new r2(Object.assign(Object.assign({}, t3), { start: d2, end: c2 }), s3, h2), this.emit("region-initialized", o2), this.regionsContainer.appendChild(o2.element);
+      if (h2 = e5, !this.wavesurfer) return;
+      const s3 = this.wavesurfer.getDuration(), a2 = null === (n3 = null === (i2 = this.wavesurfer) || void 0 === i2 ? void 0 : i2.getDecodedData()) || void 0 === n3 ? void 0 : n3.numberOfChannels, { width: l2 } = this.wavesurfer.getWrapper().getBoundingClientRect(), d2 = e5 / l2 * s3, c2 = (e5 + 5) / l2 * s3;
+      o3 = new r(Object.assign(Object.assign({}, t3), { start: d2, end: c2 }), s3, a2), this.emit("region-initialized", o3), o3.element && this.regionsContainer.appendChild(o3.element);
     }, () => {
-      o2 && (this.saveRegion(o2), o2 = null);
+      o3 && (this.saveRegion(o3), o3 = null);
     }, e4);
   }
   clearRegions() {
@@ -315805,7 +315950,7 @@ const TasksWaveForm = ({
       media: videoRef.current
     });
     waveSurferRef.current = ws;
-    regionsPluginRef.current = ws.registerPlugin(o.create());
+    regionsPluginRef.current = ws.registerPlugin(o2.create());
     regionsPluginRef.current.enableDragSelection({});
     ws.on("ready", () => {
       const duration2 = videoRef.current.duration || 1;
@@ -315937,7 +316082,9 @@ const TaskSelection = () => {
     tasks,
     tasksReady,
     setTasksReady,
-    persons
+    persons,
+    taskTypeData,
+    setTaskTypeData
   } = reactExports.useContext(VideoContext);
   const navigate = useNavigate();
   if (!videoId) {
@@ -315971,12 +316118,13 @@ const TaskSelection = () => {
     console.log("onTaskCreate running", newTask);
     setTasks((prev2) => [...prev2, updateTaskWithBox(newTask)]);
   };
-  const onTaskChange = (newTask) => {
-    console.log("onTaskChange running", newTask);
+  const onTaskChange = (patch) => {
     setTasks(
-      (prev2) => prev2.map(
-        (t3) => t3.id === newTask.id ? { ...updateTaskWithBox(newTask), data: null } : t3
-      )
+      (prev2) => prev2.map((t3) => {
+        if (t3.id !== patch.id) return t3;
+        const merged = { ...t3, ...patch };
+        return { ...updateTaskWithBox(merged) };
+      })
     );
   };
   const onTaskDelete = (deletedTask) => {
@@ -316050,7 +316198,9 @@ const TaskSelection = () => {
           videoRef,
           taskReady: tasksReady,
           setTasksReady,
-          resetTaskSelection
+          resetTaskSelection,
+          taskTypeData,
+          setTaskTypeData
         }
       )
     ] })
@@ -316215,7 +316365,7 @@ function JSONUploadDialog({
   };
   const fetchAnalysisDetails = async () => {
     const videoURL = videoRef.current.src;
-    await fetch(videoURL).then((r3) => r3.blob());
+    await fetch(videoURL).then((r2) => r2.blob());
     try {
       let uploadData = new FormData();
       let taskData = tasks[selectedTask];
@@ -316307,7 +316457,7 @@ function JSONUploadDialog({
                 "label",
                 {
                   htmlFor: "file-upload",
-                  className: "cursor-pointer px-4 py-2\r\n                              text-gray-100 bg-transparent rounded-md\r\n                              border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
+                  className: "cursor-pointer px-4 py-2\n                              text-gray-100 bg-transparent rounded-md\n                              border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
                   children: "Upload JSON File"
                 }
               )
@@ -316392,7 +316542,7 @@ const TaskDetails = () => {
     const task = tasks[selectedTask];
     const taskName = task.name;
     const fileNameSafe = taskName.toLowerCase().split(" ").join("_");
-    __variableDynamicImportRuntimeHelper(/* @__PURE__ */ Object.assign({ "./Tasks/finger_tap_left.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_0), true ? void 0 : void 0, import.meta.url), "./Tasks/finger_tap_right.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_1), true ? void 0 : void 0, import.meta.url), "./Tasks/gait.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_2), true ? void 0 : void 0, import.meta.url), "./Tasks/hand_movement_left.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_3), true ? void 0 : void 0, import.meta.url), "./Tasks/hand_movement_right.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_4), true ? void 0 : void 0, import.meta.url), "./Tasks/hand_tremor_left.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_5), true ? void 0 : void 0, import.meta.url), "./Tasks/hand_tremor_right.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_6), true ? void 0 : void 0, import.meta.url), "./Tasks/leg_agility_left.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_7), true ? void 0 : void 0, import.meta.url), "./Tasks/leg_agility_right.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_8), true ? void 0 : void 0, import.meta.url), "./Tasks/toe_tapping_left.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_9), true ? void 0 : void 0, import.meta.url), "./Tasks/toe_tapping_right.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_10), true ? void 0 : void 0, import.meta.url) }), `./Tasks/${fileNameSafe}.jsx`, 3).then((mod) => {
+    __variableDynamicImportRuntimeHelper(/* @__PURE__ */ Object.assign({ "./Tasks/finger_tap_left.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_0), true ? void 0 : void 0, import.meta.url), "./Tasks/finger_tap_right.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_1), true ? void 0 : void 0, import.meta.url), "./Tasks/gait.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_2), true ? void 0 : void 0, import.meta.url), "./Tasks/hand_movement_left.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_3), true ? void 0 : void 0, import.meta.url), "./Tasks/hand_movement_right.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_4), true ? void 0 : void 0, import.meta.url), "./Tasks/hand_tremor_left_elbow_extended.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_5), true ? void 0 : void 0, import.meta.url), "./Tasks/hand_tremor_right_elbow_extended.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_6), true ? void 0 : void 0, import.meta.url), "./Tasks/leg_agility_left.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_7), true ? void 0 : void 0, import.meta.url), "./Tasks/leg_agility_right.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_8), true ? void 0 : void 0, import.meta.url), "./Tasks/toe_tapping_left.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_9), true ? void 0 : void 0, import.meta.url), "./Tasks/toe_tapping_right.jsx": () => __vitePreload(() => Promise.resolve().then(() => __vite_glob_0_10), true ? void 0 : void 0, import.meta.url) }), `./Tasks/${fileNameSafe}.jsx`, 3).then((mod) => {
       setTaskModule(() => mod.default);
     }).catch((err) => {
       console.error(`Couldn’t load task module ${taskName}:`, err);
@@ -316420,34 +316570,37 @@ const TaskDetails = () => {
   };
   const autoAnalyzeTask = async (taskIndex) => {
     const videoURL2 = videoRef.current.src;
-    const videoBlob = await fetch(videoURL2).then((r3) => r3.blob());
+    const videoBlob = await fetch(videoURL2).then((r2) => r2.blob());
     const taskData = tasks[taskIndex];
     const chosenTaskBox = tasks.find((box) => box.id === taskData.id);
     const taskBoxCords = {
       x: chosenTaskBox.x,
       y: chosenTaskBox.y,
-      width: chosenTaskBox.width,
-      height: chosenTaskBox.height
+      width: chosenTaskBox.box_width,
+      height: chosenTaskBox.box_height
     };
     const subjectBoundingBoxes = boundingBoxes.map(({ frameNumber, data: data2 }) => ({
       frameNumber,
       data: data2.filter((item) => item.Subject === true)
     }));
     const { start: start2, end: end2, name: name2, data, ...otherTaskFields } = taskData;
-    const jsonData = JSON.stringify({
+    let jsonData = {
       boundingBox: taskBoxCords,
-      task_name: name2,
-      start_time: start2,
-      end_time: end2,
+      task_name: taskData.name,
+      start_time: taskData.start,
+      end_time: taskData.end,
       fps,
       subject_bounding_boxes: subjectBoundingBoxes,
       ...otherTaskFields
-    });
-    const form = new FormData();
+    };
+    jsonData = JSON.stringify(jsonData);
+    let form = new FormData();
     form.append("video", videoBlob);
     form.append("json_data", jsonData);
     const sanitizedTaskName = name2.replace(/[^a-zA-Z0-9]+/g, " ").split(" ").filter(Boolean).map((w2) => w2.toLowerCase()).join("_");
     const apiURL = `http://localhost:8000/api/${sanitizedTaskName}/?id=${videoId}`;
+    console.log("API URL Generated as:", apiURL);
+    console.log("Upload data", JSON.parse(jsonData));
     const res = await fetch(apiURL, { method: "POST", body: form });
     if (!res.ok) throw new Error(`${name2} failed with status ${res.status}`);
     const result = await res.json();
