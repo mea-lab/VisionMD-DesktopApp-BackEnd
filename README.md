@@ -25,21 +25,21 @@ conda env create -f environment_{OS}.yml
 conda activate VisionMD
 ```
 
-### 4. Download the models
+### 3. Download the models
 Download the models using the scripts found in `./scripts`. 
 ```bash
 ./scripts/get_models.sh # For Linux / MacOS
 ./scripts/get_models.bat # For Windows
 ```
 
-### 3. Start the Django Development Server
+### 4. Start the Django Development Server
 
 ```bash
 python manage.py runserver
 ```
 You must have the backend Django server running on `127.0.0.1:8000`. After, run the frontend repository located at https://github.com/mea-lab/VisionMD-DesktopApp-FrontEnd. Follow the instruction in the README to run the frontend for developement. After setup, the frontend will now connect to your backend.
 
-### Stop the Server
+### 5. Stop the Server
 To stop the development server, press `Ctrl + C` in the terminal where the server is running.
 
 ## Testing static web assets
