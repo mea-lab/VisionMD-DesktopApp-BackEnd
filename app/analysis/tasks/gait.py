@@ -120,6 +120,10 @@ class GaitTask(BaseTask):
                 k: v.tolist()
                 for k, v in gait_event_dic.items()
             }
+            response['gait_event_dic_mirrored'] = {
+                k: v.tolist()
+                for k, v in gait_event_dic_mirrored.items()
+            }
             response['landmark_colors'] = landmark_colors.tolist()
         except Exception as e:
             return Response(f"Error with gait analysis: {str(e)}", status=500)
@@ -388,7 +392,6 @@ class GaitTask(BaseTask):
         multiple_people_detected = False
 
         cap = cv2.VideoCapture(file_path)
-        orig_width  = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
         cap.release()
 
         # Set up video reader
@@ -412,6 +415,7 @@ class GaitTask(BaseTask):
                 for item in self.subject_bounding_boxes
                 if item.get("data")
             }
+            rot_w = int(batch_np.shape[2])
             boxes_list = []
             mirrored_list = []
             for frame_num in frame_idx_list:
@@ -425,7 +429,7 @@ class GaitTask(BaseTask):
                     float(subject_box['height']),
                 )
                 boxes_list.append([[x, y, w, h]])
-                mirrored_x = orig_width - (x + w)
+                mirrored_x = rot_w - (x + w)
                 mirrored_list.append([[mirrored_x, y, w, h]])
 
             boxes = tf.ragged.constant(boxes_list, ragged_rank=1, inner_shape=(4,), dtype=tf.float32)
