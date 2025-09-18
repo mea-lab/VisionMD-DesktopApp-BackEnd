@@ -95,10 +95,22 @@ class GaitTask(BaseTask):
             # 3) Get signal analyzer to use it to get feature results
             signal_analyzer = self.get_signal_analyzer()
             print("Analyzing original signal...")
-            results, gait_event_dic = signal_analyzer.analyze(phases, strides, landmarks['poses3d'], self.fps)
+            try:
+                results, gait_event_dic = signal_analyzer.analyze(phases, strides, landmarks['poses3d'], self.fps)
+            except Exception as e:
+                print("Analyzing original signal failed")
+                raise Exception(e)
+            print("Analyzing original signal passed")
+            
+
             print("Analyzing mirrored signal...")
-            results_mirrored, gait_event_dic_mirrored = signal_analyzer.analyze(phases_mirrored, strides_mirrored, landmarks_mirrored['poses3d'], self.fps)
+            try:
+                results_mirrored, gait_event_dic_mirrored = signal_analyzer.analyze(phases_mirrored, strides_mirrored, landmarks_mirrored['poses3d'], self.fps)
+            except Exception as e:
+                print("Analyzing mirrored signal failed")
+                raise Exception(e)
             avg_results = self.calculate_average_features(results, results_mirrored)
+            print("Analyzing mirrored signal passed")
 
             del GaitTask._gait_phase_transformer, signal_analyzer
             GaitTask._gait_phase_transformer, signal_analyzer = None, None

@@ -99,26 +99,12 @@ class GaitSignalAnalyzer(BaseSignalAnalyzer):
         rhs = np.asarray(gait_event_dic['right_down'],  dtype=float)
         rtf = np.asarray(gait_event_dic['right_up'],    dtype=float)
         if len(lhs) == 0 or len(ltf) == 0 or len(rhs) == 0 or len(rtf) == 0:
-            print("Gait signal analyzing not passed")
-            # raise ValueError("Error, no gait events were detected by gait transformer to compute features.")
-            return {
-            "Average stance time": 0,
-            "Average swing time": 0,
-            "Average double support time": 0,
-            "Average step time": 0,
-            "Average step length": 0,
-            "Average velocity": 0,
-            "Average cadence": 0,
-            "Average stance time left": 0,
-            "Average stance time right": 0,
-            "Average swing time left": 0,
-            "Average swing time right":  0,
-            "Average step time left":      0,
-            "Average step time right":   0,   
-            "Average step length left":    0, 
-            "Average step length right":    0,
-            "Arm swing correlation":      0,
-        }
+            raise Exception(f'No gait events were detected by gait transformer to compute features. ' + 
+                            f'Number of LHS events: {len(lhs)}. ' +
+                            f'Number of LTF events: {len(ltf)}. ' + 
+                            f'Number of RHS events: {len(rhs)}. ' + 
+                            f'Number of RTF events: {len(rtf)}. '
+                            )
 
         # --- 2) Temporal phases (in frames) ---
         
@@ -137,7 +123,7 @@ class GaitSignalAnalyzer(BaseSignalAnalyzer):
             num_right_swings = min(len(rtf), len(rhs) - 1)
             R_swing  = rhs[1:num_right_swings + 1] - rtf[0:num_right_swings]
         if len(R_swing) == 0 or len(L_swing) == 0:
-            raise ValueError("Error, no right swing or left swing events were detected by gait transformer to compute features.")
+            raise ValueError("No right swing or left swing events were detected by gait transformer to compute features.")
 
         # Calculate stance times
         if lhs[0] < ltf[0]:
@@ -154,7 +140,7 @@ class GaitSignalAnalyzer(BaseSignalAnalyzer):
             num_right_stances = min(len(rhs), len(rtf) - 1)
             R_stance  = rtf[1:num_right_stances + 1] - rhs[0:num_right_stances]
         if len(R_stance) == 0 or len(L_stance) == 0:
-            raise ValueError("Error, no right stance or left stance events were detected by gait transformer to compute features.")
+            raise ValueError("No right stance or left stance events were detected by gait transformer to compute features.")
 
         # Calculate step times
         if rhs[0] < lhs[0]:
@@ -171,7 +157,7 @@ class GaitSignalAnalyzer(BaseSignalAnalyzer):
             num_right_steps = min(len(lhs), len(rhs) - 1)
             R_steptime = rhs[1:num_right_steps + 1] - lhs[:num_right_steps]
         if len(R_steptime) == 0 or len(L_steptime) == 0:
-            raise ValueError("Error, not enough events were detected gait transformer to compute right steptime or left steptime features.")
+            raise ValueError("Not enough gait events were detected by gait transformer to compute right steptime or left steptime features.")
 
         # Calculate double support times
         if lhs[0] < rtf[0]:
@@ -190,7 +176,7 @@ class GaitSignalAnalyzer(BaseSignalAnalyzer):
         d1_trimmed = d1[:min(len(d1), len(d2))]
         d2_trimmed = d2[:min(len(d1), len(d2))]
         if len(d1_trimmed) == 0 or len(d2_trimmed) == 0:
-            raise ValueError("Error, not enough events were detected gait transformer to compute the double support time feature.")
+            raise ValueError("Not enough gait events were detected by gait transformer to compute the double support time feature.")
 
         # Combine for overall
         all_swings    = np.concatenate([L_swing, R_swing])
@@ -239,7 +225,6 @@ class GaitSignalAnalyzer(BaseSignalAnalyzer):
         kp_ctr   = kp - kp[:, 0:1]
         arm_corr = np.corrcoef(kp_ctr[:, 15, 2], kp_ctr[:, 12, 2])[0, 1]
 
-        print("Gait signal analyzing passed")
         results = {
             "Average stance time":           float(avg_stance),
             "Average swing time":            float(avg_swing),
