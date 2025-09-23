@@ -8,7 +8,6 @@ set ZIP_FILE=%MODEL_NAME%.zip
 
 if exist "%MODEL_DIR%\%MODEL_NAME%" (
     echo %MODEL_DIR%\%MODEL_NAME% already exists, skipping download.
-    exit /b 0
 )
 
 if not exist "%MODEL_DIR%" (
