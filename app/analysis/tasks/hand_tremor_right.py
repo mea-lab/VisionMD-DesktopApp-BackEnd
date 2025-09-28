@@ -76,6 +76,31 @@ class HandTremorRightTask(BaseTask):
     # ---------------------------------------------------------------
     # --- START: Abstract methods to be implemented by subclasses ---
     # ---------------------------------------------------------------
+    def __init__(self):
+        self.video_id = None
+        self.video_fps = None
+        self.video_rotation = None
+        self.video_file_path = None
+        self.video_file_name = None
+        
+        self.task_name = None
+        self.task_norm_strategy = None
+        self.task_start_time = None
+        self.task_start_frame_idx = None
+        self.task_end_time = None
+        self.task_end_frame_idx = None
+
+        self.original_bounding_box = None
+        self.enlarged_bounding_box = None
+        self.subject_bounding_boxes = None
+
+        self.field_of_view = None
+        self.sensor_height = None
+        self.sensor_width = None
+        self.focal_length = None
+        self.intrinsic_matrix = None
+        self.extrinsic_matrix = None
+        
     def api_response(self, request):
         """
         Function that handles the api response for each task
@@ -183,8 +208,8 @@ class HandTremorRightTask(BaseTask):
         file_path = os.path.join(settings.MEDIA_ROOT, "video_uploads", video_id, file_name)
         task_name = f"{json_data['task_name']}_{json_data['id']}"
         video = cv2.VideoCapture(file_path)
-        video_width = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
-        video_height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        video_rotation = metadata["metadata"]["rotation"]
+        video_width, video_height = BaseTask.get_video_width_height(file_path, video_rotation)
         fps = video.get(cv2.CAP_PROP_FPS)
         start_time = json_data['start_time']
         end_time = json_data['end_time']
@@ -379,8 +404,7 @@ class HandTremorRightTask(BaseTask):
                 break
 
             # Rotate if needed
-            if frame.shape[1] > frame.shape[0]:
-                frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+            frame = BaseTask.correct_frame_orientation(frame,self.video_rotation)
 
             # Crop to bounding box
             h, w = frame.shape[:2]

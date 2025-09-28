@@ -7,6 +7,9 @@ import math
 import os, uuid, time, json, traceback
 from django.core.files.storage import FileSystemStorage
 from abc import ABC, abstractmethod
+from pymediainfo import MediaInfo
+from hachoir.parser import createParser
+from hachoir.metadata import extractMetadata
 
 class BaseTask(ABC):
     """
@@ -19,7 +22,6 @@ class BaseTask(ABC):
     # --- START: Abstract properties to be implemented by subclasses ---
     # ------------------------------------------------------------------
     @property
-    @abstractmethod
     def LANDMARKS(self):
         """
         Should be a dictionary where each landmark
@@ -27,64 +29,6 @@ class BaseTask(ABC):
         """
         pass
 
-    @property
-    @abstractmethod
-    def video_id(self):
-        pass
-
-    @property
-    @abstractmethod
-    def file_path(self):
-        pass
-
-    @property
-    @abstractmethod
-    def file_name(self):
-        pass
-
-    @property
-    @abstractmethod
-    def task_name(self):
-        pass
-    
-    @property
-    @abstractmethod
-    def fps(self):
-        pass
-
-    @property
-    @abstractmethod
-    def start_time(self):
-        pass
-    
-
-    @property
-    @abstractmethod
-    def start_frame_idx(self):
-        pass
-
-
-    @property
-    @abstractmethod
-    def end_time(self):
-        pass
-
-
-    @property
-    @abstractmethod
-    def end_frame_idx(self):
-        pass
-
-    @property
-    @abstractmethod
-    def original_bounding_box(self):
-        pass
-
-
-    @property
-    @abstractmethod
-    def enlarged_bounding_box(self):
-        pass
     # ----------------------------------------------------------------
     # --- END: Abstract properties to be implemented by subclasses ---
     # ----------------------------------------------------------------
@@ -96,6 +40,28 @@ class BaseTask(ABC):
     # ---------------------------------------------------------------
     # --- START: Abstract methods to be implemented by subclasses ---
     # ---------------------------------------------------------------
+    @abstractmethod
+    def __init__(self):
+        """
+        Function that should declare all instance attributes which are the video parameters.
+        Below we have provided an example of a set of instance attributes you may want to declare.
+        """
+        self.video_id = None
+        self.video_fps = None
+        self.video_rotation = None
+        self.video_file_path = None
+        self.video_file_name = None
+
+        self.task_name = None
+        self.task_start_time = None
+        self.task_end_time = None
+        self.task_start_frame_idx = None
+        self.task_end_frame_idx = None
+
+        self.original_bounding_box = None
+        self.enlarged_bounding_box = None
+        self.subject_bounding_boxes = None
+
     @abstractmethod
     def api_response(self, request):
         """
@@ -113,7 +79,7 @@ class BaseTask(ABC):
          - Computes the expanded bounding box.
          - Determines FPS and start/end frame indices.
         Returns a dictionary of parameters. 
-        MUST DEFINE ALL ABSTRACT PROPERTIES. 
+        MUST DEFINE ALL INSTANCE ATTRIBUTES DECLARED IN INIT. 
         """
         pass
 
@@ -205,6 +171,30 @@ class BaseTask(ABC):
                 lm.z
             ])
         return coords
+
+    @staticmethod
+    def correct_frame_orientation(cv2_frame, rotation):
+        rotation_code = {
+            90: cv2.ROTATE_90_CLOCKWISE,
+            180: cv2.ROTATE_180,
+            270: cv2.ROTATE_90_COUNTERCLOCKWISE
+        }.get(rotation, None)
+        frame = cv2_frame
+        if rotation_code is not None:
+            frame = cv2.rotate(cv2_frame, rotation_code)
+        return frame
+
+    @staticmethod
+    def get_video_width_height(video_file_path, rotation):
+        cap = cv2.VideoCapture(video_file_path)
+        ret, first_frame = cap.read()
+        if not ret:
+            cap.release()
+            raise Exception("Could not read first frame from video.")
+        upright_frame = BaseTask.correct_frame_orientation(first_frame, rotation)
+        video_height, video_width = upright_frame.shape[:2]
+        cap.release()
+        return video_width, video_height
     # ------------------------------------------------
     # --- END: Utility functions as static methods ---
     # ------------------------------------------------
