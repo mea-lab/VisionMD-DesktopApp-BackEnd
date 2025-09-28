@@ -8,6 +8,7 @@ import numpy as np
 import traceback
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
+from rest_framework.response import Response
 
 from .base_task import BaseTask
 from app.analysis.detectors.mp_hand_detector import HandDetector
@@ -41,21 +42,6 @@ class FingerTapRightTask(BaseTask):
         "PINKY_DIP": 19,
         "PINKY_TIP": 20
     }
-    
-    # Properties are set via prepare_video_parameters.
-    video_id = None
-    file_name = None
-    task_name = None
-    video = None
-    fps = None
-    start_time = None
-    start_frame_idx = None
-    end_time = None
-    end_frame_idx = None
-    file_path = None
-    original_bounding_box = None
-    enlarged_bounding_box = None
-
 # ------------------------------------------------------------------
 # --- END: Abstract properties definitions
 # ------------------------------------------------------------------
@@ -67,45 +53,45 @@ class FingerTapRightTask(BaseTask):
 # -------------------------------------------------------------
 # --- START: Abstract methods definitions
 # -------------------------------------------------------------
+    def __init__(self):
+        self.video_id = None
+        self.video_fps = None
+        self.video_rotation = None
+        self.video_file_path = None
+        self.video_file_name = None
+        
+        self.task_name = None
+        self.task_norm_strategy = None
+        self.task_start_time = None
+        self.task_start_frame_idx = None
+        self.task_end_time = None
+        self.task_end_frame_idx = None
+
+        self.original_bounding_box = None
+        self.enlarged_bounding_box = None
+        self.subject_bounding_boxes = None
+    
     def api_response(self, request):
         try:
-            # 1) Process video and define all abstract class parameters
+            # 1. Define video parameters that were declared in init
             self.prepare_video_parameters(request)
 
-            # 3) Get analyzer
-            signal_analyzer = self.get_signal_analyzer()
-
-            # 4) Extract landmarks using the defined detector
-            result = FingerTapRightTask.extract_landmarks(
-                video_path=self.file_path, 
-                start_frame_idx=self.start_frame_idx,
-                end_frame_idx=self.end_frame_idx, 
-                fps=self.fps, 
-                enlarged_bounding_box=self.enlarged_bounding_box, 
-                original_bounding_box=self.original_bounding_box, 
-                LANDMARKS=self.LANDMARKS
-            )
-            essential_landmarks, all_landmarks = result
-
+            # 2. Extract landmarks from video
+            essential_landmarks, all_landmarks = self.extract_landmarks()
             
-            # 5) Calculate the signal using the land marks
+            # 3. Calculate normalization factor from landmarks
             normalization_factor = self.calculate_normalization_factor(all_landmarks)
-            print("Norm factor", normalization_factor)
 
-            # 6) Calculate the  normalization factor using the land marks
+            # 4. Calculate signal from landmarks
             raw_signal = self.calculate_signal(essential_landmarks)
             
-            # Get output from the signal analyzer
-            results = signal_analyzer.analyze(
-                normalization_factor=normalization_factor,
-                raw_signal=raw_signal,
-                start_time=self.start_time,
-                end_time=self.end_time
-            )
+            # 5. Caclulate features from signal
+            signal_analyzer = self.get_signal_analyzer()
+            results = signal_analyzer.analyze(raw_signal, normalization_factor, self.task_start_time, self.task_end_time)
             
-            # Structure output
+            # 6. Structure output
             output = {}
-            output['File name'] = self.file_name
+            output['File name'] = self.video_file_name
             output['Task name'] = self.task_name
             output = output | results
             output["landMarks"] = essential_landmarks
@@ -113,95 +99,79 @@ class FingerTapRightTask(BaseTask):
             output["normalization_factor"] = normalization_factor
 
         except Exception as e:
-            return {'Error': str(e)}
-
-        finally:
-            if self.video and self.video.isOpened():
-                self.video.release()
+            return Response(f"{e}", status=500)
 
         return output
     
     def prepare_video_parameters(self, request):
-        # Get all variables set up and check if folder and file paths exist
+        """
+        Parses POST data, saves the video file, computes bounding boxes and frame indices.
+        """
         video_id = request.GET.get('id', None)
         if not video_id:
             raise Exception("Video project id not provided.")
         
+        json_raw = request.POST.get('json_data')
+        if not json_raw:
+            raise Exception("Missing 'json_data' in POST data")
+        
         try:
-            json_data = json.loads(request.POST['json_data'])
-        except (KeyError, json.JSONDecodeError):
-            raise Exception("Invalid or missing 'json_data' in POST data")
-
-        folder_path = os.path.join(settings.MEDIA_ROOT, "video_uploads")
-        project_folder_path = os.path.join(folder_path, video_id)
-        if not os.path.isdir(project_folder_path):
+            json_data = json.loads(json_raw)
+        except json.JSONDecodeError:
+            raise Exception("Invalid JSON in 'json_data'")
+        
+        folder_path = os.path.join(settings.MEDIA_ROOT, "video_uploads", video_id)
+        if not os.path.isdir(folder_path):
             raise Exception("Video project folder does not exist.")
-        
-        subfolder_path = os.path.join(folder_path, video_id)
-        metadata = {}
-        if os.path.isdir(subfolder_path):
-            json_path = os.path.join(subfolder_path, "metadata.json")
-            try:
-                with open(json_path, 'r', encoding='utf-8') as f:
-                    metadata = json.load(f)
-            except (IOError, json.JSONDecodeError):
-                raise Exception("Warning: Video project data cannot be decoded.")                    
-    
-        file_name = metadata["metadata"]["video_name"]
-        file_path = os.path.join(settings.MEDIA_ROOT, "video_uploads", video_id, file_name)
-        task_name = f"{json_data['task_name']}_{json_data['id']}"
-    
-        video = cv2.VideoCapture(file_path)
-        video_width = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
-        video_height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
+        metadata_path = os.path.join(folder_path, "metadata.json")
+        if not os.path.exists(metadata_path):
+            raise Exception("Metadata file for video does not exist.")
+        try:
+            with open(metadata_path, 'r', encoding='utf-8') as f:
+                    metadata = json.load(f)
+        except Exception as e:
+            raise Exception(f"Metadata file '{metadata_path}' cannot be decoded {e}")              
+    
+        #  Prepare video data
+        video_fps = metadata["metadata"]["fps"]
+        video_rotation = metadata["metadata"]["rotation"]
+        video_file_name = metadata["metadata"]["video_name"]
+        video_file_path = os.path.join(settings.MEDIA_ROOT, "video_uploads", video_id, video_file_name)
+        video_width, video_height = BaseTask.get_video_width_height(video_file_path, video_rotation)
+
+        #  Prepare task data
+        task_name = json_data["task_name"]
+        task_norm_strategy = json_data['norm_strategy']
+        task_start_time = json_data['start_time']
+        task_end_time = json_data['end_time']
+        task_start_frame_idx = round(video_fps * task_start_time)
+        task_end_frame_idx = round(video_fps * task_end_time)
+
+        # Prepare bounding box data
         original_bounding_box = json_data['boundingBox']
-        start_time = json_data['start_time']
-        end_time = json_data['end_time']
-        norm_strategy = json_data['norm_strategy']
-        fps = video.get(cv2.CAP_PROP_FPS)
-        start_frame_idx = math.floor(fps * start_time)
-        end_frame_idx = math.floor(fps * end_time)
-        
-        new_x = int(max(0, original_bounding_box['x'] - original_bounding_box['width'] * 0.125))
-        new_y = int(max(0, original_bounding_box['y'] - original_bounding_box['height'] * 0.125))
-        new_width = int(min(video_width - new_x, original_bounding_box['width'] * 1.25))
-        new_height = int(min(video_height - new_y, original_bounding_box['height'] * 1.25))
         enlarged_bounding_box = {
-            'x': new_x,
-            'y': new_y,
-            'width': new_width,
-            'height': new_height
+            'x': int(max(0, original_bounding_box['x'] - original_bounding_box['width'] * 0.125)),
+            'y': int(max(0, original_bounding_box['y'] - original_bounding_box['height'] * 0.125)),
+            'width': int(min(video_width - original_bounding_box['x'], original_bounding_box['width'] * 1.25)),
+            'height': int(min(video_height - original_bounding_box['y'], original_bounding_box['height'] * 1.25)),
         }
 
-        self.video = video
         self.video_id = video_id
-        self.file_name = file_name
+        self.video_fps = video_fps
+        self.video_rotation = video_rotation
+        self.video_file_name = video_file_name
+        self.video_file_path = video_file_path
+
         self.task_name = task_name
-        self.file_path = file_path
+        self.task_start_time = task_start_time
+        self.task_end_time = task_end_time
+        self.task_start_frame_idx = task_start_frame_idx
+        self.task_end_frame_idx = task_end_frame_idx
+        self.task_norm_strategy = task_norm_strategy
+
         self.original_bounding_box = original_bounding_box
         self.enlarged_bounding_box = enlarged_bounding_box
-        self.start_time = start_time
-        self.end_time = end_time
-        self.start_frame_idx = start_frame_idx
-        self.end_frame_idx = end_frame_idx
-        self.fps = fps
-        self.norm_strategy = norm_strategy
-
-        return {
-            "video": video,
-            "video_id": video_id,
-            "file_name": file_name,
-            "task_name": task_name,
-            "file_path": file_path,
-            "original_bounding_box": original_bounding_box,
-            "enlarged_bounding_box": enlarged_bounding_box,
-            "start_time": start_time,
-            "end_time": end_time,
-            "start_frame_idx": start_frame_idx,
-            "end_frame_idx": end_frame_idx,
-            "fps": fps,
-        }
 
 
     def get_detector(self) -> object:
@@ -211,38 +181,38 @@ class FingerTapRightTask(BaseTask):
     def get_signal_analyzer(self) -> object:
         return PeakfinderSignalAnalyzer()
 
-    @staticmethod
-    def extract_landmarks(video_path, start_frame_idx, end_frame_idx, fps, enlarged_bounding_box, original_bounding_box, LANDMARKS) -> tuple:
+    def extract_landmarks(self) -> tuple:
         detector = HandDetector().get_detector()
         essential_landmarks = []
         all_landmarks = []
         enlarged_coords = (
-            enlarged_bounding_box['x'],
-            enlarged_bounding_box['y'],
-            enlarged_bounding_box['x'] + enlarged_bounding_box['width'],
-            enlarged_bounding_box['y'] + enlarged_bounding_box['height']
+            self.enlarged_bounding_box['x'],
+            self.enlarged_bounding_box['y'],
+            self.enlarged_bounding_box['x'] + self.enlarged_bounding_box['width'],
+            self.enlarged_bounding_box['y'] + self.enlarged_bounding_box['height']
         )
         original_coords = (
-            original_bounding_box['x'],
-            original_bounding_box['y'],
-            original_bounding_box['x'] + original_bounding_box['width'],
-            original_bounding_box['y'] + enlarged_bounding_box['height']
+            self.original_bounding_box['x'],
+            self.original_bounding_box['y'],
+            self.original_bounding_box['x'] + self.original_bounding_box['width'],
+            self.original_bounding_box['y'] + self.original_bounding_box['height']
         )
         
-        video = cv2.VideoCapture(video_path)
-        video.set(cv2.CAP_PROP_POS_FRAMES, start_frame_idx)
-        current_frame_idx = start_frame_idx
+        video = cv2.VideoCapture(self.video_file_path)
+        video.set(cv2.CAP_PROP_POS_FRAMES, self.task_start_frame_idx)
+        current_frame_idx = self.task_start_frame_idx
 
-        while current_frame_idx < end_frame_idx:
+        while current_frame_idx < self.task_end_frame_idx:
             success, frame = video.read()
             if not success:
                 break
 
             rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            rgb_frame = BaseTask.correct_frame_orientation(rgb_frame,self.video_rotation)
             x1, y1, x2, y2 = enlarged_coords
             image_data = rgb_frame[y1:y2, x1:x2, :].astype(np.uint8)
             image = mp.Image(image_format=mp.ImageFormat.SRGB, data=image_data)
-            timestamp = int(current_frame_idx / fps * 1000)
+            timestamp = int(current_frame_idx / self.video_fps * 1000)
             detection_result = detector.detect_for_video(image, timestamp)
             
             # Look for the right hand
@@ -253,21 +223,23 @@ class FingerTapRightTask(BaseTask):
                     break
 
             if hand_index == -1 or not detection_result.hand_landmarks[hand_index]:
-                essential_landmarks.append([])
-                all_landmarks.append([])
+                video.release()
+                detector.close()
+                raise Exception(f"Right hand could not be found in frame {current_frame_idx}")
             else:
                 hand_landmarks = detection_result.hand_landmarks[hand_index]
-                thumb = BaseTask.get_landmark_coords(hand_landmarks[LANDMARKS["THUMB_TIP"]], enlarged_coords, original_coords)
-                index_finger = BaseTask.get_landmark_coords(hand_landmarks[LANDMARKS["INDEX_FINGER_TIP"]], enlarged_coords, original_coords)
-                middle_finger = BaseTask.get_landmark_coords(hand_landmarks[LANDMARKS["MIDDLE_FINGER_TIP"]], enlarged_coords, original_coords)
-                wrist = BaseTask.get_landmark_coords(hand_landmarks[LANDMARKS["WRIST"]], enlarged_coords, original_coords)
+                thumb = BaseTask.get_landmark_coords(hand_landmarks[FingerTapRightTask.LANDMARKS["THUMB_TIP"]], enlarged_coords, original_coords)
+                index_finger = BaseTask.get_landmark_coords(hand_landmarks[FingerTapRightTask.LANDMARKS["INDEX_FINGER_TIP"]], enlarged_coords, original_coords)
+                middle_finger = BaseTask.get_landmark_coords(hand_landmarks[FingerTapRightTask.LANDMARKS["MIDDLE_FINGER_TIP"]], enlarged_coords, original_coords)
+                wrist = BaseTask.get_landmark_coords(hand_landmarks[FingerTapRightTask.LANDMARKS["WRIST"]], enlarged_coords, original_coords)
                 essential = [thumb, index_finger]
                 all_lms = BaseTask.get_all_landmarks_coord(hand_landmarks, enlarged_coords, original_coords)
                 essential_landmarks.append(essential)
                 all_landmarks.append(all_lms)
             
             current_frame_idx += 1
-
+        video.release()
+        detector.close()
         return essential_landmarks, all_landmarks
 
 
@@ -286,7 +258,7 @@ class FingerTapRightTask(BaseTask):
 
 
     def calculate_normalization_factor(self, landmarks) -> float:
-        LM = self.LANDMARKS
+        LM = FingerTapRightTask.LANDMARKS
         factors = []
 
         def has_idxs(frame, *idxs):
@@ -294,7 +266,7 @@ class FingerTapRightTask(BaseTask):
 
         for frame in landmarks:
             # THUMB
-            if self.norm_strategy == 'THUMBSIZE':
+            if self.task_norm_strategy == 'THUMBSIZE':
                 if has_idxs(frame, 
                             LM['THUMB_CMC'], LM['THUMB_MCP'], 
                             LM['THUMB_IP'], LM['THUMB_TIP']):
@@ -304,7 +276,7 @@ class FingerTapRightTask(BaseTask):
                 continue
 
             # PALM
-            if self.norm_strategy == 'PALMSIZE':
+            if self.task_norm_strategy == 'PALMSIZE':
                 if has_idxs(frame,
                             LM['WRIST'],
                             LM['INDEX_FINGER_MCP'], LM['MIDDLE_FINGER_MCP'],
@@ -317,7 +289,7 @@ class FingerTapRightTask(BaseTask):
                 continue
             
             # MAX AMPLITUDE
-            if self.norm_strategy == 'MAXAMPLITUDE':
+            if self.task_norm_strategy == 'MAXAMPLITUDE':
                 if has_idxs(frame, LM['THUMB_TIP'], LM['INDEX_FINGER_TIP']):
                     dist_val = math.dist(frame[LM['THUMB_TIP']], frame[LM['INDEX_FINGER_TIP']])
                     factors.append(dist_val)

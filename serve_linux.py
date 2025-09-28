@@ -10,6 +10,7 @@ import VideoAnalysisToolBackend.wsgi
 
 sys.path.append(os.path.dirname(__file__))
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'VideoAnalysisToolBackend.settings')
+os.environ["MESA_SHADER_CACHE_DISABLE"] = "1"
 
 sys.argv = [
     'gunicorn',

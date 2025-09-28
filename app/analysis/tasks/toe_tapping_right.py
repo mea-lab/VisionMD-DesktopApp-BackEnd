@@ -12,9 +12,9 @@ from app.analysis.signal_analyzers.peakfinder_signal_analyzer import PeakfinderS
 
 class ToeTappingRightTask(BaseTask):
     """
-    Toe Tapping task for the right side:
-      - Tracks (shoulder midpoint, right toe, hip midpoint) each frame.
-      - The raw signal is (shoulder_mid_y - right_toe_y), clamped to non-negative values.
+    Toe Tapping task for the left side:
+      - Tracks (shoulder midpoint, left toe, hip midpoint) each frame.
+      - The raw signal is defined as (shoulder_mid_y - left_toe_y), clamped to be non-negative.
       - The normalization factor is the average shoulder-to-hip distance.
     """
     LANDMARKS = {
@@ -53,19 +53,23 @@ class ToeTappingRightTask(BaseTask):
         "RIGHT_FOOT_INDEX": 32
     }
 
-    # Abstract properties required by BaseTask.
-    video_id = None
-    file_name = None
-    task_name = None
-    video = None
-    fps = None
-    start_time = None
-    start_frame_idx = None
-    end_time = None
-    end_frame_idx = None
-    file_path = None
-    original_bounding_box = None
-    enlarged_bounding_box = None
+    def __init__(self):
+        self.video_id = None
+        self.video_fps = None
+        self.video_rotation = None
+        self.video_file_path = None
+        self.video_file_name = None
+        
+        self.task_name = None
+        self.task_norm_strategy = None
+        self.task_start_time = None
+        self.task_start_frame_idx = None
+        self.task_end_time = None
+        self.task_end_frame_idx = None
+
+        self.original_bounding_box = None
+        self.enlarged_bounding_box = None
+        self.subject_bounding_boxes = None
 
     def api_response(self, request):
         try:
@@ -76,31 +80,26 @@ class ToeTappingRightTask(BaseTask):
             signal_analyzer = self.get_signal_analyzer()
 
             # 3) Extract landmarks using the defined detector
-            result = ToeTappingRightTask.extract_landmarks(
-                video_path=self.file_path, 
-                start_frame_idx=self.start_frame_idx,
-                end_frame_idx=self.end_frame_idx, 
-                fps=self.fps, 
-                enlarged_bounding_box=self.enlarged_bounding_box, 
-                original_bounding_box=self.original_bounding_box, 
-                LANDMARKS=self.LANDMARKS
-            )
+            result = self.extract_landmarks()
             essential_landmarks, all_landmarks = result
 
+            # Calculate normalization factor based on shoulder-to-hip distance.
             normalization_factor = self.calculate_normalization_factor(essential_landmarks)
+
+            # Calculate the raw toe tapping signal.
             raw_signal = self.calculate_signal(essential_landmarks)
-            
+
             # Get output from the signal analyzer
             results = signal_analyzer.analyze(
                 normalization_factor=normalization_factor,
                 raw_signal=raw_signal,
-                start_time=self.start_time,
-                end_time=self.end_time
+                start_time=self.task_start_time,
+                end_time=self.task_end_time
             )
             
             # Structure output
             output = {}
-            output['File name'] = self.file_name
+            output['File name'] = self.video_file_name
             output['Task name'] = self.task_name
             output = output | results
             output["landMarks"] = essential_landmarks
@@ -109,95 +108,76 @@ class ToeTappingRightTask(BaseTask):
 
         except Exception as e:
             raise Exception(str(e))
-        
-        finally:
-            if self.video and self.video.isOpened():
-                self.video.release()
-            
+
         return output
 
     def prepare_video_parameters(self, request):
         """
         Parses POST data, saves the video file, computes bounding boxes and frame indices.
         """
-        # Get all variables set up and check if folder and file paths exist
         video_id = request.GET.get('id', None)
         if not video_id:
             raise Exception("Video project id not provided.")
         
-        try:
-            json_data = json.loads(request.POST['json_data'])
-        except (KeyError, json.JSONDecodeError):
-            raise Exception("Invalid or missing 'json_data' in POST data")
-
-        folder_path = os.path.join(settings.MEDIA_ROOT, "video_uploads")
-        project_folder_path = os.path.join(folder_path, video_id)
-        if not os.path.isdir(project_folder_path):
-            raise Exception("Video project folder does not exist.")
+        json_raw = request.POST.get('json_data')
+        if not json_raw:
+            raise Exception("Missing 'json_data' in POST data")
         
-        subfolder_path = os.path.join(folder_path, video_id)
-        metadata = {}
-        if os.path.isdir(subfolder_path):
-            json_path = os.path.join(subfolder_path, "metadata.json")
-            try:
-                with open(json_path, 'r', encoding='utf-8') as f:
+        try:
+            json_data = json.loads(json_raw)
+        except json.JSONDecodeError:
+            raise Exception("Invalid JSON in 'json_data'")
+        
+        folder_path = os.path.join(settings.MEDIA_ROOT, "video_uploads", video_id)
+        if not os.path.isdir(folder_path):
+            raise Exception("Video project folder does not exist.")
+
+        metadata_path = os.path.join(folder_path, "metadata.json")
+        if not os.path.exists(metadata_path):
+            raise Exception("Metadata file for video does not exist.")
+        try:
+            with open(metadata_path, 'r', encoding='utf-8') as f:
                     metadata = json.load(f)
-            except (IOError, json.JSONDecodeError):
-                raise Exception("Warning: Video project data cannot be decoded.")                    
+        except Exception as e:
+            raise Exception(f"Metadata file '{metadata_path}' cannot be decoded {e}")              
     
-        file_name = metadata["metadata"]["video_name"]
-        file_path = os.path.join(settings.MEDIA_ROOT, "video_uploads", video_id, file_name)
-        task_name = f"{json_data['task_name']}_{json_data['id']}"
-    
-        video = cv2.VideoCapture(file_path)
-        video_width = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
-        video_height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        #  Prepare video data
+        video_fps = metadata["metadata"]["fps"]
+        video_rotation = metadata["metadata"]["rotation"]
+        video_file_name = metadata["metadata"]["video_name"]
+        video_file_path = os.path.join(settings.MEDIA_ROOT, "video_uploads", video_id, video_file_name)
+        video_width, video_height = BaseTask.get_video_width_height(video_file_path, video_rotation)
 
+        #  Prepare task data
+        task_name = json_data["task_name"]
+        task_start_time = json_data['start_time']
+        task_end_time = json_data['end_time']
+        task_start_frame_idx = round(video_fps * task_start_time)
+        task_end_frame_idx = round(video_fps * task_end_time)
+
+        # Prepare bounding box data
         original_bounding_box = json_data['boundingBox']
-        start_time = json_data['start_time']
-        end_time = json_data['end_time']
-        fps = video.get(cv2.CAP_PROP_FPS)
-        start_frame_idx = math.floor(fps * start_time)
-        end_frame_idx = math.floor(fps * end_time)
-
-        new_x = int(max(0, original_bounding_box['x'] - original_bounding_box['width'] * 0.125))
-        new_y = int(max(0, original_bounding_box['y'] - original_bounding_box['height'] * 0.125))
-        new_width = int(min(video_width - new_x, original_bounding_box['width'] * 1.25))
-        new_height = int(min(video_height - new_y, original_bounding_box['height'] * 1.25))
         enlarged_bounding_box = {
-            'x': new_x,
-            'y': new_y,
-            'width': new_width,
-            'height': new_height
+            'x': int(max(0, original_bounding_box['x'] - original_bounding_box['width'] * 0.125)),
+            'y': int(max(0, original_bounding_box['y'] - original_bounding_box['height'] * 0.125)),
+            'width': int(min(video_width - original_bounding_box['x'], original_bounding_box['width'] * 1.25)),
+            'height': int(min(video_height - original_bounding_box['y'], original_bounding_box['height'] * 1.25)),
         }
 
-        self.video = video
         self.video_id = video_id
-        self.file_name = file_name
+        self.video_fps = video_fps
+        self.video_rotation = video_rotation
+        self.video_file_name = video_file_name
+        self.video_file_path = video_file_path
+
         self.task_name = task_name
-        self.file_path = file_path
+        self.task_start_time = task_start_time
+        self.task_end_time = task_end_time
+        self.task_start_frame_idx = task_start_frame_idx
+        self.task_end_frame_idx = task_end_frame_idx
+
         self.original_bounding_box = original_bounding_box
         self.enlarged_bounding_box = enlarged_bounding_box
-        self.start_time = start_time
-        self.end_time = end_time
-        self.start_frame_idx = start_frame_idx
-        self.end_frame_idx = end_frame_idx
-        self.fps = fps
-
-        return {
-            "video": video,
-            "video_id": video_id,
-            "file_name": file_name,
-            "task_name": task_name,
-            "file_path": file_path,
-            "original_bounding_box": original_bounding_box,
-            "enlarged_bounding_box": enlarged_bounding_box,
-            "start_time": start_time,
-            "end_time": end_time,
-            "start_frame_idx": start_frame_idx,
-            "end_frame_idx": end_frame_idx,
-            "fps": fps,
-        }
 
     def get_detector(self):
         return PoseHeavyDetector().get_detector()
@@ -205,69 +185,72 @@ class ToeTappingRightTask(BaseTask):
     def get_signal_analyzer(self):
         return PeakfinderSignalAnalyzer()
 
-    @staticmethod
-    def extract_landmarks(video_path, start_frame_idx, end_frame_idx, fps, enlarged_bounding_box, original_bounding_box, LANDMARKS) -> tuple:
+    def extract_landmarks(self) -> tuple:
         """
-        Processes video frames to extract:
+        Iterates through the specified video frames and extracts:
             - Shoulder midpoint (average of left and right shoulders).
             - Right toe landmark (using RIGHT_FOOT_INDEX).
             - Hip midpoint (average of left and right hips).
         Returns:
             tuple: (essential_landmarks, all_landmarks)
         """
+
         detector = PoseHeavyDetector().get_detector()
 
-        x1 = enlarged_bounding_box['x']
-        y1 = enlarged_bounding_box['y']
-        x2 = x1 + enlarged_bounding_box['width']
-        y2 = y1 + enlarged_bounding_box['height']
+        x1 = self.enlarged_bounding_box['x']
+        y1 = self.enlarged_bounding_box['y']
+        x2 = x1 + self.enlarged_bounding_box['width']
+        y2 = y1 + self.enlarged_bounding_box['height']
         enlarged_coords = (x1, y1, x2, y2)
 
-        ox1 = original_bounding_box['x']
-        oy1 = original_bounding_box['y']
-        ox2 = original_bounding_box['x'] + original_bounding_box['width']
-        oy2 = original_bounding_box['y'] + enlarged_bounding_box['height']
+        ox1 = self.original_bounding_box['x']
+        oy1 = self.original_bounding_box['y']
+        ox2 = self.original_bounding_box['x'] + self.original_bounding_box['width']
+        oy2 = self.original_bounding_box['y'] + self.enlarged_bounding_box['height']
         original_coords = (ox1,oy1,ox2,oy2)
-
 
         essential_landmarks = []
         all_landmarks = []
 
-        video = cv2.VideoCapture(video_path)
-        video.set(cv2.CAP_PROP_POS_FRAMES, start_frame_idx)
-        current_frame_idx = start_frame_idx
+        video = cv2.VideoCapture(self.video_file_path)
+        video.set(cv2.CAP_PROP_POS_FRAMES, self.task_start_frame_idx)
+        current_frame_idx = self.task_start_frame_idx
 
-        while current_frame_idx < end_frame_idx:
+        while current_frame_idx < self.task_end_frame_idx:
             success, frame = video.read()
             if not success:
                 break
 
             rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            rgb_frame = BaseTask.correct_frame_orientation(rgb_frame,self.video_rotation)
             cropped_frame = rgb_frame[y1:y2, x1:x2, :].astype(np.uint8)
             image = mp.Image(image_format=mp.ImageFormat.SRGB, data=cropped_frame)
 
-            timestamp = int((current_frame_idx / fps) * 1000)
+            timestamp = int((current_frame_idx / self.video_fps) * 1000)
             detection_result = detector.detect_for_video(image, timestamp)
 
             if not detection_result.pose_landmarks:
-                essential_landmarks.append([])
-                all_landmarks.append([])
+                video.release()
+                detector.close()
+                raise Exception(f"Right leg could not be found in frame {current_frame_idx}")
             else:
                 landmarks = detection_result.pose_landmarks[0]
-                left_shoulder = landmarks[LANDMARKS["LEFT_SHOULDER"]]
-                right_shoulder = landmarks[LANDMARKS["RIGHT_SHOULDER"]]
+                # Compute shoulder midpoint.
+                left_shoulder = landmarks[ToeTappingRightTask.LANDMARKS["LEFT_SHOULDER"]]
+                right_shoulder = landmarks[ToeTappingRightTask.LANDMARKS["RIGHT_SHOULDER"]]
                 shoulder_mid = [
                     ((left_shoulder.x + right_shoulder.x) / 2) * (x2 - x1) + x1,
                     ((left_shoulder.y + right_shoulder.y) / 2) * (y2 - y1) + y1
                 ]
-                left_hip = landmarks[LANDMARKS["LEFT_HIP"]]
-                right_hip = landmarks[LANDMARKS["RIGHT_HIP"]]
+                # Compute hip midpoint.
+                left_hip = landmarks[ToeTappingRightTask.LANDMARKS["LEFT_HIP"]]
+                right_hip = landmarks[ToeTappingRightTask.LANDMARKS["RIGHT_HIP"]]
                 hip_mid = [
                     ((left_hip.x + right_hip.x) / 2) * (x2 - x1) + x1,
                     ((left_hip.y + right_hip.y) / 2) * (y2 - y1) + y1
                 ]
-                # Select the right toe landmark.
-                toe_idx = LANDMARKS["RIGHT_FOOT_INDEX"]
+                # Select the left toe landmark.
+                toe_idx = ToeTappingRightTask.LANDMARKS["RIGHT_FOOT_INDEX"]
                 toe_landmark = [
                     landmarks[toe_idx].x * (x2 - x1) + x1,
                     landmarks[toe_idx].y * (y2 - y1) + y1
@@ -278,13 +261,15 @@ class ToeTappingRightTask(BaseTask):
                 all_landmarks.append(all_lms)
             current_frame_idx += 1
 
+        video.release()
+        detector.close()
         return essential_landmarks, all_landmarks
 
     def calculate_signal(self, essential_landmarks):
         """
-        Computes the raw signal for toe tapping as (shoulder_mid_y - right_toe_y)
-        for each frame. If landmarks are missing in a frame, the previous signal is used.
-        Negative values are clamped to 0.
+        Computes the frame-by-frame signal as (shoulder_mid_y - left_toe_y).
+        If landmarks are missing, falls back to the previous signal.
+        Negative differences are clamped to 0.
         """
         signal = []
         prev_signal = 0
@@ -300,8 +285,8 @@ class ToeTappingRightTask(BaseTask):
 
     def calculate_normalization_factor(self, essential_landmarks):
         """
-        Computes the average distance between the shoulder midpoint and hip midpoint
-        as the normalization factor.
+        Computes the normalization factor as the average distance between
+        the shoulder midpoint and the hip midpoint.
         """
         distances = []
         for frame_lms in essential_landmarks:

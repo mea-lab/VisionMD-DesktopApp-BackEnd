@@ -32,28 +32,6 @@ class GaitTask(BaseTask):
                             'lelb', 'lwri', 'rhip', 'rkne', 'rank', 'lhip', 
                             'lkne', 'lank', 'pelv', 'spin', 'head'])
         
-    # Properties are set via prepare_video_parameters.
-    video_id = None
-    file_path = None
-    file_name = None
-    task_name = None
-    rotation = None
-
-    fps = None
-    start_time = None
-    start_frame_idx = None
-    end_time = None
-    end_frame_idx = None
-
-    focal_length = None
-    height_cm = None
-
-    original_bounding_box = None
-    enlarged_bounding_box = None
-    subject_bounding_boxes = None
-
-    _metrabs_detector = None
-    _gait_phase_transformer = None
     skeleton = 'mpi_inf_3dhp_17'
     _metrabs_joint_order = np.array(['htop', 'neck', 'rsho', 'relb', 'rwri', 'lsho',
                             'lelb', 'lwri', 'rhip', 'rkne', 'rank', 'lhip', 
@@ -73,6 +51,27 @@ class GaitTask(BaseTask):
     # -------------------------------------------------------------
     # --- START: Abstract methods definitions
     # -------------------------------------------------------------
+    def __init__(self):
+            self.video_id = None
+            self.file_path = None
+            self.ile_name = None
+            self.task_name = None
+            self.rotation = None
+
+            self.fps = None
+            self.start_time = None
+            self.start_frame_idx = None
+            self.end_time = None
+            self.end_frame_idx = None
+
+            self.focal_length = None
+            self.height_cm = None
+
+            self.original_bounding_box = None
+            self.enlarged_bounding_box = None
+            self.subject_bounding_boxes = None
+
+
     def api_response(self, request):
         """
         Function that handles the api response for each task
@@ -165,13 +164,14 @@ class GaitTask(BaseTask):
         if not video_id:
             raise Exception("Video project id not provided.")
         
-        if 'json_data' not in request.POST:
-            raise Exception("Missing 'json_data' in POST data")
-        json_raw = request.POST['json_data']
-        
+        json_raw = request.POST.get('json_data')
         if not json_raw:
-            raise Exception("Empty 'json_data' in POST data")
-        json_data = json.loads(json_raw)
+            raise Exception("Missing 'json_data' in POST data")
+        
+        try:
+            json_data = json.loads(json_raw)
+        except json.JSONDecodeError:
+            raise Exception("Invalid JSON in 'json_data'")
         
         folder_path = os.path.join(settings.MEDIA_ROOT, "video_uploads", video_id)
         if not os.path.isdir(folder_path):
