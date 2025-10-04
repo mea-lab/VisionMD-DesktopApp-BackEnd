@@ -33,6 +33,8 @@ class GaitTask(BaseTask):
                             'lkne', 'lank', 'pelv', 'spin', 'head'])
         
     skeleton = 'mpi_inf_3dhp_17'
+    _gait_phase_transformer = None
+    _metrabs_detector = None
     _metrabs_joint_order = np.array(['htop', 'neck', 'rsho', 'relb', 'rwri', 'lsho',
                             'lelb', 'lwri', 'rhip', 'rkne', 'rank', 'lhip', 
                             'lkne', 'lank', 'pelv', 'spin', 'head'])

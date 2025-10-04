@@ -4,7 +4,12 @@ import os
 import sys
 import platform
 from multiprocessing import freeze_support
+import logging
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
 
 def main():
     """Run administrative tasks."""
