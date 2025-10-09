@@ -36,8 +36,14 @@ def convert_to_cfr(input_path, fps):
         '-c:a', 'copy',
         output_path
     ]
-
-    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    
+    print(f"Subprocess.CREATE_NO_WINDOW value: {getattr(subprocess, 'CREATE_NO_WINDOW', 0)}")
+    result = subprocess.run(
+        cmd, 
+        stdout=subprocess.PIPE, 
+        stderr=subprocess.PIPE, 
+        creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0)
+    )
     if result.returncode != 0:
         raise RuntimeError(f"FFmpeg CFR conversion failed:\n{result.stderr.decode('utf-8')}")
     
