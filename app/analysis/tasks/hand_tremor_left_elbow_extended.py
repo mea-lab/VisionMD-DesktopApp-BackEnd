@@ -26,7 +26,7 @@ import numpy as np
 import tensorrt as trt
 import os
 
-class HandTremorRightTask(BaseTask):
+class HandTremorLeftElbowExtendedTask(BaseTask):
     """
     Base class for all tasks (hand movement, finger tap, leg agility, toe tapping, etc.)
     Each concrete subclass must implement these abstract methods for retrieving
@@ -156,7 +156,7 @@ class HandTremorRightTask(BaseTask):
             middle = landmarks_np[:, [1, 2, 3], :]
             response['landMarks'] = [ arr.tolist() for arr in middle ]
         except Exception as e:
-            return Response(f"Error with hand tremor right analysis: {str(e)}", status=500)
+            return Response(f"Error with hand tremor left analysis: {str(e)}", status=500)
         finally:
             if hasattr(self, "video") and self.video is not None:
                 self.video.release()
@@ -260,9 +260,6 @@ class HandTremorRightTask(BaseTask):
             print("Len of subject bounding boxes", len(subject_bounding_boxes))
             raise Exception("Subject bounding boxes not found in all frames of the task. The chosen subject may not be correct.")
 
-        if(height_cm == None):
-            raise Exception("Invalid or missing height.")
-
 
         #Set all necessary class attributes
         self.file_name = file_name
@@ -306,28 +303,17 @@ class HandTremorRightTask(BaseTask):
         Getter for the detector used by the task.
 
         Returns an instance of the detector using the detectors classes
-        """
-        if torch.cuda.is_available():
-            device = torch.device("cuda")
+        """     
 
-            #Hand Landmark Detection Model - Nano
-            nano_model_path = os.path.join(settings.BASE_DIR, 'app', 'analysis', 'models', 'best_hand_landmark_Nano.engine' )
-            self._modelHandLandmarkNano = YOLO(nano_model_path, task='pose')
+        device = torch.device("cpu")
 
-            #metrabs model for 3d pose estimation
-            metrabs_model_path = os.path.join(settings.BASE_DIR, 'app', 'analysis', 'models', 'metrabs_eff2s_y4' )
-            self._modelMeTrabs = tfhub.load(metrabs_model_path)       
+        #Hand Landmark Detection Model - Nano
+        nano_model_path = os.path.join(settings.BASE_DIR, 'app', 'analysis', 'models', 'best_hand_landmark_Nano.pt' )
+        self._modelHandLandmarkNano = YOLO(nano_model_path, task='pose')
 
-        else:
-            device = torch.device("cpu")
-
-            #Hand Landmark Detection Model - Nano
-            nano_model_path = os.path.join(settings.BASE_DIR, 'app', 'analysis', 'models', 'best_hand_landmark_Nano.pt' )
-            self._modelHandLandmarkNano = YOLO(nano_model_path, task='pose')
-
-            #metrabs model for 3d pose estimation 
-            metrabs_model_path = os.path.join(settings.BASE_DIR, 'app', 'analysis', 'models', 'metrabs_eff2s_y4' )
-            self._modelMeTrabs = tfhub.load(metrabs_model_path)      
+        #metrabs model for 3d pose estimation 
+        metrabs_model_path = os.path.join(settings.BASE_DIR, 'app', 'analysis', 'models', 'metrabs_eff2s_y4' )
+        self._modelMeTrabs = tfhub.load(metrabs_model_path)      
 
 
         # load mediapipe hand landmark model
@@ -418,18 +404,37 @@ class HandTremorRightTask(BaseTask):
 
             # Run hand landmark detection
             resultsLandmarksNano = self._modelHandLandmarkNano.track(frame, verbose=False, conf=0.5)
-            predictionsLandmarks = resultsLandmarksNano[0].keypoints.xy.cpu().numpy()
-            land_1 = predictionsLandmarks[0]
-            land_2 = predictionsLandmarks[1]
-            if land_1[:,0].mean()> land_2[:,0].mean():
-                keypoints_2d_left_NanoModel.append(land_1)
-                keypoints_2d_right_NanoModel.append(land_2)
 
-            else:
-                keypoints_2d_left_NanoModel.append(land_2)
-                keypoints_2d_right_NanoModel.append(land_1)
+            if not resultsLandmarksNano or len(resultsLandmarksNano[0].keypoints.xy) == 0:
+                keypoints_2d_right_NanoModel.append([])
+                keypoints_2d_left_NanoModel.append([])
+                continue
+
+            predictionsLandmarks = resultsLandmarksNano[0].keypoints.xy.cpu().numpy()
+            if len(predictionsLandmarks) == 1:
+                # Only one hand detected, assume left hand
+                keypoints_2d_left_NanoModel.append(predictionsLandmarks[0])
+                keypoints_2d_right_NanoModel.append([])
+                continue
+
+            elif len(predictionsLandmarks) >= 2:
+                # Two or more hands detected,  determine which is right/left
+                land_1 = predictionsLandmarks[0]
+                land_2 = predictionsLandmarks[1]
+                if land_1[:, 0].mean() > land_2[:, 0].mean():
+                    # Hand with greater x-mean is on the right
+                    keypoints_2d_right_NanoModel.append(land_1)
+                    keypoints_2d_left_NanoModel.append(land_2)
+                else:
+                    keypoints_2d_right_NanoModel.append(land_2)
+                    keypoints_2d_left_NanoModel.append(land_1)
 
         cap.release()
+
+        missing_percent = sum(1 for x in keypoints_2d_left_NanoModel if len(x) == 0) / len(keypoints_2d_left_NanoModel)
+        if missing_percent > 0.1:
+            raise Exception((f"Left hand could not be found in more than 10% of the frames. The video quality may be too low or the video may not be a hand tremor task."))
+        
         return keypoints_2d_left_NanoModel
 
 
