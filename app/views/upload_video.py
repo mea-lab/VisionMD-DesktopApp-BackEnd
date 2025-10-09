@@ -8,12 +8,26 @@ from pymediainfo import MediaInfo
 from hachoir.parser import createParser
 from hachoir.metadata import extractMetadata
 import subprocess
+import shutil
+import os, sys
+
+def get_ffmpeg_path():
+    if getattr(sys, 'frozen', False):
+        base_path = sys._MEIPASS
+        return os.path.join(base_path, "ffmpeg")
+    else:
+        ffmpeg_path = shutil.which("ffmpeg")
+        if not ffmpeg_path:
+            raise FileNotFoundError("ffmpeg not found in PATH")
+        return ffmpeg_path
 
 def convert_to_cfr(input_path, fps):
     base, ext = os.path.splitext(input_path)
+    ffmpeg_path = get_ffmpeg_path()
     output_path = f"{base}_cfr{ext}"
+    print(f"Chosen ffmpeg binary path for video processing: {ffmpeg_path}")
     cmd = [
-        'ffmpeg', '-y',
+        f'{ffmpeg_path}', '-y',
         '-i', input_path,
         '-vf', f'fps={fps}',
         '-vsync', 'cfr',
