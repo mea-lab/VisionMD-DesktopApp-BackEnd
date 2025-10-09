@@ -222,9 +222,8 @@ class LegAgilityLeftTask(BaseTask):
             detection_result = detector.detect_for_video(image, timestamp)
 
             if not detection_result.pose_landmarks:
-                video.release()
-                detector.close()
-                raise Exception(f"Left leg could not be found in frame {current_frame_idx}")
+                essential_landmarks.append([])
+                all_landmarks.append([])
             else:
                 landmarks = detection_result.pose_landmarks[0]
                 # Use the left knee since this is the left task.
@@ -255,6 +254,11 @@ class LegAgilityLeftTask(BaseTask):
 
         video.release()
         detector.close()
+
+        missing_percent = sum(1 for x in essential_landmarks if not x) / len(essential_landmarks)
+        if missing_percent > 0.1:
+            raise Exception((f"Left leg could not be found in more than 10% of the frames. The video quality may be too low or the video may not be a leg agility task."))
+
         return essential_landmarks, all_landmarks
 
     def calculate_signal(self, essential_landmarks):

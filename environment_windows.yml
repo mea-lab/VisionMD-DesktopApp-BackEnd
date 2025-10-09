@@ -1,24 +1,38 @@
 name: VisionMD
 channels:
+  - conda-forge
   - defaults
   - https://repo.anaconda.com/pkgs/main
   - https://repo.anaconda.com/pkgs/r
   - https://repo.anaconda.com/pkgs/msys2
 dependencies:
   - bzip2=1.0.8=h2bbff1b_6
-  - ca-certificates=2025.2.25=haa95532_0
+  - ca-certificates=2025.9.9=haa95532_0
   - expat=2.7.1=h8ddb27b_0
+  - ffmpeg=4.3.1=ha925a31_0
+  - libcurl=8.15.0=h2300eb9_0
   - libffi=3.4.4=hd77b12b_1
-  - openssl=3.0.16=h3f729d1_0
+  - libmediainfo=24.05=hf0fe3d4_0
+  - libssh2=1.11.1=h2addb87_0
+  - libzen=0.4.41=he0c23c2_1
+  - libzlib=1.2.13=h2466b09_6
+  - lz4-c=1.9.4=h2bbff1b_1
+  - openssl=3.0.18=h543e019_0
+  - pymediainfo=7.0.1=py310h5588dad_1
   - python=3.10.18=h981015d_0
+  - python_abi=3.10=2_cp310
   - setuptools=78.1.1=py310haa95532_0
   - sqlite=3.45.3=h2bbff1b_0
+  - tinyxml2=10.0.0=he0c23c2_2
   - tk=8.6.14=h5e9d12e_1
+  - ucrt=10.0.22621.0=haa95532_0
   - vc=14.42=haa95532_5
-  - vs2015_runtime=14.42.34433=hbfb602d_5
+  - vc14_runtime=14.42.34433=h84bc874_10
+  - vs2015_runtime=14.42.34433=he0c19fb_10
   - wheel=0.45.1=py310haa95532_0
   - xz=5.6.4=h4754444_1
-  - zlib=1.2.13=h8cc25b3_1
+  - zlib=1.2.13=h2466b09_6
+  - zstd=1.5.6=h8880b57_0
   - pip:
       - absl-py==2.3.0
       - altgraph==0.17.4
@@ -78,7 +92,6 @@ dependencies:
       - pygments==2.19.1
       - pyinstaller==6.14.1
       - pyinstaller-hooks-contrib==2025.5
-      - pymediainfo==7.0.1
       - pyparsing==3.2.3
       - python-dateutil==2.9.0.post0
       - pytz==2025.2

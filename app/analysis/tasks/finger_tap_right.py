@@ -223,9 +223,8 @@ class FingerTapRightTask(BaseTask):
                     break
 
             if hand_index == -1 or not detection_result.hand_landmarks[hand_index]:
-                video.release()
-                detector.close()
-                raise Exception(f"Right hand could not be found in frame {current_frame_idx}")
+                essential_landmarks.append([])
+                all_landmarks.append([])
             else:
                 hand_landmarks = detection_result.hand_landmarks[hand_index]
                 thumb = BaseTask.get_landmark_coords(hand_landmarks[FingerTapRightTask.LANDMARKS["THUMB_TIP"]], enlarged_coords, original_coords)
@@ -240,6 +239,11 @@ class FingerTapRightTask(BaseTask):
             current_frame_idx += 1
         video.release()
         detector.close()
+
+        missing_percent = sum(1 for x in essential_landmarks if not x) / len(essential_landmarks)
+        if missing_percent > 0.1:
+            raise Exception((f"Right hand could not be found in more than 10% of the frames. The video quality may be too low or the video may not be a finger tapping task."))
+        
         return essential_landmarks, all_landmarks
 
 
