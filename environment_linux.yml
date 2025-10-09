@@ -1,7 +1,7 @@
 name: VisionMD
 channels:
-  - conda-forge
   - defaults
+  - conda-forge
   - https://repo.anaconda.com/pkgs/main
   - https://repo.anaconda.com/pkgs/r
 dependencies:
@@ -414,6 +414,7 @@ dependencies:
       - nvidia-nccl-cu12==2.26.2
       - nvidia-nvjitlink-cu12==12.6.85
       - nvidia-nvtx-cu12==12.6.77
+      - nvidia-pyindex==1.0.9
       - opencv-contrib-python==4.11.0.86
       - pandas==2.2.3
       - pillow==11.2.1
@@ -423,6 +424,9 @@ dependencies:
       - sentencepiece==0.2.0
       - sounddevice==0.5.2
       - sympy==1.14.0
+      - tensorrt-cu12==10.13.3.9
+      - tensorrt-cu12-bindings==10.13.3.9
+      - tensorrt-cu12-libs==10.13.3.9
       - torch==2.7.0
       - torchvision==0.22.0
       - triton==3.3.0

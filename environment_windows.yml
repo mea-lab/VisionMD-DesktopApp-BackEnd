@@ -76,6 +76,8 @@ dependencies:
       - namex==0.1.0
       - networkx==3.4.2
       - numpy==1.26.4
+      - nvidia-cuda-runtime-cu12==12.9.79
+      - nvidia-pyindex==1.0.9
       - opencv-contrib-python==4.11.0.86
       - opencv-python==4.10.0.82
       - opt-einsum==3.4.0
@@ -111,6 +113,9 @@ dependencies:
       - tensorflow-hub==0.16.1
       - tensorflow-intel==2.17.0
       - tensorflow-io-gcs-filesystem==0.31.0
+      - tensorrt-cu12==10.13.3.9
+      - tensorrt-cu12-bindings==10.13.3.9
+      - tensorrt-cu12-libs==10.13.3.9
       - termcolor==3.1.0
       - tf-keras==2.17.0
       - torch==2.7.1
