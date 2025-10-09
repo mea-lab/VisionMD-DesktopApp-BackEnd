@@ -41,4 +41,5 @@ pyinstaller serve_linux.py \
   --collect-all opencv-python \
   --collect-all pandas \
   --collect-all matplotlib \
+  --add-binary "$CONDA_PREFIX/bin/ffmpeg:." \
   --hidden-import=scipy._lib.array_api_compat.numpy.fft
