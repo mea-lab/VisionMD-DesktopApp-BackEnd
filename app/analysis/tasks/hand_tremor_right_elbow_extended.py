@@ -571,7 +571,7 @@ class HandTremorRightElbowExtendedTask(BaseTask):
         else:
             ValidPose = False
             pixel_to_mm_conversion_factor = 1
-            raise Exception(f"No valid head pose detected. Cannot calculate pixel-to-mm conversion factor. \n Pixel-to-mm Conversion Factor: {pixel_to_mm_conversion_factor}")
+            raise Exception(f"No valid head pose detected. Cannot calculate iris diameter. \n Pixel-to-mm Conversion Factor: {pixel_to_mm_conversion_factor}")
         
         return pixel_to_mm_conversion_factor
 
