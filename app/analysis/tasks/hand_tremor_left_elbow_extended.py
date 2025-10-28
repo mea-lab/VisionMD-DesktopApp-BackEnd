@@ -308,7 +308,7 @@ class HandTremorLeftElbowExtendedTask(BaseTask):
         device = torch.device("cpu")
 
         #Hand Landmark Detection Model - Nano
-        nano_model_path = os.path.join(settings.BASE_DIR, 'app', 'analysis', 'models', 'best_hand_landmark_XLarge.pt' )
+        nano_model_path = os.path.join(settings.BASE_DIR, 'app', 'analysis', 'models', 'best_hand_landmark_Nano.pt' )
         self._modelHandLandmarkNano = YOLO(nano_model_path, task='pose')
 
         #metrabs model for 3d pose estimation 

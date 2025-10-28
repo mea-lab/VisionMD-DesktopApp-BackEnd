@@ -10637,7 +10637,7 @@ function keyframes() {
     }
   };
 }
-var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|abbr|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|disableRemotePlayback|download|draggable|encType|enterKeyHint|fetchpriority|fetchPriority|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|popover|popoverTarget|popoverTargetAction|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|translate|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|incremental|fallback|inert|itemProp|itemScope|itemType|itemID|itemRef|on|option|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/;
+var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|abbr|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|disableRemotePlayback|download|draggable|encType|enterKeyHint|fetchpriority|fetchPriority|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|translate|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|incremental|fallback|inert|itemProp|itemScope|itemType|itemID|itemRef|on|option|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/;
 var isPropValid = /* @__PURE__ */ memoize(
   function(prop) {
     return reactPropsRegex.test(prop) || prop.charCodeAt(0) === 111 && prop.charCodeAt(1) === 110 && prop.charCodeAt(2) < 91;
@@ -11273,21 +11273,21 @@ const createTheme$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defin
 }, Symbol.toStringTag, { value: "Module" }));
 const require$$7 = /* @__PURE__ */ getAugmentedNamespace(createTheme$1);
 const require$$8 = /* @__PURE__ */ getAugmentedNamespace(styleFunctionSx);
-var _interopRequireDefault$f = interopRequireDefaultExports;
+var _interopRequireDefault$g = interopRequireDefaultExports;
 Object.defineProperty(createStyled$2, "__esModule", {
   value: true
 });
 var _default = createStyled$2.default = createStyled2;
 createStyled$2.shouldForwardProp = shouldForwardProp;
 createStyled$2.systemDefaultTheme = void 0;
-var _extends2 = _interopRequireDefault$f(require_extends());
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault$f(requireObjectWithoutPropertiesLoose());
+var _extends2 = _interopRequireDefault$g(require_extends());
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault$g(requireObjectWithoutPropertiesLoose());
 var _styledEngine$1 = _interopRequireWildcard$1(require$$1$2);
 var _deepmerge = require$$4;
-_interopRequireDefault$f(require$$5);
-_interopRequireDefault$f(require$$6);
-var _createTheme = _interopRequireDefault$f(require$$7);
-var _styleFunctionSx = _interopRequireDefault$f(require$$8);
+_interopRequireDefault$g(require$$5);
+_interopRequireDefault$g(require$$6);
+var _createTheme = _interopRequireDefault$g(require$$7);
+var _styleFunctionSx = _interopRequireDefault$g(require$$8);
 const _excluded$q = ["ownerState"], _excluded2$1 = ["variants"], _excluded3 = ["name", "slot", "skipVariantsResolver", "skipSx", "overridesResolver"];
 function _getRequireWildcardCache$1(e4) {
   if ("function" != typeof WeakMap) return null;
@@ -11569,7 +11569,7 @@ const clamp$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   default: clamp$2
 }, Symbol.toStringTag, { value: "Module" }));
 const require$$2 = /* @__PURE__ */ getAugmentedNamespace(clamp$1);
-var _interopRequireDefault$e = interopRequireDefaultExports;
+var _interopRequireDefault$f = interopRequireDefaultExports;
 Object.defineProperty(colorManipulator, "__esModule", {
   value: true
 });
@@ -11591,8 +11591,8 @@ colorManipulator.private_safeEmphasize = private_safeEmphasize;
 colorManipulator.private_safeLighten = private_safeLighten;
 colorManipulator.recomposeColor = recomposeColor;
 colorManipulator.rgbToHex = rgbToHex;
-var _formatMuiErrorMessage2 = _interopRequireDefault$e(require$$1$1);
-var _clamp = _interopRequireDefault$e(require$$2);
+var _formatMuiErrorMessage2 = _interopRequireDefault$f(require$$1$1);
+var _clamp = _interopRequireDefault$f(require$$2);
 function clampWrapper(value, min2 = 0, max2 = 1) {
   return (0, _clamp.default)(value, min2, max2);
 }
@@ -13052,38 +13052,49 @@ function requireCreateSvgIcon() {
   })(createSvgIcon$1);
   return createSvgIcon$1;
 }
-var _interopRequireDefault$d = interopRequireDefaultExports;
+var _interopRequireDefault$e = interopRequireDefaultExports;
 Object.defineProperty(Download, "__esModule", {
   value: true
 });
-var default_1$e = Download.default = void 0;
-var _createSvgIcon$d = _interopRequireDefault$d(requireCreateSvgIcon());
-var _jsxRuntime$d = jsxRuntimeExports;
-default_1$e = Download.default = (0, _createSvgIcon$d.default)(/* @__PURE__ */ (0, _jsxRuntime$d.jsx)("path", {
+var default_1$f = Download.default = void 0;
+var _createSvgIcon$e = _interopRequireDefault$e(requireCreateSvgIcon());
+var _jsxRuntime$e = jsxRuntimeExports;
+default_1$f = Download.default = (0, _createSvgIcon$e.default)(/* @__PURE__ */ (0, _jsxRuntime$e.jsx)("path", {
   d: "M5 20h14v-2H5zM19 9h-4V3H9v6H5l7 7z"
 }), "Download");
 var NavigateNext = {};
-var _interopRequireDefault$c = interopRequireDefaultExports;
+var _interopRequireDefault$d = interopRequireDefaultExports;
 Object.defineProperty(NavigateNext, "__esModule", {
   value: true
 });
-var default_1$d = NavigateNext.default = void 0;
-var _createSvgIcon$c = _interopRequireDefault$c(requireCreateSvgIcon());
-var _jsxRuntime$c = jsxRuntimeExports;
-default_1$d = NavigateNext.default = (0, _createSvgIcon$c.default)(/* @__PURE__ */ (0, _jsxRuntime$c.jsx)("path", {
+var default_1$e = NavigateNext.default = void 0;
+var _createSvgIcon$d = _interopRequireDefault$d(requireCreateSvgIcon());
+var _jsxRuntime$d = jsxRuntimeExports;
+default_1$e = NavigateNext.default = (0, _createSvgIcon$d.default)(/* @__PURE__ */ (0, _jsxRuntime$d.jsx)("path", {
   d: "M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
 }), "NavigateNext");
 var NavigateBefore = {};
-var _interopRequireDefault$b = interopRequireDefaultExports;
+var _interopRequireDefault$c = interopRequireDefaultExports;
 Object.defineProperty(NavigateBefore, "__esModule", {
   value: true
 });
-var default_1$c = NavigateBefore.default = void 0;
-var _createSvgIcon$b = _interopRequireDefault$b(requireCreateSvgIcon());
-var _jsxRuntime$b = jsxRuntimeExports;
-default_1$c = NavigateBefore.default = (0, _createSvgIcon$b.default)(/* @__PURE__ */ (0, _jsxRuntime$b.jsx)("path", {
+var default_1$d = NavigateBefore.default = void 0;
+var _createSvgIcon$c = _interopRequireDefault$c(requireCreateSvgIcon());
+var _jsxRuntime$c = jsxRuntimeExports;
+default_1$d = NavigateBefore.default = (0, _createSvgIcon$c.default)(/* @__PURE__ */ (0, _jsxRuntime$c.jsx)("path", {
   d: "M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
 }), "NavigateBefore");
+var Home = {};
+var _interopRequireDefault$b = interopRequireDefaultExports;
+Object.defineProperty(Home, "__esModule", {
+  value: true
+});
+var default_1$c = Home.default = void 0;
+var _createSvgIcon$b = _interopRequireDefault$b(requireCreateSvgIcon());
+var _jsxRuntime$b = jsxRuntimeExports;
+default_1$c = Home.default = (0, _createSvgIcon$b.default)(/* @__PURE__ */ (0, _jsxRuntime$b.jsx)("path", {
+  d: "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+}), "Home");
 const RtlContext = /* @__PURE__ */ reactExports.createContext();
 const useRtl = () => {
   const value = reactExports.useContext(RtlContext);
@@ -15918,6 +15929,7 @@ const HeaderSection$2 = ({
   fileName
 }) => {
   const navigate = useNavigate();
+  const notProceed = persons.length === 0 || boundingBoxes === 0 || persons.every((p2) => p2.isSubject == false);
   const downloadConfig = () => {
     const data = { fps, boundingBoxes, persons };
     const json = JSON.stringify(data);
@@ -15932,15 +15944,25 @@ const HeaderSection$2 = ({
     URL.revokeObjectURL(href);
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex px-4 items-center justify-between bg-zinc-900 z-1 shadow-lg py-1 relative", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Typography, { className: "text-gray-100", fontWeight: "500", children: title }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3 items-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { title: "Go Back", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Tooltip, { arrow: true, title: "Home", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        default_1$c,
+        {
+          onClick: () => navigate("/"),
+          className: "cursor-pointer text-white hover:text-gray-300",
+          fontSize: "small"
+        }
+      ) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Typography, { className: "text-gray-100", fontWeight: "500", children: title })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3 items-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
         Tooltip,
         {
           arrow: true,
           title: "Go Back",
           children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            default_1$c,
+            default_1$d,
             {
               onClick: () => navigate("/"),
               className: "cursor-pointer text-white hover:text-gray-300",
@@ -15948,37 +15970,37 @@ const HeaderSection$2 = ({
             }
           )
         }
-      ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { title: "Download Config", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
         Tooltip,
         {
           arrow: true,
           title: "Download Config",
           children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            default_1$e,
+            default_1$f,
             {
-              onClick: boundingBoxes?.length === 0 ? void 0 : downloadConfig,
-              className: `cursor-pointer ${boundingBoxes.length === 0 ? "text-gray-500 cursor-not-allowed" : "text-white hover:text-gray-300"}`,
+              onClick: notProceed ? void 0 : downloadConfig,
+              className: `cursor-pointer ${notProceed ? "text-gray-500 cursor-not-allowed" : "text-white hover:text-gray-300"}`,
               fontSize: "small"
             }
           )
         }
-      ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { title: "Go Forward", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
         Tooltip,
         {
           arrow: true,
           title: "Go Forward",
           children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            default_1$d,
+            default_1$e,
             {
-              onClick: boundingBoxes?.length === 0 ? void 0 : moveToNextScreen,
-              className: `cursor-pointer ${boundingBoxes.length === 0 ? "text-gray-500 cursor-not-allowed" : "text-white hover:text-gray-300"}`,
+              onClick: notProceed ? void 0 : moveToNextScreen,
+              className: `cursor-pointer ${notProceed ? "text-gray-500 cursor-not-allowed" : "text-white hover:text-gray-300"}`,
               fontSize: "medium"
             }
           )
         }
-      ) })
+      )
     ] })
   ] });
 };
@@ -16040,15 +16062,19 @@ const VideoControls = ({ videoRef, isPlaying, fps }) => {
     switch (event.key) {
       case "ArrowRight":
         changeVideoFrame(1);
+        event.preventDefault();
         break;
       case "ArrowLeft":
         changeVideoFrame(-1);
+        event.preventDefault();
         break;
       case "ArrowUp":
         changeVideoFrame(5);
+        event.preventDefault();
         break;
       case "ArrowDown":
         changeVideoFrame(-5);
+        event.preventDefault();
         break;
       case " ":
         playOrPause();
@@ -17450,8 +17476,13 @@ const VideoDrawer = ({
   landMarks,
   selectedTask,
   style: style2,
+  displayWidth,
+  displayHeight,
   screen = "default",
-  isPlaying
+  isPlaying,
+  zoomLevel,
+  videoWidth,
+  videoHeight
 }) => {
   const canvasRef = reactExports.useRef(null);
   const currentFrame = reactExports.useRef(-1);
@@ -17494,7 +17525,7 @@ const VideoDrawer = ({
       ctx.restore();
     }
   }, [videoRef]);
-  const drawBoundingBoxes = reactExports.useCallback(() => {
+  const drawBoundingBoxes = reactExports.useCallback((scaleRatio) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -17509,25 +17540,38 @@ const VideoDrawer = ({
         const height2 = Math.round(box.height);
         ctx.beginPath();
         ctx.strokeStyle = persons.find((p2) => p2.id === box.id && p2.isSubject) ? "green" : "red";
-        ctx.lineWidth = 10;
+        const strokeThickness = 5 / scaleRatio;
+        ctx.lineWidth = strokeThickness;
         ctx.rect(x2, y2, width2, height2);
         ctx.stroke();
+        const personIdx = persons.findIndex((p2) => p2.id === box.id);
+        if (personIdx !== -1) {
+          const label = String(personIdx + 1);
+          const strokeThickness2 = ctx.lineWidth;
+          ctx.save();
+          ctx.fillStyle = "yellow";
+          ctx.font = `bold ${Math.round(4 * strokeThickness2)}px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif`;
+          ctx.textBaseline = "top";
+          ctx.textAlign = "left";
+          ctx.fillText(label, x2 + strokeThickness2 * 0.5, y2 + strokeThickness2 * 0.5);
+          ctx.restore();
+        }
       });
     }
   }, [boundingBoxes, persons]);
-  const drawLandMarks = reactExports.useCallback(() => {
+  const drawLandMarks = reactExports.useCallback((scaleRatio) => {
     if (!tasks.length || selectedTask == null) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     const currentTask = tasks[selectedTask];
-    const startFrame = Math.floor(currentTask.start * fps);
+    const startFrame = Math.round(currentTask.start * fps);
     const frameIndex = currentFrame.current - startFrame;
     if (frameIndex < 0 || !landMarks || frameIndex >= landMarks.length) return;
     const joints2D = landMarks[frameIndex];
     const colors3D = landmark_colors;
-    currentTask.x;
-    currentTask.y;
+    if (canvas.width === 0 || canvas.height === 0) return;
+    const radiusPx = 5 / scaleRatio;
     joints2D.forEach((pt, j) => {
       if (!pt || pt.length < 2) return;
       const [lx, ly] = pt;
@@ -17538,10 +17582,10 @@ const VideoDrawer = ({
       }
       ctx.fillStyle = fill;
       ctx.beginPath();
-      ctx.arc(lx, ly, 12.5, 0, 2 * Math.PI);
+      ctx.arc(lx, ly, radiusPx, 0, 2 * Math.PI);
       ctx.fill();
     });
-  }, [tasks, selectedTask, fps, landMarks, landmark_colors]);
+  }, [tasks, selectedTask, fps, landMarks, landmark_colors, displayWidth, displayHeight]);
   const drawFrame = reactExports.useCallback(
     (currentTime) => {
       const video = videoRef.current;
@@ -17552,17 +17596,22 @@ const VideoDrawer = ({
       clearCanvas();
       drawVideoFrame();
       const inTaskTime = tasks.some((task) => currentTime >= task.start && currentTime <= task.end);
+      canvasRef.current;
+      const scaleRatio = Math.min(
+        displayWidth / videoWidth,
+        displayHeight / videoHeight
+      ) * zoomLevel;
       if (screen === "subject_resolution") {
-        drawBoundingBoxes();
+        drawBoundingBoxes(scaleRatio);
       }
       if (screen === "tasks" && !inTaskTime) {
-        drawBoundingBoxes();
+        drawBoundingBoxes(scaleRatio);
       }
       if (screen === "taskDetails" && isPlaying) {
-        drawLandMarks();
+        drawLandMarks(scaleRatio);
       }
     },
-    [getFrameNumber, clearCanvas, drawVideoFrame, drawBoundingBoxes, drawLandMarks, landmark_colors, tasks, screen, isPlaying]
+    [getFrameNumber, clearCanvas, drawVideoFrame, drawBoundingBoxes, drawLandMarks, landmark_colors, tasks, screen, isPlaying, zoomLevel]
   );
   reactExports.useEffect(() => {
     const video = videoRef.current;
@@ -17606,7 +17655,7 @@ const VideoDrawer = ({
     }
   );
 };
-const ResizeHandles = ({ x: x2, y: y2, width: width2, height: height2, onResize, item, index, handleSize = 12.5 }) => {
+const ResizeHandles = ({ x: x2, y: y2, width: width2, height: height2, onResize, item, index, handleSize = 12.5, strokeThickness }) => {
   const handles = [
     {
       side: "top",
@@ -17650,7 +17699,7 @@ const ResizeHandles = ({ x: x2, y: y2, width: width2, height: height2, onResize,
       height: handle.height,
       fill: "#4A8074",
       stroke: "white",
-      strokeWidth: "2",
+      strokeWidth: strokeThickness / 2,
       onPointerDown: (e4) => onResize(e4, item, index, handle.side),
       style: { cursor: handle.cursor }
     },
@@ -17669,7 +17718,9 @@ const InteractiveOverlays = ({
   selectedTask,
   fps,
   isPlaying,
-  videoRef
+  videoRef,
+  displayWidth,
+  displayHeight
 }) => {
   const svgRef = reactExports.useRef(null);
   const resizingTaskRef = reactExports.useRef(null);
@@ -17688,7 +17739,7 @@ const InteractiveOverlays = ({
     const updateFrame = (now, metadata) => {
       const frame = Math.round(metadata.mediaTime * fps);
       setCurrentFrame(frame);
-      const offset2 = Math.floor((tasks[selectedTask]?.start ?? 0) * fps);
+      const offset2 = Math.round((tasks[selectedTask]?.start ?? 0) * fps);
       setLandMarkIndex(frame - offset2);
       frameCallbackId = video.requestVideoFrameCallback(updateFrame);
     };
@@ -17889,7 +17940,14 @@ const InteractiveOverlays = ({
       taskToRender = tasks[selectedTask];
     }
   }
-  const strokeThickness = 10;
+  const strokeThickness = 5 / Math.min(
+    displayWidth / videoWidth,
+    displayHeight / videoHeight
+  ) / zoomLevel;
+  const landmarkRadius = 5 / Math.min(
+    displayWidth / videoWidth,
+    displayHeight / videoHeight
+  ) / zoomLevel;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "svg",
     {
@@ -17922,6 +17980,19 @@ const InteractiveOverlays = ({
               style: { cursor: !isPlaying && screen === "tasks" ? "move" : "default" }
             }
           ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "text",
+            {
+              x: taskToRender.x + strokeThickness * 0.5,
+              y: taskToRender.y + strokeThickness * 0.5,
+              fontSize: 4 * strokeThickness,
+              fontWeight: "700",
+              textAnchor: "start",
+              dominantBaseline: "hanging",
+              fill: "yellow",
+              children: taskIndex + 1
+            }
+          ),
           !isPlaying && screen === "tasks" && /* @__PURE__ */ jsxRuntimeExports.jsx(
             ResizeHandles,
             {
@@ -17932,7 +18003,8 @@ const InteractiveOverlays = ({
               handleSize: strokeThickness,
               onResize: handleTaskResizeStart,
               item: taskToRender,
-              index: taskIndex
+              index: taskIndex,
+              strokeThickness
             }
           )
         ] }, `task-${taskIndex}`),
@@ -17950,10 +18022,10 @@ const InteractiveOverlays = ({
               {
                 cx: px,
                 cy: py,
-                r: 12.5,
+                r: landmarkRadius,
                 fill: fillColor,
                 stroke: "white",
-                strokeWidth: "2",
+                strokeWidth: strokeThickness / 2,
                 onPointerDown: (e4) => handleLandmarkDragStart(e4, idx),
                 style: { cursor: "move" }
               },
@@ -17989,22 +18061,23 @@ const VideoPlayer = ({
   const [frameInput, setFrameInput] = reactExports.useState(0);
   const [isEditing, setIsEditing] = reactExports.useState(false);
   const [currentFrame, setCurrentFrame] = reactExports.useState(0);
+  const getFrameFromMediaTime = (time, fps2) => Math.floor(time * fps2 + 1e-7);
   reactExports.useEffect(() => {
     if (!isEditing) {
       setFrameInput(currentFrame);
     }
   }, [currentFrame, isEditing]);
   reactExports.useEffect(() => {
-    let animationFrameId;
+    const video = videoRef.current;
+    if (!video) return;
     const updateFrameNumber = () => {
-      if (videoRef.current) {
-        const frameNumber = Math.round(fps * videoRef.current.currentTime);
-        setCurrentFrame(frameNumber);
-      }
-      animationFrameId = requestAnimationFrame(updateFrameNumber);
+      const video2 = videoRef.current;
+      if (!video2) return;
+      const frameIdx = getFrameFromMediaTime(video2.currentTime, fps);
+      setCurrentFrame(frameIdx);
+      video2.requestVideoFrameCallback(updateFrameNumber);
     };
-    updateFrameNumber();
-    return () => cancelAnimationFrame(animationFrameId);
+    video.requestVideoFrameCallback(updateFrameNumber);
   }, [videoRef, fps]);
   const updateContainerSize = reactExports.useCallback(() => {
     if (containerRef.current) {
@@ -18031,7 +18104,7 @@ const VideoPlayer = ({
     if (!videoRef.current || !tasks?.[selectedTask]) return;
     const vid = videoRef.current;
     const { start: start2, end: end2 } = tasks[selectedTask];
-    vid.currentTime = start2;
+    vid.currentTime = start2 + 1 / fps;
     setIsPlaying(!vid.paused);
     const handleUpdate = () => {
       if (vid.currentTime >= end2 - 0.05) {
@@ -18046,7 +18119,7 @@ const VideoPlayer = ({
   }, [selectedTask, videoRef]);
   const getTotalFrameCount = () => {
     if (videoRef.current && !isNaN(videoRef.current.duration)) {
-      return Math.round(fps * videoRef.current.duration);
+      return Math.ceil(videoRef.current.duration * fps - 1e-6);
     }
     return 0;
   };
@@ -18114,7 +18187,7 @@ const VideoPlayer = ({
               const newFrame = Number(frameInput);
               if (!isNaN(newFrame) && videoRef.current) {
                 videoRef.current.currentTime = newFrame / fps;
-                setCurrentFrame(newFrame);
+                setCurrentFrame(Math.floor(videoRef.current.currentTime * fps + 1e-7));
               }
             },
             onKeyDown: (e4) => {
@@ -18176,6 +18249,11 @@ const VideoPlayer = ({
                 selectedTask,
                 isPlaying,
                 screen,
+                videoWidth: videoDimensions.width,
+                videoHeight: videoDimensions.height,
+                displayWidth: containerSize.width,
+                displayHeight: containerSize.height,
+                zoomLevel,
                 style: {
                   position: "absolute",
                   top: 0,
@@ -18204,7 +18282,9 @@ const VideoPlayer = ({
                 selectedTask,
                 fps,
                 videoRef,
-                isPlaying
+                isPlaying,
+                displayWidth: containerSize.width,
+                displayHeight: containerSize.height
               }
             )
           ]
@@ -20823,8 +20903,7 @@ function c$1(e4, u2, c2, i2) {
       }
     };
     return W2.cancel = function() {
-      var r3 = v2.current;
-      r3 && (x2 ? cancelAnimationFrame(v2.current) : clearTimeout(v2.current)), f2.current = 0, m2.current = o3.current = d2.current = v2.current = null;
+      v2.current && (x2 ? cancelAnimationFrame(v2.current) : clearTimeout(v2.current)), f2.current = 0, m2.current = o3.current = d2.current = v2.current = null;
     }, W2.isPending = function() {
       return !!v2.current;
     }, W2.flush = function() {
@@ -22061,53 +22140,106 @@ var cloneDeep_1 = cloneDeep;
 const cloneDeep$1 = /* @__PURE__ */ getDefaultExportFromCjs(cloneDeep_1);
 const API_URL$2 = "http://localhost:8000/api";
 const DEBOUNCE_MS = 500;
-function useAutoSave(videoId, persons, boundingBoxes, tasks, taskBoxes) {
+function useAutoSave(videoId, persons, boundingBoxes, tasks, taskBoxes, opts) {
+  const { onReset } = {};
   const location2 = useLocation();
   const lastSavedRef = reactExports.useRef({});
-  const latestSlicesRef = reactExports.useRef({});
+  const latestSlicesRef = reactExports.useRef({ persons, boundingBoxes, taskBoxes, tasks });
+  const prevVideoIdRef = reactExports.useRef(null);
   reactExports.useEffect(() => {
     latestSlicesRef.current = { persons, boundingBoxes, taskBoxes, tasks };
   }, [persons, boundingBoxes, taskBoxes, tasks]);
-  reactExports.useEffect(() => {
-    lastSavedRef.current = {};
-  }, [videoId]);
-  const saveSlice = reactExports.useCallback(async (key, value) => {
-    if (!videoId) return;
-    const previous = lastSavedRef.current[key];
-    if (isEqual$1(value, previous)) return;
-    lastSavedRef.current[key] = cloneDeep$1(value);
-    console.log(`[AutoSave] Saving "${key}"… 
+  const hasContent = (value) => Array.isArray(value) ? value.length > 0 : !!(value && Object.keys(value).length > 0);
+  const saveSlice = reactExports.useCallback(
+    async (key, value, idOverride, force = false) => {
+      const resolvedId = (idOverride ?? videoId ?? prevVideoIdRef.current) || null;
+      if (!resolvedId) return;
+      if (!force) {
+        const previous = lastSavedRef.current[key];
+        if (isEqual$1(value, previous)) return;
+      }
+      lastSavedRef.current[key] = cloneDeep$1(value);
+      const url = `${API_URL$2}/update_video_data/?id=${resolvedId}&file_name=${encodeURIComponent(key)}.json`;
+      try {
+        console.log(`[AutoSave] Saving "${key}" to ${resolvedId}
 `, value);
-    try {
-      await fetch(
-        `${API_URL$2}/update_video_data/?id=${videoId}&file_name=${key}.json`,
-        {
+        await fetch(url, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(value)
-        }
-      );
-    } catch (err) {
-      console.error(`[AutoSave] Error saving ${key}:`, err);
-    }
-  }, [videoId]);
+        });
+      } catch (err) {
+        console.error(`[AutoSave] Error saving ${key}:`, err);
+      }
+    },
+    [videoId]
+  );
+  const flushWithId = reactExports.useCallback(
+    async (id2, force = false) => {
+      const { persons: persons2, boundingBoxes: boundingBoxes2, taskBoxes: taskBoxes2, tasks: tasks2 } = latestSlicesRef.current;
+      const slices = { persons: persons2, boundingBoxes: boundingBoxes2, taskBoxes: taskBoxes2, tasks: tasks2 };
+      const work = [];
+      Object.entries(slices).forEach(([key, value]) => {
+        if (hasContent(value)) work.push(saveSlice(key, value, id2 ?? null, force));
+      });
+      await Promise.all(work);
+    },
+    [saveSlice]
+  );
   const flush = reactExports.useCallback(() => {
-    const { persons: persons2, boundingBoxes: boundingBoxes2, taskBoxes: taskBoxes2, tasks: tasks2 } = latestSlicesRef.current;
-    const slices = { persons: persons2, boundingBoxes: boundingBoxes2, taskBoxes: taskBoxes2, tasks: tasks2 };
-    Object.entries(slices).forEach(([key, value]) => {
-      const hasContent = Array.isArray(value) ? value.length > 0 : value && Object.keys(value).length > 0;
-      if (hasContent) saveSlice(key, value);
-    });
-  }, [saveSlice]);
+    return flushWithId(videoId ?? prevVideoIdRef.current ?? null);
+  }, [flushWithId, videoId]);
   const debouncedFlush = c$1(flush, DEBOUNCE_MS);
+  reactExports.useEffect(() => {
+    if (videoId) {
+      prevVideoIdRef.current = videoId;
+      lastSavedRef.current = {};
+      return;
+    }
+    if (videoId === null && prevVideoIdRef.current) {
+      (async () => {
+        try {
+          await flushWithId(prevVideoIdRef.current, true);
+        } finally {
+          lastSavedRef.current = {};
+          onReset?.();
+        }
+      })();
+    }
+  }, [videoId, flushWithId, onReset]);
   reactExports.useEffect(() => {
     debouncedFlush();
     return debouncedFlush.cancel;
   }, [location2.pathname, debouncedFlush]);
   reactExports.useEffect(() => {
-    window.addEventListener("beforeunload", flush);
-    return () => window.removeEventListener("beforeunload", flush);
-  }, [flush]);
+    const handleBeforeUnload = () => {
+      const id2 = videoId ?? prevVideoIdRef.current;
+      if (!id2) return;
+      const { persons: persons2, boundingBoxes: boundingBoxes2, taskBoxes: taskBoxes2, tasks: tasks2 } = latestSlicesRef.current;
+      const slices = { persons: persons2, boundingBoxes: boundingBoxes2, taskBoxes: taskBoxes2, tasks: tasks2 };
+      Object.entries(slices).forEach(([key, value]) => {
+        if (!hasContent(value)) return;
+        const url = `${API_URL$2}/update_video_data/?id=${id2}&file_name=${encodeURIComponent(key)}.json`;
+        try {
+          if (navigator.sendBeacon) {
+            const blob = new Blob([JSON.stringify(value)], { type: "application/json" });
+            navigator.sendBeacon(url, blob);
+          } else {
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", url, false);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            try {
+              xhr.send(JSON.stringify(value));
+            } catch (_2) {
+            }
+          }
+        } catch (_2) {
+        }
+      });
+    };
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [videoId]);
 }
 var lodash = { exports: {} };
 /**
@@ -27608,18 +27740,30 @@ const VideoProvider = ({ children }) => {
   const [boxesReady, setBoxesReady] = reactExports.useState(false);
   const [tasksReady, setTasksReady] = reactExports.useState(false);
   const videoRef = reactExports.useRef(null);
+  const navigate = useNavigate();
   useAutoSave(
     videoId,
     persons,
     boundingBoxes,
-    tasks
+    tasks,
+    {
+      onReset: () => {
+        setPersons([]);
+        setBoundingBoxes([]);
+        setTasks({});
+      }
+    }
   );
   reactExports.useEffect(() => {
     const prepareVideoData = async (videoId2) => {
       try {
         console.log("Video ID changed", videoId2);
         const data_response = await fetch(`${API_URL$1}/get_video_data/?id=${videoId2}`);
-        if (!data_response.ok) throw new Error("Failed to fetch metadata");
+        if (!data_response.ok) {
+          console.error("Bad response:", data_response.status, data_response.statusText);
+          navigate("/");
+          return;
+        }
         const data = await data_response.json();
         const metadata = data.metadata;
         setVideoURL(`${BASE_URL$1}${metadata.video_url}`);
@@ -27638,6 +27782,8 @@ const VideoProvider = ({ children }) => {
         }
       } catch (error) {
         console.error("Error fetching video data on video project opening:\n", error);
+        navigate("/");
+        return;
       }
     };
     if (!videoId) return;
@@ -27651,6 +27797,7 @@ const VideoProvider = ({ children }) => {
     setVideoReady(false);
     setBoxesReady(false);
     setTasksReady(false);
+    setTaskTypeData({});
     prepareVideoData(videoId);
     return () => {
       console.log("Unmounting video context...");
@@ -27693,11 +27840,11 @@ const VideoProvider = ({ children }) => {
     }
   );
 };
-function JSONUploadDialog$2({ dialogOpen, setDialogOpen, handleJSONUpload }) {
+function JSONUploadDialog$3({ dialogOpen, setDialogOpen, handleJSONUpload }) {
   const [fileName, setFileName] = reactExports.useState("");
   const [fileError, setFileError] = reactExports.useState("");
   const [jsonContent, setJSONContent] = reactExports.useState(null);
-  const [serverProcessing2, setServerProcessing] = reactExports.useState(false);
+  const [serverProcessing, setServerProcessing] = reactExports.useState(false);
   const {
     videoRef,
     videoId
@@ -27815,7 +27962,8 @@ function JSONUploadDialog$2({ dialogOpen, setDialogOpen, handleJSONUpload }) {
       PaperProps: {
         sx: {
           backgroundColor: "#333338",
-          borderRadius: 3
+          borderRadius: 3,
+          minWidth: 400
         }
       },
       children: [
@@ -27823,7 +27971,7 @@ function JSONUploadDialog$2({ dialogOpen, setDialogOpen, handleJSONUpload }) {
           "Video Parser",
           /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { onClick: handleClose, children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$7, { className: "text-gray-100" }) })
         ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(DialogContent, { children: !serverProcessing2 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(DialogContent, { children: !serverProcessing ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-gray-100", children: "Upload JSON manually containing the bounding boxes for the video or click on auto-parse to let the server handle it." }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex w-full justify-center mt-8", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -27840,7 +27988,7 @@ function JSONUploadDialog$2({ dialogOpen, setDialogOpen, handleJSONUpload }) {
               "label",
               {
                 htmlFor: "file-upload",
-                className: "cursor-pointer px-4 py-2\n                          text-gray-100 bg-transparent rounded-md\n                          border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
+                className: "cursor-pointer px-4 py-2\r\n                          text-gray-100 bg-transparent rounded-md\r\n                          border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
                 children: "Upload JSON File"
               }
             )
@@ -27850,17 +27998,17 @@ function JSONUploadDialog$2({ dialogOpen, setDialogOpen, handleJSONUpload }) {
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-gray-100", children: "Server processing the request" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(CircularProgress, { className: "my-4", size: 80 })
         ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(DialogActions, { children: !serverProcessing2 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row justify-between w-full p-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(DialogActions, { children: !serverProcessing && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row justify-between w-full p-2", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
-              className: `rounded-md p-1.5 ${jsonContent === null || serverProcessing2 ? "bg-transparent text-gray-500" : "bg-[#1976d2] hover:bg-[#1565c0] text-gray-100"}`,
+              className: `rounded-md p-1.5 ${jsonContent === null || serverProcessing ? "bg-transparent text-gray-500" : "bg-[#1976d2] hover:bg-[#1565c0] text-gray-100"}`,
               onClick: handleJSONProcess,
-              disabled: jsonContent === null || serverProcessing2,
+              disabled: jsonContent === null || serverProcessing,
               children: "Process with JSON"
             }
           ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "rounded-md bg-[#1976d2] hover:bg-[#1565c0] p-1.5 text-gray-100", onClick: handleAutoProcess, disabled: serverProcessing2, children: "Auto-Process" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "rounded-md bg-[#1976d2] hover:bg-[#1565c0] p-1.5 text-gray-100", onClick: handleAutoProcess, disabled: serverProcessing, children: "Auto-Process" })
         ] }) })
       ]
     }
@@ -27980,7 +28128,7 @@ const SubjectSelectionTab = ({
       }
     ),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
-      JSONUploadDialog$2,
+      JSONUploadDialog$3,
       {
         dialogOpen: openJsonUpload,
         setDialogOpen: setOpenJsonUpload,
@@ -29197,9 +29345,11 @@ const SubjectResolution = () => {
     setTasks
   } = reactExports.useContext(VideoContext);
   const navigate = useNavigate();
-  if (!videoId) {
-    navigate("/");
-  }
+  reactExports.useEffect(() => {
+    if (!videoId) {
+      navigate("/");
+    }
+  }, []);
   const moveToNextScreen = () => {
     navigate("/tasks");
   };
@@ -29790,6 +29940,41 @@ var _jsxRuntime$6 = jsxRuntimeExports;
 default_1$6 = HighlightOff.default = (0, _createSvgIcon$6.default)(/* @__PURE__ */ (0, _jsxRuntime$6.jsx)("path", {
   d: "M14.59 8 12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
 }), "HighlightOff");
+const JSONUploadDialog$2 = ({
+  dialogOpen,
+  setDialogOpen,
+  uploadError,
+  setUploadError
+}) => {
+  const handleClose = () => {
+    setDialogOpen(false);
+    setUploadError(null);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    Dialog,
+    {
+      open: dialogOpen,
+      onClose: handleClose,
+      PaperProps: {
+        sx: {
+          backgroundColor: "#333338",
+          borderRadius: 3,
+          minWidth: 400
+        }
+      },
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(DialogTitle, { className: "text-gray-100", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row w-full justify-between items-center", children: [
+          "Project Setup",
+          /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { onClick: handleClose, children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$7, { className: "text-gray-100" }) })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(DialogContent, { children: uploadError ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col w-full h-full justify-center items-left gap-10 text-gray-100", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Typography, { color: "error", sx: { mt: 2, mb: 2, textAlign: "left", whiteSpace: "pre-line" }, children: uploadError }) }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col w-full h-full justify-center items-center gap-5 text-gray-100", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: "Video upload in progress" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CircularProgress, { className: "my-8", size: 80 })
+        ] }) })
+      ]
+    }
+  );
+};
 const BASE_URL = "http://localhost:8000";
 dayjs.extend(relativeTime);
 const fetchVideos = async (url, maxDelay = 3e5) => {
@@ -29812,7 +29997,11 @@ const uploadVideo = async (file) => {
     method: "POST",
     body: form
   });
-  if (!res.ok) throw new Error("Upload failed");
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`Server responded with ${res.status} error:
+ ${errorText}`);
+  }
   return res.json();
 };
 const deleteVideo = async (id2) => {
@@ -29840,6 +30029,7 @@ const renameVideo = async (id2, videoName, fileType, setVideos) => {
     console.error("Updating video name returned non-OK", res.status, await res.text());
     throw new Error("Updating video name failed");
   }
+  const updatedTimestamp = (/* @__PURE__ */ new Date()).toISOString();
   setVideos(
     (vs) => vs.map((v2) => {
       if (v2.metadata.id !== id2) {
@@ -29851,7 +30041,8 @@ const renameVideo = async (id2, videoName, fileType, setVideos) => {
           ...v2.metadata,
           stem_name: videoName,
           video_name: `${videoName}.${v2.metadata.file_type}`,
-          video_url: `/media/video_uploads/${id2}/${videoName}.${v2.metadata.file_type}`
+          video_url: `/media/video_uploads/${id2}/${videoName}.${v2.metadata.file_type}`,
+          last_edited: updatedTimestamp
         }
       };
     })
@@ -29862,7 +30053,7 @@ const AddTile = ({ onClick }) => {
     "button",
     {
       onClick,
-      className: "\n        w-full h-full\n        rounded-lg flex\n        p-4\n        items-center justify-center\n        border-2 border-dashed border-gray-500 \n        hover:bg-gray-700 \n        focus:outline-none focus:ring\n      ",
+      className: "\r\n        w-full h-full\r\n        rounded-lg flex\r\n        p-4\r\n        items-center justify-center\r\n        border-2 border-dashed border-gray-500 \r\n        hover:bg-gray-700 \r\n        focus:outline-none focus:ring\r\n      ",
       children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { size: 32 }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "mt-2 text-sm", children: "New Project" })
@@ -29910,7 +30101,7 @@ const VideoTile = ({ video, setVideos }) => {
           "img",
           {
             src: `${BASE_URL}${video.metadata.thumbnail_url}?t=${video.metadata.last_edited}`,
-            className: "rounded-lg w-full aspect-video object-contain cursor-pointer",
+            className: "rounded-lg w-full aspect-video object-contain cursor-pointer bg-zinc-900",
             alt: `Thumbnail for ${video.metadata.video_name}`,
             onClick: () => openVideoProject()
           }
@@ -29959,6 +30150,8 @@ const VideoTile = ({ video, setVideos }) => {
 function Projects() {
   const [videos, setVideos] = reactExports.useState(null);
   const [loading, setLoading] = reactExports.useState(true);
+  const [dialogOpen, setDialogOpen] = reactExports.useState(false);
+  const [uploadError, setUploadError] = reactExports.useState(null);
   const fileInputRef = reactExports.useRef();
   const fetchedProjects = reactExports.useRef(false);
   reactExports.useEffect(() => {
@@ -29967,21 +30160,29 @@ function Projects() {
     }
     fetchedProjects.current = true;
   }, []);
+  reactExports.useEffect(() => {
+    if (videos && videos.length > 0) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [videos]);
   const handleAddClick = () => fileInputRef.current.click();
   const handleFiles = async (e4) => {
+    setDialogOpen(true);
     const file = e4.target.files[0];
     if (!file) return;
     try {
       const response_metadata = await uploadVideo(file);
       setVideos((v2) => [response_metadata, ...v2 ?? []]);
+      setDialogOpen(false);
     } catch (error) {
+      setUploadError(error.message || String(error));
       console.error("Video upload failed:", error);
     } finally {
       e4.target.value = null;
     }
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "h-full", children: [
-    loading && !videos && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center h-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx(CircularProgress, { className: "my-4", size: 64 }) }),
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+    loading && !videos && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center h-screen", children: /* @__PURE__ */ jsxRuntimeExports.jsx(CircularProgress, { className: "my-4", size: 64 }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "input",
       {
@@ -29995,7 +30196,16 @@ function Projects() {
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid gap-8", style: { gridTemplateColumns: "repeat(auto-fill,minmax(220px,1fr))" }, children: videos && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
       videos.map((video) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { width: "100%", aspectRatio: "4 / 3" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(VideoTile, { className: "w-full h-full", video, setVideos }) }, video.metadata.id)),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { width: "100%", aspectRatio: "4 / 3" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(AddTile, { className: "w-full h-full", onClick: handleAddClick }) }, "add")
-    ] }) })
+    ] }) }),
+    dialogOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(
+      JSONUploadDialog$2,
+      {
+        dialogOpen,
+        setDialogOpen,
+        uploadError,
+        setUploadError
+      }
+    )
   ] });
 }
 function Info() {
@@ -30069,7 +30279,7 @@ const HeaderSection$1 = ({
   tasks
 }) => {
   const navigate = useNavigate();
-  useTheme$1();
+  const notProceed = !(tasks.length > 0 && tasks.every((t3) => t3.name != "Region"));
   const downloadConfig = () => {
     const fileData = {
       fps,
@@ -30088,10 +30298,20 @@ const HeaderSection$1 = ({
     URL.revokeObjectURL(href);
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex px-4 items-center justify-between bg-zinc-900 z-1 shadow-lg py-1 relative", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Typography, { className: "text-gray-100", children: title }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3 items-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Tooltip, { arrow: true, title: "Home", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        default_1$c,
+        {
+          onClick: () => navigate("/"),
+          className: "cursor-pointer text-white hover:text-gray-300",
+          fontSize: "small"
+        }
+      ) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Typography, { className: "text-gray-100", fontWeight: "500", children: title })
+    ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3 items-center", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Tooltip, { arrow: true, title: "Go Back", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        default_1$c,
+        default_1$d,
         {
           onClick: () => navigate("/subjects"),
           className: "cursor-pointer text-white hover:text-gray-300",
@@ -30099,18 +30319,18 @@ const HeaderSection$1 = ({
         }
       ) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Tooltip, { arrow: true, title: "Download Config", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        default_1$e,
+        default_1$f,
         {
-          onClick: boundingBoxes.length === 0 ? void 0 : downloadConfig,
-          className: `cursor-pointer ${boundingBoxes.length === 0 ? "text-gray-500 cursor-not-allowed" : "text-white hover:text-gray-300"}`,
+          onClick: notProceed ? void 0 : downloadConfig,
+          className: `cursor-pointer ${notProceed ? "text-gray-500 cursor-not-allowed" : "text-white hover:text-gray-300"}`,
           fontSize: "small"
         }
       ) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Tooltip, { arrow: true, title: "Go Forward", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        default_1$d,
+        default_1$e,
         {
-          onClick: boundingBoxes.length === 0 ? void 0 : moveToNextScreen,
-          className: `cursor-pointer ${boundingBoxes.length === 0 ? "text-gray-500 cursor-not-allowed" : "text-white hover:text-gray-300"}`,
+          onClick: notProceed ? void 0 : moveToNextScreen,
+          className: `cursor-pointer ${notProceed ? "text-gray-500 cursor-not-allowed" : "text-white hover:text-gray-300"}`,
           fontSize: "medium"
         }
       ) })
@@ -30407,7 +30627,7 @@ const Default = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Region #",
@@ -30536,7 +30756,7 @@ const FingerTapLeft$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Finger Tap Left #",
@@ -30675,11 +30895,16 @@ const FingerTapRight$1 = ({
   const handleTaskChange = (selectedTask) => {
     onFieldChange(selectedTask.value, "name", task);
   };
+  reactExports.useEffect(() => {
+    if (!task.norm_strategy) {
+      onFieldChange("INDEXSIZE", "norm_strategy", task);
+    }
+  }, []);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Finger Tap Right #",
@@ -30825,20 +31050,20 @@ const Gait$1 = ({
   onTimeMark,
   onTimeClick,
   options,
-  taskGlobals: taskGlobals2,
-  setTaskGlobals: setTaskGlobals2
+  taskGlobals,
+  setTaskGlobals
 }) => {
   const [open, setOpen] = reactExports.useState(true);
   const taskSelectionRef = reactExports.useRef(null);
   const defaultIntrinsic = task.intrinsic_matrix || Array.from({ length: 3 }, () => Array(3).fill(null));
   const defaultExtrinsic = task.extrinsic_matrix || Array.from({ length: 4 }, () => Array(4).fill(null));
-  const h2 = taskGlobals2.height ?? null;
-  const fov = taskGlobals2.field_of_view ?? null;
-  const sensorW = taskGlobals2.sensor_width ?? null;
-  const sensorH = taskGlobals2.sensor_height ?? null;
-  const fl2 = taskGlobals2.focal_length ?? null;
-  const intrinsicMatrix = taskGlobals2.intrinsic_matrix || defaultIntrinsic;
-  const extrinsicMatrix = taskGlobals2.extrinsic_matrix || defaultExtrinsic;
+  const h2 = taskGlobals.height ?? null;
+  const fov = taskGlobals.field_of_view ?? null;
+  const sensorW = taskGlobals.sensor_width ?? null;
+  const sensorH = taskGlobals.sensor_height ?? null;
+  const fl2 = taskGlobals.focal_length ?? null;
+  const intrinsicMatrix = taskGlobals.intrinsic_matrix || defaultIntrinsic;
+  const extrinsicMatrix = taskGlobals.extrinsic_matrix || defaultExtrinsic;
   const [showCameraProperties, setShowCameraProperties] = reactExports.useState(false);
   const [showIntrinsic, setShowIntrinsic] = reactExports.useState(false);
   const [showExtrinsic, setShowExtrinsic] = reactExports.useState(false);
@@ -30846,51 +31071,51 @@ const Gait$1 = ({
     onFieldChange(selectedTask.value, "name", task);
   };
   reactExports.useEffect(() => {
-    if (task.field_of_view !== void 0 && taskGlobals2.field_of_view === void 0) {
-      setTaskGlobals2({ field_of_view: task.field_of_view });
+    if (task.field_of_view !== void 0 && taskGlobals.field_of_view === void 0) {
+      setTaskGlobals({ field_of_view: task.field_of_view });
     }
-    if (task.focal_length !== void 0 && taskGlobals2.focal_length === void 0) {
-      setTaskGlobals2({ focal_length: task.focal_length });
+    if (task.focal_length !== void 0 && taskGlobals.focal_length === void 0) {
+      setTaskGlobals({ focal_length: task.focal_length });
     }
-    if (task.sensor_width !== void 0 && taskGlobals2.sensor_width === void 0) {
-      setTaskGlobals2({ sensor_width: task.sensor_width });
+    if (task.sensor_width !== void 0 && taskGlobals.sensor_width === void 0) {
+      setTaskGlobals({ sensor_width: task.sensor_width });
     }
-    if (task.sensor_height !== void 0 && taskGlobals2.sensor_height === void 0) {
-      setTaskGlobals2({ sensor_height: task.sensor_height });
+    if (task.sensor_height !== void 0 && taskGlobals.sensor_height === void 0) {
+      setTaskGlobals({ sensor_height: task.sensor_height });
     }
-    if (task.height !== void 0 && taskGlobals2.height === void 0) {
-      setTaskGlobals2({ height: task.height });
+    if (task.height !== void 0 && taskGlobals.height === void 0) {
+      setTaskGlobals({ height: task.height });
     }
-    if (task.intrinsic_matrix !== void 0 && taskGlobals2.intrinsic_matrix === void 0) {
-      setTaskGlobals2({ intrinsic_matrix: task.intrinsic_matrix });
+    if (task.intrinsic_matrix !== void 0 && taskGlobals.intrinsic_matrix === void 0) {
+      setTaskGlobals({ intrinsic_matrix: task.intrinsic_matrix });
     }
-    if (task.extrinsic_matrix !== void 0 && taskGlobals2.extrinsic_matrix === void 0) {
-      setTaskGlobals2({ extrinsic_matrix: task.extrinsic_matrix });
+    if (task.extrinsic_matrix !== void 0 && taskGlobals.extrinsic_matrix === void 0) {
+      setTaskGlobals({ extrinsic_matrix: task.extrinsic_matrix });
     }
   }, []);
   reactExports.useEffect(() => {
-    if (typeof taskGlobals2.field_of_view !== "undefined") {
-      onFieldChange(taskGlobals2.field_of_view, "field_of_view", task);
+    if (typeof taskGlobals.field_of_view !== "undefined") {
+      onFieldChange(taskGlobals.field_of_view, "field_of_view", task);
     }
-    if (typeof taskGlobals2.focal_length !== "undefined") {
-      onFieldChange(taskGlobals2.focal_length, "focal_length", task);
+    if (typeof taskGlobals.focal_length !== "undefined") {
+      onFieldChange(taskGlobals.focal_length, "focal_length", task);
     }
-    if (typeof taskGlobals2.sensor_width !== "undefined") {
-      onFieldChange(taskGlobals2.sensor_width, "sensor_width", task);
+    if (typeof taskGlobals.sensor_width !== "undefined") {
+      onFieldChange(taskGlobals.sensor_width, "sensor_width", task);
     }
-    if (typeof taskGlobals2.sensor_height !== "undefined") {
-      onFieldChange(taskGlobals2.sensor_height, "sensor_height", task);
+    if (typeof taskGlobals.sensor_height !== "undefined") {
+      onFieldChange(taskGlobals.sensor_height, "sensor_height", task);
     }
-    if (typeof taskGlobals2.height !== "undefined") {
-      onFieldChange(taskGlobals2.height, "height", task);
+    if (typeof taskGlobals.height !== "undefined") {
+      onFieldChange(taskGlobals.height, "height", task);
     }
-    if (typeof taskGlobals2.intrinsic_matrix !== "undefined") {
-      onFieldChange(taskGlobals2.intrinsic_matrix, "intrinsic_matrix", task);
+    if (typeof taskGlobals.intrinsic_matrix !== "undefined") {
+      onFieldChange(taskGlobals.intrinsic_matrix, "intrinsic_matrix", task);
     }
-    if (typeof taskGlobals2.extrinsic_matrix !== "undefined") {
-      onFieldChange(taskGlobals2.extrinsic_matrix, "extrinsic_matrix", task);
+    if (typeof taskGlobals.extrinsic_matrix !== "undefined") {
+      onFieldChange(taskGlobals.extrinsic_matrix, "extrinsic_matrix", task);
     }
-  }, [taskGlobals2]);
+  }, [taskGlobals]);
   const renderCameraPropertiesEditor = (fov2, sensorHeight, sensorWidth, focalLength, intrinsicMatrix2, extrinsicMatrix2, showIntrinsic2, showExtrinsic2) => {
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5 flex justify-between items-center", children: [
@@ -30906,7 +31131,7 @@ const Gait$1 = ({
               placeholder: "55",
               onChange: (e4) => {
                 const v2 = e4.target.value === "" ? null : +e4.target.value;
-                setTaskGlobals2({ field_of_view: v2 });
+                setTaskGlobals({ field_of_view: v2 });
                 onFieldChange(v2, "field_of_view", task);
               }
             }
@@ -30933,7 +31158,7 @@ const Gait$1 = ({
               value: sensorWidth || "",
               onChange: (e4) => {
                 const v2 = e4.target.value === "" ? null : +e4.target.value;
-                setTaskGlobals2({ sensor_width: v2 });
+                setTaskGlobals({ sensor_width: v2 });
                 onFieldChange(v2, "sensor_width", task);
               }
             }
@@ -30960,7 +31185,7 @@ const Gait$1 = ({
               value: sensorHeight || "",
               onChange: (e4) => {
                 const v2 = e4.target.value === "" ? null : +e4.target.value;
-                setTaskGlobals2({ sensor_height: v2 });
+                setTaskGlobals({ sensor_height: v2 });
                 onFieldChange(v2, "sensor_height", task);
               }
             }
@@ -30987,7 +31212,7 @@ const Gait$1 = ({
               value: fl2 || "",
               onChange: (e4) => {
                 const v2 = e4.target.value === "" ? null : +e4.target.value;
-                setTaskGlobals2({ focal_length: v2 });
+                setTaskGlobals({ focal_length: v2 });
                 onFieldChange(v2, "focal_length", task);
               }
             }
@@ -31036,7 +31261,7 @@ const Gait$1 = ({
                 const newVal = e4.target.value === "" ? null : +e4.target.value;
                 const newMatrix = intrinsicMatrix2.map((r2) => [...r2]);
                 newMatrix[i2][j] = newVal;
-                setTaskGlobals2({ intrinsic_matrix: newMatrix });
+                setTaskGlobals({ intrinsic_matrix: newMatrix });
                 onFieldChange(newMatrix, "intrinsic_matrix", task);
               }
             },
@@ -31078,7 +31303,7 @@ const Gait$1 = ({
                 const newVal = e4.target.value === "" ? null : +e4.target.value;
                 const newMatrix = extrinsicMatrix2.map((r2) => [...r2]);
                 newMatrix[i2][j] = newVal;
-                setTaskGlobals2({ extrinsic_matrix: newMatrix });
+                setTaskGlobals({ extrinsic_matrix: newMatrix });
                 onFieldChange(newMatrix, "extrinsic_matrix", task);
               }
             },
@@ -31118,7 +31343,7 @@ const Gait$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
       ref: taskSelectionRef,
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100", children: [
@@ -31241,10 +31466,9 @@ const Gait$1 = ({
                   type: "text",
                   inputMode: "numeric",
                   pattern: "[0-9]*",
-                  placeholder: "150",
                   onChange: (e4) => {
                     const v2 = e4.target.value === "" ? null : +e4.target.value;
-                    setTaskGlobals2({ height: v2 });
+                    setTaskGlobals({ height: v2 });
                     onFieldChange(v2, "height", task);
                   },
                   value: h2 || ""
@@ -31275,19 +31499,19 @@ const HandMovementLeft$1 = ({
   options
 }) => {
   const [open, setOpen] = reactExports.useState(true);
-  const renderCount = reactExports.useRef(0);
-  renderCount.current += 1;
-  reactExports.useEffect(() => {
-    console.log(`Rendered ${renderCount.current} times`);
-  });
   const handleTaskChange = (selectedTask) => {
     onFieldChange(selectedTask.value, "name", task);
   };
+  reactExports.useEffect(() => {
+    if (!task.norm_strategy) {
+      onFieldChange("INDEXSIZE", "norm_strategy", task);
+    }
+  }, []);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Hand Movement Left #",
@@ -31423,19 +31647,19 @@ const HandMovementRight$1 = ({
   options
 }) => {
   const [open, setOpen] = reactExports.useState(true);
-  const renderCount = reactExports.useRef(0);
-  renderCount.current += 1;
-  reactExports.useEffect(() => {
-    console.log(`Rendered ${renderCount.current} times`);
-  });
   const handleTaskChange = (selectedTask) => {
     onFieldChange(selectedTask.value, "name", task);
   };
+  reactExports.useEffect(() => {
+    if (!task.norm_strategy) {
+      onFieldChange("INDEXSIZE", "norm_strategy", task);
+    }
+  }, []);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Hand Movement Right #",
@@ -31570,435 +31794,8 @@ const HandTremorLeftElbowExtended = ({
   onTimeMark,
   onTimeClick,
   options,
-  taskGlobals: taskGlobals2,
-  setTaskGlobals: setTaskGlobals2
-}) => {
-  const [open, setOpen] = reactExports.useState(true);
-  const taskSelectionRef = reactExports.useRef(null);
-  const defaultIntrinsic = task.intrinsic_matrix || Array.from({ length: 3 }, () => Array(3).fill(null));
-  const defaultExtrinsic = task.extrinsic_matrix || Array.from({ length: 4 }, () => Array(4).fill(null));
-  taskGlobals2.height ?? null;
-  const fov = taskGlobals2.field_of_view ?? null;
-  const sensorW = taskGlobals2.sensor_width ?? null;
-  const sensorH = taskGlobals2.sensor_height ?? null;
-  const fl2 = taskGlobals2.focal_length ?? null;
-  const intrinsicMatrix = taskGlobals2.intrinsic_matrix || defaultIntrinsic;
-  const extrinsicMatrix = taskGlobals2.extrinsic_matrix || defaultExtrinsic;
-  const [showCameraProperties, setShowCameraProperties] = reactExports.useState(false);
-  const [showIntrinsic, setShowIntrinsic] = reactExports.useState(false);
-  const [showExtrinsic, setShowExtrinsic] = reactExports.useState(false);
-  const handleTaskChange = (selectedTask) => {
-    onFieldChange(selectedTask.value, "name", task);
-  };
-  reactExports.useEffect(() => {
-    if (task.field_of_view !== void 0 && taskGlobals2.field_of_view === void 0) {
-      setTaskGlobals2({ field_of_view: task.field_of_view });
-    }
-    if (task.focal_length !== void 0 && taskGlobals2.focal_length === void 0) {
-      setTaskGlobals2({ focal_length: task.focal_length });
-    }
-    if (task.sensor_width !== void 0 && taskGlobals2.sensor_width === void 0) {
-      setTaskGlobals2({ sensor_width: task.sensor_width });
-    }
-    if (task.sensor_height !== void 0 && taskGlobals2.sensor_height === void 0) {
-      setTaskGlobals2({ sensor_height: task.sensor_height });
-    }
-    if (task.height !== void 0 && taskGlobals2.height === void 0) {
-      setTaskGlobals2({ height: task.height });
-    }
-    if (task.intrinsic_matrix !== void 0 && taskGlobals2.intrinsic_matrix === void 0) {
-      setTaskGlobals2({ intrinsic_matrix: task.intrinsic_matrix });
-    }
-    if (task.extrinsic_matrix !== void 0 && taskGlobals2.extrinsic_matrix === void 0) {
-      setTaskGlobals2({ extrinsic_matrix: task.extrinsic_matrix });
-    }
-  }, []);
-  reactExports.useEffect(() => {
-    if (typeof taskGlobals2.field_of_view !== "undefined") {
-      onFieldChange(taskGlobals2.field_of_view, "field_of_view", task);
-    }
-    if (typeof taskGlobals2.focal_length !== "undefined") {
-      console.log("Setting local focal_length for task #", taskGlobals2.focal_length);
-      onFieldChange(taskGlobals2.focal_length, "focal_length", task);
-    }
-    if (typeof taskGlobals2.sensor_width !== "undefined") {
-      onFieldChange(taskGlobals2.sensor_width, "sensor_width", task);
-    }
-    if (typeof taskGlobals2.sensor_height !== "undefined") {
-      onFieldChange(taskGlobals2.sensor_height, "sensor_height", task);
-    }
-    if (typeof taskGlobals2.height !== "undefined") {
-      onFieldChange(taskGlobals2.height, "height", task);
-    }
-    if (typeof taskGlobals2.intrinsic_matrix !== "undefined") {
-      onFieldChange(taskGlobals2.intrinsic_matrix, "intrinsic_matrix", task);
-    }
-    if (typeof taskGlobals2.extrinsic_matrix !== "undefined") {
-      onFieldChange(taskGlobals2.extrinsic_matrix, "extrinsic_matrix", task);
-    }
-  }, [taskGlobals2]);
-  const renderCameraPropertiesEditor = (fov2, sensorHeight, sensorWidth, focalLength, intrinsicMatrix2, extrinsicMatrix2, showIntrinsic2, showExtrinsic2) => {
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5 flex justify-between items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-gray-100", children: "Field of View (°):" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "input",
-            {
-              type: "number",
-              step: "any",
-              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
-              value: fov2 || "",
-              placeholder: "55",
-              onChange: (e4) => {
-                const v2 = e4.target.value === "" ? null : +e4.target.value;
-                setTaskGlobals2({ field_of_view: v2 });
-                onFieldChange(v2, "field_of_view", task);
-              }
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Tooltip,
-            {
-              arrow: true,
-              title: "Enter the field of view (degrees) along the longer side of the video frame. (Optional)",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$3, { className: "ml-1 text-gray-100 cursor-pointer", fontSize: "small" })
-            }
-          )
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5 flex justify-between items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-gray-100", children: "Sensor Pixel Width (µm/pixels):" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "input",
-            {
-              type: "number",
-              step: "any",
-              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
-              value: sensorWidth || "",
-              onChange: (e4) => {
-                const v2 = e4.target.value === "" ? null : +e4.target.value;
-                setTaskGlobals2({ sensor_width: v2 });
-                onFieldChange(v2, "sensor_width", task);
-              }
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Tooltip,
-            {
-              arrow: true,
-              title: "Enter the sensor pixel width (µm/pixels) of the video camera. (Optional)",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$3, { className: "ml-1 text-gray-100 cursor-pointer", fontSize: "small" })
-            }
-          )
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5 flex justify-between items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-gray-100", children: "Sensor Pixel Height (µm/pixels):" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "input",
-            {
-              type: "number",
-              step: "any",
-              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
-              value: sensorHeight || "",
-              onChange: (e4) => {
-                const v2 = e4.target.value === "" ? null : +e4.target.value;
-                setTaskGlobals2({ sensor_height: v2 });
-                onFieldChange(v2, "sensor_height", task);
-              }
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Tooltip,
-            {
-              arrow: true,
-              title: "Enter the sensor pixel height (µm/pixels) of the video camera. (Optional)",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$3, { className: "ml-1 text-gray-100 cursor-pointer", fontSize: "small" })
-            }
-          )
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5 flex justify-between items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-gray-100", children: "Focal Length (mm):" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "input",
-            {
-              type: "number",
-              step: "any",
-              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
-              value: fl2 || "",
-              onChange: (e4) => {
-                const v2 = e4.target.value === "" ? null : +e4.target.value;
-                setTaskGlobals2({ focal_length: v2 });
-                onFieldChange(v2, "focal_length", task);
-              }
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Tooltip,
-            {
-              arrow: true,
-              title: "Enter the true focal length (mm) of the video camera. (Optional)",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$3, { className: "ml-1 text-gray-100 cursor-pointer", fontSize: "small" })
-            }
-          )
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "div",
-          {
-            className: "flex items-center justify-between cursor-pointer select-none",
-            onClick: () => setShowIntrinsic((p2) => !p2),
-            children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-gray-100", children: "Intrinsic Matrix:" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: `transition-transform duration-200 ${showIntrinsic2 ? "rotate-180" : ""} text-gray-100` }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  Tooltip,
-                  {
-                    arrow: true,
-                    title: "Enter the intrinsic matrix of the video camera. (Optional)",
-                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$3, { className: "ml-1 text-gray-100 cursor-pointer", fontSize: "small" })
-                  }
-                )
-              ] })
-            ]
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: showIntrinsic2, timeout: "auto", unmountOnExit: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-2 flex place-items-center grid gap-2 inline-grid", style: { gridTemplateColumns: `repeat(3, auto)` }, children: intrinsicMatrix2.map(
-          (row, i2) => row.map((val, j) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "input",
-            {
-              type: "number",
-              step: "any",
-              className: "border border-zinc-500 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
-              value: val,
-              onChange: (e4) => {
-                const newVal = e4.target.value === "" ? null : +e4.target.value;
-                const newMatrix = intrinsicMatrix2.map((r2) => [...r2]);
-                newMatrix[i2][j] = newVal;
-                setTaskGlobals2({ intrinsic_matrix: newMatrix });
-                onFieldChange(newMatrix, "intrinsic_matrix", task);
-              }
-            },
-            `int-${i2}-${j}`
-          ))
-        ) }) }) })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "div",
-          {
-            className: "flex items-center justify-between cursor-pointer select-none",
-            onClick: () => setShowExtrinsic((p2) => !p2),
-            children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-gray-100", children: "Extrinsic Matrix:" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: `transition-transform duration-200 ${showExtrinsic2 ? "rotate-180" : ""} text-gray-100` }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  Tooltip,
-                  {
-                    arrow: true,
-                    title: "Enter the extrinsic matrix of the video camera. (Optional)",
-                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$3, { className: "ml-1 text-gray-100 cursor-pointer", fontSize: "small" })
-                  }
-                )
-              ] })
-            ]
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: showExtrinsic2, timeout: "auto", unmountOnExit: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-2 grid gap-2 place-items-center inline-grid", style: { gridTemplateColumns: `repeat(4, minmax(0, 1fr))` }, children: extrinsicMatrix2.map(
-          (row, i2) => row.map((val, j) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "input",
-            {
-              type: "number",
-              step: "any",
-              className: "border border-zinc-500 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
-              value: val,
-              onChange: (e4) => {
-                const newVal = e4.target.value === "" ? null : +e4.target.value;
-                const newMatrix = extrinsicMatrix2.map((r2) => [...r2]);
-                newMatrix[i2][j] = newVal;
-                setTaskGlobals2({ extrinsic_matrix: newMatrix });
-                onFieldChange(newMatrix, "extrinsic_matrix", task);
-              }
-            },
-            `ext-${i2}-${j}`
-          ))
-        ) }) }) })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pb-2 pt-4 flex justify-between", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "button",
-          {
-            className: "px-3 py-1 bg-transparent border border-zinc-500 text-gray-100 rounded-lg w-20",
-            onClick: () => setShowCameraProperties(false),
-            children: "Cancel"
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "button",
-          {
-            className: "px-3 py-1 bg-[#1976d2] hover:bg-[#1565c0] text-gray-100 rounded-lg w-20",
-            onClick: () => {
-              onFieldChange(focalLength, "focal_length", task);
-              onFieldChange(intrinsicMatrix2, "intrinsic_matrix", task);
-              onFieldChange(extrinsicMatrix2, "extrinsic_matrix", task);
-              onFieldChange(sensorWidth, "sensor_width", task);
-              onFieldChange(sensorHeight, "sensor_height", task);
-              onFieldChange(fov2, "field_of_view", task);
-              setShowCameraProperties(false);
-            },
-            children: "Save"
-          }
-        )
-      ] })
-    ] });
-  };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    "div",
-    {
-      tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
-      ref: taskSelectionRef,
-      children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100", children: [
-          task.name,
-          " #",
-          task.id,
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              IconButton,
-              {
-                size: "small",
-                className: `transform transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`,
-                onClick: (e4) => {
-                  e4.stopPropagation();
-                  setOpen((o3) => !o3);
-                },
-                "aria-label": "Toggle details",
-                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: "text-gray-100", fontSize: "small" })
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              IconButton,
-              {
-                size: "small",
-                "aria-label": "remove",
-                onClick: () => onTaskDelete(task),
-                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$6, { className: "text-gray-100", fontSize: "inherit" })
-              }
-            )
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-500 w-full block", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2 justify-between min-w-[400px] w-full", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Task: " }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                "select",
-                {
-                  className: "p-1 pl-2 py-1.5 w-72 border border-zinc-500 text-left text-gray-100 rounded-lg bg-zinc-600",
-                  value: task.name,
-                  onChange: (e4) => handleTaskChange({ value: e4.target.value, label: e4.target.value }),
-                  children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", hidden: true, children: "Select task" }),
-                    options.map((option) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: option.value, children: option.label }, option.value))
-                  ]
-                }
-              )
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Start: " }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "input",
-                {
-                  className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
-                  type: "number",
-                  onChange: (e4) => onFieldChange(e4.target.value, "start", task),
-                  onDoubleClick: () => onTimeClick(task.start),
-                  min: 0,
-                  step: 1e-3,
-                  value: task.start
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                IconButton,
-                {
-                  size: "small",
-                  onClick: (e4) => {
-                    e4.stopPropagation();
-                    onTimeMark("start", task);
-                  },
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
-                }
-              )
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "End: " }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "input",
-                {
-                  className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
-                  type: "number",
-                  onChange: (e4) => onFieldChange(e4.target.value, "end", task),
-                  onDoubleClick: () => onTimeClick(task.end),
-                  min: 0,
-                  step: 1e-3,
-                  value: task.end
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                IconButton,
-                {
-                  size: "small",
-                  onClick: (e4) => {
-                    e4.stopPropagation();
-                    onTimeMark("end", task);
-                  },
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
-                }
-              )
-            ] })
-          ] }),
-          taskTypeIndex === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-between space-x-2 min-w-[400px] w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-gray-100 inline", children: "Camera properties:" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "button",
-              {
-                className: "px-2 py-1.5 w-14 border border-zinc-500 rounded-lg text-gray-100 hover:bg-zinc-600",
-                onClick: () => setShowCameraProperties(true),
-                children: "Edit"
-              }
-            )
-          ] }) }) })
-        ] }) }),
-        showCameraProperties && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-[#333338] border border-zinc-600 p-4 rounded-lg shadow-lg relative w-96", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text text-gray-100 border-b border-zinc-600 flex justify-between bg-[#333338] py-2 mb-2", children: "Edit Camera Properties" }),
-          renderCameraPropertiesEditor(fov, sensorH, sensorW, fl2, intrinsicMatrix, extrinsicMatrix, showIntrinsic, showExtrinsic)
-        ] }) })
-      ]
-    },
-    task.id
-  );
-};
-const __vite_glob_0_6$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: HandTremorLeftElbowExtended
-}, Symbol.toStringTag, { value: "Module" }));
-const HandTremorRightElbowExtended = ({
-  task,
-  taskTypeIndex,
-  onFieldChange,
-  onTaskDelete,
-  onTimeMark,
-  onTimeClick,
-  options
+  taskGlobals,
+  setTaskGlobals
 }) => {
   const [open, setOpen] = reactExports.useState(true);
   const taskSelectionRef = reactExports.useRef(null);
@@ -32291,7 +32088,436 @@ const HandTremorRightElbowExtended = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
+      ref: taskSelectionRef,
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100", children: [
+          task.name,
+          " #",
+          task.id,
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              IconButton,
+              {
+                size: "small",
+                className: `transform transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`,
+                onClick: (e4) => {
+                  e4.stopPropagation();
+                  setOpen((o3) => !o3);
+                },
+                "aria-label": "Toggle details",
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: "text-gray-100", fontSize: "small" })
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              IconButton,
+              {
+                size: "small",
+                "aria-label": "remove",
+                onClick: () => onTaskDelete(task),
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$6, { className: "text-gray-100", fontSize: "inherit" })
+              }
+            )
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: open, timeout: "auto", unmountOnExit: true, className: "border-t-2 border-zinc-500 w-full block", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row flex-wrap justify-between px-4 py-1 bg-transparent gap-y-3 py-2 rounded-b-lg", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2 justify-between min-w-[400px] w-full", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative whitespace-nowrap", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Task: " }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "select",
+                {
+                  className: "p-1 pl-2 py-1.5 w-72 border border-zinc-500 text-left text-gray-100 rounded-lg bg-zinc-600",
+                  value: task.name,
+                  onChange: (e4) => handleTaskChange({ value: e4.target.value, label: e4.target.value }),
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", hidden: true, children: "Select task" }),
+                    options.map((option) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: option.value, children: option.label }, option.value))
+                  ]
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "Start: " }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "input",
+                {
+                  className: "p-1 pl-2 py-1.5 flex w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
+                  type: "number",
+                  onChange: (e4) => onFieldChange(e4.target.value, "start", task),
+                  onDoubleClick: () => onTimeClick(task.start),
+                  min: 0,
+                  step: 1e-3,
+                  value: task.start
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                IconButton,
+                {
+                  size: "small",
+                  onClick: (e4) => {
+                    e4.stopPropagation();
+                    onTimeMark("start", task);
+                  },
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
+                }
+              )
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-x-1", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "inline text-gray-100 whitespace-nowrap", children: "End: " }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "input",
+                {
+                  className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
+                  type: "number",
+                  onChange: (e4) => onFieldChange(e4.target.value, "end", task),
+                  onDoubleClick: () => onTimeClick(task.end),
+                  min: 0,
+                  step: 1e-3,
+                  value: task.end
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                IconButton,
+                {
+                  size: "small",
+                  onClick: (e4) => {
+                    e4.stopPropagation();
+                    onTimeMark("end", task);
+                  },
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$5, { fontSize: "small", className: "text-gray-100" })
+                }
+              )
+            ] })
+          ] }),
+          taskTypeIndex === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-between space-x-2 min-w-[400px] w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-gray-100 inline", children: "Camera properties:" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                className: "px-2 py-1.5 w-14 border border-zinc-500 rounded-lg text-gray-100 hover:bg-zinc-600",
+                onClick: () => setShowCameraProperties(true),
+                children: "Edit"
+              }
+            )
+          ] }) }) })
+        ] }) }),
+        showCameraProperties && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-[#333338] border border-zinc-600 p-4 rounded-lg shadow-lg relative w-96", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text text-gray-100 border-b border-zinc-600 flex justify-between bg-[#333338] py-2 mb-2", children: "Edit Camera Properties" }),
+          renderCameraPropertiesEditor(fov, sensorH, sensorW, fl2, intrinsicMatrix, extrinsicMatrix, showIntrinsic, showExtrinsic)
+        ] }) })
+      ]
+    },
+    task.id
+  );
+};
+const __vite_glob_0_6$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: HandTremorLeftElbowExtended
+}, Symbol.toStringTag, { value: "Module" }));
+const HandTremorRightElbowExtended = ({
+  task,
+  taskTypeIndex,
+  onFieldChange,
+  onTaskDelete,
+  onTimeMark,
+  onTimeClick,
+  options,
+  taskGlobals,
+  setTaskGlobals
+}) => {
+  const [open, setOpen] = reactExports.useState(true);
+  const taskSelectionRef = reactExports.useRef(null);
+  const defaultIntrinsic = task.intrinsic_matrix || Array.from({ length: 3 }, () => Array(3).fill(null));
+  const defaultExtrinsic = task.extrinsic_matrix || Array.from({ length: 4 }, () => Array(4).fill(null));
+  taskGlobals.height ?? null;
+  const fov = taskGlobals.field_of_view ?? null;
+  const sensorW = taskGlobals.sensor_width ?? null;
+  const sensorH = taskGlobals.sensor_height ?? null;
+  const fl2 = taskGlobals.focal_length ?? null;
+  const intrinsicMatrix = taskGlobals.intrinsic_matrix || defaultIntrinsic;
+  const extrinsicMatrix = taskGlobals.extrinsic_matrix || defaultExtrinsic;
+  const [showCameraProperties, setShowCameraProperties] = reactExports.useState(false);
+  const [showIntrinsic, setShowIntrinsic] = reactExports.useState(false);
+  const [showExtrinsic, setShowExtrinsic] = reactExports.useState(false);
+  const handleTaskChange = (selectedTask) => {
+    onFieldChange(selectedTask.value, "name", task);
+  };
+  reactExports.useEffect(() => {
+    if (task.field_of_view !== void 0 && taskGlobals.field_of_view === void 0) {
+      setTaskGlobals({ field_of_view: task.field_of_view });
+    }
+    if (task.focal_length !== void 0 && taskGlobals.focal_length === void 0) {
+      setTaskGlobals({ focal_length: task.focal_length });
+    }
+    if (task.sensor_width !== void 0 && taskGlobals.sensor_width === void 0) {
+      setTaskGlobals({ sensor_width: task.sensor_width });
+    }
+    if (task.sensor_height !== void 0 && taskGlobals.sensor_height === void 0) {
+      setTaskGlobals({ sensor_height: task.sensor_height });
+    }
+    if (task.height !== void 0 && taskGlobals.height === void 0) {
+      setTaskGlobals({ height: task.height });
+    }
+    if (task.intrinsic_matrix !== void 0 && taskGlobals.intrinsic_matrix === void 0) {
+      setTaskGlobals({ intrinsic_matrix: task.intrinsic_matrix });
+    }
+    if (task.extrinsic_matrix !== void 0 && taskGlobals.extrinsic_matrix === void 0) {
+      setTaskGlobals({ extrinsic_matrix: task.extrinsic_matrix });
+    }
+  }, []);
+  reactExports.useEffect(() => {
+    if (typeof taskGlobals.field_of_view !== "undefined") {
+      onFieldChange(taskGlobals.field_of_view, "field_of_view", task);
+    }
+    if (typeof taskGlobals.focal_length !== "undefined") {
+      console.log("Setting local focal_length for task #", taskGlobals.focal_length);
+      onFieldChange(taskGlobals.focal_length, "focal_length", task);
+    }
+    if (typeof taskGlobals.sensor_width !== "undefined") {
+      onFieldChange(taskGlobals.sensor_width, "sensor_width", task);
+    }
+    if (typeof taskGlobals.sensor_height !== "undefined") {
+      onFieldChange(taskGlobals.sensor_height, "sensor_height", task);
+    }
+    if (typeof taskGlobals.height !== "undefined") {
+      onFieldChange(taskGlobals.height, "height", task);
+    }
+    if (typeof taskGlobals.intrinsic_matrix !== "undefined") {
+      onFieldChange(taskGlobals.intrinsic_matrix, "intrinsic_matrix", task);
+    }
+    if (typeof taskGlobals.extrinsic_matrix !== "undefined") {
+      onFieldChange(taskGlobals.extrinsic_matrix, "extrinsic_matrix", task);
+    }
+  }, [taskGlobals]);
+  const renderCameraPropertiesEditor = (fov2, sensorHeight, sensorWidth, focalLength, intrinsicMatrix2, extrinsicMatrix2, showIntrinsic2, showExtrinsic2) => {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5 flex justify-between items-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-gray-100", children: "Field of View (°):" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "number",
+              step: "any",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              value: fov2 || "",
+              placeholder: "55",
+              onChange: (e4) => {
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals({ field_of_view: v2 });
+                onFieldChange(v2, "field_of_view", task);
+              }
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Tooltip,
+            {
+              arrow: true,
+              title: "Enter the field of view (degrees) along the longer side of the video frame. (Optional)",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$3, { className: "ml-1 text-gray-100 cursor-pointer", fontSize: "small" })
+            }
+          )
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5 flex justify-between items-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-gray-100", children: "Sensor Pixel Width (µm/pixels):" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "number",
+              step: "any",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              value: sensorWidth || "",
+              onChange: (e4) => {
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals({ sensor_width: v2 });
+                onFieldChange(v2, "sensor_width", task);
+              }
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Tooltip,
+            {
+              arrow: true,
+              title: "Enter the sensor pixel width (µm/pixels) of the video camera. (Optional)",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$3, { className: "ml-1 text-gray-100 cursor-pointer", fontSize: "small" })
+            }
+          )
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5 flex justify-between items-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-gray-100", children: "Sensor Pixel Height (µm/pixels):" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "number",
+              step: "any",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              value: sensorHeight || "",
+              onChange: (e4) => {
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals({ sensor_height: v2 });
+                onFieldChange(v2, "sensor_height", task);
+              }
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Tooltip,
+            {
+              arrow: true,
+              title: "Enter the sensor pixel height (µm/pixels) of the video camera. (Optional)",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$3, { className: "ml-1 text-gray-100 cursor-pointer", fontSize: "small" })
+            }
+          )
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5 flex justify-between items-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-gray-100", children: "Focal Length (mm):" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "number",
+              step: "any",
+              className: "border border-zinc-500 rounded-lg bg-transparent p-1 pl-2 py-1.5 w-20 text-left text-gray-100 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              value: fl2 || "",
+              onChange: (e4) => {
+                const v2 = e4.target.value === "" ? null : +e4.target.value;
+                setTaskGlobals({ focal_length: v2 });
+                onFieldChange(v2, "focal_length", task);
+              }
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Tooltip,
+            {
+              arrow: true,
+              title: "Enter the true focal length (mm) of the video camera. (Optional)",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$3, { className: "ml-1 text-gray-100 cursor-pointer", fontSize: "small" })
+            }
+          )
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "flex items-center justify-between cursor-pointer select-none",
+            onClick: () => setShowIntrinsic((p2) => !p2),
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-gray-100", children: "Intrinsic Matrix:" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: `transition-transform duration-200 ${showIntrinsic2 ? "rotate-180" : ""} text-gray-100` }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Tooltip,
+                  {
+                    arrow: true,
+                    title: "Enter the intrinsic matrix of the video camera. (Optional)",
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$3, { className: "ml-1 text-gray-100 cursor-pointer", fontSize: "small" })
+                  }
+                )
+              ] })
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: showIntrinsic2, timeout: "auto", unmountOnExit: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-2 flex place-items-center grid gap-2 inline-grid", style: { gridTemplateColumns: `repeat(3, auto)` }, children: intrinsicMatrix2.map(
+          (row, i2) => row.map((val, j) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "number",
+              step: "any",
+              className: "border border-zinc-500 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              value: val,
+              onChange: (e4) => {
+                const newVal = e4.target.value === "" ? null : +e4.target.value;
+                const newMatrix = intrinsicMatrix2.map((r2) => [...r2]);
+                newMatrix[i2][j] = newVal;
+                setTaskGlobals({ intrinsic_matrix: newMatrix });
+                onFieldChange(newMatrix, "intrinsic_matrix", task);
+              }
+            },
+            `int-${i2}-${j}`
+          ))
+        ) }) }) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-1.5", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "flex items-center justify-between cursor-pointer select-none",
+            onClick: () => setShowExtrinsic((p2) => !p2),
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-gray-100", children: "Extrinsic Matrix:" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$4, { className: `transition-transform duration-200 ${showExtrinsic2 ? "rotate-180" : ""} text-gray-100` }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Tooltip,
+                  {
+                    arrow: true,
+                    title: "Enter the extrinsic matrix of the video camera. (Optional)",
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$3, { className: "ml-1 text-gray-100 cursor-pointer", fontSize: "small" })
+                  }
+                )
+              ] })
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collapse, { in: showExtrinsic2, timeout: "auto", unmountOnExit: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-2 grid gap-2 place-items-center inline-grid", style: { gridTemplateColumns: `repeat(4, minmax(0, 1fr))` }, children: extrinsicMatrix2.map(
+          (row, i2) => row.map((val, j) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "number",
+              step: "any",
+              className: "border border-zinc-500 bg-transparent rounded-lg p-1 w-16 text-gray-100 text-center [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&input[type=number]]:appearance-none",
+              value: val,
+              onChange: (e4) => {
+                const newVal = e4.target.value === "" ? null : +e4.target.value;
+                const newMatrix = extrinsicMatrix2.map((r2) => [...r2]);
+                newMatrix[i2][j] = newVal;
+                setTaskGlobals({ extrinsic_matrix: newMatrix });
+                onFieldChange(newMatrix, "extrinsic_matrix", task);
+              }
+            },
+            `ext-${i2}-${j}`
+          ))
+        ) }) }) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pb-2 pt-4 flex justify-between", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            className: "px-3 py-1 bg-transparent border border-zinc-500 text-gray-100 rounded-lg w-20",
+            onClick: () => setShowCameraProperties(false),
+            children: "Cancel"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            className: "px-3 py-1 bg-[#1976d2] hover:bg-[#1565c0] text-gray-100 rounded-lg w-20",
+            onClick: () => {
+              onFieldChange(focalLength, "focal_length", task);
+              onFieldChange(intrinsicMatrix2, "intrinsic_matrix", task);
+              onFieldChange(extrinsicMatrix2, "extrinsic_matrix", task);
+              onFieldChange(sensorWidth, "sensor_width", task);
+              onFieldChange(sensorHeight, "sensor_height", task);
+              onFieldChange(fov2, "field_of_view", task);
+              setShowCameraProperties(false);
+            },
+            children: "Save"
+          }
+        )
+      ] })
+    ] });
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      tabIndex: -1,
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
       ref: taskSelectionRef,
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100", children: [
@@ -32439,7 +32665,7 @@ const LegAgilityLeft$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Leg Agility Left #",
@@ -32568,7 +32794,7 @@ const LegAgilityRight$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Leg Agility Right #",
@@ -32697,7 +32923,7 @@ const ToeTappingLeft$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Toe Tapping Left #",
@@ -32826,7 +33052,7 @@ const ToeTappingRight$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Toe Tapping Right #",
@@ -309630,7 +309856,7 @@ const WavePlotEditable = ({
                     name: "Peak values",
                     type: "scatter",
                     mode: "markers",
-                    marker: { size: 10, color: "#41337A" }
+                    marker: { size: 10, color: "#decd6dff" }
                   },
                   {
                     y: currentData.valleys_start.data,
@@ -315283,7 +315509,7 @@ const TaskList = ({
       return;
     }
     const value = fieldName === "start" || fieldName === "end" ? Number(Number(newValue).toFixed(3)) : newValue;
-    onTaskChange({ id: task.id, [fieldName]: value });
+    onTaskChange({ id: task.id, [fieldName]: value, data: null });
   };
   const onTimeMark = (fieldName, task) => {
     let newTask = { ...task };
@@ -315475,7 +315701,8 @@ function JSONUploadDialog$1({
       PaperProps: {
         sx: {
           backgroundColor: "#333338",
-          borderRadius: 3
+          borderRadius: 3,
+          minWidth: 400
         }
       },
       children: [
@@ -315500,18 +315727,18 @@ function JSONUploadDialog$1({
               "label",
               {
                 htmlFor: "file-upload",
-                className: "cursor-pointer px-4 py-2\n                      text-gray-100 bg-transparent rounded-md\n                      border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
+                className: "cursor-pointer px-4 py-2\r\n                      text-gray-100 bg-transparent rounded-md\r\n                      border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
                 children: "Upload JSON File"
               }
             ),
-            fileError && /* @__PURE__ */ jsxRuntimeExports.jsx(Typography, { color: "error", children: fileError })
+            fileError && /* @__PURE__ */ jsxRuntimeExports.jsx(Typography, { color: "error", sx: { mt: 2, mb: 2, textAlign: "left", whiteSpace: "pre-line" }, children: fileError })
           ] })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(DialogActions, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row justify-between w-full p-2", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
-              className: `rounded-md p-1.5 ${jsonContent === null || serverProcessing ? "bg-transparent text-gray-500" : "bg-[#1976d2] hover:bg-[#1565c0] text-gray-100"}`,
+              className: `rounded-md p-1.5 ${jsonContent === null ? "bg-transparent text-gray-500" : "bg-[#1976d2] hover:bg-[#1565c0] text-gray-100"}`,
               onClick: handleJSONProcess,
               disabled: jsonContent === null,
               children: "Process using JSON"
@@ -315915,6 +316142,7 @@ class o2 extends e3 {
 const TasksWaveForm = ({
   videoRef,
   tasks,
+  fps,
   onTaskCreate,
   onTaskChange,
   isVideoReady
@@ -315925,6 +316153,8 @@ const TasksWaveForm = ({
   const ignoreRef = reactExports.useRef(false);
   const tasksRef = reactExports.useRef(tasks);
   const [waveSurferReady, setWaveSurferReady] = reactExports.useState(false);
+  const [loadPercent, setLoadPercent] = reactExports.useState(0);
+  const [waveLoading, setWaveLoading] = reactExports.useState(false);
   reactExports.useEffect(() => {
     tasksRef.current = tasks;
   }, [tasks]);
@@ -315952,10 +316182,15 @@ const TasksWaveForm = ({
     waveSurferRef.current = ws;
     regionsPluginRef.current = ws.registerPlugin(o2.create());
     regionsPluginRef.current.enableDragSelection({});
+    ws.on("loading", (percent) => {
+      setLoadPercent(percent);
+      setWaveLoading(true);
+    });
     ws.on("ready", () => {
       const duration2 = videoRef.current.duration || 1;
       ws.zoom(670 / duration2);
       setWaveSurferReady(true);
+      setWaveLoading(false);
     });
     regionsPluginRef.current.on("region-created", (region) => {
       if (ignoreRef.current || region.content) return;
@@ -315977,7 +316212,7 @@ const TasksWaveForm = ({
         data: null
       };
       onTaskCreate(newTask);
-      if (videoRef.current) videoRef.current.currentTime = start2 + 0.05;
+      if (videoRef.current) videoRef.current.currentTime = start2 + 1 / fps;
     });
     regionsPluginRef.current.on("region-updated", (region) => {
       if (ignoreRef.current) return;
@@ -315996,7 +316231,7 @@ const TasksWaveForm = ({
       };
       onTaskChange(updatedTask);
       if (videoRef.current) {
-        videoRef.current.currentTime = Math.abs(original.start - start2) > 1e-3 ? start2 + 0.05 : end2 - 0.05;
+        videoRef.current.currentTime = Math.abs(original.start - start2) > 1e-3 ? start2 + 1 / fps : end2 - 1 / fps;
       }
     });
     return () => {
@@ -316036,7 +316271,7 @@ const TasksWaveForm = ({
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col justify-center items-center w-full pt-6 p-2", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col w-full p-4 rounded-lg bg-[#333338]", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full flex items-center justify-between pb-2 border-b-2 border-zinc-500", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-left text-gray-100", children: "Waveform" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-left text-gray-100", children: waveLoading ? `Loading Waveform: ${Math.round(loadPercent)}%...` : "Waveform" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         Slider,
         {
@@ -316065,31 +316300,33 @@ const TasksWaveForm = ({
 const TaskSelection = () => {
   const {
     videoId,
+    videoRef,
+    persons,
     videoReady,
     setVideoReady,
     videoData,
     setVideoData,
     videoURL,
     setVideoURL,
-    videoRef,
     fileName,
     setFileName,
     boundingBoxes,
     setBoundingBoxes,
     fps,
     setFPS,
-    setTasks,
     tasks,
+    setTasks,
     tasksReady,
     setTasksReady,
-    persons,
     taskTypeData,
     setTaskTypeData
   } = reactExports.useContext(VideoContext);
   const navigate = useNavigate();
-  if (!videoId) {
-    navigate("/");
-  }
+  reactExports.useEffect(() => {
+    if (!videoId) {
+      navigate("/");
+    }
+  }, []);
   const updateTaskWithBox = (task) => {
     const startFrame = Math.ceil(task.start * fps);
     const endFrame = Math.floor(task.end * fps);
@@ -316178,6 +316415,7 @@ const TaskSelection = () => {
           setTasks,
           onTaskCreate,
           onTaskChange,
+          fps,
           videoRef,
           isVideoReady: videoReady,
           tasksReady,
@@ -316300,14 +316538,24 @@ const __variableDynamicImportRuntimeHelper = (glob, path, segs) => {
 const HeaderSection = ({ title }) => {
   const navigate = useNavigate();
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "flex px-4 items-center justify-between bg-zinc-900 z-1 shadow-lg py-1 relative", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Typography, { className: "text-gray-100", children: title }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { title: "Go Back", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3 items-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Tooltip, { arrow: true, title: "Home", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        default_1$c,
+        {
+          onClick: () => navigate("/"),
+          className: "cursor-pointer text-white hover:text-gray-300",
+          fontSize: "small"
+        }
+      ) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Typography, { className: "text-gray-100", fontWeight: "500", children: title })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
       Tooltip,
       {
         arrow: true,
         title: "Go back",
         children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          default_1$c,
+          default_1$d,
           {
             onClick: () => navigate("/tasks"),
             className: "cursor-pointer text-white hover:text-gray-300",
@@ -316315,7 +316563,7 @@ const HeaderSection = ({ title }) => {
           }
         )
       }
-    ) })
+    )
   ] });
 };
 const API_URL = "http://localhost:8000/api";
@@ -316334,7 +316582,7 @@ function JSONUploadDialog({
   } = reactExports.useContext(VideoContext);
   const [fileError, setFileError] = reactExports.useState("");
   const [jsonContent, setJSONContent] = reactExports.useState(null);
-  const [serverProcessing2, setServerProcessing] = reactExports.useState(false);
+  const [serverProcessing, setServerProcessing] = reactExports.useState(false);
   const handleClose = () => {
     setDialogOpen(false);
     setFileError("");
@@ -316431,7 +316679,8 @@ function JSONUploadDialog({
       PaperProps: {
         sx: {
           backgroundColor: "#333338",
-          borderRadius: 3
+          borderRadius: 3,
+          minWidth: 400
         }
       },
       children: [
@@ -316440,7 +316689,7 @@ function JSONUploadDialog({
           /* @__PURE__ */ jsxRuntimeExports.jsx(IconButton, { onClick: handleClose, children: /* @__PURE__ */ jsxRuntimeExports.jsx(default_1$7, { className: "text-gray-100" }) })
         ] }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogContent, { children: [
-          !serverProcessing2 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          !serverProcessing && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-gray-100", children: "Upload JSON containing the task analysis data or click on analyze to analyze the task automatically." }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex w-full justify-center mt-8", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -316457,14 +316706,14 @@ function JSONUploadDialog({
                 "label",
                 {
                   htmlFor: "file-upload",
-                  className: "cursor-pointer px-4 py-2\n                              text-gray-100 bg-transparent rounded-md\n                              border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
+                  className: "cursor-pointer px-4 py-2\r\n                              text-gray-100 bg-transparent rounded-md\r\n                              border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
                   children: "Upload JSON File"
                 }
               )
             ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: fileError ? `mt-8` : ``, children: fileError && /* @__PURE__ */ jsxRuntimeExports.jsx(Typography, { color: "error", children: fileError }) })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: fileError ? `mt-8` : ``, children: fileError && /* @__PURE__ */ jsxRuntimeExports.jsx(Typography, { color: "error", sx: { mt: 2, mb: 2, textAlign: "left", whiteSpace: "pre-line" }, children: fileError }) })
           ] }),
-          serverProcessing2 && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          serverProcessing && /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "div",
             {
               className: "flex flex-col w-full h-full justify-center items-center gap-10 text-gray-100",
@@ -316475,17 +316724,28 @@ function JSONUploadDialog({
             }
           )
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(DialogActions, { children: !serverProcessing2 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row justify-between w-full p-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(DialogActions, { children: !serverProcessing && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row justify-between w-full p-2", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
-              className: `rounded-md p-1.5 ${jsonContent === null || serverProcessing2 ? "bg-transparent text-gray-500" : "bg-[#1976d2] hover:bg-[#1565c0] text-gray-100"}`,
+              className: `rounded-md p-1.5 ${jsonContent === null || serverProcessing ? "bg-transparent text-gray-500" : "bg-[#1976d2] hover:bg-[#1565c0] text-gray-100"}`,
               onClick: handleJSONProcess,
-              disabled: jsonContent === null || serverProcessing2,
+              disabled: jsonContent === null || serverProcessing,
               children: "Process with JSON"
             }
           ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "rounded-md bg-[#1976d2] hover:bg-[#1565c0] p-1 px-2 text-gray-100", onClick: handleAutoProcess, disabled: serverProcessing2, children: "Auto Process" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              className: "rounded-md bg-[#1976d2] hover:bg-[#1565c0] p-1 px-2 text-gray-100",
+              onClick: () => {
+                setFileError("");
+                handleAutoProcess();
+              },
+              disabled: serverProcessing,
+              children: "Auto Process"
+            }
+          )
         ] }) })
       ]
     }
@@ -316519,13 +316779,19 @@ const TaskDetails = () => {
     setTasks,
     persons
   } = reactExports.useContext(VideoContext);
+  const navigate = useNavigate();
   const [openJsonUpload, setOpenJsonUpload] = reactExports.useState(false);
   const [analyzingAll, setAnalyzingAll] = reactExports.useState(false);
   const [selectedTask, setSelectedTask] = reactExports.useState(0);
   const [TaskModule, setTaskModule] = reactExports.useState(null);
   const [dropdownOpen, setDropdownOpen] = reactExports.useState(false);
+  const [taskErrors, setTaskErrors] = reactExports.useState({});
   const dropdownRef = reactExports.useRef(null);
-  const navigate = useNavigate();
+  reactExports.useEffect(() => {
+    if (!videoId) {
+      navigate("/");
+    }
+  }, []);
   reactExports.useEffect(() => {
     const handleClickOutside = (e4) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e4.target)) {
@@ -316538,7 +316804,6 @@ const TaskDetails = () => {
   reactExports.useEffect(() => {
     if (!videoReady) return;
     if (!tasks || !tasks[selectedTask]) return;
-    if (!videoId) navigate("/");
     const task = tasks[selectedTask];
     const taskName = task.name;
     const fileNameSafe = taskName.toLowerCase().split(" ").join("_");
@@ -316567,75 +316832,97 @@ const TaskDetails = () => {
       newTasks[selectedTask] = { ...newTasks[selectedTask], data: null };
       return newTasks;
     });
-  };
-  const autoAnalyzeTask = async (taskIndex) => {
-    const videoURL2 = videoRef.current.src;
-    const videoBlob = await fetch(videoURL2).then((r2) => r2.blob());
-    const taskData = tasks[taskIndex];
-    const chosenTaskBox = tasks.find((box) => box.id === taskData.id);
-    const taskBoxCords = {
-      x: chosenTaskBox.x,
-      y: chosenTaskBox.y,
-      width: chosenTaskBox.box_width,
-      height: chosenTaskBox.box_height
-    };
-    const subjectBoundingBoxes = boundingBoxes.map(({ frameNumber, data: data2 }) => ({
-      frameNumber,
-      data: data2.filter((item) => item.Subject === true)
-    }));
-    const { start: start2, end: end2, name: name2, data, ...otherTaskFields } = taskData;
-    let jsonData = {
-      boundingBox: taskBoxCords,
-      task_name: taskData.name,
-      start_time: taskData.start,
-      end_time: taskData.end,
-      fps,
-      subject_bounding_boxes: subjectBoundingBoxes,
-      ...otherTaskFields
-    };
-    jsonData = JSON.stringify(jsonData);
-    let form = new FormData();
-    form.append("video", videoBlob);
-    form.append("json_data", jsonData);
-    const sanitizedTaskName = name2.replace(/[^a-zA-Z0-9]+/g, " ").split(" ").filter(Boolean).map((w2) => w2.toLowerCase()).join("_");
-    const apiURL = `http://localhost:8000/api/${sanitizedTaskName}/?id=${videoId}`;
-    console.log("API URL Generated as:", apiURL);
-    console.log("Upload data", JSON.parse(jsonData));
-    const res = await fetch(apiURL, { method: "POST", body: form });
-    if (!res.ok) throw new Error(`${name2} failed with status ${res.status}`);
-    const result = await res.json();
-    const safeFileName = fileName.replace(/\.[^/.]+$/, "");
-    setTasks((prev2) => {
-      const next2 = [...prev2];
-      next2[taskIndex] = {
-        ...next2[taskIndex],
-        data: { ...result, fileName: safeFileName }
-      };
-      return next2;
+    const currentTask2 = tasks?.[selectedTask];
+    const currentTaskId2 = currentTask2?.id;
+    setTaskErrors((prev2) => {
+      const { [currentTaskId2]: _omit, ...rest } = prev2;
+      return rest;
     });
   };
+  const clearTaskError = (taskId) => {
+    setTaskErrors((prev2) => {
+      const { [taskId]: _omit, ...rest } = prev2;
+      return rest;
+    });
+  };
+  const autoAnalyzeTask = async (taskId) => {
+    try {
+      const videoURL2 = videoRef.current.src;
+      const videoBlob = await fetch(videoURL2).then((r2) => r2.blob());
+      const taskData = tasks.find((t3) => t3.id === taskId);
+      if (!taskData) throw new Error(`Task with id ${taskId} not found`);
+      const chosenTaskBox = tasks.find((box) => box.id === taskData.id);
+      const taskBoxCords = {
+        x: chosenTaskBox.x,
+        y: chosenTaskBox.y,
+        width: chosenTaskBox.box_width,
+        height: chosenTaskBox.box_height
+      };
+      const subjectBoundingBoxes = boundingBoxes.map(({ frameNumber, data: data2 }) => ({
+        frameNumber,
+        data: data2.filter((item) => item.Subject === true)
+      }));
+      const { start: start2, end: end2, name: name2, data, ...otherTaskFields } = taskData;
+      let jsonData = {
+        boundingBox: taskBoxCords,
+        task_name: name2,
+        start_time: start2,
+        end_time: end2,
+        fps,
+        subject_bounding_boxes: subjectBoundingBoxes,
+        ...otherTaskFields
+      };
+      jsonData = JSON.stringify(jsonData);
+      const form = new FormData();
+      form.append("video", videoBlob);
+      form.append("json_data", jsonData);
+      const sanitizedTaskName = name2.replace(/[^a-zA-Z0-9]+/g, " ").split(" ").filter(Boolean).map((w2) => w2.toLowerCase()).join("_");
+      const apiURL = `http://localhost:8000/api/${sanitizedTaskName}/?id=${videoId}`;
+      const res = await fetch(apiURL, { method: "POST", body: form });
+      if (!res.ok) {
+        const text = await res.text().catch(() => "");
+        throw new Error(`${name2} failed (${res.status})${text ? `: ${text}` : ""}`);
+      }
+      const result = await res.json();
+      const safeFileName = fileName.replace(/\.[^/.]+$/, "");
+      setTasks(
+        (prev2) => prev2.map(
+          (t3) => t3.id === taskId ? { ...t3, data: { ...result, fileName: safeFileName } } : t3
+        )
+      );
+      setTaskErrors((prev2) => {
+        const { [taskId]: _remove, ...rest } = prev2;
+        return rest;
+      });
+      return true;
+    } catch (err) {
+      console.error(err);
+      setTaskErrors((prev2) => ({
+        ...prev2,
+        [taskId]: err?.message || "Unknown error"
+      }));
+      return false;
+    }
+  };
   const analyzeAllTasks = async () => {
+    setTaskErrors({});
     setAnalyzingAll(true);
-    for (let i2 = 0; i2 < tasks.length; i2++) {
-      if (!tasks[i2]?.data) {
-        try {
-          await autoAnalyzeTask(i2);
-        } catch (err) {
-          console.error(err);
-        }
+    for (const task of tasks) {
+      if (!task?.data) {
+        await autoAnalyzeTask(task.id);
       }
     }
     setAnalyzingAll(false);
   };
   const DownloadCurrentTask = () => {
-    const currentTask = tasks[selectedTask];
-    const fileData = currentTask.data;
+    const currentTask2 = tasks[selectedTask];
+    const fileData = currentTask2.data;
     const jsonStr = JSON.stringify(fileData);
     const blob = new Blob([jsonStr], { type: "application/json" });
     const href = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = href;
-    link.download = `${fileName.replace(/\.[^/.]+$/, "")}_${currentTask.name}.json`;
+    link.download = `${fileName.replace(/\.[^/.]+$/, "")}_${currentTask2.name}.json`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -316657,6 +316944,10 @@ const TaskDetails = () => {
     });
   };
   const btn = "bg-[#1976d2] hover:bg-[#1565c0] text-white px-3 py-1 rounded-md inline-flex items-center gap-1 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap";
+  const currentTask = tasks?.[selectedTask];
+  const currentTaskId = currentTask?.id;
+  const currentTaskError = currentTaskId ? taskErrors[currentTaskId] : null;
+  const hasData2 = Boolean(currentTask?.data);
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col h-screen", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-1 overflow-hidden", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 min-w-[50%] h-full bg-slate-900", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
       VideoPlayer,
@@ -316689,7 +316980,7 @@ const TaskDetails = () => {
           boundingBoxes
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-2 mt-2 mb-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-2 mt-2 mb-4 whitespace-nowrap", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-gray-100", children: "Current task - " }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "select",
@@ -316751,16 +317042,38 @@ const TaskDetails = () => {
             disabled: analyzingAll || !tasks.some((t3) => t3.data == null),
             children: "Analyze All"
           }
-        ),
-        analyzingAll && /* @__PURE__ */ jsxRuntimeExports.jsx(
-          CircularProgress,
-          {
-            size: 28,
-            sx: { color: "#2563eb" }
-          }
         )
       ] }),
-      !tasks[selectedTask]?.data ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-center items-center text-gray-100 h-full flex-col gap-4 w-full px-10 flex-1 py-4 overflow-y-scroll", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 py-4 px-10 overflow-y-auto text-gray-100", children: currentTaskError ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-center items-center h-full flex-col gap-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: " Analyze the task " }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            className: `${btn} text-base`,
+            onClick: () => {
+              clearTaskError(currentTaskId);
+              setOpenJsonUpload(true);
+            },
+            children: "Analyze"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-h-48 overflow-y-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Typography, { color: "error", children: currentTaskError }) })
+      ] }) : hasData2 ? TaskModule ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+        TaskModule,
+        {
+          selectedTaskIndex: selectedTask,
+          tasks,
+          setTasks,
+          fileName,
+          videoRef,
+          startTime: currentTask.start,
+          endTime: currentTask.end,
+          handleJSONUpload: handleProcessing
+        }
+      ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center items-center h-full", children: "Loading task view…" }) : analyzingAll ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-center items-center h-full flex-col gap-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: "Analyzing task..." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CircularProgress, { size: 64, sx: { color: "#2563eb" } })
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-center items-center h-full flex-col gap-4", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: "Analyze the task" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
@@ -316769,33 +317082,22 @@ const TaskDetails = () => {
             onClick: () => setOpenJsonUpload(true),
             children: "Analyze"
           }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          JSONUploadDialog,
-          {
-            dialogOpen: openJsonUpload,
-            fps,
-            setDialogOpen: setOpenJsonUpload,
-            handleJSONUpload: handleProcessing,
-            boundingBoxes,
-            videoRef,
-            tasks,
-            selectedTask
-          }
         )
-      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: TaskModule && /* @__PURE__ */ jsxRuntimeExports.jsx(
-        TaskModule,
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        JSONUploadDialog,
         {
-          selectedTaskIndex: selectedTask,
-          tasks,
-          setTasks,
-          fileName,
+          dialogOpen: openJsonUpload,
+          fps,
+          setDialogOpen: setOpenJsonUpload,
+          handleJSONUpload: handleProcessing,
+          boundingBoxes,
           videoRef,
-          startTime: tasks[selectedTask].start,
-          endTime: tasks[selectedTask].end,
-          handleJSONUpload: handleProcessing
+          tasks,
+          selectedTask,
+          analyzingAll
         }
-      ) })
+      )
     ] })
   ] }) });
 };
