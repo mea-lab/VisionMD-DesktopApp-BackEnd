@@ -308,7 +308,7 @@ class HandTremorLeftElbowExtendedTask(BaseTask):
         device = torch.device("cpu")
 
         #Hand Landmark Detection Model - Nano
-        nano_model_path = os.path.join(settings.BASE_DIR, 'app', 'analysis', 'models', 'best_hand_landmark_Nano.pt' )
+        nano_model_path = os.path.join(settings.BASE_DIR, 'app', 'analysis', 'models', 'best_hand_landmark_XLarge.pt' )
         self._modelHandLandmarkNano = YOLO(nano_model_path, task='pose')
 
         #metrabs model for 3d pose estimation 
@@ -421,8 +421,8 @@ class HandTremorLeftElbowExtendedTask(BaseTask):
                 # Two or more hands detected,  determine which is right/left
                 land_1 = predictionsLandmarks[0]
                 land_2 = predictionsLandmarks[1]
-                if land_1[:, 0].mean() > land_2[:, 0].mean():
-                    # Hand with greater x-mean is on the right
+                if land_1[:, 0].mean() < land_2[:, 0].mean():
+                    # Hand with greater x-mean is on the left
                     keypoints_2d_right_NanoModel.append(land_1)
                     keypoints_2d_left_NanoModel.append(land_2)
                 else:

@@ -148,4 +148,10 @@ def get_video_data(request):
         
         if project_data:
             all_project_data.append(project_data)
+
+    all_project_data.sort(
+        key=lambda p: p.get("metadata", {}).get("last_edited", ""),
+        reverse=True
+    )
+            
     return Response(all_project_data, status=200)

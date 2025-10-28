@@ -30,14 +30,15 @@ def update_video_data(request):
         print("Video project data cannot be decoded.")
     
 
-
     try:
         incoming_data = request.data
         if old_data and isinstance(incoming_data, dict) and isinstance(old_data, dict):
             new_data = old_data | incoming_data
         else:
             new_data = incoming_data
-
+        
+        data_changed = json.dumps(new_data, sort_keys=True) != json.dumps(old_data, sort_keys=True)
+        
         if file_name == "metadata.json":
             old_video_name = old_data['video_name']
             old_video_path = os.path.join(project_folder_path, old_video_name)
@@ -56,10 +57,24 @@ def update_video_data(request):
 
     data_path = os.path.join(project_folder_path, file_name)
     try:
-        with open(data_path, 'w') as jf:
-            json.dump(new_data_wrapped, jf, indent=4)
+        if data_changed:
+            with open(data_path, 'w') as jf:
+                json.dump(new_data_wrapped, jf, indent=4)
     except Exception as e:
         return Response(f"Error writing to file: {str(e)}", status=500)
+    
+    try:
+        if data_changed:
+            metadata_path = os.path.join(project_folder_path, "metadata.json")
+            if os.path.isfile(metadata_path):
+                with open(metadata_path, 'r', encoding='utf-8') as mf:
+                    metadata_wrapped = json.load(mf)
+                metadata = metadata_wrapped.get('metadata', {})
+                metadata['last_edited'] = datetime.now(timezone.utc).isoformat()
+                metadata_wrapped['metadata'] = metadata
+                with open(metadata_path, 'w', encoding='utf-8') as mf:
+                    json.dump(metadata_wrapped, mf, indent=4)
+    except Exception as e:
+        print(f"Error updating last_edited: {e}")
 
-    # Return success
     return Response(status=200)

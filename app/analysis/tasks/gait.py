@@ -322,7 +322,7 @@ class GaitTask(BaseTask):
 
     
 
-    def calculate_signal(self, poses3D, height_mm, L=60, pos_divider=2) -> dict:
+    def calculate_signal(self, poses3D, height_mm, L=60) -> dict:
         """
         Processes 3D keypoints using the gait transformer model and returns phases, strides.
 
@@ -333,8 +333,9 @@ class GaitTask(BaseTask):
             pos_divider (int): Positional divider used in model loading
         """
 
+        pos_divider = int(self.fps / 30.0)
         if GaitTask._gait_phase_transformer is None:
-            GaitTask._gait_phase_transformer = load_default_model(pos_divider=2)
+            GaitTask._gait_phase_transformer = load_default_model(pos_divider=pos_divider)
         GaitTask._gait_phase_order_idx = np.array(
             [self._metrabs_joint_order.tolist().index(j) for j in GaitTask._gait_phase_joint_order]
         )
@@ -348,7 +349,7 @@ class GaitTask(BaseTask):
 
         # Run inference
         height_arr = np.array(height_mm, dtype=float)
-        phases, strides = gait_phase_stride_inference(keypoints, height_arr, GaitTask._gait_phase_transformer, L * pos_divider)
+        phases, strides = gait_phase_stride_inference(keypoints, height_arr, GaitTask._gait_phase_transformer, int(L * pos_divider))
             
         signals = {}
 

@@ -20,12 +20,39 @@ def get_ffmpeg_path():
         if not ffmpeg_path:
             raise FileNotFoundError("ffmpeg not found in PATH")
         return ffmpeg_path
+    
+def is_vfr(input_path):
+    ffmpeg_path = get_ffmpeg_path()
+    cmd = [
+        ffmpeg_path.replace("ffmpeg", "ffprobe"),
+        "-v", "error",
+        "-select_streams", "v:0",
+        "-show_entries", "stream=r_frame_rate,avg_frame_rate",
+        "-of", "json",
+        input_path,
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        return False
+
+    try:
+        data = json.loads(result.stdout)
+        stream = data["streams"][0]
+        r_frame = stream.get("r_frame_rate")
+        avg_frame = stream.get("avg_frame_rate")
+        return r_frame != avg_frame
+    except Exception:
+        return False
 
 def convert_to_cfr(input_path, fps):
+    if not is_vfr(input_path):
+        print("Video is CFR already, skipping conversion.")
+        return
+
     base, ext = os.path.splitext(input_path)
     ffmpeg_path = get_ffmpeg_path()
     output_path = f"{base}_cfr{ext}"
-    print(f"Chosen ffmpeg binary path for video processing: {ffmpeg_path}")
+    print(f"Chosen ffmpeg binary path for VFR to CFR conversion: {ffmpeg_path}")
     cmd = [
         f'{ffmpeg_path}', '-y',
         '-i', input_path,
