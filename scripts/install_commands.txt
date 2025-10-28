@@ -25,28 +25,25 @@ pip install --no-cache-dir \
   mediapipe==0.10.21 \
   ultralytics==8.3.139 \
   jax==0.5.0 \
-  lap>=0.5.12 \
+  "lap>=0.5.12" \
   torch torchvision torchaudio \
   --extra-index-url https://download.pytorch.org/whl/cpu
 
 MacOS CPU:
-conda install -c conda-forge \
-  "libblas=*=*openblas" \
-  numpy==1.26.4 \
-  scipy==1.15.3
-
-pip install --no-cache-dir \
+pip install --no-cache-dir --only-binary=:all: \
   tensorflow==2.17.0 \
+  keras==3.10.0 \
   protobuf==4.25.3 \
+  numpy==1.26.4 \
   tensorflow-hub==0.16.1 \
+  scipy==1.15.3 \
   opencv-python-headless==4.10.0.82 \
   mediapipe==0.10.21 \
   ultralytics==8.3.139 \
   jax==0.5.0 \
+  "lap>=0.5.12" \
   torch torchvision torchaudio \
   --extra-index-url https://download.pytorch.org/whl/cpu
-
-pip install --no-cache-dir --no-binary=lap "lap>=0.5.12"
 
 WINDOWS CPU:
 pip install --no-cache-dir ^
@@ -59,8 +56,9 @@ pip install --no-cache-dir ^
   mediapipe==0.10.21 ^
   ultralytics==8.3.139 ^
   jax==0.5.0 ^
-  lap>=0.5.12 ^
+  "lap>=0.5.12" ^
   torch torchvision torchaudio
 
 ALL OS:
-pip install --no-cache-dir django djangorestframework django-cors-headers pillow pyinstaller
+pip install --no-cache-dir django djangorestframework django-cors-headers pillow pyinstaller hachoir
+conda install -c conda-forge ffmpeg pymediainfo
