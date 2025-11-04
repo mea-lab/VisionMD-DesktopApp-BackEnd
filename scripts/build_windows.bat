@@ -52,4 +52,5 @@ pyinstaller serve_windows.py ^
   --collect-all opencv-python ^
   --collect-all pandas ^
   --add-binary "%CONDA_PREFIX%\Library\bin\ffmpeg.exe;." ^
+  --add-binary "%CONDA_PREFIX%\Library\bin\ffprobe.exe;." ^
   --hidden-import=scipy._lib.array_api_compat.numpy.fft

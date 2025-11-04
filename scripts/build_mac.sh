@@ -42,5 +42,6 @@ pyinstaller serve_mac.py \
   --collect-all opencv-python \
   --collect-all pandas \
   --add-binary "$CONDA_PREFIX/bin/ffmpeg:." \
+  --add-binary "$CONDA_PREFIX/bin/ffprobe:." \
   --hidden-import=scipy._lib.array_api_compat.numpy.fft \
   --noconfirm \

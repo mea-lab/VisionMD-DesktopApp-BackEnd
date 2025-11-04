@@ -23,8 +23,10 @@ def get_ffmpeg_path():
     
 def is_vfr(input_path):
     ffmpeg_path = get_ffmpeg_path()
+    ffmprobe_path = ffmpeg_path.replace("ffmpeg", "ffprobe")
+    print(f"Chosen ffmpeg binary path for ffmprobing video: {ffmprobe_path}")
     cmd = [
-        ffmpeg_path.replace("ffmpeg", "ffprobe"),
+        ffmprobe_path,
         "-v", "error",
         "-select_streams", "v:0",
         "-show_entries", "stream=r_frame_rate,avg_frame_rate",
