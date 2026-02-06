@@ -21,6 +21,56 @@ def get_ffmpeg_path():
         if not ffmpeg_path:
             raise FileNotFoundError("ffmpeg not found in PATH")
         return ffmpeg_path
+
+def probe_color_metadata(input_path):
+    ffmpeg_path = get_ffmpeg_path()
+    ffprobe_path = ffmpeg_path.replace("ffmpeg", "ffprobe")
+    cmd = [
+        ffprobe_path,
+        "-v", "error",
+        "-select_streams", "v:0",
+        "-show_entries", "stream=color_range,color_space,color_transfer,color_primaries",
+        "-of", "json",
+        input_path,
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        return {}
+    try:
+        data = json.loads(result.stdout)
+        stream = (data.get("streams") or [{}])[0]
+        return {
+            "color_range": stream.get("color_range"),
+            "color_space": stream.get("color_space"),
+            "color_transfer": stream.get("color_transfer"),
+            "color_primaries": stream.get("color_primaries"),
+        }
+    except Exception:
+        return {}
+
+def build_color_flags(color_meta):
+    flags = []
+    color_range = color_meta.get("color_range")
+    if color_range and color_range != "unknown":
+        flags.extend(["-color_range", color_range])
+    color_space = color_meta.get("color_space")
+    if color_space and color_space != "unknown":
+        flags.extend(["-colorspace", color_space])
+    color_transfer = color_meta.get("color_transfer")
+    if color_transfer and color_transfer != "unknown":
+        flags.extend(["-color_trc", color_transfer])
+    color_primaries = color_meta.get("color_primaries")
+    if color_primaries and color_primaries != "unknown":
+        flags.extend(["-color_primaries", color_primaries])
+    return flags
+
+def maybe_apply_range(vf_filter, color_meta):
+    color_range = color_meta.get("color_range")
+    if not color_range or color_range == "unknown":
+        return vf_filter
+    if "scale=" in vf_filter:
+        return vf_filter.replace("scale=", f"scale=in_range={color_range}:out_range={color_range}:")
+    return f"{vf_filter},scale=iw:ih:in_range={color_range}:out_range={color_range}"
     
 def is_vfr(input_path):
     ffmpeg_path = get_ffmpeg_path()
@@ -88,6 +138,9 @@ def convert_to_cfr(input_path, fps):
         vf_parts.append(f"setdar={dar}")
     vf_value = ",".join(vf_parts)
 
+    color_meta = probe_color_metadata(input_path)
+    color_flags = build_color_flags(color_meta)
+    vf_value = maybe_apply_range(vf_value, color_meta)
     cmd = [
         f'{ffmpeg_path}', '-y',
         '-i', input_path,
@@ -95,6 +148,7 @@ def convert_to_cfr(input_path, fps):
         '-vsync', 'cfr',
         '-c:v', 'libx264',
         '-pix_fmt', 'yuv420p',
+        *color_flags,
         '-c:a', 'copy',
         output_path
     ]
@@ -179,12 +233,17 @@ def convert_to_square_pixels(input_path):
     output_dar = f"{target_w}:{target_h}"
     base, ext = os.path.splitext(input_path)
     output_path = f"{base}_square{ext}"
+    color_meta = probe_color_metadata(input_path)
+    color_flags = build_color_flags(color_meta)
+    vf_filter = f"scale={target_w}:{target_h},setsar=1,setdar={output_dar}"
+    vf_filter = maybe_apply_range(vf_filter, color_meta)
     cmd = [
         f"{ffmpeg_path}", "-y",
         "-i", input_path,
-        "-vf", f"scale={target_w}:{target_h},setsar=1,setdar={output_dar}",
+        "-vf", vf_filter,
         "-c:v", "libx264",
         "-pix_fmt", "yuv420p",
+        *color_flags,
         "-c:a", "copy",
         output_path
     ]
@@ -200,6 +259,80 @@ def convert_to_square_pixels(input_path):
     os.remove(input_path)
     os.rename(output_path, input_path)
     return input_path
+
+def convert_to_mp4_h264_aac(input_path, output_path):
+    ffmpeg_path = get_ffmpeg_path()
+    ffprobe_path = ffmpeg_path.replace("ffmpeg", "ffprobe")
+
+    probe_cmd = [
+        ffprobe_path,
+        "-v", "error",
+        "-show_entries", "format=format_name",
+        "-show_entries", "stream=index,codec_type,codec_name,pix_fmt",
+        "-of", "json",
+        input_path,
+    ]
+    probe_result = subprocess.run(probe_cmd, capture_output=True, text=True)
+    if probe_result.returncode != 0:
+        raise RuntimeError(f"FFprobe codec check failed:\n{probe_result.stderr}")
+
+    probe_data = json.loads(probe_result.stdout)
+    format_name = (probe_data.get("format") or {}).get("format_name") or ""
+    is_mp4_container = "mp4" in format_name.split(",")
+    streams = probe_data.get("streams") or []
+    video_codec = None
+    audio_codec = None
+    video_pix_fmt = None
+    for stream in streams:
+        if stream.get("codec_type") == "video" and video_codec is None:
+            video_codec = stream.get("codec_name")
+            video_pix_fmt = stream.get("pix_fmt")
+        elif stream.get("codec_type") == "audio" and audio_codec is None:
+            audio_codec = stream.get("codec_name")
+
+    if is_mp4_container and video_codec == "h264" and audio_codec == "aac":
+        if video_pix_fmt and video_pix_fmt != "yuv420p":
+            print(f"Pixel format is {video_pix_fmt}, converting to yuv420p.")
+        else:
+            print("Video is already encoded with H.264 and AAC codecs, skipping conversion.")
+            if os.path.abspath(input_path) != os.path.abspath(output_path):
+                os.replace(input_path, output_path)
+            return output_path
+
+    final_path = output_path
+    if os.path.abspath(input_path) == os.path.abspath(output_path):
+        base = os.path.splitext(output_path)[0]
+        output_path = f"{base}_tmp.mp4"
+
+    color_meta = probe_color_metadata(input_path)
+    color_flags = build_color_flags(color_meta)
+    cmd = [
+        f"{ffmpeg_path}", "-y",
+        "-i", input_path,
+        "-c:v", "libx264",
+        "-pix_fmt", "yuv420p",
+        "-profile:v", "main",
+        "-level", "4.0",
+        *color_flags,
+        "-c:a", "aac",
+        "-b:a", "128k",
+        "-movflags", "+faststart",
+        output_path
+    ]
+    result = subprocess.run(
+        cmd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0)
+    )
+    if result.returncode != 0:
+        raise RuntimeError(f"FFmpeg MP4 transcode failed:\n{result.stderr.decode('utf-8')}")
+
+    if os.path.exists(input_path):
+        os.remove(input_path)
+    if os.path.abspath(output_path) != os.path.abspath(final_path):
+        os.rename(output_path, final_path)
+    return final_path
 
 def get_rotation(path):
     mi = MediaInfo.parse(path)
@@ -287,6 +420,11 @@ def upload_video(request):
 
         convert_to_cfr(saved_video_path, fps)
         convert_to_square_pixels(saved_video_path)
+        mp4_filename = f"{stem_name}.mp4"
+        mp4_path = os.path.join(folder_path, mp4_filename)
+        saved_video_path = convert_to_mp4_h264_aac(saved_video_path, mp4_path)
+        original_filename = mp4_filename
+        file_type = "mp4"
         cap2 = cv2.VideoCapture(saved_video_path)
         ret, frame = cap2.read()
         fps = cap2.get(cv2.CAP_PROP_FPS)

@@ -10637,7 +10637,7 @@ function keyframes() {
     }
   };
 }
-var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|abbr|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|disableRemotePlayback|download|draggable|encType|enterKeyHint|fetchpriority|fetchPriority|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|translate|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|incremental|fallback|inert|itemProp|itemScope|itemType|itemID|itemRef|on|option|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/;
+var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|abbr|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|disableRemotePlayback|download|draggable|encType|enterKeyHint|fetchpriority|fetchPriority|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|popover|popoverTarget|popoverTargetAction|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|translate|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|incremental|fallback|inert|itemProp|itemScope|itemType|itemID|itemRef|on|option|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/;
 var isPropValid = /* @__PURE__ */ memoize(
   function(prop) {
     return reactPropsRegex.test(prop) || prop.charCodeAt(0) === 111 && prop.charCodeAt(1) === 110 && prop.charCodeAt(2) < 91;
@@ -20903,7 +20903,8 @@ function c$1(e4, u2, c2, i2) {
       }
     };
     return W2.cancel = function() {
-      v2.current && (x2 ? cancelAnimationFrame(v2.current) : clearTimeout(v2.current)), f2.current = 0, m2.current = o3.current = d2.current = v2.current = null;
+      var r3 = v2.current;
+      r3 && (x2 ? cancelAnimationFrame(v2.current) : clearTimeout(v2.current)), f2.current = 0, m2.current = o3.current = d2.current = v2.current = null;
     }, W2.isPending = function() {
       return !!v2.current;
     }, W2.flush = function() {
@@ -27988,7 +27989,7 @@ function JSONUploadDialog$3({ dialogOpen, setDialogOpen, handleJSONUpload }) {
               "label",
               {
                 htmlFor: "file-upload",
-                className: "cursor-pointer px-4 py-2\r\n                          text-gray-100 bg-transparent rounded-md\r\n                          border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
+                className: "cursor-pointer px-4 py-2\n                          text-gray-100 bg-transparent rounded-md\n                          border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
                 children: "Upload JSON File"
               }
             )
@@ -30053,7 +30054,7 @@ const AddTile = ({ onClick }) => {
     "button",
     {
       onClick,
-      className: "\r\n        w-full h-full\r\n        rounded-lg flex\r\n        p-4\r\n        items-center justify-center\r\n        border-2 border-dashed border-gray-500 \r\n        hover:bg-gray-700 \r\n        focus:outline-none focus:ring\r\n      ",
+      className: "\n        w-full h-full\n        rounded-lg flex\n        p-4\n        items-center justify-center\n        border-2 border-dashed border-gray-500 \n        hover:bg-gray-700 \n        focus:outline-none focus:ring\n      ",
       children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { size: 32 }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "mt-2 text-sm", children: "New Project" })
@@ -30627,7 +30628,7 @@ const Default = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Region #",
@@ -30756,7 +30757,7 @@ const FingerTapLeft$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Finger Tap Left #",
@@ -30904,7 +30905,7 @@ const FingerTapRight$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Finger Tap Right #",
@@ -31343,7 +31344,7 @@ const Gait$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       ref: taskSelectionRef,
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100", children: [
@@ -31463,15 +31464,15 @@ const Gait$1 = ({
                 "input",
                 {
                   className: "p-1 pl-2 py-1.5 w-20 text-left text-gray-100 border border-zinc-500 rounded-lg bg-transparent",
-                  type: "text",
-                  inputMode: "numeric",
-                  pattern: "[0-9]*",
+                  type: "number",
+                  inputMode: "decimal",
+                  step: "any",
                   onChange: (e4) => {
-                    const v2 = e4.target.value === "" ? null : +e4.target.value;
+                    const v2 = e4.target.value === "" ? null : parseFloat(e4.target.value);
                     setTaskGlobals({ height: v2 });
                     onFieldChange(v2, "height", task);
                   },
-                  value: h2 || ""
+                  value: h2 ?? ""
                 }
               )
             ] })
@@ -31511,7 +31512,7 @@ const HandMovementLeft$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Hand Movement Left #",
@@ -31659,7 +31660,7 @@ const HandMovementRight$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Hand Movement Right #",
@@ -32088,7 +32089,7 @@ const HandTremorLeftElbowExtended = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       ref: taskSelectionRef,
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100", children: [
@@ -32517,7 +32518,7 @@ const HandTremorRightElbowExtended = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       ref: taskSelectionRef,
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100", children: [
@@ -32665,7 +32666,7 @@ const LegAgilityLeft$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Leg Agility Left #",
@@ -32794,7 +32795,7 @@ const LegAgilityRight$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Leg Agility Right #",
@@ -32923,7 +32924,7 @@ const ToeTappingLeft$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Toe Tapping Left #",
@@ -33052,7 +33053,7 @@ const ToeTappingRight$1 = ({
     "div",
     {
       tabIndex: -1,
-      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \r\n                 focus:border-blue-500 focus:outline-none\r\n                 transition-all duration-500 ease-in-out",
+      className: "flex-none border-2 border-zinc-500 rounded-lg mb-4 min-h-[50px] bg-zinc-600 \n                 focus:border-blue-500 focus:outline-none\n                 transition-all duration-500 ease-in-out",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `flex items-center gap-4 justify-between px-4 py-2 bg-transparent text-gray-100`, children: [
           "Toe Tapping Right #",
@@ -315727,7 +315728,7 @@ function JSONUploadDialog$1({
               "label",
               {
                 htmlFor: "file-upload",
-                className: "cursor-pointer px-4 py-2\r\n                      text-gray-100 bg-transparent rounded-md\r\n                      border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
+                className: "cursor-pointer px-4 py-2\n                      text-gray-100 bg-transparent rounded-md\n                      border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
                 children: "Upload JSON File"
               }
             ),
@@ -316706,7 +316707,7 @@ function JSONUploadDialog({
                 "label",
                 {
                   htmlFor: "file-upload",
-                  className: "cursor-pointer px-4 py-2\r\n                              text-gray-100 bg-transparent rounded-md\r\n                              border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
+                  className: "cursor-pointer px-4 py-2\n                              text-gray-100 bg-transparent rounded-md\n                              border-2 border-zinc-600 border-dashed hover:bg-zinc-700",
                   children: "Upload JSON File"
                 }
               )
