@@ -10,6 +10,7 @@ from hachoir.metadata import extractMetadata
 import subprocess
 import shutil
 import os, sys
+import traceback
 
 def get_ffmpeg_path():
     if getattr(sys, 'frozen', False):
@@ -35,16 +36,18 @@ def is_vfr(input_path):
     ]
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
-        return False
+        raise RuntimeError(f"FFprobe VFR check failed:\n{result.stderr}")
 
     try:
         data = json.loads(result.stdout)
+        if not data.get("streams"):
+            raise RuntimeError("FFprobe VFR check returned no streams.")
         stream = data["streams"][0]
         r_frame = stream.get("r_frame_rate")
         avg_frame = stream.get("avg_frame_rate")
         return r_frame != avg_frame
     except Exception:
-        return False
+        raise RuntimeError("Failed to parse FFprobe VFR check output.")
 
 def convert_to_cfr(input_path, fps):
     if not is_vfr(input_path):
@@ -55,10 +58,40 @@ def convert_to_cfr(input_path, fps):
     ffmpeg_path = get_ffmpeg_path()
     output_path = f"{base}_cfr{ext}"
     print(f"Chosen ffmpeg binary path for VFR to CFR conversion: {ffmpeg_path}")
+
+    ffprobe_path = ffmpeg_path.replace("ffmpeg", "ffprobe")
+    probe_cmd = [
+        ffprobe_path,
+        "-v", "error",
+        "-select_streams", "v:0",
+        "-show_entries", "stream=sample_aspect_ratio,display_aspect_ratio",
+        "-of", "json",
+        input_path,
+    ]
+    probe_result = subprocess.run(probe_cmd, capture_output=True, text=True)
+    sar = None
+    dar = None
+    if probe_result.returncode == 0:
+        try:
+            probe_data = json.loads(probe_result.stdout)
+            probe_stream = probe_data["streams"][0]
+            sar = probe_stream.get("sample_aspect_ratio")
+            dar = probe_stream.get("display_aspect_ratio")
+        except Exception:
+            sar = None
+            dar = None
+
+    vf_parts = [f"fps={fps}"]
+    if sar and sar not in {"0:1", "N/A"}:
+        vf_parts.append(f"setsar={sar}")
+    if dar and dar not in {"0:1", "N/A"}:
+        vf_parts.append(f"setdar={dar}")
+    vf_value = ",".join(vf_parts)
+
     cmd = [
         f'{ffmpeg_path}', '-y',
         '-i', input_path,
-        '-vf', f'fps={fps}',
+        '-vf', vf_value,
         '-vsync', 'cfr',
         '-c:v', 'libx264',
         '-pix_fmt', 'yuv420p',
@@ -78,6 +111,95 @@ def convert_to_cfr(input_path, fps):
     
     os.remove(input_path)
     os.rename(output_path, input_path)
+
+def convert_to_square_pixels(input_path):
+    ffmpeg_path = get_ffmpeg_path()
+    ffprobe_path = ffmpeg_path.replace("ffmpeg", "ffprobe")
+    cmd = [
+        ffprobe_path,
+        "-v", "error",
+        "-select_streams", "v:0",
+        "-show_entries", "stream=width,height,sample_aspect_ratio,display_aspect_ratio",
+        "-of", "json",
+        input_path,
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        raise RuntimeError(f"FFprobe failed:\n{result.stderr}")
+
+    data = json.loads(result.stdout)
+    if not data.get("streams"):
+        raise RuntimeError("FFprobe returned no video streams.")
+    stream = data["streams"][0]
+    width = stream.get("width")
+    height = stream.get("height")
+    sar = stream.get("sample_aspect_ratio")
+    dar = stream.get("display_aspect_ratio")
+
+    def parse_ratio(ratio):
+        if not ratio or ratio in {"0:1", "N/A"}:
+            return None
+        try:
+            num_str, den_str = ratio.split(":")
+            num = float(num_str)
+            den = float(den_str)
+            if den == 0:
+                return None
+            return num / den
+        except Exception:
+            return None
+
+    sar_ratio = parse_ratio(sar)
+    dar_ratio = parse_ratio(dar)
+    if width and height and (sar in {"1:1", "N/A", None}):
+        pixel_ratio = width / height
+        if dar_ratio is None or abs(pixel_ratio - dar_ratio) < 0.001:
+            print("Video already has square pixels and SAR matches DAR, skipping normalization.")
+            return input_path
+
+    if width is None or height is None:
+        raise RuntimeError("Could not read video dimensions for square pixel normalization.")
+
+    if sar_ratio is None:
+        sar_ratio = 1.0
+
+    target_w = width
+    target_h = height
+    if sar_ratio != 1.0:
+        target_w = int(round(width * sar_ratio))
+    elif dar_ratio is not None:
+        target_w = int(round(height * dar_ratio))
+    else:
+        print("No DAR reported and SAR is 1:1, skipping normalization.")
+        return input_path
+
+    if target_w % 2 != 0:
+        target_w += 1
+
+    output_dar = f"{target_w}:{target_h}"
+    base, ext = os.path.splitext(input_path)
+    output_path = f"{base}_square{ext}"
+    cmd = [
+        f"{ffmpeg_path}", "-y",
+        "-i", input_path,
+        "-vf", f"scale={target_w}:{target_h},setsar=1,setdar={output_dar}",
+        "-c:v", "libx264",
+        "-pix_fmt", "yuv420p",
+        "-c:a", "copy",
+        output_path
+    ]
+    result = subprocess.run(
+        cmd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0)
+    )
+    if result.returncode != 0:
+        raise RuntimeError(f"FFmpeg square pixel normalization failed:\n{result.stderr.decode('utf-8')}")
+
+    os.remove(input_path)
+    os.rename(output_path, input_path)
+    return input_path
 
 def get_rotation(path):
     mi = MediaInfo.parse(path)
@@ -144,8 +266,10 @@ def upload_video(request):
         video = request.FILES['video']
         original_filename = video.name
         fs = FileSystemStorage(location=folder_path)
-        fs.save(original_filename, video)
-        saved_video_path = os.path.join(folder_path, original_filename)
+        saved_name = fs.save(original_filename, video)
+        saved_video_path = os.path.join(folder_path, saved_name)
+        if not os.path.exists(saved_video_path):
+            raise RuntimeError("Video file was not saved to disk.")
         stem_name, extension = os.path.splitext(original_filename)
         stem_name = stem_name
         file_type = extension.lstrip('.')
@@ -156,12 +280,21 @@ def upload_video(request):
         ret, frame = cap.read()
         fps = cap.get(cv2.CAP_PROP_FPS)
         cap.release()
+        if not ret or frame is None:
+            raise RuntimeError("Failed to read a frame from the uploaded video.")
+        if not fps or fps <= 0:
+            raise RuntimeError(f"Invalid FPS detected: {fps}")
 
         convert_to_cfr(saved_video_path, fps)
+        convert_to_square_pixels(saved_video_path)
         cap2 = cv2.VideoCapture(saved_video_path)
         ret, frame = cap2.read()
         fps = cap2.get(cv2.CAP_PROP_FPS)
         cap2.release()
+        if not ret or frame is None:
+            raise RuntimeError("Failed to read a frame after normalization.")
+        if not fps or fps <= 0:
+            raise RuntimeError(f"Invalid FPS after normalization: {fps}")
 
         rotation = get_rotation(saved_video_path)
         rotation_map = {
@@ -209,4 +342,5 @@ def upload_video(request):
         # Return the metadata as JSON
         return Response(metadata_wrapped, status=200)
     except Exception as e:
-        return Response(f"{e}", status=400)
+        print(traceback.format_exc())
+        return Response({"detail": f"{e}"}, status=500)
