@@ -21,9 +21,9 @@ import tensorflow_hub as tfhub
 from tensorflow.python.eager.context import context
 import torch
 from scipy.signal import butter, filtfilt
+from scipy.interpolate import interp1d
 from scipy.signal import periodogram
 import numpy as np
-import tensorrt as trt
 import os
 
 class HandTremorRightElbowExtendedTask(BaseTask):
@@ -121,9 +121,32 @@ class HandTremorRightElbowExtendedTask(BaseTask):
             context().clear_kernel_cache()
             print("Passed landmark extraction")
 
+            sample = None
+            for lm in landmarks:
+                if len(lm) > 0:
+                    sample = np.asarray(lm)
+                    break
+            if sample is None:
+                raise Exception("No valid right hand landmarks found in any frame.")
+            if sample.ndim != 2 or sample.shape[1] < 2:
+                raise Exception("Unexpected landmark shape for right hand.")
 
+            num_frames = len(landmarks)
+            landmarks_np = np.full((num_frames,) + sample.shape, np.nan, dtype=np.float32)
+            for i, lm in enumerate(landmarks):
+                if len(lm) > 0:
+                    landmarks_np[i] = np.asarray(lm, dtype=np.float32)
 
-            tremorSignal_Vertical_mm, tremorSignal_Horizontal_mm = self.calculate_signal(landmarks, pixel_to_mm_conversion_factor)
+            valid_idx = np.where(~np.isnan(landmarks_np[:, 0, 0]))[0]
+            if valid_idx.size == 0:
+                raise Exception("No valid right hand landmarks found in any frame.")
+            if valid_idx.size == 1:
+                landmarks_np[:] = landmarks_np[valid_idx[0]]
+            else:
+                f = interp1d(valid_idx, landmarks_np[valid_idx], axis=0, kind="linear", bounds_error=False, fill_value="extrapolate")
+                landmarks_np = f(np.arange(num_frames, dtype=np.float32)).astype(np.float32)
+
+            tremorSignal_Vertical_mm, tremorSignal_Horizontal_mm = self.calculate_signal(landmarks_np, pixel_to_mm_conversion_factor)
             print("Passed signal calculation")
 
             tremorAmplitude_Vertical = np.ptp(tremorSignal_Vertical_mm)  # peak-to-peak amplitude in mm
@@ -151,7 +174,6 @@ class HandTremorRightElbowExtendedTask(BaseTask):
                 "Tremor Horizontal (mm)": tremorSignal_Horizontal_mm.tolist(),
             }
 
-            landmarks_np = np.array(landmarks)
             middle = landmarks_np[:, [1, 2, 3], :]
             response['landMarks'] = [ arr.tolist() for arr in middle]
         except Exception as e:
@@ -347,14 +369,14 @@ class HandTremorRightElbowExtendedTask(BaseTask):
         pass
 
 
-    def calculate_signal(self, landmarks, pixel_to_mm_conversion_factor) -> list:
+    def calculate_signal(self, landmarks_np, pixel_to_mm_conversion_factor) -> list:
         """
         Given a set of display landmarks (one list per frame), return the raw 1D
         signal array.
         """
 
-        tremorSignal_Vertical = self.bandpass_filter(np.array(landmarks)[:,[1,2,3],1].mean(axis=1),fs=self.fps)
-        tremorSignal_Horizontal = self.bandpass_filter(np.array(landmarks)[:,[1,2,3],0].mean(axis=1),fs=self.fps)
+        tremorSignal_Vertical = self.bandpass_filter(landmarks_np[:, [1, 2, 3], 1].mean(axis=1), fs=self.fps)
+        tremorSignal_Horizontal = self.bandpass_filter(landmarks_np[:, [1, 2, 3], 0].mean(axis=1), fs=self.fps)
 
         timeSignal = np.arange(len(tremorSignal_Vertical)) / self.fps  # time vector for the signal
 
