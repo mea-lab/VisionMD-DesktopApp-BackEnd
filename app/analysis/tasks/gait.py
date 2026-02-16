@@ -333,7 +333,7 @@ class GaitTask(BaseTask):
             pos_divider (int): Positional divider used in model loading
         """
 
-        pos_divider = int(self.fps / 30.0)
+        pos_divider = round(self.fps / 30.0)
         if GaitTask._gait_phase_transformer is None:
             GaitTask._gait_phase_transformer = load_default_model(pos_divider=pos_divider)
         GaitTask._gait_phase_order_idx = np.array(
