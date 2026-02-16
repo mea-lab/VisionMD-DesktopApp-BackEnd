@@ -458,7 +458,7 @@ def upload_video(request):
         # Assemble metadata
         metadata = {
             "id": new_id_str,
-            "video_name": video.name,
+            "video_name": mp4_filename,
             "stem_name": stem_name,
             "file_type": file_type,
             "fps": fps,
