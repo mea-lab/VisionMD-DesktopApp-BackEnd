@@ -287,6 +287,7 @@ class HandTremorRightElbowExtendedTask(BaseTask):
         self.file_path = file_path
         self.task_name = task_name
         self.video = video
+        self.video_rotation = video_rotation
         self.fps = fps
         self.start_time = start_time
         self.end_time = end_time
@@ -448,6 +449,8 @@ class HandTremorRightElbowExtendedTask(BaseTask):
                     keypoints_2d_right_NanoModel.append(land_2)
                     keypoints_2d_left_NanoModel.append(land_1)
 
+        if len(keypoints_2d_right_NanoModel) == 0:
+            raise Exception("No frames were processed for the selected time range.")
         missing_percent = sum(1 for x in keypoints_2d_right_NanoModel if len(x) == 0) / len(keypoints_2d_right_NanoModel)
         if missing_percent > 0.1:
             raise Exception((f"Right hand could not be found in more than 10% of the frames. The video quality may be too low or the video may not be a hand tremor task."))
@@ -488,9 +491,9 @@ class HandTremorRightElbowExtendedTask(BaseTask):
         if self.field_of_view is not None:
             camera_args["default_fov_degrees"] = int(self.field_of_view)
         if self.intrinsic_matrix is not None:
-            camera_args["intrinsic_matrix"] = tf.convert_to_tensor(self.intrinsic_matrix.astype(np.float32))
+            camera_args["intrinsic_matrix"] = tf.convert_to_tensor(np.asarray(self.intrinsic_matrix, dtype=np.float32))
         if self.extrinsic_matrix is not None:
-            camera_args["extrinsic_matrix"] = tf.convert_to_tensor(self.extrinsic_matrix.astype(np.float32))
+            camera_args["extrinsic_matrix"] = tf.convert_to_tensor(np.asarray(self.extrinsic_matrix, dtype=np.float32))
     
         left_iris_diameters = []
         right_iris_diameters = []
@@ -501,9 +504,7 @@ class HandTremorRightElbowExtendedTask(BaseTask):
             ret, frame = cap.read()
             if not ret:
                 break
-            # Rotate only if the image is wider than it is tall
-            if frame.shape[1] > frame.shape[0]:
-                frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+            frame = BaseTask.correct_frame_orientation(frame, self.video_rotation)
             frame = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB) #change color space to RGB for MediaPipe processing
 
             # Convert the frame to RGB for MediaPipe processing
@@ -579,8 +580,7 @@ class HandTremorRightElbowExtendedTask(BaseTask):
         cap.release()
 
 
-        if len(left_iris_diameters) > 0:
-            ValidPose = True
+        if len(left_iris_diameters) > 0 and len(depthFace) > 0 and len(depthRightHand) > 0:
             # Calculate the average iris diameter in pixels
             avg_left_iris_diameter_px = np.mean(left_iris_diameters)
             avg_right_iris_diameter_px = np.mean(right_iris_diameters)
@@ -591,10 +591,9 @@ class HandTremorRightElbowExtendedTask(BaseTask):
                 pixel_to_mm_conversion_factor = ( 11.7 / avg_right_iris_diameter_px) * (np.mean(depthFace) / (np.mean(depthFace) + (np.mean(depthFace) - np.mean(depthLeftHand))))
             print(f"Pixel-to-mm Conversion Factor: {pixel_to_mm_conversion_factor}")
         else:
-            ValidPose = False
             pixel_to_mm_conversion_factor = 1
-            raise Exception(f"No valid head pose detected. Cannot calculate iris diameter. \n Pixel-to-mm Conversion Factor: {pixel_to_mm_conversion_factor}")
-        
+            print("No valid head pose/depth detected. Falling back to pixel-to-mm conversion factor = 1.")
+
         return pixel_to_mm_conversion_factor
 
     def bandpass_filter(self, signal, lowcut=2, highcut=10, fs=60):

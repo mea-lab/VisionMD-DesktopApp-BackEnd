@@ -493,9 +493,9 @@ class HandTremorLeftElbowExtendedTask(BaseTask):
         if self.field_of_view is not None:
             camera_args["default_fov_degrees"] = int(self.field_of_view)
         if self.intrinsic_matrix is not None:
-            camera_args["intrinsic_matrix"] = tf.convert_to_tensor(self.intrinsic_matrix.astype(np.float32))
+            camera_args["intrinsic_matrix"] = tf.convert_to_tensor(np.asarray(self.intrinsic_matrix, dtype=np.float32))
         if self.extrinsic_matrix is not None:
-            camera_args["extrinsic_matrix"] = tf.convert_to_tensor(self.extrinsic_matrix.astype(np.float32))
+            camera_args["extrinsic_matrix"] = tf.convert_to_tensor(np.asarray(self.extrinsic_matrix, dtype=np.float32))
     
         left_iris_diameters = []
         right_iris_diameters = []

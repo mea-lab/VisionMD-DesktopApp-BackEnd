@@ -106,3 +106,4 @@ __pycache__
 serve_windows
 serve_linux
 serve_mac
+/tests/Videos
