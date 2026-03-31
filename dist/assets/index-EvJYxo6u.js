@@ -17708,6 +17708,7 @@ const ResizeHandles = ({ x: x2, y: y2, width: width2, height: height2, onResize,
 };
 const InteractiveOverlays = ({
   tasks,
+  persons = [],
   setTasks,
   fileName,
   zoomLevel,
@@ -17940,6 +17941,7 @@ const InteractiveOverlays = ({
       taskToRender = tasks[selectedTask];
     }
   }
+  const personIdx = persons.findIndex((p2) => p2.isSubject);
   const strokeThickness = 5 / Math.min(
     displayWidth / videoWidth,
     displayHeight / videoHeight
@@ -17980,7 +17982,7 @@ const InteractiveOverlays = ({
               style: { cursor: !isPlaying && screen === "tasks" ? "move" : "default" }
             }
           ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
+          personIdx !== -1 && /* @__PURE__ */ jsxRuntimeExports.jsx(
             "text",
             {
               x: taskToRender.x + strokeThickness * 0.5,
@@ -17990,7 +17992,7 @@ const InteractiveOverlays = ({
               textAnchor: "start",
               dominantBaseline: "hanging",
               fill: "yellow",
-              children: taskIndex + 1
+              children: personIdx + 1
             }
           ),
           !isPlaying && screen === "tasks" && /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -18271,6 +18273,7 @@ const VideoPlayer = ({
               InteractiveOverlays,
               {
                 tasks,
+                persons,
                 setTasks,
                 fileName,
                 currentFrame,
@@ -315510,6 +315513,9 @@ const TaskList = ({
       return;
     }
     const value = fieldName === "start" || fieldName === "end" ? Number(Number(newValue).toFixed(3)) : newValue;
+    if (isEqual$1(task?.[fieldName], value)) {
+      return;
+    }
     onTaskChange({ id: task.id, [fieldName]: value, data: null });
   };
   const onTimeMark = (fieldName, task) => {
