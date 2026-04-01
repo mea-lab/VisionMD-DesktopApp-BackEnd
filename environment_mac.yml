@@ -3,7 +3,10 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - _openmp_mutex=4.5=7_kmp_llvm
   - aom=3.9.1=h7bae524_0
+  - blas=2.305=openblas
+  - blas-devel=3.11.0=5_h11c0a38_openblas
   - bzip2=1.0.8=h80987f9_6
   - c-ares=1.34.5=h2ca31fc_0
   - ca-certificates=2025.9.9=hca03da5_0
@@ -32,20 +35,28 @@ dependencies:
   - libasprintf=0.22.5=h8414b35_3
   - libasprintf-devel=0.22.5=h8414b35_3
   - libass=0.17.1=hf7da4fe_1
+  - libblas=3.11.0=5_h51639a9_openblas
+  - libcblas=3.11.0=5_hb0561ab_openblas
   - libcurl=8.15.0=hcdd2897_0
   - libcxx=17.0.6=he5c5206_4
   - libev=4.33=h1a28f6b_1
   - libexpat=2.7.1=hec049ff_0
   - libffi=3.4.4=hca03da5_1
+  - libgcc=15.2.0=hcbb3090_16
   - libgettextpo=0.22.5=h8414b35_3
   - libgettextpo-devel=0.22.5=h8414b35_3
+  - libgfortran=15.2.0=h07b0088_16
+  - libgfortran5=15.2.0=hdae7583_16
   - libglib=2.84.2=hdc2269c_0
   - libiconv=1.18=h23cfdf5_2
   - libidn2=2.3.4=hb68c101_1
   - libintl=0.22.5=h8414b35_3
   - libintl-devel=0.22.5=h8414b35_3
+  - liblapack=3.11.0=5_hd9741b5_openblas
+  - liblapacke=3.11.0=5_h1b118fd_openblas
   - libmediainfo=24.05=he68bfbd_0
   - libnghttp2=1.57.0=h62f6fdd_0
+  - libopenblas=0.3.30=pthreads_h735b822_4
   - libopenvino=2024.1.0=h5c9529b_7
   - libopenvino-arm-cpu-plugin=2024.1.0=h5c9529b_7
   - libopenvino-auto-batch-plugin=2024.1.0=hcd65546_7
@@ -68,9 +79,11 @@ dependencies:
   - libxml2=2.13.8=h0b34f26_0
   - libzen=0.4.41=hb7217d7_0
   - libzlib=1.2.13=hfb2fe0b_6
+  - llvm-openmp=17.0.6=hcd81f8e_0
   - lz4-c=1.9.4=h313beb8_1
   - ncurses=6.4=h313beb8_0
   - nettle=3.9.1=h40ed0f5_0
+  - openblas=0.3.30=pthreads_h6dc0651_4
   - openh264=2.4.1=hebf3989_0
   - openssl=3.0.18=h9b4081a_0
   - p11-kit=0.24.1=h29577a5_0
@@ -82,13 +95,14 @@ dependencies:
   - python=3.10.9=h3ba56d0_0_cpython
   - python_abi=3.10=1_cp310
   - readline=8.2=h1a28f6b_0
+  - scipy=1.15.3=py310h132fc3c_1
   - setuptools=78.1.1=py310hca03da5_0
   - snappy=1.2.1=h313beb8_0
   - sqlite=3.45.3=h80987f9_0
   - svt-av1=2.1.0=h7bae524_0
   - tbb=2022.0.0=h48ca7d4_0
   - tinyxml2=10.0.0=hebf3989_0
-  - tk=8.6.14=h6ba3021_1
+  - tk=8.6.13=h5083fa2_1
   - wheel=0.45.1=py310hca03da5_0
   - x264=1!164.3095=h57fd34a_2
   - x265=3.5=hbc6ce65_3
@@ -109,6 +123,7 @@ dependencies:
       - django==5.2.3
       - django-cors-headers==4.7.0
       - djangorestframework==3.16.0
+      - exceptiongroup==1.3.1
       - filelock==3.18.0
       - flatbuffers==25.2.10
       - fonttools==4.58.4
@@ -119,6 +134,7 @@ dependencies:
       - h5py==3.14.0
       - hachoir==3.3.0
       - idna==3.10
+      - iniconfig==2.3.0
       - jax==0.5.0
       - jaxlib==0.5.0
       - jinja2==3.1.6
@@ -146,6 +162,7 @@ dependencies:
       - packaging==25.0
       - pandas==2.3.0
       - pillow==11.3.0
+      - pluggy==1.6.0
       - protobuf==4.25.3
       - psutil==7.0.0
       - py-cpuinfo==9.0.0
@@ -154,12 +171,13 @@ dependencies:
       - pyinstaller==6.14.1
       - pyinstaller-hooks-contrib==2025.5
       - pyparsing==3.2.3
+      - pytest==9.0.2
+      - pytest-django==4.12.0
       - python-dateutil==2.9.0.post0
       - pytz==2025.2
       - pyyaml==6.0.2
       - requests==2.32.4
       - rich==14.0.0
-      - scipy==1.15.3
       - sentencepiece==0.2.0
       - six==1.17.0
       - sounddevice==0.5.2
@@ -172,6 +190,7 @@ dependencies:
       - tensorflow-io-gcs-filesystem==0.37.1
       - termcolor==3.1.0
       - tf-keras==2.17.0
+      - tomli==2.4.1
       - torch==2.7.1
       - torchaudio==2.7.1
       - torchvision==0.22.1
@@ -184,3 +203,4 @@ dependencies:
       - waitress==3.0.2
       - werkzeug==3.1.3
       - wrapt==1.17.2
+      
