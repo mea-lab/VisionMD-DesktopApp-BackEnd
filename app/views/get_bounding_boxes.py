@@ -6,7 +6,6 @@ import os, uuid, time, json
 from pymediainfo import MediaInfo
 from hachoir.parser import createParser
 from hachoir.metadata import extractMetadata
-from app.analysis.detectors.yolo_detectors import yolo_tracker
 
 def get_rotation(path):
     mi = MediaInfo.parse(path)
@@ -30,6 +29,7 @@ def get_rotation(path):
 
 @api_view(['GET'])
 def get_bounding_boxes(request):
+    from app.analysis.detectors.yolo_detectors import yolo_tracker
 
     # Get all variables set up and check if folder and file paths exist
     video_id = request.GET.get('id', None)

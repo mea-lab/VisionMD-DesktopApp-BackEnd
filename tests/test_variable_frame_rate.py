@@ -15,7 +15,7 @@ def temp_media_root(settings, tmp_path):
     settings.MEDIA_URL = "/media/"
 
 def upload_video(client):
-    video_path = Path(__file__).parent / "videos" / "variable_frame_rate.mp4"
+    video_path = Path(__file__).parent / "videos" / "variable_frame_rate.MOV"
 
     with video_path.open("rb") as video_file:
         response = client.post(
