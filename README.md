@@ -1,5 +1,7 @@
 # VisionMD BackEnd
 
+THIS IS AN ARCHIVED REPOSITORY. PLEASE GO TO https://github.com/mea-lab/VisionMD-DesktopApp TO SEE THE NEW UP TO DATE REPOSITORY.
+
 This repository holds the source code for the backend of the VisionMD Desktop App. Below is documentation for developing, building and testing the backend server of VisionMD.
 
 ## Prerequisites
